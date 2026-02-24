@@ -5,6 +5,7 @@ import Vans from './pages/Vans.jsx'
 import About from './pages/About.jsx'
 import VanDetail from './pages/VanDetail.jsx'
 import NotFound from './pages/NotFound.jsx'
+import Layout from './components/Layout.jsx'
 
 export default function App() {
   return (
@@ -15,6 +16,8 @@ export default function App() {
       <Route path="/vans" element={<Vans />} />
       <Route path="/vandetail" element={<VanDetail />} />
       <Route path="/*" element={<NotFound />} />
+
+      <Route path="test" element={<Layout /> } />
     </Routes>
   )
 }
