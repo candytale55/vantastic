@@ -32,6 +32,8 @@
 - Vite 7
 - ESLint 9
 
+- MirageJS (used to mock the Fetch API during development): [https://miragejs.com/](https://miragejs.com/)
+
 ## Getting Started / Puesta en marcha
 
 ### 1) Prerequisites / Requisitos previos
