@@ -10,7 +10,7 @@ createServer({
         this.namespace = "api" 
 
         //  Obtener todas las furgonetas (vans)
-        this.get("/vans", (schema, request) => {
+        this.get("/vans", (schema) => {
             return schema.vans.all()  // miragejs pluraliza van
         })
 
