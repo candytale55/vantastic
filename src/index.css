@@ -66,3 +66,20 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+
+/* TODO: Temporal styling for Header and NavLink's  */
+header {
+  display: flex;
+  width: 60vw;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em;
+}
+
+nav {
+  display: flex;
+  gap: 1.5em;
+  font-size: 1.25em;
+}
