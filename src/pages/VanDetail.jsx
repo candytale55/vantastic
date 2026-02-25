@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function VanDetail() {
   return (
-    <div>I am VanDetail</div>
+    <h2>I am VanDetail</h2>
   )
 }
