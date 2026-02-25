@@ -15,13 +15,15 @@ export default function Vans() {
       <img src={van.imageUrl} alt={van.name} />
       <div>
         <h3>{van.name}</h3>
-        <p>{van.description}</p>
+        <p>€{van.price}</p>
       </div>
+      <i>{van.type}</i>
     </div>
   );
 
   return (
     <>
+      <h2>Explora nuestros modelos</h2>
       <div>{ vanElements}</div>
     </>
   )
