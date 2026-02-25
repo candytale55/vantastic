@@ -10,14 +10,14 @@ import Layout from './components/Layout.jsx'
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/vans" element={<Vans />} />
-      <Route path="/vandetail" element={<VanDetail />} />
-      <Route path="/*" element={<NotFound />} />
-
-      <Route path="test" element={<Layout /> } />
+      <Route element={ <Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="home" element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="vans" element={<Vans />} />
+        <Route path="vandetail" element={<VanDetail />} />
+        <Route path="/*" element={<NotFound />} />
+      </Route>
     </Routes>
   )
 }
