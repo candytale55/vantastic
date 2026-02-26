@@ -7,6 +7,7 @@ export default function VanDetail() {
 
   // Almacena los datos de la van (inicia undefined)
   const [vanElement, setVanElement] = useState();
+  // TODO: Check if you want to set initial useState to null and conditionally render a van (Ref: https://scrimba.com/advanced-react-c02h/~02l)
 
   // Llama a la API de Mirage y guarda la van en el estado. Se ejecuta al montar el componente o cuando cambia params.id
   useEffect(() => {
@@ -22,15 +23,16 @@ export default function VanDetail() {
 
   // Cargados los datos, renderiza el detalle de la van
   return (
-    <div>
+    <>
       <h2>{vanElement.name}</h2>
       <img src={vanElement.imageUrl} alt={vanElement.name} />
       <div>
+        <i>{vanElement.type}</i>
         <h3>{vanElement.name}</h3>
         <p>{vanElement.description}</p>
         <p><strong>Precio:</strong> €{vanElement.price} por día</p>
       </div>
-      <i>{vanElement.type}</i>
-    </div>
+      <button className="cta">Alquila esta van!</button>
+    </>
   )
 }
