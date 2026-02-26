@@ -84,6 +84,14 @@ nav {
   font-size: 1.25em;
 }
 
+a.active {
+  color: red;
+}
+a.pending {
+  color: blue;
+}
+
+
 
 /* TODO: Temporal styles for .cta buttons */
 

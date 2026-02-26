@@ -1,13 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-export default function Header() {
 
-  const isActiveStyle = {
-    //TODO: Add the styling in the component css? and check if style is better than className or not
-    fontWeight: "bold",
-    color: "red",
-  }
+export default function Header() {
 
   return (
     <header>
@@ -15,11 +10,14 @@ export default function Header() {
       <nav>
         <NavLink
           to="about"
-          style={({isActive})=> isActive ? isActiveStyle : null }
+          className={({ isActive }) => (
+            isActive ? "active" : "" )}
         >Sobre nosotros</NavLink>
+        
         <NavLink
           to="vans"
-          style={({ isActive }) => isActive ? isActiveStyle : null}
+          className={({ isActive }) => (
+            isActive ? "active" : "")}
         >Vans</NavLink>
       </nav>
       </header>
