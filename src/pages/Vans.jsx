@@ -26,7 +26,7 @@ export default function Vans() {
   return (
     <>
       <h2>Explora nuestros modelos</h2>
-      <div>{ vanElements}</div>
+      { vanElements}
     </>
   )
 }
