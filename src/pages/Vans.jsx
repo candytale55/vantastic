@@ -6,15 +6,12 @@ export default function Vans() {
 
   const { data, loading, error } = useFetch("/api/vans");
 
-  console.log("Current data state", data); //TODO: Remove after testing is over
-
   if (loading) {
     return <h2>Cargando vans...</h2>
   }
 
 
   if (error) {
-    console.log("Hubo un error:", { error }); // TODO: Remove after testing is over 
     return <h2>Hubo un error:{error}</h2> //TODO: Improve error message styling (it sucks!)
   }
 
