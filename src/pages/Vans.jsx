@@ -1,18 +1,17 @@
-import { useEffect, useState } from 'react'
+import useFetch from '../hooks/useFetch.jsx'
 import { Link } from 'react-router-dom'
+
 
 export default function Vans() {
 
-  const [vans, setVans] = useState([]);
+  const { data, loading, error } = useFetch("/api/vans");
 
-  useEffect(() => {
-    fetch("/api/vans")
-      .then(res => res.json())
-      .then(data => setVans(data.vans));
-  }, []);
+  if (loading) return <h2>Cargando vans...</h2>
 
-  const vanElements = vans.map(van => 
-    <Link key={van.id} to={`/vans/${van.id}`}>
+  if (error) return <h2>Hubo un error:{error}</h2> //TODO: Improve error message styling (it sucks!)
+
+  const vanElements = data.vans.map(van => {
+    return <Link key={van.id} to={`/vans/${van.id}`}>
       <div key={van.id}>
         <img src={van.imageUrl} alt={van.name} />
         <div>
@@ -22,13 +21,12 @@ export default function Vans() {
         <i>{van.type}</i>
       </div>
     </Link>
-    
-  );
+  })
 
   return (
     <>
       <h2>Explora nuestros modelos</h2>
-      <div>{ vanElements}</div>
+      { vanElements}
     </>
   )
 }
