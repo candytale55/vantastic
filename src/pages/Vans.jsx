@@ -6,19 +6,11 @@ export default function Vans() {
 
   const { data, loading, error } = useFetch("/api/vans");
 
-  console.log("Current data state", data);
+  console.log("Current data state", data); //TODO: Remove after testing is over
 
-  /*
-  Current data state 
-    {vans: Array(6)}
-    vans
-    : 
-    (6) [{…}, {…}, {…}, {…}, {…}, {…}]
-    [[Prototype]]
-    : 
-    Object
-  */
-
+  if (loading) {
+    return <h2>Cargando vans...</h2>
+  }
 
 
   return (

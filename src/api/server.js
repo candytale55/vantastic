@@ -5,6 +5,8 @@ createServer({
         van: Model,
     },
 
+    timing: 2000,
+
     routes() {
         //  Obliga a que la llamada sea /api/vans
         this.namespace = "api" 
