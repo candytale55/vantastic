@@ -1,5 +1,6 @@
 import useFetch from '../hooks/useFetch'
 import { useParams } from 'react-router-dom'
+import BookingForm from '../components/BookingForm'
 
 export default function VanDetail() {
   // Extrae el parámetro "id" de la URL 
@@ -15,16 +16,20 @@ export default function VanDetail() {
 
   return (
     <>
-      
-      <h2>{vanElement.name}</h2>
-      <img src={vanElement.imageUrl} alt={vanElement.name} />
       <div>
-        <i>{vanElement.type}</i>
-        <h3>{vanElement.name}</h3>
-        <p>{vanElement.description}</p>
-        <p><strong>Precio:</strong> €{vanElement.price} por día</p>
+        <h2>{vanElement.name}</h2>
+        <img src={vanElement.imageUrl} alt={vanElement.name} />
+        <div>
+          <i>{vanElement.type}</i>
+          <h3>{vanElement.name}</h3>
+          <p>{vanElement.description}</p>
+          <p><strong>Precio:</strong> €{vanElement.price} por día</p>
+          <button className="cta">¡Alquila esta van!</button> 
+        </div>
       </div>
-      <button className="cta">Alquila esta van!</button>
+
+      <BookingForm />
+      
     </>
   )
 }
