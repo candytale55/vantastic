@@ -5,7 +5,7 @@ createServer({
         van: Model,
     },
 
-    timing: 2000,
+    timing: 2000, // TODO: Remove this timing delay in production, it's just for development to simulate network latency
 
     routes() {
         //  Obliga a que la llamada sea /api/vans
