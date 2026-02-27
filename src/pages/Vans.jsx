@@ -6,9 +6,7 @@ export default function Vans() {
 
   const { data, loading, error } = useFetch("/api/vans");
 
-  if (loading) {
-    return <h2>Cargando vans...</h2>
-  }
+  if (loading) return <h2>Cargando vans...</h2>
 
 
   if (error) {
