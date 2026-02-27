@@ -8,10 +8,7 @@ export default function Vans() {
 
   if (loading) return <h2>Cargando vans...</h2>
 
-
-  if (error) {
-    return <h2>Hubo un error:{error}</h2> //TODO: Improve error message styling (it sucks!)
-  }
+  if (error) return <h2>Hubo un error:{error}</h2> //TODO: Improve error message styling (it sucks!)
 
   const vanElements = data.vans.map(van => {
     return <Link key={van.id} to={`/vans/${van.id}`}>
