@@ -1,34 +1,30 @@
-import { useEffect, useState } from 'react'
+import useFetch from '../hooks/useFetch.jsx'
 import { Link } from 'react-router-dom'
+
 
 export default function Vans() {
 
-  const [vans, setVans] = useState([]);
+  const { data, loading, error } = useFetch("/api/vans");
 
-  useEffect(() => {
-    fetch("/api/vans")
-      .then(res => res.json())
-      .then(data => setVans(data.vans));
-  }, []);
+  console.log("Current data state", data);
 
-  const vanElements = vans.map(van => 
-    <Link key={van.id} to={`/vans/${van.id}`}>
-      <div key={van.id}>
-        <img src={van.imageUrl} alt={van.name} />
-        <div>
-          <h3>{van.name}</h3>
-          <p>€{van.price}</p>
-        </div>
-        <i>{van.type}</i>
-      </div>
-    </Link>
-    
-  );
+  /*
+  Current data state 
+    {vans: Array(6)}
+    vans
+    : 
+    (6) [{…}, {…}, {…}, {…}, {…}, {…}]
+    [[Prototype]]
+    : 
+    Object
+  */
+
+
 
   return (
     <>
       <h2>Explora nuestros modelos</h2>
-      <div>{ vanElements}</div>
+{/*       <div>{ vanElements}</div> */}
     </>
   )
 }
