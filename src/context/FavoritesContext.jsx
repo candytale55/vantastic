@@ -1,7 +1,8 @@
-import { createContext, useState } from 'react'
+import { useState, createContext, useContext } from 'react'
 
-export const FavoritesContext = createContext();
- 
+// private
+const FavoritesContext = createContext();
+
 
 export const FavoritesContextProvider = ({children}) =>{ 
     const [favorites, setFavorites] = useState([]);
@@ -13,12 +14,12 @@ export const FavoritesContextProvider = ({children}) =>{
                 return prevFavorites.filter(favId => favId !== id);
             } else {
                 // If it's not a favorite, add it
-                return ([...prevFavorites, id]);
+                return [...prevFavorites, id];
             }
         })
     }
 
-    console.log(favorites);
+    console.log("Vans favoritas: ", favorites); // TODO: Remove after tests are done.
 
     return (
         <FavoritesContext.Provider value={{favorites, toggleFavorite}}>
@@ -27,3 +28,8 @@ export const FavoritesContextProvider = ({children}) =>{
     )
 };
 
+
+// Export a custom hook to use the context (To solve Vite issue with context object vs not a React component.)
+export const useFavorites = () => {
+    return useContext(FavoritesContext);
+}
