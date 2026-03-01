@@ -23,22 +23,22 @@ export default function Vans() {
       <h2>Explora nuestros modelos</h2>
 
       {/* Botones para filtrar por tipo */}
-      {/* //TODO: Revisar si usar botones en lugar de links es lo más adecuado - Esto aplica en React? */}
+      {/* //TODO: Revisar si usar botones en lugar de links es lo más adecuado - Esto aplica en React? Mejor usar Links para evitar el onClick */}
       <div>
         <button
-          onClick={() => console.log("button Simple clicked")}
+          onClick={() => setSearchParams({ type: "simple"})}
           className=""
         >
           Simple
         </button>
         <button
-          onClick={() => console.log("button Rugged clicked")}
+          onClick={() => setSearchParams({ type: "rugged" })}
           className=""
         >
           Rugged
         </button>
         <button
-          onClick={() => console.log("button Luxury clicked")}
+          onClick={() => setSearchParams({ type: "luxury" })}
           className=""
         >
           Luxury
@@ -50,10 +50,10 @@ export default function Vans() {
           Favs ❤️
         </button>
         <button
-          onClick={()=>console.log("button Borra Filtros clicked")}
+          onClick={() => setSearchParams({})}
           className=""
         >
-          Borra Filtros
+          ¡Todas!
         </button>
       </div>
       
