@@ -32,4 +32,5 @@ export const FavoritesContextProvider = ({children}) =>{
 // Export a custom hook to use the context (To solve Vite issue with context object vs not a React component.)
 export const useFavorites = () => {
     return useContext(FavoritesContext);
+    // TODO: Check that eslint warning
 }

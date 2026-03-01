@@ -1,10 +1,14 @@
 import useFetch from '../hooks/useFetch.jsx'
 import VanCard from '../components/VanCard.jsx'
+import { useSearchParams } from 'react-router-dom'
 
 
 export default function Vans() {
 
   const { data, loading, error } = useFetch("/api/vans");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const typeFilter = searchParams.get("type");
+  console.log("typeFilter:", typeFilter); // TODO: Remove once testing is done.
 
   if (loading) return <h2>Cargando vans...</h2>
 
@@ -17,6 +21,43 @@ export default function Vans() {
   return (
     <>
       <h2>Explora nuestros modelos</h2>
+
+      {/* Botones para filtrar por tipo */}
+      {/* //TODO: Revisar si usar botones en lugar de links es lo más adecuado - Esto aplica en React? */}
+      <div>
+        <button
+          onClick={() => console.log("button Simple clicked")}
+          className=""
+        >
+          Simple
+        </button>
+        <button
+          onClick={() => console.log("button Rugged clicked")}
+          className=""
+        >
+          Rugged
+        </button>
+        <button
+          onClick={() => console.log("button Luxury clicked")}
+          className=""
+        >
+          Luxury
+        </button>
+        <button
+          onClick={() => console.log("button Favoritas clicked")}
+          className=""
+        >
+          Favs ❤️
+        </button>
+        <button
+          onClick={()=>console.log("button Borra Filtros clicked")}
+          className=""
+        >
+          Borra Filtros
+        </button>
+      </div>
+      
+
       { vanElements}
     </>
   )
