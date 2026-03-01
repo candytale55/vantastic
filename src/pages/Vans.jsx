@@ -13,7 +13,7 @@ export default function Vans() {
 
   const { favorites } = useFavorites();
   const favsFilter = searchParams.get("favs") === "true";
-  console.log("favsFilter", favsFilter); // TODO: Remove once testing is done.
+
   
   if (loading) return <h2>Cargando vans...</h2>
 
@@ -36,11 +36,6 @@ export default function Vans() {
   console.log("filteredVans:", filteredVans);
 
 
-/*   const displayedVans =
-    typeFilter ?
-      data.vans.filter(van => van.type === typeFilter) :
-      data.vans; */ //TODO: Remove once the filtereVans approach is working 
-
   const vanElements = filteredVans.map(van => {
     return <VanCard key={van.id} van={van} />
   })
@@ -56,20 +51,11 @@ export default function Vans() {
     })
   }
 
-
-
   return (
     <>
       <h2>Explora nuestros modelos</h2>
       {/* Botones para filtrar por tipo */}
       <div>
-        {/* //TODO: See if this is needed vs Reset Total button*/}
-        <button
-          onClick={() => handleFilterChange("type", null)}
-          className=""
-        >
-          Todas las Vans
-        </button>
         <button
           onClick={() => handleFilterChange("type", "simple")}
           className="">
