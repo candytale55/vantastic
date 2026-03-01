@@ -63,23 +63,26 @@ export default function Vans() {
       <h2>Explora nuestros modelos</h2>
       {/* Botones para filtrar por tipo */}
       <div>
+        {/* //TODO: See if this is needed vs Reset Total button*/}
         <button
-          onClick={() => setSearchParams({})}
+          onClick={() => handleFilterChange("type", null)}
           className=""
         >
           Todas las Vans
         </button>
-        <button>
+        <button
+          onClick={() => handleFilterChange("type", "simple")}
+          className="">
           Simple
         </button>
         <button
-          onClick={() => setSearchParams({ type: "rugged" })}
+          onClick={ () => handleFilterChange( "type", "rugged")} 
           className=""
         >
           Rugged
         </button>
         <button
-          onClick={() => setSearchParams({ type: "luxury" })}
+          onClick={() => handleFilterChange("type", "luxury")}
           className=""
         >
           Luxury
@@ -89,6 +92,10 @@ export default function Vans() {
           className=""
         >
           {favsFilter ? "¡Todas!🤍" : "Solo Favs ❤️"}
+        </button>
+        {/* //TODO: See if this is needed vs Todas las Vans button*/}
+        <button onClick={() => setSearchParams({})}>
+          Reset Total 🧹
         </button>
 
       </div>
