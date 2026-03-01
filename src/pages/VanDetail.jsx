@@ -1,4 +1,5 @@
 import useFetch from '../hooks/useFetch'
+import { useFavorites } from '../context/FavoritesContext.jsx'
 import { useParams } from 'react-router-dom'
 import BookingForm from '../components/BookingForm'
 
@@ -7,6 +8,10 @@ export default function VanDetail() {
   const params = useParams();
 
   const { data, loading, error } = useFetch(`/api/vans/${params.id}`);
+
+  const { favorites, toggleFavorite } = useFavorites();
+  const isFavorite = favorites.includes(params.id);
+  console.log("isFavorite:", isFavorite); // TODO: Remove once you're done with testing
 
   if (loading) return <h2>Cargando vans...</h2>
 
@@ -17,7 +22,11 @@ export default function VanDetail() {
   return (
     <>
       <div>
-        <h2>{vanElement.name}</h2>
+        {/* //TODO: Move fav button to a better place */}
+        <button onClick={() => toggleFavorite(params.id)}>
+          {isFavorite ? "❤️" : "🤍"}
+        </button>
+        <h2>{vanElement.name} </h2>
         <img src={vanElement.imageUrl} alt={vanElement.name} />
         <div>
           <i>{vanElement.type}</i>
