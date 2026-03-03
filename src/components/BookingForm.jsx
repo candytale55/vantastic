@@ -1,39 +1,34 @@
-import { useRef } from 'react'
+import { useForm } from 'react-hook-form'
 
 export default function BookingForm() {
 
-    const userNameRef = useRef(null);
-    const userEmailRef = useRef(null);;
+    const { register, handleSubmit, reset } = useForm();
 
-    const handleSubmit = (event) => {
+    console.log("Soy el componente y me re-renderizo"); //TODO: Eliminar después de las pruebas.
 
-        event.preventDefault();
-        
-        const name = userNameRef.current.value;
-        const email = userEmailRef.current.value;
-
-        if (name && email) {
-            console.log(`Van alqulada a ${name} con email ${email}`); //TODO: Eliminar despues de pruebas
-            alert(`¡Gracias ${name}! Nos pondremos en contacto con ${email}`);//TODO: Eliminar despues de pruebas
+    const submit = ( { userName, userEmail}) => {
+        console.log(`Van alquilada a ${userName} con email ${userEmail}`);  // TODO: Borrar después de las pruebas.
+        if (userName && userName) {
+            console.log(`Van alqulada a ${userName} con email ${userName}`); //TODO: Eliminar despues de pruebas
+            alert(`¡Gracias ${userName}! Nos pondremos en contacto con ${userEmail}`);//TODO: Eliminar despues de pruebas
         }
+        reset();
     }
 
-  return (
-      <form onSubmit={handleSubmit}>
-          <label htmlFor="name">Nombre:</label>
-          <input
-              type="text"
-              id="name"
-              ref={userNameRef}
-              required />
-          
-          <label htmlFor="email">Email:</label>
-          <input
-              type="email"
-              id="email"
-              ref={userEmailRef}
-              required />
-          <button type="submit">Envía formulario</button>
-     </form>
-  )
+    return (
+        <form onSubmit={handleSubmit(submit)}>
+            <label htmlFor="name">Nombre:</label>
+            <input
+                type="text"
+                id="name"
+                {...register("userName", { required: true })} />
+
+            <label htmlFor="email">Email:</label>
+            <input
+                type="email"
+                id="email"
+                {...register("userEmail", { required: true })} />
+            <button type="submit">Envía formulario</button>
+        </form>
+    )
 }
