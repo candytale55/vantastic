@@ -98,3 +98,12 @@ a.pending {
 .cta {
   background-color: #646cff;
 }
+
+/* TODO: Temporal styles for form */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 300px;
+}
