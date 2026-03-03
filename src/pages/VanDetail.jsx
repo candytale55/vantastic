@@ -24,7 +24,7 @@ export default function VanDetail() {
       <div>
         {/* //TODO: Move fav button to a better place */}
         <button onClick={() => toggleFavorite(params.id)}>
-          {isFavorite ? "❤️" : "🤍"} {/* //TODO: Usar svgs o pngs - Ver opción en cumplimiento.md */}
+          {isFavorite ? "❤️" : "🤍"}
         </button>
         <h2>{vanElement.name} </h2>
         <img src={vanElement.imageUrl} alt={vanElement.name} />
