@@ -1,8 +1,8 @@
-import { useForm } from 'react-hook-form'
+import { useForm, useWatch } from 'react-hook-form'
 
 export default function BookingForm() {
 
-    const { register, handleSubmit, reset, watch } = useForm();
+    const { register, handleSubmit, reset, control } = useForm();
 
 /*     console.log("Soy el componente y me re-renderizo"); //TODO: Eliminar después de las pruebas. */
 
@@ -14,7 +14,9 @@ export default function BookingForm() {
 
     // TODO: Make a component? 
     const today = new Date().toISOString().split('T')[0];
-    const pickupDateValue = watch("pickupDate");
+    const pickupDateValue = useWatch({
+        control,
+        name: "pickupDate"});
 
     return (
         <form onSubmit={handleSubmit(submit)}>
