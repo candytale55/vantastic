@@ -8,16 +8,12 @@ export default function Header() {
     <header>
       <NavLink to="/"><h1>Vantastic!</h1></NavLink>
       <nav>
-        <NavLink
+        <NavLink 
           to="about"
-          className={({ isActive }) => (
-            isActive ? "active" : "" )}
         >Sobre nosotros</NavLink>
         
         <NavLink
           to="vans"
-          className={({ isActive }) => (
-            isActive ? "active" : "")}
         >Vans</NavLink>
       </nav>
       </header>
