@@ -8,7 +8,7 @@ export default function BookingForm() {
 
     const submit = ( data ) => {
         console.log("Data:", data); //TODO: Eliminar despues de pruebas
-        alert(`¡Gracias ${data.userName}! Nos pondremos en contacto con ${data.userEmail}`);//TODO: Eliminar despues de pruebas
+        alert(`¡Gracias por la reserva!`);//TODO: Eliminar despues de pruebas
         reset();
     }
 
