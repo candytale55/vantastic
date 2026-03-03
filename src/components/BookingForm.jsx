@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 
 export default function BookingForm() {
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
 
     console.log("Soy el componente y me re-renderizo"); //TODO: Eliminar después de las pruebas.
 
@@ -12,6 +12,7 @@ export default function BookingForm() {
             console.log(`Van alqulada a ${userName} con email ${userName}`); //TODO: Eliminar despues de pruebas
             alert(`¡Gracias ${userName}! Nos pondremos en contacto con ${userEmail}`);//TODO: Eliminar despues de pruebas
         }
+        reset();
     }
 
     return (
