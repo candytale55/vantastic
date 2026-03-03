@@ -2,18 +2,19 @@ import { useForm } from 'react-hook-form'
 
 export default function BookingForm() {
 
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit, reset, watch } = useForm();
 
-    console.log("Soy el componente y me re-renderizo"); //TODO: Eliminar después de las pruebas.
+/*     console.log("Soy el componente y me re-renderizo"); //TODO: Eliminar después de las pruebas. */
 
-    const submit = ( { userName, userEmail}) => {
-        console.log(`Van alquilada a ${userName} con email ${userEmail}`);  // TODO: Borrar después de las pruebas.
-        if (userName && userName) {
-            console.log(`Van alqulada a ${userName} con email ${userName}`); //TODO: Eliminar despues de pruebas
-            alert(`¡Gracias ${userName}! Nos pondremos en contacto con ${userEmail}`);//TODO: Eliminar despues de pruebas
-        }
+    const submit = ( data ) => {
+        console.log("Data:", data); //TODO: Eliminar despues de pruebas
+        alert(`¡Gracias ${data.userName}! Nos pondremos en contacto con ${data.userEmail}`);//TODO: Eliminar despues de pruebas
         reset();
     }
+
+    // TODO: Make a component? 
+    const today = new Date().toISOString().split('T')[0];
+    const pickupDateValue = watch("pickupDate");
 
     return (
         <form onSubmit={handleSubmit(submit)}>
@@ -35,62 +36,89 @@ export default function BookingForm() {
                 id="phone"
                 {...register("userPhone", { required: true })} />
             
-            <label htmlFor="pickup-location">Lugar de recogida:</label>
-            <input
-                type="text"  // Cambiar por select
-                id="pickup-location"
-                {...register("pickupLocation", { required: true })} />
-
             <label htmlFor="pickup-date">Fecha recogida:</label>
             <input
                 type="date"
                 id="pickup-date"
+                min={today}
                 {...register("pickupDate", { required: true })} />
+
+            <label htmlFor="pickup-location">Ciudad de recogida:</label>
+            <select
+                id="pickup-location"
+                defaultValue=""
+                {...register("pickup-location", { required: true })}>
+                
+                <option value="" disabled>Selecciona una ciudad</option>
+                <option value="Alicante">Alicante</option>
+                <option value="Barcelona">Barcelona</option>
+                <option value="Bilbao">Bilbao</option>
+                <option value="Granada">Granada</option>
+                <option value="Madrid">Madrid</option>
+                <option value="Málaga">Málaga</option>
+                <option value="Sevilla">Sevilla</option>
+                <option value="Torrevieja">Torrevieja</option>
+                <option value="Valencia">Valencia</option>
+                <option value="Vigo">Vigo</option>
+                <option value="Zaragoza">Zaragoza</option>
+            </select>
             
-            <label htmlFor="pickup-location">Lugar de recogida:</label>
-            <input
-                type="text"  // Cambiar por select
-                id="pickup-location" 
-                {...register("pickupLocation", { required: true })} />
-
-
             <label htmlFor="return-date">Fecha entrega:</label>
             <input
                 type="date"
                 id="return-date"
+                min={pickupDateValue || today}
                 {...register("returnDate", { required: true })} />
 
-            <label htmlFor="return-location">Lugar de entrega:</label>
-            <input
-                type="text"  // Cambiar por select
+            <label htmlFor="return-location">Ciudad de entrega:</label>
+            <select
                 id="return-location"
-                {...register("returnLocation", { required: true })} />
+                defaultValue=""
+                {...register("return-location", { required: true })}>
+                
+                <option value="" disabled>Selecciona una ciudad</option>
+                <option value="Alicante">Alicante</option>
+                <option value="Barcelona">Barcelona</option>
+                <option value="Bilbao">Bilbao</option>
+                <option value="Granada">Granada</option>
+                <option value="Madrid">Madrid</option>
+                <option value="Málaga">Málaga</option>
+                <option value="Sevilla">Sevilla</option>
+                <option value="Torrevieja">Torrevieja</option>
+                <option value="Valencia">Valencia</option>
+                <option value="Vigo">Vigo</option>
+                <option value="Zaragoza">Zaragoza</option>
+            </select>
             
             <fieldset>
                 <legend>Portaequipaje de Techo:</legend>
                 <input
                     type="radio"
                     id="superficiePlanaRack"
+                    value="plana"
                     {...register("racks")} />
                 <label htmlFor="superficiePlanaRack">Plana / rejilla </label>
 
                 <input
                     type="radio"
                     id="portaTablasRack"
+                    value="surf"
                     {...register("racks")} />
                 <label htmlFor="portaTablasRack">Porta-tablas de surf / kayak / paddle</label>
 
                 <input
                     type="radio"
                     id="portaBiciRack"
+                    value="bici"
                     {...register("racks")} />
                 <label htmlFor="portaBiciRack">Porta-bicicletas de techo</label>
 
                 <input
                     type="radio"
-                    id="canastillaAltaRack"
+                    id="plegableRack"
+                    value="maletero-plegable"
                     {...register("racks")} />
-                <label htmlFor="canastillaAltaRack">Canastilla alta</label>
+                <label htmlFor="plegableRack">Maletero plegable</label>
             </fieldset>
 
             <fieldset>
@@ -98,30 +126,37 @@ export default function BookingForm() {
                 <input
                     type="checkbox"
                     id="gpsExtra"
+                    value="gps"
                     {...register("extras")} />
                 <label htmlFor="gpsExtra">GPS</label>
 
                 <input
                     type="checkbox"
                     id="hitchExtra"
+                    value="bola-enganche"
                     {...register("extras")} />
                 <label htmlFor="hitchExtra">Con bola de enganche</label>
                 
                 <input
                     type="checkbox"
                     id="solarPanelsExtra"
+                    value="paneles-solares"
                     {...register("extras")} />
                 <label htmlFor="solarPanelsExtra">Con paneles solares</label>
 
                 <input
                     type="checkbox"
                     id="petsExtra"
+                    value="mascotas"
                     {...register("extras")} />
-                <label htmlFor="petsExtra">Protectores para mascotas</label>
+                <label htmlFor="petsExtra">Kit para mascotas</label>
             </fieldset>
             
             <label htmlFor="userComments">Comentarios y peticiones:</label>
-            <textarea id="userComments" placeholder="Peticiones especiales, accesibilidad..."></textarea>
+            <textarea
+                id="userComments"
+                placeholder="Peticiones especiales, accesibilidad..."
+                {...register("userComments")}></textarea>
             <button type="submit">Envía formulario</button>
 
         </form>
