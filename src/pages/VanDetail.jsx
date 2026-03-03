@@ -11,7 +11,7 @@ export default function VanDetail() {
 
   const { favorites, toggleFavorite } = useFavorites();
   const isFavorite = favorites.includes(params.id);
-  console.log("isFavorite:", isFavorite); // TODO: Remove once you're done with testing
+/*   console.log("isFavorite:", isFavorite); // TODO: Remove once you're done with testing */
 
   if (loading) return <h2>Cargando vans...</h2>
 
@@ -19,10 +19,11 @@ export default function VanDetail() {
 
   const vanElement = data.van;
 
+  //TODO: (3) Move fav button to a better place - Replace heart emoji by SVG (see cumplimiento.md)
+
   return (
     <>
       <div>
-        {/* //TODO: Move fav button to a better place */}
         <button onClick={() => toggleFavorite(params.id)}>
           {isFavorite ? "❤️" : "🤍"}
         </button>

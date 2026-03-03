@@ -14,14 +14,17 @@ export default function Vans() {
   const { favorites } = useFavorites();
   const favsFilter = searchParams.get("favs") === "true";
 
+  // TODO:(2) imaginarme que es un backend gestionar en un coponente aparte. Le paso al componente que cree el loading y el error. 
   
   if (loading) return <h2>Cargando vans...</h2>
 
   if (error) return <h2>Hubo un error:{error}</h2> //TODO: Improve error message styling (it sucks!)
 
+  // TODO:(1) Este es el que estoy fitrando - Mapear en el return lo que devuelva la funcion en utils.js - PONER LOGICA DE TODOS LOS FILTROS - pasar todas la furgonetas y los filtros. -
   // A: Start with the full master list
   let filteredVans = data.vans;
 
+  // TODO:(1) Extraer el typeFilter en un utils.js para gestionar los filtros. 
   // B: Sieve through by TYPE (if a type is selected)
   if (typeFilter) {
     filteredVans = filteredVans.filter(van => van.type === typeFilter);
@@ -35,7 +38,7 @@ export default function Vans() {
 
   console.log("filteredVans:", filteredVans);
 
-
+  // TODO:(1) Hacer el map en el return - aqui asigno lo que devuelve la utilidad
   const vanElements = filteredVans.map(van => {
     return <VanCard key={van.id} van={van} />
   })
