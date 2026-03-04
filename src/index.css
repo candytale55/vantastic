@@ -72,7 +72,7 @@ button:focus-visible {
 /* TODO: Temporal styling for Header and NavLink's  */
 header {
   display: flex;
-  width: 60vw;
+  
   justify-content: space-between;
   align-items: center;
   padding: 2em;
