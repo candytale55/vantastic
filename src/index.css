@@ -136,3 +136,13 @@ fieldset {
   justify-content: center;
   gap: 200px;
 }
+
+
+.inner-footer-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.inner-footer-container ul {
+  width: 30vw;
+}
