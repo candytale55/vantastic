@@ -117,3 +117,8 @@ fieldset {
   padding: 15px;
 }
 
+/* TODO: Temporal styles for sections */
+
+.section {
+  border: black 2px solid; 
+}
