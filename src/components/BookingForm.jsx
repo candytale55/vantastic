@@ -2,9 +2,11 @@ import { useForm, useWatch } from 'react-hook-form'
 
 export default function BookingForm() {
 
-    const { register, handleSubmit, reset, control } = useForm();
+    const { register, handleSubmit, reset, control, formState } = useForm();
 
-/*     console.log("Soy el componente y me re-renderizo"); //TODO: Eliminar después de las pruebas. */
+    /*     console.log("Soy el componente y me re-renderizo"); //TODO: Eliminar después de las pruebas. */
+    
+    /* console.log("formState:", formState); //TODO: Delete after testing - You have to add it in the destructuring above */
 
     const submit = ( data ) => {
         console.log("Data:", data); //TODO: Eliminar despues de pruebas
@@ -24,8 +26,18 @@ export default function BookingForm() {
             <input
                 type="text"
                 id="name"
-                {...register("userName", { required: true })} />
+                {...register("userName", {
+                    required: {
+                        value: true,
+                        message: "Necesitas ingresar un nombre."    
+                    },
+                    minLength: {
+                        value: 2,
+                        message: "Necesitas ingresar un nombre de más de dos caracteres."
+                    }
+                })} />
 
+            {formState.errors.userName ? <p>{ formState.errors.userName.message }</p> : null }
             <label htmlFor="email">Email:</label>
             <input
                 type="email"
@@ -159,7 +171,11 @@ export default function BookingForm() {
                 id="userComments"
                 placeholder="Peticiones especiales, accesibilidad..."
                 {...register("userComments")}></textarea>
-            <button type="submit">Envía formulario</button>
+            
+            
+
+            <button
+                type="submit">Envía formulario</button>
 
         </form>
     )
