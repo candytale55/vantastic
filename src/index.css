@@ -122,3 +122,10 @@ fieldset {
 .section {
   border: black 2px solid; 
 }
+
+/* TODO: Temporal styles for promo */
+
+#promo-section {
+  display: flex;
+  justify-content: space-around;
+}
