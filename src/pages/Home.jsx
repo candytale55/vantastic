@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom'
 
 export default function Home() {
   return (
-    <div>
+    <main>
       <Hero />
       <Fleet />
       <Promo />
       <Newsletter />
       <Social />
-    </div>
+    </main>
   )
 }
