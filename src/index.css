@@ -72,7 +72,7 @@ button:focus-visible {
 /* TODO: Temporal styling for Header and NavLink's  */
 header {
   display: flex;
-  
+
   justify-content: space-between;
   align-items: center;
   padding: 2em;
@@ -128,4 +128,11 @@ fieldset {
 #promo-section {
   display: flex;
   justify-content: space-around;
+}
+
+/* TODO: Temporal styles for fleet gallery in Home */
+.fleet-gallery-container {
+  display: flex;
+  justify-content: center;
+  gap: 200px;
 }
