@@ -146,3 +146,7 @@ fieldset {
 .inner-footer-container ul {
   width: 30vw;
 }
+
+html {
+  scroll-behavior: smooth;
+}

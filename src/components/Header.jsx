@@ -1,11 +1,10 @@
 import { NavLink } from 'react-router-dom'
-
-//TODO: Make the links La Flota and Red Social direct to inner sections
-   
+  
 export default function Header() {
 
   return (
     <header>
+
       <NavLink to="/"><h1>Vantastic!</h1></NavLink>
       <nav>
         <NavLink 
@@ -13,14 +12,19 @@ export default function Header() {
         >Nuestra historia</NavLink>
         
         <NavLink
-          to="vans"
-        >La Flota</NavLink>
+          to="home"
+        ><a
+          href="#social-section"
+        >La Flota</a></NavLink>
+        
 
-        <NavLink
-          to="vans"
-        >Red Social</NavLink>
+        <a
+          href="#social-section"
+        >Red Social</a>
+
       </nav>
 
+      {/* // TODO: Este botón no hace nada */}
       <button className="cta">Botón CTA</button>
       </header>
   ) 
