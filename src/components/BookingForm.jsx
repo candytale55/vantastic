@@ -5,8 +5,8 @@ export default function BookingForm() {
     const { register, handleSubmit, reset, control, formState } = useForm();
 
 
-    const submit = ( data ) => {
-        alert(`¡Gracias por la reserva!`);//TODO: Eliminar despues de pruebas
+    const submit = () => {
+        alert(`¡Gracias por la reserva!`);//TODO: Cambiar
         reset();
     }
 

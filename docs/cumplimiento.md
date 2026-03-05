@@ -17,7 +17,7 @@
 
 ## Maybes
 
-- Si más adelante quieres que cada página tenga su propio título SEO (por ejemplo, que en el detalle de una furgoneta el título sea "Alquiler de furgoneta Modest Explorer"), podrías investigar una librería llamada React Helmet. Pero por ahora, estas etiquetas en el HTML son la base perfecta.
+- Si más adelante quieres que cada página tenga su propio título SEO (por ejemplo, que en el detalle de una furgoneta el título sea "Alquiler de furgoneta Modest Explorer"), podrías investigar una librería llamada React Helmet. 
 
 ## TODOs / Technical Debt
 
@@ -63,3 +63,5 @@
     ```
 - Hacer un utils.js con una función que realice los filtros por _type_ y otros 
 - Hacer un componente que maneje el loading y la carga ()
+- React Router Hash Link para manejar los saltos internos en la página Home, o rediseñar la lógica del Navbar?
+- Rutas relativas => paths ?

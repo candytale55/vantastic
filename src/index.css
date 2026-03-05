@@ -150,3 +150,7 @@ fieldset {
 html {
   scroll-behavior: smooth;
 }
+
+.heart-fill {
+  background-color: red;
+}
