@@ -4,12 +4,8 @@ export default function BookingForm() {
 
     const { register, handleSubmit, reset, control, formState } = useForm();
 
-    /*     console.log("Soy el componente y me re-renderizo"); //TODO: Eliminar después de las pruebas. */
-    
-    /* console.log("formState:", formState); //TODO: Delete after testing - You have to add it in the destructuring above */
 
     const submit = ( data ) => {
-        console.log("Data:", data); //TODO: Eliminar despues de pruebas
         alert(`¡Gracias por la reserva!`);//TODO: Eliminar despues de pruebas
         reset();
     }
@@ -29,40 +25,89 @@ export default function BookingForm() {
                 {...register("userName", {
                     required: {
                         value: true,
-                        message: "Necesitas ingresar un nombre."    
+                        message: "Por favor, escribe tu nombre."    
                     },
                     minLength: {
                         value: 2,
-                        message: "Necesitas ingresar un nombre de más de dos caracteres."
+                        message: "El nombre debe tener al menos 2 caracteres."
+                    },
+                    maxLength: {
+                        value: 50,
+                        message: "El nombre no debe exceder los 50 caracteres."
                     }
                 })} />
 
-            {formState.errors.userName ? <p>{ formState.errors.userName.message }</p> : null }
+            {formState.errors.userName ? <p>{formState.errors.userName.message}</p> : null}
+            
+
+
             <label htmlFor="email">Email:</label>
             <input
                 type="email"
                 id="email"
-                {...register("userEmail", { required: true })} />
+                {...register("userEmail", {
+                    required: {
+                        value: true,
+                        message: "Por favor, escribe tu email." 
+                    },
+                    pattern: {
+                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                        message: "El formato del email no es válido."
+                    }
+                })} />
+
+            {formState.errors.userEmail ? <p>{formState.errors.userEmail.message}</p> : null}
+
 
             <label htmlFor="phone">Teléfono:</label>
             <input
                 type="tel"  
                 id="phone"
-                {...register("userPhone", { required: true })} />
+                {...register("userPhone", {
+                    required: {
+                        value: true,
+                        message: "Necesitas ingresar un número de teléfono." 
+                    },
+                    pattern: {
+                        value: /^\+?\d{9,15}$/,
+                        message: "El teléfono debe contener entre 9 y 15 dígitos"
+                    }
+                    
+                 })} />
             
+            {formState.errors.userPhone ? <p>{formState.errors.userPhone.message}</p> : null}
+            
+
             <label htmlFor="pickup-date">Fecha recogida:</label>
             <input
                 type="date"
                 id="pickup-date"
                 min={today}
-                {...register("pickupDate", { required: true })} />
+                {...register("pickupDate", {
+                    required: {
+                        value: true, 
+                        message: "Por favor, elige la fecha de recogida."
+                    },
+                    min: {
+                        value: today,
+                        message: "La fecha de recogida no puede en el pasado." 
+                    }
+                })} />
 
-            <label htmlFor="pickup-location">Ciudad de recogida:</label>
+            {formState.errors.pickupDate ? <p>{formState.errors.pickupDate.message}</p> : null}
+            
+
+            <label htmlFor="pickupLocation">Ciudad de recogida:</label>
             <select
-                id="pickup-location"
+                id="pickupLocation"
                 defaultValue=""
-                {...register("pickup-location", { required: true })}>
-                
+                {...register("pickupLocation", {
+                    required: {
+                        value: true,
+                        message: "Elige la ciudad donde recogerás el vehículo."
+                    }  
+                })}>
+                                
                 <option value="" disabled>Selecciona una ciudad</option>
                 <option value="Alicante">Alicante</option>
                 <option value="Barcelona">Barcelona</option>
@@ -76,20 +121,34 @@ export default function BookingForm() {
                 <option value="Vigo">Vigo</option>
                 <option value="Zaragoza">Zaragoza</option>
             </select>
+
+            {formState.errors.pickupLocation ? <p>{formState.errors.pickupLocation.message}</p> : null}
             
             <label htmlFor="return-date">Fecha entrega:</label>
             <input
                 type="date"
                 id="return-date"
                 min={pickupDateValue || today}
-                {...register("returnDate", { required: true })} />
+                {...register("returnDate", {
+                    required: {
+                        value: true,
+                        message: "Selecciona una fecha de recogida."
+                    }
+                })} />
 
-            <label htmlFor="return-location">Ciudad de entrega:</label>
+            {formState.errors.returnDate ? <p>{formState.errors.returnDate.message}</p> : null}
+
+            <label htmlFor="returnLocation">Ciudad de entrega:</label>
             <select
-                id="return-location"
+                id="returnLocation"
                 defaultValue=""
-                {...register("return-location", { required: true })}>
-                
+                {...register("returnLocation", {
+                    required: {
+                        value: true,
+                        message: "Elige la ciudad donde entregarás el vehículo."
+                    }
+                })}>
+                                
                 <option value="" disabled>Selecciona una ciudad</option>
                 <option value="Alicante">Alicante</option>
                 <option value="Barcelona">Barcelona</option>
@@ -103,75 +162,20 @@ export default function BookingForm() {
                 <option value="Vigo">Vigo</option>
                 <option value="Zaragoza">Zaragoza</option>
             </select>
-            
-            <fieldset>
-                <legend>Portaequipaje de Techo:</legend>
-                <input
-                    type="radio"
-                    id="superficiePlanaRack"
-                    value="plana"
-                    {...register("racks")} />
-                <label htmlFor="superficiePlanaRack">Plana / rejilla </label>
-
-                <input
-                    type="radio"
-                    id="portaTablasRack"
-                    value="surf"
-                    {...register("racks")} />
-                <label htmlFor="portaTablasRack">Porta-tablas de surf / kayak / paddle</label>
-
-                <input
-                    type="radio"
-                    id="portaBiciRack"
-                    value="bici"
-                    {...register("racks")} />
-                <label htmlFor="portaBiciRack">Porta-bicicletas de techo</label>
-
-                <input
-                    type="radio"
-                    id="plegableRack"
-                    value="maletero-plegable"
-                    {...register("racks")} />
-                <label htmlFor="plegableRack">Maletero plegable</label>
-            </fieldset>
-
-            <fieldset>
-                <legend>Accesorios adicionales:</legend>
-                <input
-                    type="checkbox"
-                    id="gpsExtra"
-                    value="gps"
-                    {...register("extras")} />
-                <label htmlFor="gpsExtra">GPS</label>
-
-                <input
-                    type="checkbox"
-                    id="hitchExtra"
-                    value="bola-enganche"
-                    {...register("extras")} />
-                <label htmlFor="hitchExtra">Con bola de enganche</label>
-                
-                <input
-                    type="checkbox"
-                    id="solarPanelsExtra"
-                    value="paneles-solares"
-                    {...register("extras")} />
-                <label htmlFor="solarPanelsExtra">Con paneles solares</label>
-
-                <input
-                    type="checkbox"
-                    id="petsExtra"
-                    value="mascotas"
-                    {...register("extras")} />
-                <label htmlFor="petsExtra">Kit para mascotas</label>
-            </fieldset>
-            
+            {formState.errors.returnLocation ? <p>{formState.errors.returnLocation.message}</p> : null}
+                        
             <label htmlFor="userComments">Comentarios y peticiones:</label>
             <textarea
                 id="userComments"
                 placeholder="Peticiones especiales, accesibilidad..."
-                {...register("userComments")}></textarea>
+                {...register("userComments", {
+                    maxLength: {
+                        value: 300,
+                        message: "El comentario es demasiado largo, máximo 300 caracteres."
+                    }
+                })}></textarea>
             
+            {formState.errors.userComments ? <p>{formState.errors.userComments.message}</p> : null}
             
 
             <button
