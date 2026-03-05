@@ -1,10 +1,10 @@
-import React from 'react'
+import { Share2 } from 'lucide-react';
 
 export default function Newsletter() {
     return (
       <section className="section" id="newsletter-section">
             <h2>I am Newsletter</h2>
-            <button>CON</button>
+            <Share2 />
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis error, distinctio cupiditate in suscipit eligendi aliquid dolore quos reprehenderit quibusdam consectetur facilis? Porro sit obcaecati, amet at eius similique fugit?</p>
 
             <form>

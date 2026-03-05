@@ -33,6 +33,7 @@
 - ESLint 9
 
 - MirageJS (used to mock the Fetch API during development): [https://miragejs.com/](https://miragejs.com/)
+- Lucide (Used for the icons): [https://lucide.dev/guide/packages/lucide-react](https://lucide.dev/guide/packages/lucide-react)  (Browse Icons Here: [https://lucide.dev/icons/](https://lucide.dev/icons/))
 
 ## Getting Started / Puesta en marcha
 
