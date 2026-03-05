@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-  
+
 export default function Header() {
 
   return (
@@ -12,16 +12,8 @@ export default function Header() {
         >Nuestra historia</NavLink>
         
         <NavLink
-          to="home"
-        ><a
-          href="#social-section"
-        >La Flota</a></NavLink>
-        
-
-        <a
-          href="#social-section"
-        >Red Social</a>
-
+          to="vans"
+        >Vans</NavLink>
       </nav>
 
       {/* // TODO: Este botón no hace nada */}
