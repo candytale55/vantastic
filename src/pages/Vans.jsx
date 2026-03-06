@@ -2,9 +2,11 @@ import useFetch from '../hooks/useFetch.jsx'
 import VanCard from '../components/VanCard.jsx'
 import { useFavorites } from '../context/FavoritesContext.jsx'
 import { useSearchParams } from 'react-router-dom'
+import { getFilteredVans } from '../utils/filters.js'
 
 
 export default function Vans() {
+
 
   const { data, loading, error } = useFetch("/api/vans");
 
@@ -20,23 +22,10 @@ export default function Vans() {
 
   if (error) return <h2>Hubo un error:{error}</h2> //TODO: Improve error message styling (it sucks!)
 
-  // TODO:(1) Este es el que estoy fitrando - Mapear en el return lo que devuelva la funcion en utils.js - PONER LOGICA DE TODOS LOS FILTROS - pasar todas la furgonetas y los filtros. -
-  // A: Start with the full master list
-  let filteredVans = data.vans;
 
-  // TODO:(1) Extraer el typeFilter en un utils.js para gestionar los filtros. 
-  // B: Sieve through by TYPE (if a type is selected)
-  if (typeFilter) {
-    filteredVans = filteredVans.filter(van => van.type === typeFilter);
-  }
+  // Use the utility function to get filtered vans
+  const filteredVans = getFilteredVans(data.vans, typeFilter, favsFilter, favorites);
 
-  // C: Sieve through by FAVORITES (if the user clicked the Favs toggle)
-  if (favsFilter) {
-    // We only keep the van if its ID exists in our 'favorites'
-    filteredVans = filteredVans.filter(van => favorites.includes(van.id));
-  }
-
-  console.log("filteredVans:", filteredVans);
 
   // TODO:(1) Hacer el map en el return - aqui asigno lo que devuelve la utilidad
   const vanElements = filteredVans.map(van => {
