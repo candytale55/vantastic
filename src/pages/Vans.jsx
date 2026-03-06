@@ -19,18 +19,11 @@ export default function Vans() {
   // TODO:(2) imaginarme que es un backend gestionar en un coponente aparte. Le paso al componente que cree el loading y el error. 
   
   if (loading) return <h2>Cargando vans...</h2>
-
-  if (error) return <h2>Hubo un error:{error}</h2> //TODO: Improve error message styling (it sucks!)
+  if (error) return <h2>Hubo un error:{error}</h2> //TODO: Improve error message styling
 
 
   // Use the utility function to get filtered vans
   const filteredVans = getFilteredVans(data.vans, typeFilter, favsFilter, favorites);
-
-
-  // TODO:(1) Hacer el map en el return - aqui asigno lo que devuelve la utilidad
-  const vanElements = filteredVans.map(van => {
-    return <VanCard key={van.id} van={van} />
-  })
 
   function handleFilterChange(key, value) {
     setSearchParams(prevParams => {
@@ -77,7 +70,10 @@ export default function Vans() {
         </button>
 
       </div>
-      { vanElements}
+
+      {filteredVans.map(van => (
+        <VanCard key={van.id} van={van} />
+      )) }
     </>
   )
 }
