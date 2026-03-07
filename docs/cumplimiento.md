@@ -18,6 +18,16 @@
 ## Maybes
 
 - Si más adelante quieres que cada página tenga su propio título SEO (por ejemplo, que en el detalle de una furgoneta el título sea "Alquiler de furgoneta Modest Explorer"), podrías investigar una librería llamada React Helmet. 
+- Hacer un componente que maneje el loading y la carga () - Ahora mismo es complicarse demasiado para dos líneas en dos componentes.
+    ```jsx
+      // TODO:(2) imaginarme que es un backend gestionar en un componente aparte. Le paso al componente que cree el loading y el error. 
+        if (loading) return <h2>Cargando vans...</h2>
+        if (error) return <h2>Hubo un error:{error}</h2> //TODO: Improve error message styling
+        ...
+        return (
+            {/* // TODO: error / loading &&  <COMPONENTE> } */}
+        )
+    ```
 
 ## TODOs / Technical Debt
 
@@ -61,7 +71,11 @@
         favBtn.classList.toggle('is-active');
         });
     ```
-- Hacer un utils.js con una función que realice los filtros por _type_ y otros 
-- Hacer un componente que maneje el loading y la carga ()
+
+    ```html
+    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg>
+    ```
+
+- ~~Hacer un utils.js con una función que realice los filtros por _type_ y otros~~ 
 - React Router Hash Link para manejar los saltos internos en la página Home, o rediseñar la lógica del Navbar?
 - Rutas relativas => paths ?

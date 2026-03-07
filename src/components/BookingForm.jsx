@@ -163,6 +163,7 @@ export default function BookingForm() {
                 <option value="Zaragoza">Zaragoza</option>
             </select>
             {formState.errors.returnLocation ? <p>{formState.errors.returnLocation.message}</p> : null}
+            {/* // TODO: hacer array con ciudades */}
                         
             <label htmlFor="userComments">Comentarios y peticiones:</label>
             <textarea

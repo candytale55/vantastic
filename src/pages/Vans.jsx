@@ -7,7 +7,6 @@ import { getFilteredVans } from '../utils/filters.js'
 
 export default function Vans() {
 
-
   const { data, loading, error } = useFetch("/api/vans");
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -16,8 +15,6 @@ export default function Vans() {
   const { favorites } = useFavorites();
   const favsFilter = searchParams.get("favs") === "true";
 
-  // TODO:(2) imaginarme que es un backend gestionar en un coponente aparte. Le paso al componente que cree el loading y el error. 
-  
   if (loading) return <h2>Cargando vans...</h2>
   if (error) return <h2>Hubo un error:{error}</h2> //TODO: Improve error message styling
 

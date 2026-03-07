@@ -11,11 +11,9 @@ export default function VanDetail() {
 
   const { favorites, toggleFavorite } = useFavorites();
   const isFavorite = favorites.includes(params.id);
-/*   console.log("isFavorite:", isFavorite); // TODO: Remove once you're done with testing */
 
   if (loading) return <h2>Cargando vans...</h2>
-
-  if (error) return <h2>Hubo un error:{error}</h2> //TODO: Improve error message styling (it sucks!)
+  if (error) return <h2>Hubo un error:{error}</h2> //TODO: Improve error message styling 
 
   const vanElement = data.van;
 
