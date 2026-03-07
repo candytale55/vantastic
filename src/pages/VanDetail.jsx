@@ -1,6 +1,6 @@
 import useFetch from '../hooks/useFetch'
 import { useFavorites } from '../context/FavoritesContext.jsx'
-import { useParams } from 'react-router-dom'
+import { useParams, Outlet, NavLink } from 'react-router-dom'
 import BookingForm from '../components/BookingForm'
 
 export default function VanDetail() {
@@ -34,6 +34,30 @@ export default function VanDetail() {
           <p><strong>Precio:</strong> €{vanElement.price} por día</p>
           <button className="cta">¡Alquila esta van!</button> 
         </div>
+      </div>
+
+      <nav className="van-detail-tabs">
+        <NavLink
+          to="specs" 
+          className={({ isActive }) => isActive ? "active-tab" : null} 
+          end
+        >Specs</NavLink>
+
+        <NavLink
+          to="pictures"
+          className={({ isActive }) => isActive ? "active-tab" : null}
+          end
+        >Photos</NavLink>
+        
+        <NavLink
+          to="ratings"
+          className={({ isActive }) => isActive ? "active-tab" : null}
+          end
+        >Valoraciones</NavLink>
+      </nav>
+
+      <div className="van-detail-tab-content">
+        <Outlet />
       </div>
 
       <BookingForm />
