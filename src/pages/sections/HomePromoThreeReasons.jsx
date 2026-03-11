@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function Promo() {
+export default function HomePromoThreeReasons() {
     return (
-      <section className="section" id="promo-section">
+        <section className="section" id="promo-section">
             <div className="promo-container">
                 <i>icon</i>
                 <h2>I<span> am</span> promo</h2>
@@ -14,6 +14,6 @@ export default function Promo() {
                 <i>icon</i>
                 <p>text<span> text</span></p>
             </div>
-      </section>
-  )
+        </section>
+    )
 }

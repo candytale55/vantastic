@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-export default function Fleet() {
+export default function HomeFleetPreview() {
     return (
         <section
             className="section"

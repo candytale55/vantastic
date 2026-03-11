@@ -1,18 +1,18 @@
-import Hero from './sections/Hero.jsx'
-import Fleet from './sections/Fleet.jsx'
-import Promo from './sections/Promo.jsx'
-import Newsletter from './sections/Newsletter.jsx'
-import Social from './sections/Social.jsx'
+import HomeHero from './sections/HomeHero.jsx'
+import HomeFleetPreview from './sections/HomeFleetPreview.jsx'
+import HomePromoThreeReasons from './sections/HomePromoThreeReasons.jsx'
+import HomeNewsletterSignup from './sections/HomeNewsletterSignup.jsx'
+import HomeTestimonialsSocial from './sections/HomeTestimonialsSocial.jsx'
 import { Link } from 'react-router-dom'
 
 export default function Home() {
   return (
     <main>
-      <Hero />
-      <Fleet />
-      <Promo />
-      <Newsletter />
-      <Social />
+      <HomeHero />
+      <HomeFleetPreview />
+      <HomePromoThreeReasons />
+      <HomeNewsletterSignup />
+      <HomeTestimonialsSocial />
     </main>
   )
 }

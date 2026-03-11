@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Hero() {
+export default function HomeHero() {
     return (
         <section className="section">
             <p>Est. 1989 · Valencia</p>
@@ -10,5 +10,5 @@ export default function Hero() {
             <button>Ver la Flota</button>
             <button>Únete al Movimiento</button>
         </section>
-  )
+    )
 }
