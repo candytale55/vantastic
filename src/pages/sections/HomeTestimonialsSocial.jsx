@@ -3,7 +3,7 @@ import placeholder_image from '/src/assets/images/placeholder_image.jpg'
 
 export default function HomeTestimonialsSocial() {
   return (
-    <section class="home-testimonials-social-section border">
+    <section class="home-testimonials-social-section">
       <h2>Esto no lo decimos nosotros.</h2>
       <div class="testimonials-grid">
         <blockquote class="testimonial-card">

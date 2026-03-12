@@ -1,17 +1,16 @@
-import { Share2 } from 'lucide-react';
+
 
 export default function HomeNewsletterSignup() {
     return (
-        <section className="section" id="newsletter-section">
-            <h2>I am Newsletter</h2>
-            <Share2 />
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis error, distinctio cupiditate in suscipit eligendi aliquid dolore quos reprehenderit quibusdam consectetur facilis? Porro sit obcaecati, amet at eius similique fugit?</p>
-
-            <form>
-                <label htmlFor="newsletter-email" placeholder="tu dirección de correo"></label>
-                <input type="mail" id="newsletter-email" />
-                <button type="submit">Únete al Movimiento</button>
+        <section class="home-newsletter-signup-section border">
+            <h2>Kilómetro Cero</h2>
+            <p class="subtitle">Rutas, historias de carretera y cosas que vale la pena saber antes de salir. Una vez al mes. Sin ruido.</p>
+            <form class="newsletter-form">
+                <label htmlFor="newsletter-email" class="sr-only">Tu dirección de correo</label>
+                <input type="email" id="newsletter-email" placeholder="tu dirección de correo" aria-label="Introduce tu dirección de correo electrónico" />
+                <button type="submit" class="cta-button-small">Apúntame</button>
             </form>
+            <p class="next-issue-hook">Próximo número: las carreteras secundarias más bonitas de la Península que no salen en ninguna guía.</p>
         </section>
     )
 }
