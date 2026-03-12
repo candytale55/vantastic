@@ -44,13 +44,13 @@ export default function Vans() {
 
       {/* Botones para filtrar por tipo */}
       <div className="filters-container">
-<button
+        <button
           onClick={() => handleFilterChange("type", "simple")}
           className="">
           Simple
         </button>
         <button
-          onClick={ () => handleFilterChange( "type", "rugged")} 
+          onClick={() => handleFilterChange("type", "rugged")}
           className=""
         >
           Rugged
