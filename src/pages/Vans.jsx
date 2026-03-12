@@ -34,11 +34,17 @@ export default function Vans() {
   }
 
   return (
-    <>
-      <h2>Explora nuestros modelos</h2>
+
+    <main className="vans-page-main">
+
+      <section className="vans-intro-filters">
+        <h1>No elegirás una furgoneta. Elegirás con cuál de ellas quieres perderte.</h1>
+        <p className="subtitle">Explora nuestra flota de Volkswagen Combi y otras joyas restauradas.</p>
+      </section>
+
       {/* Botones para filtrar por tipo */}
-      <div>
-        <button
+      <div className="filters-container">
+<button
           onClick={() => handleFilterChange("type", "simple")}
           className="">
           Simple
@@ -65,12 +71,16 @@ export default function Vans() {
         <button onClick={() => setSearchParams({})}>
           Reset Total 🧹
         </button>
-
       </div>
 
-      {filteredVans.map(van => (
-        <VanCard key={van.id} van={van} />
-      )) }
-    </>
+      <section className="vans-listing">
+        <div className="van-cards-grid">
+          {filteredVans.map(van => (
+            <VanCard key={van.id} van={van} />
+          ))}
+        </div>
+      </section>
+
+    </main>
   )
 }
