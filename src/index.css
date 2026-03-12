@@ -95,7 +95,7 @@ a.pending {
 
 /* TODO: Temporal styles for .cta buttons */
 
-.cta {
+.cta-button {
   background-color: #646cff;
 }
 
@@ -138,13 +138,13 @@ fieldset {
 }
 
 
-.inner-footer-container{
+.footer-content-container {
   display: flex;
   flex-direction: row;
 }
 
-.inner-footer-container ul {
-  width: 30vw;
+.footer-content-container ul {
+  width: 40vw;
 }
 
 html {
@@ -153,4 +153,14 @@ html {
 
 .heart-fill {
   background-color: red;
+}
+
+.footer {
+  display: grid;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  width: 45; 
 }
