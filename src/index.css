@@ -119,7 +119,7 @@ fieldset {
 
 /* TODO: Temporal styles for sections */
 
-.section {
+.border {
   border: black 2px solid; 
 }
 
@@ -163,4 +163,8 @@ html {
   display: flex;
   flex-direction: column;
   width: 45; 
+}
+
+.placeholder-image {
+  height: 40vh;
 }
