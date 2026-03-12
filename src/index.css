@@ -165,6 +165,6 @@ html {
   width: 45; 
 }
 
-.placeholder-image {
+.placeholder-image, .card-image {
   height: 40vh;
 }
