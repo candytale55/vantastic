@@ -21,38 +21,43 @@ export default function VanDetail() {
 
   return (
     <>
-      <div>
-        <button onClick={() => toggleFavorite(params.id)}>
-          {isFavorite ? "❤️" : "🤍"}
-        </button>
-        <h2>{vanElement.name} </h2>
-        <img src={vanElement.imageUrl} alt={vanElement.name} />
-        <div>
-          <i>{vanElement.type}</i>
-          <h3>{vanElement.name}</h3>
-          <p>{vanElement.description}</p>
-          <p><strong>Precio:</strong> €{vanElement.price} por día</p>
-          <button className="cta">¡Alquila esta van!</button> 
-        </div>
-      </div>
+      <main className="van-detail-page-main">
+        <section className="van-overview-section">
+
+          <div className="van-header-actions">
+            <h1>{vanElement.name}</h1>
+            <button onClick={() => toggleFavorite(params.id)}>
+              {isFavorite ? "❤️" : "🤍"}
+            </button>
+          </div>
+
+          <div className="van-main-info">
+            <img src={vanElement.imageUrl} alt={vanElement.name} />
+            <div className="van-details-text">
+              <i className="van-type-badge">{vanElement.type}</i>
+              <h2>{vanElement.name}</h2>
+              <p className="van-description">{vanElement.description}</p>
+              <p className="van-price"><strong>Precio:</strong> €{vanElement.price} por día</p>
+              <button className="cta-button-large book-van-cta">¡Alquila esta van!</button>
+            </div>
+          </div>
+
+        </section>
+      </main>
+
 
       <nav className="van-detail-tabs">
         <NavLink
-          to="specs" 
-          className={({ isActive }) => isActive ? "active-tab" : null} 
+          to="specs"
           end
         >Specs</NavLink>
 
         <NavLink
           to="pictures"
-          className={({ isActive }) => isActive ? "active-tab" : null}
-          end
         >Photos</NavLink>
-        
+
         <NavLink
           to="ratings"
-          className={({ isActive }) => isActive ? "active-tab" : null}
-          end
         >Valoraciones</NavLink>
       </nav>
 
@@ -60,8 +65,13 @@ export default function VanDetail() {
         <Outlet />
       </div>
 
-      <BookingForm />
-      
+      {/* //TODO: Where do I put Booking. Over the outlet or here? */}
+
+      <section className="van-booking-form-section">
+        <h2>Reserva la {vanElement.name}</h2>
+        <BookingForm />
+      </section>
+
     </>
   )
 }
