@@ -168,6 +168,7 @@ html {
 .placeholder-image, 
 .card-image, 
 .persona-image, 
-.community-collage-image {
+.community-collage-image, 
+.about-image-home > img {
   height: 40vh;
 }

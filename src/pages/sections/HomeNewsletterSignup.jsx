@@ -2,7 +2,7 @@
 
 export default function HomeNewsletterSignup() {
     return (
-        <section class="home-newsletter-signup-section border">
+        <section class="home-newsletter-signup-section">
             <h2>Kilómetro Cero</h2>
             <p class="subtitle">Rutas, historias de carretera y cosas que vale la pena saber antes de salir. Una vez al mes. Sin ruido.</p>
             <form class="newsletter-form">
