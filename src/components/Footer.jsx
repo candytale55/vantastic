@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
+import { getCurrentYear } from '../utils/dateUtils.js'
 
 //TODO:Add dynamic date in JS.
 export default function Footer() {
   return (
-    <footer className="footer section main-footer">
+    <footer className="main-footer">
 
       <div className="footer-content-container">
         <section class="footer-about">
@@ -23,9 +24,17 @@ export default function Footer() {
           <li><Link to="/contact">Contacto</Link></li>
         </ul>
       </nav>
+
+      <nav className="footer-legal">
+        <h3>Legal</h3>
+        <ul>
+          <li><Link to="legal">Aviso Legal</Link></li>
+          <li><Link to="privacy">Política de Privacidad</Link></li>
+        </ul>
+      </nav>
       
       <hr />
-      <h4>&copy; 2026 Vantastic!</h4>
+      <h4>&copy; { getCurrentYear() } Vantastic! </h4>
     </footer>
   )
 }

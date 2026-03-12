@@ -11,6 +11,8 @@ import Community from './pages/Community.jsx'
 import RoutesPage from './pages/RoutesPage.jsx'
 import FAQ from './pages/FAQ.jsx'
 import Contact from './pages/Contact.jsx'
+import Legal from './pages/Legal.jsx'
+import Privacy from './pages/Privacy.jsx'
 
 import VanPictures from './pages/sections/VanPictures.jsx'
 import VanRatings from './pages/sections/VanRatings.jsx'
@@ -38,6 +40,9 @@ export default function App() {
         </Route>
         <Route path="faq" element={<FAQ />} />
         <Route path="contact" element={<Contact />} />
+
+        <Route path="legal" element={<Legal />} />
+        <Route path="privacy" element={<Privacy />} />
         <Route path="/*" element={<NotFound />} />
       </Route>
     </Routes>
