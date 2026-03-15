@@ -110,3 +110,151 @@
     flex-direction: column;
     align-items: flex-start; /* Align link lists left */
 }
+/*
+  Stage 3: Structural Styling - Phase 2
+  Reusable elements: Buttons and Form Controls.
+  This CSS is temporary for layout demonstration and will be replaced by TailwindCSS utilities.
+*/
+
+/* --- 3. Base Button Styling --- */
+button {
+  background-color: #6c757d; /* A neutral grey for default buttons */
+  color: #fff;
+  padding: 0.8em 1.5em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-out;
+  display: inline-block; /* Ensure padding works correctly */
+  text-align: center;
+}
+
+button:hover {
+  background-color: #5a6268; /* Darker grey on hover */
+  transform: translateY(-1px); /* Subtle lift effect */
+}
+
+button:active {
+  background-color: #4e545a; /* Even darker on active */
+  transform: translateY(0);
+}
+
+button:focus-visible {
+  outline: 2px solid #007bff; /* Focus indicator */
+  outline-offset: 2px;
+}
+
+
+/* --- 4. CTA Buttons (Specific Call to Action) --- */
+/* This will target buttons with the class .cta-button, .cta-button-medium, .cta-button-large */
+.cta-button,
+.cta-button-medium,
+.cta-button-large,
+.cta-button-small { /* Added small from HomeFleetPreview */
+  background-color: #28a745; /* A distinct green for calls to action */
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px; /* Slightly more rounded for CTAs */
+}
+
+.cta-button:hover,
+.cta-button-medium:hover,
+.cta-button-large:hover,
+.cta-button-small:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+.cta-button-small {
+    padding: 0.5em 1em; /* Smaller padding for small CTAs */
+    font-size: 0.9em;
+    border-radius: 4px;
+}
+
+/* Ensure Links acting as buttons get similar styling where appropriate */
+a.cta-button-large { /* Target specific Link components that use this class */
+    padding: 1em 2em; /* Larger padding */
+    font-size: 1.1em;
+    text-decoration: none; /* Remove underline for button-like links */
+    display: inline-block; /* Essential for padding/sizing */
+}
+
+a.cta-button-medium {
+    padding: 0.8em 1.5em; /* Medium padding */
+    font-size: 1em;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* --- 5. Form Elements (Inputs, Selects, Textareas, Fieldsets) --- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  max-width: 400px; /* Constrain form width for readability */
+  margin: 2rem auto; /* Center forms horizontally */
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  font-weight: 600;
+  margin-bottom: 0.2em; /* Small space between label and input */
+  display: block; /* Ensure label takes its own line */
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form input[type="date"],
+form select,
+form textarea {
+  width: 100%;
+  padding: 0.8em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: #007bff; /* Highlight on focus */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Subtle focus ring */
+  outline: none; /* Remove default outline */
+}
+
+form textarea {
+  min-height: 100px; /* Adequate height for comments */
+  resize: vertical; /* Allow vertical resizing only */
+}
+
+form fieldset {
+  border: 1px solid #ddd;
+  padding: 1em;
+  border-radius: 5px;
+  margin-bottom: 1em; /* Space below fieldset */
+}
+
+form fieldset legend {
+  font-weight: bold;
+  padding: 0 0.5em;
+  color: #333;
+}
+
+form p { /* For error messages */
+  color: #dc3545; /* Red for error messages */
+  font-size: 0.9em;
+  margin-top: -0.5em; /* Reduce space from element above */
+  margin-bottom: 1em;
+}
+
+
+/* --- 6. Utility classes (Temporary for styling visibility, will be replaced) --- */
+.border { /* Keep for now as it's used in some placeholder sections */
+  border: black 2px solid;
+}
