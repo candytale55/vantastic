@@ -18,18 +18,26 @@ export default function VanCard(props) {
   return (
     <Link
       key={props.van.id}
-      to={`/vans/${props.van.id}`}>
+      to={`/vans/${props.van.id}`}
+      className="van-card-container">
       
 {/*       <button onClick={handleFavorite}>{isFavorite ? <Heart className="heart-fill"/> : <Heart />}</button> */}
 
-      <button onClick={handleFavorite}>{isFavorite ? "❤️" : "🤍"}</button>
+      <button
+        onClick={handleFavorite}
+        className="van-card-favorite-button">{isFavorite ? "❤️" : "🤍"}</button>
+      
       <div key={props.van.id}>
-        <img src={props.van.imageUrl} alt={props.van.name} />
-        <div>
-          <h3>{props.van.name}</h3>
-          <p>€{props.van.price}</p>
+        <img
+          src={props.van.imageUrl}
+          alt={props.van.name}
+          className="van-card-image" />
+        
+        <div className="van-card-info">
+          <h3 className="van-card-title">{props.van.name}</h3>
+          <p className="van-card-price">€{props.van.price}</p>
         </div>
-        <i>{props.van.type}</i>
+        <i className="van-card-type">{props.van.type}</i>
       </div>
     </Link>
   )
