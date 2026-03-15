@@ -1,42 +1,112 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/*
+  Stage 3: Structural Styling - Phase 1
+  Component-specific structural styles for Header and Footer.
+  This CSS is temporary for layout demonstration and will be replaced by TailwindCSS utilities.
+*/
+
+/* 1. Header Component Styling */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem; /* Adjusted padding */
+  background-color: #333; /* Dark background for header */
+  color: #fff; /* White text */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+.main-header h1 {
+  margin: 0; /* Remove default margin from h1 inside header */
+}
+
+.main-header .brand-logo-container a {
+  color: inherit; /* Inherit color from header, override default link blue */
+  text-decoration: none;
+}
+.primary-nav {
+  display: flex;
+  gap: 1.5em; /* Space between nav links */
+  font-size: 1.1em;
+}
+
+.primary-nav a {
+  color: #eee; /* Light grey for nav links */
+}
+
+.primary-nav a:hover {
+  color: #fff; /* White on hover */
+}
+
+/* 2. Footer Component Styling */
+.main-footer {
+  background-color: #333; /* Dark background for footer */
+  color: #eee; /* Light grey text */
   padding: 2rem;
+  margin-top: 3rem; /* Space above footer */
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center; /* Center text for now */
+
+  /* Basic grid for footer content */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+  gap: 1.5rem;
+  justify-items: center; /* Center items horizontally in their grid cell */
+}
+.main-footer h2,
+.main-footer h3,
+.main-footer h4 {
+  color: #fff; /* White headings in footer */
+  margin-bottom: 0.8em;
+}
+
+.main-footer p {
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+.main-footer ul {
+  list-style: none; /* Remove bullet points */
+  padding: 0;
+  text-align: left; /* Align list items to the left */
+}
+
+.main-footer li {
+  margin-bottom: 0.5em;
+}
+
+.main-footer a {
+  color: #aaa; /* Lighter grey for footer links */
+}
+
+.main-footer a:hover {
+  color: #fff; /* White on hover */
+}
+
+.main-footer hr {
+  grid-column: 1 / -1; /* Make hr span all columns */
+  border: none;
+  border-top: 1px solid #555;
+  margin: 1.5rem 0;
+}
+
+.main-footer h4 {
+  grid-column: 1 / -1; /* Make copyright span all columns */
+  font-size: 0.9em;
+  opacity: 0.8;
+  margin-top: 0;
+}
+/* Specific footer content containers */
+.footer-content-container {
+    /* For this structural phase, let's simplify. The grid on main-footer handles it. */
+}
+
+.footer-content-container ul {
+  /* This specific rule from original was too wide and conflicting */
+  width: auto; /* Resetting original specific width */
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.footer-nav, .footer-legal {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align link lists left */
 }
