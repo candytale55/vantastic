@@ -62,10 +62,10 @@ export default function VanDetail() {
       </nav>
 
       <div className="van-detail-tab-content">
-        <Outlet />
+        <Outlet context={{ specs: vanElement.specs, ratings: vanElement.ratings }} />
       </div>
 
-      {/* //TODO: Where do I put Booking. Over the outlet or here? */}
+      {/* //TODO: Where do I put Booking. Over the outlet or here?  */}
 
       <section className="van-booking-form-section">
         <h2>Reserva la {vanElement.name}</h2>
