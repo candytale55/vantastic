@@ -13,28 +13,28 @@ export default function Footer() {
         </section>
       </div>
 
-      <nav className="footer-nav">
+      <nav className="footer-nav" id="footer-nav">
         <h3>Enlaces rápidos:</h3>
         <ul>
-          <li><Link to="/about">Nuestra historia</Link></li>
-          <li><Link to="/vans">Vans</Link></li>
-          <li><Link to="/community">La comunidad</Link></li>
-          <li><Link to="/routes">Rutas</Link></li>
-          <li><Link to="/faq">Preguntas frecuentes</Link></li>
-          <li><Link to="/contact">Contacto</Link></li>
+          <li><a href="#footer-nav">Nuestra historia</a></li>
+          <li><a href="#footer-nav">Vans</a></li>
+          <li><a href="#footer-nav">La comunidad</a></li>
+          <li><a href="#footer-nav">Rutas</a></li>
+          <li><a href="#footer-nav">Preguntas frecuentes</a></li>
+          <li><a href="#footer-nav">Contacto</a></li>
         </ul>
       </nav>
 
-      <nav className="footer-legal">
+      <nav className="footer-legal" id="footer-legal">
         <h3>Legal</h3>
         <ul>
-          <li><Link to="legal">Aviso Legal</Link></li>
-          <li><Link to="privacy">Política de Privacidad</Link></li>
+          <li><a href="#footer-legal">Aviso Legal</a></li>
+          <li><a href="#footer-legal">Política de Privacidad</a></li>
         </ul>
       </nav>
-      
+
       <hr />
-      <h4>&copy; { getCurrentYear() } Vantastic! </h4>
+      <h4>&copy; {getCurrentYear()} Vantastic! </h4>
     </footer>
   )
 }

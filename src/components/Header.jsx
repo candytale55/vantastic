@@ -10,14 +10,10 @@ export default function Header() {
       </div>
 
       <nav className="primary-nav">
-        <NavLink to="about">Nuestra historia</NavLink>
-        <NavLink to="vans">Vans</NavLink>
-        <NavLink to="community">La comunidad</NavLink>
-        <NavLink to="routes">Rutas</NavLink>
+        <NavLink to="vans" className="cta-button">¡Alquila tu Van!</NavLink>
       </nav>
 
-      {/* // TODO: Este botón no hace nada */}
-      <button className="cta-button">Alquila tu van</button>
+
       </header>
   ) 
 }

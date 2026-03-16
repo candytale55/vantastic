@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import placeholder_image from '/src/assets/images/placeholder_image.jpg'
 
 export default function HomeTestimonialsSocial() {
@@ -24,7 +23,6 @@ export default function HomeTestimonialsSocial() {
       <div className="social-preview">
         <h3 className="social-preview-title">Nuestra comunidad en carretera</h3>
         <img src={placeholder_image} alt="Collage de fotos de la comunidad" className="community-collage-image" />
-        <Link to="/community" className="cta-button-medium">Ver historias de viaje</Link>
       </div>
     </section>
   )

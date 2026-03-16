@@ -45,21 +45,21 @@ export default function Vans() {
       {/* Botones para filtrar por tipo */}
       <div className="filters-container">
         <button
-          onClick={() => handleFilterChange("type", "simple")}
+          onClick={() => handleFilterChange("type", "esencial")}
           className="">
-          Simple
+          Esencial
         </button>
         <button
-          onClick={() => handleFilterChange("type", "rugged")}
+          onClick={() => handleFilterChange("type", "viajera")}
           className=""
         >
-          Rugged
+          Viajera
         </button>
         <button
-          onClick={() => handleFilterChange("type", "luxury")}
+          onClick={() => handleFilterChange("type", "singular")}
           className=""
         >
-          Luxury
+          Singular
         </button>
         <button
           onClick={() => handleFilterChange("favs", favsFilter ? null : "true")}

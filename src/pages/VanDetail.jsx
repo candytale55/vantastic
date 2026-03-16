@@ -53,10 +53,6 @@ export default function VanDetail() {
         >Specs</NavLink>
 
         <NavLink
-          to="pictures"
-        >Photos</NavLink>
-
-        <NavLink
           to="ratings"
         >Valoraciones</NavLink>
       </nav>

@@ -2,19 +2,18 @@ import { Routes, Route } from 'react-router-dom'
 // Components
 import Layout from './components/Layout.jsx'
 // Pages
-import About from './pages/About.jsx'
+import About from '../docs/plan/About.jsx'
 import Home from './pages/Home.jsx'
 import NotFound from './pages/NotFound.jsx'
 import VanDetail from './pages/VanDetail.jsx'
 import Vans from './pages/Vans.jsx'
-import Community from './pages/Community.jsx'
-import RoutesPage from './pages/RoutesPage.jsx'
-import FAQ from './pages/FAQ.jsx'
-import Contact from './pages/Contact.jsx'
-import Legal from './pages/Legal.jsx'
-import Privacy from './pages/Privacy.jsx'
+import Community from '../docs/plan/Community.jsx'
+import RoutesPage from '../docs/plan/RoutesPage.jsx'
+import FAQ from '../docs/plan/FAQ.jsx'
+import Contact from '../docs/plan/Contact.jsx'
+import Legal from '../docs/plan/Legal.jsx'
+import Privacy from '../docs/plan/Privacy.jsx'
 
-import VanPictures from './pages/sections/VanPictures.jsx'
 import VanRatings from './pages/sections/VanRatings.jsx'
 import VanSpecs from './pages/sections/VanSpecs.jsx'
 
@@ -35,14 +34,8 @@ export default function App() {
         <Route path="vans/:id" element={<VanDetail />}>
           <Route index element={<VanSpecs />} />
           <Route path="specs" element={<VanSpecs />} />
-          <Route path="pictures" element={<VanPictures />} />
           <Route path="ratings" element={<VanRatings />} />
         </Route>
-        <Route path="faq" element={<FAQ />} />
-        <Route path="contact" element={<Contact />} />
-
-        <Route path="legal" element={<Legal />} />
-        <Route path="privacy" element={<Privacy />} />
         <Route path="/*" element={<NotFound />} />
       </Route>
     </Routes>
