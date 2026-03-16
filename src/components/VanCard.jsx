@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useFavorites } from '../context/FavoritesContext.jsx'
-/* import { Heart } from 'lucide-react' */
+import Heart from '../components/Heart.jsx'
 
 
 export default function VanCard(props) {
@@ -25,7 +25,10 @@ export default function VanCard(props) {
 
       <button
         onClick={handleFavorite}
-        className="van-card-favorite-button">{isFavorite ? "❤️" : "🤍"}</button>
+        className="van-card-favorite-button"
+        aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}>{/* {isFavorite ? "❤️" : "🤍"} */}
+        <Heart filled={isFavorite} />
+      </button>
       
       <div key={props.van.id}>
         <img

@@ -2,6 +2,7 @@ import useFetch from '../hooks/useFetch'
 import { useFavorites } from '../context/FavoritesContext.jsx'
 import { useParams, Outlet, NavLink } from 'react-router-dom'
 import BookingForm from '../components/BookingForm'
+import Heart from '../components/Heart.jsx'
 
 export default function VanDetail() {
   // Extrae el parámetro "id" de la URL 
@@ -27,7 +28,8 @@ export default function VanDetail() {
           <div className="van-header-actions">
             <h1>{vanElement.name}</h1>
             <button onClick={() => toggleFavorite(params.id)}>
-              {isFavorite ? "❤️" : "🤍"}
+              <Heart filled={ isFavorite } />
+              {/* {isFavorite ? "❤️" : "🤍"} */}
             </button>
           </div>
 

@@ -5,6 +5,7 @@ import { useSearchParams } from 'react-router-dom'
 import { getFilteredVans } from '../utils/filters.js'
 
 
+
 export default function Vans() {
 
   const { data, loading, error } = useFetch("/api/vans");
@@ -65,6 +66,7 @@ export default function Vans() {
           onClick={() => handleFilterChange("favs", favsFilter ? null : "true")}
           className=""
         >
+          
           {favsFilter ? "¡Todas!🤍" : "Solo Favs ❤️"}
         </button>
         {/* //TODO: See if this is needed vs Todas las Vans button*/}
