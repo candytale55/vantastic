@@ -12,12 +12,7 @@ export default function HomeHero() {
     return (
         <section className="home-hero-section">
 
-            <div className="hero-background-video">
-                {/* //TODO: Video or no Video? */}
-                {/*                 <video autoplay muted loop playsinline class="video-element">
-                    <source src="/path/to/your/vanlife-video.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video> */}
+            <div className="hero-background-image">
                 <img className="placeholder-image" src={placeholder_image} alt="placeholder image" />
             </div>
 
