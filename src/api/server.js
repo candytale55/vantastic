@@ -31,7 +31,7 @@ createServer({
                 description: "Restauración completa de mecánica y carrocería. Paneles solares, depósito de agua propia y baño seco: todo lo que necesitas para ser autónomo varios días sin depender de nada ni de nadie. Para quien sabe que la libertad no se mide en comodidades, sino en kilómetros sin planificar.",
                 imageUrl: "https://images.unsplash.com/photo-1704205531900-89fb30d4f842?&w=400&h=400&fit=crop",
                 imageCredits: "Foto de Hasse Lossius en Unsplash 'https://unsplash.com/es/fotos/una-furgoneta-aparcada-al-costado-de-una-carretera-cerca-del-oceano-82mzyAory0w'",
-                type: "simple",
+                type: "esencial",
 
                 specs: [
                     { label: "Año de fabricación", value: "1974" },
@@ -63,7 +63,7 @@ createServer({
                 description: "Baca de madera para las tablas, nevera de compresor, ducha exterior y parasol lateral. Construida para llegar a la playa, quedarse y no tener prisa en marcharse. Si tu ruta la decide el parte de olas, esta es tu furgoneta.",
                 imageUrl: "https://images.unsplash.com/photo-1710707919147-bf41f37e5b00?&w=400&h=400&fit=crop",
                 imageCredits: "Foto de Gene Giromini en Unsplash 'https://unsplash.com/es/fotos/una-furgoneta-azul-y-blanca-aparcada-al-costado-de-una-carretera-G11tjU3YlXY'",
-                type: "rugged",
+                type: "viajera",
                 specs: [
                     { label: "Año de fabricación", value: "1976" },
                     { label: "Motor", value: "1.6L Gasolina, 50 CV" },
@@ -94,7 +94,7 @@ createServer({
                 description: "Carrocería rojo granate restaurada sobre una base de 1972. Interior rehecho con criterio: cocina con dos fogones, nevera con congelador, calefacción estacionaria y sonido Bluetooth. Una de las piezas más completas y mejor acabadas de la flota.",
                 imageUrl: "https://images.unsplash.com/photo-1639156813096-1c45dfef0000?&w=400&h=400&fit=crop",
                 imageCredits: "Foto de Laura Boj en Unsplash 'https://unsplash.com/es/fotos/un-viejo-autobus-vw-estacionado-en-la-playa-hv2BX7Q6xUA'",
-                type: "luxury",
+                type: "singular",
 
                 specs: [
                     { label: "Año de fabricación", value: "1972 (Restaurada)" },
@@ -126,7 +126,7 @@ createServer({
                 description: "La más espaciosa de la flota. Ventanas panorámicas, asientos giratorios, aire acondicionado, calefacción estacionaria y un inversor de 1500W. Modificada en profundidad para viajes largos con total autonomía. Para dos personas que quieren espacio de verdad.",
                 imageUrl: "https://images.unsplash.com/photo-1731603273130-72aeb4f49b16?&w=400&h=400&fit=crop",
                 imageCredits: "Foto de Antonio Araujo en Unsplash 'https://unsplash.com/es/fotos/una-furgoneta-aparcada-en-un-aparcamiento-junto-a-un-campo-de-girasoles-ct6TLXflTuk'",
-                type: "luxury",
+                type: "singular",
 
                 specs: [
                     { label: "Año de fabricación", value: "1990 (Modificada)" },
@@ -158,7 +158,7 @@ createServer({
                 description: "T3 Syncro 4x4 en estado excepcional. Tracción en las cuatro ruedas, neumáticos all-terrain y reductora para llegar donde las demás no llegan. Cocina completa, calefacción estacionaria y panel solar. Para rutas de montaña, pistas sin asfaltar y destinos que no salen en los mapas normales.",
                 imageUrl: "https://images.unsplash.com/photo-1601285462028-111ed137177e?&w=400&h=400&fit=crop",
                 imageCredits: "Foto de Daniel J. Schwarz en Unsplash 'https://unsplash.com/es/fotos/furgoneta-verde-y-blanca-en-la-carretera-cerca-de-la-montana-durante-el-dia-Hhe9c31780A'",
-                type: "rugged",
+                type: "viajera",
 
                 specs: [
                     { label: "Año de fabricación", value: "1988 (4x4 Syncro)" },
@@ -190,7 +190,7 @@ createServer({
                 description: "Techo elevable original, carrocería naranja restaurada. Lo esencial para dormir, cocinar y estar bien: toldo lateral, cocina de camping, nevera y ducha exterior. Compacta, fácil de conducir y fácil de aparcar. Para los que buscan el atardecer sin saber todavía desde dónde lo van a ver.",
                 imageUrl: "https://images.unsplash.com/photo-1612769254949-deb42c1fbbf7?w=600&h=450&auto=format&fit=crop",
                 imageCredits: "Foto de Joshua Rodriguez en Unsplash 'https://unsplash.com/es/fotos/furgoneta-roja-y-blanca-en-el-muelle-durante-el-dia-Upg453Fo7wU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'",
-                type: "simple",
+                type: "esencial",
 
                 // --- Additional data for VanDetail sections (not part of the core van object in original server.js) ---
                 // These sections (specs, ratings, socialImages) are new additions to the object,
@@ -224,7 +224,7 @@ createServer({
                 description: "Azul y blanca, 1975. Restauración de mecánica completa. Equipamiento sencillo y bien resuelto: nevera de compresor, hornillo de gas, ducha exterior portátil y toldo lateral. Para dos personas, costa atlántica y ningún plan fijo.",
                 imageUrl: "https://images.unsplash.com/photo-1533745894801-062ca8abd594?q=80&w=600&w=400&auto=format&fit=crop",
                 imageCredits: "Foto de Collins Lesulie en Unsplash 'https://unsplash.com/es/fotos/furgoneta-volkswagen-t2-azul-hMwtHGvDh2k?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'",
-                type: "simple",
+                type: "esencial",
 
                 specs: [
                     { label: "Año de fabricación", value: "1975" },
@@ -256,7 +256,7 @@ createServer({
                 description: "Camper sobre base 4x4, motor diésel de 200 CV con transmisión automática. Baño completo con ducha y WC, cocina entera, calefacción diésel, panel solar de 200W y aire acondicionado en cabina y habitáculo. La única de la flota preparada para terrenos exigentes con autonomía total. Para rutas donde el asfalto termina antes que las ganas de seguir.",
                 imageUrl: "https://images.unsplash.com/photo-1574260031597-bcd9eb192b4f?q=80&w=600&h=450&fit=crop",
                 imageCredits: "Foto de Toms en Unsplash 'https://unsplash.com/es/fotos/remolque-camper-en-un-acantilado-cerca-del-mar-ryfptJi3fAM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'",
-                type: "rugged",
+                type: "viajera",
 
                 specs: [
                     { label: "Año de fabricación", value: "2020" },
@@ -288,7 +288,7 @@ createServer({
                 description: "Naranja y blanca, techo elevable a juego. Interior bien conservado con cocina, nevera de compresión 12V y toldo de vela. Tiene carácter propio desde que la ves aparcada. Para quienes buscan la experiencia más clásica de la flota sin complicaciones.",
                 imageUrl: "https://images.unsplash.com/photo-1561394562-5b83fb870f71?q=80&w=600&h=450&auto=format&fit=crop",
                 imageCredits: "Foto de Amin Safaripour en Unsplash 'https://unsplash.com/es/fotos/furgoneta-naranja-y-blanca-durante-el-dia-rqE54VnH4hA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'",
-                type: "simple",
+                type: "esencial",
 
                 specs: [
                     { label: "Año de fabricación", value: "1977" },
