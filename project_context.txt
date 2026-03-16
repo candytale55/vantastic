@@ -1247,19 +1247,18 @@ import { Routes, Route } from 'react-router-dom'
 // Components
 import Layout from './components/Layout.jsx'
 // Pages
-import About from './pages/About.jsx'
+import About from '../docs/plan/About.jsx'
 import Home from './pages/Home.jsx'
 import NotFound from './pages/NotFound.jsx'
 import VanDetail from './pages/VanDetail.jsx'
 import Vans from './pages/Vans.jsx'
-import Community from './pages/Community.jsx'
-import RoutesPage from './pages/RoutesPage.jsx'
-import FAQ from './pages/FAQ.jsx'
-import Contact from './pages/Contact.jsx'
-import Legal from './pages/Legal.jsx'
-import Privacy from './pages/Privacy.jsx'
+import Community from '../docs/plan/Community.jsx'
+import RoutesPage from '../docs/plan/RoutesPage.jsx'
+import FAQ from '../docs/plan/FAQ.jsx'
+import Contact from '../docs/plan/Contact.jsx'
+import Legal from '../docs/plan/Legal.jsx'
+import Privacy from '../docs/plan/Privacy.jsx'
 
-import VanPictures from './pages/sections/VanPictures.jsx'
 import VanRatings from './pages/sections/VanRatings.jsx'
 import VanSpecs from './pages/sections/VanSpecs.jsx'
 
@@ -1280,14 +1279,8 @@ export default function App() {
         <Route path="vans/:id" element={<VanDetail />}>
           <Route index element={<VanSpecs />} />
           <Route path="specs" element={<VanSpecs />} />
-          <Route path="pictures" element={<VanPictures />} />
           <Route path="ratings" element={<VanRatings />} />
         </Route>
-        <Route path="faq" element={<FAQ />} />
-        <Route path="contact" element={<Contact />} />
-
-        <Route path="legal" element={<Legal />} />
-        <Route path="privacy" element={<Privacy />} />
         <Route path="/*" element={<NotFound />} />
       </Route>
     </Routes>
@@ -1445,7 +1438,7 @@ createServer({
                 description: "Restauración completa de mecánica y carrocería. Paneles solares, depósito de agua propia y baño seco: todo lo que necesitas para ser autónomo varios días sin depender de nada ni de nadie. Para quien sabe que la libertad no se mide en comodidades, sino en kilómetros sin planificar.",
                 imageUrl: "https://images.unsplash.com/photo-1704205531900-89fb30d4f842?&w=400&h=400&fit=crop",
                 imageCredits: "Foto de Hasse Lossius en Unsplash 'https://unsplash.com/es/fotos/una-furgoneta-aparcada-al-costado-de-una-carretera-cerca-del-oceano-82mzyAory0w'",
-                type: "simple",
+                type: "esencial",
 
                 specs: [
                     { label: "Año de fabricación", value: "1974" },
@@ -1477,7 +1470,7 @@ createServer({
                 description: "Baca de madera para las tablas, nevera de compresor, ducha exterior y parasol lateral. Construida para llegar a la playa, quedarse y no tener prisa en marcharse. Si tu ruta la decide el parte de olas, esta es tu furgoneta.",
                 imageUrl: "https://images.unsplash.com/photo-1710707919147-bf41f37e5b00?&w=400&h=400&fit=crop",
                 imageCredits: "Foto de Gene Giromini en Unsplash 'https://unsplash.com/es/fotos/una-furgoneta-azul-y-blanca-aparcada-al-costado-de-una-carretera-G11tjU3YlXY'",
-                type: "rugged",
+                type: "viajera",
                 specs: [
                     { label: "Año de fabricación", value: "1976" },
                     { label: "Motor", value: "1.6L Gasolina, 50 CV" },
@@ -1508,7 +1501,7 @@ createServer({
                 description: "Carrocería rojo granate restaurada sobre una base de 1972. Interior rehecho con criterio: cocina con dos fogones, nevera con congelador, calefacción estacionaria y sonido Bluetooth. Una de las piezas más completas y mejor acabadas de la flota.",
                 imageUrl: "https://images.unsplash.com/photo-1639156813096-1c45dfef0000?&w=400&h=400&fit=crop",
                 imageCredits: "Foto de Laura Boj en Unsplash 'https://unsplash.com/es/fotos/un-viejo-autobus-vw-estacionado-en-la-playa-hv2BX7Q6xUA'",
-                type: "luxury",
+                type: "singular",
 
                 specs: [
                     { label: "Año de fabricación", value: "1972 (Restaurada)" },
@@ -1540,7 +1533,7 @@ createServer({
                 description: "La más espaciosa de la flota. Ventanas panorámicas, asientos giratorios, aire acondicionado, calefacción estacionaria y un inversor de 1500W. Modificada en profundidad para viajes largos con total autonomía. Para dos personas que quieren espacio de verdad.",
                 imageUrl: "https://images.unsplash.com/photo-1731603273130-72aeb4f49b16?&w=400&h=400&fit=crop",
                 imageCredits: "Foto de Antonio Araujo en Unsplash 'https://unsplash.com/es/fotos/una-furgoneta-aparcada-en-un-aparcamiento-junto-a-un-campo-de-girasoles-ct6TLXflTuk'",
-                type: "luxury",
+                type: "singular",
 
                 specs: [
                     { label: "Año de fabricación", value: "1990 (Modificada)" },
@@ -1572,7 +1565,7 @@ createServer({
                 description: "T3 Syncro 4x4 en estado excepcional. Tracción en las cuatro ruedas, neumáticos all-terrain y reductora para llegar donde las demás no llegan. Cocina completa, calefacción estacionaria y panel solar. Para rutas de montaña, pistas sin asfaltar y destinos que no salen en los mapas normales.",
                 imageUrl: "https://images.unsplash.com/photo-1601285462028-111ed137177e?&w=400&h=400&fit=crop",
                 imageCredits: "Foto de Daniel J. Schwarz en Unsplash 'https://unsplash.com/es/fotos/furgoneta-verde-y-blanca-en-la-carretera-cerca-de-la-montana-durante-el-dia-Hhe9c31780A'",
-                type: "rugged",
+                type: "viajera",
 
                 specs: [
                     { label: "Año de fabricación", value: "1988 (4x4 Syncro)" },
@@ -1604,7 +1597,7 @@ createServer({
                 description: "Techo elevable original, carrocería naranja restaurada. Lo esencial para dormir, cocinar y estar bien: toldo lateral, cocina de camping, nevera y ducha exterior. Compacta, fácil de conducir y fácil de aparcar. Para los que buscan el atardecer sin saber todavía desde dónde lo van a ver.",
                 imageUrl: "https://images.unsplash.com/photo-1612769254949-deb42c1fbbf7?w=600&h=450&auto=format&fit=crop",
                 imageCredits: "Foto de Joshua Rodriguez en Unsplash 'https://unsplash.com/es/fotos/furgoneta-roja-y-blanca-en-el-muelle-durante-el-dia-Upg453Fo7wU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'",
-                type: "simple",
+                type: "esencial",
 
                 // --- Additional data for VanDetail sections (not part of the core van object in original server.js) ---
                 // These sections (specs, ratings, socialImages) are new additions to the object,
@@ -1638,7 +1631,7 @@ createServer({
                 description: "Azul y blanca, 1975. Restauración de mecánica completa. Equipamiento sencillo y bien resuelto: nevera de compresor, hornillo de gas, ducha exterior portátil y toldo lateral. Para dos personas, costa atlántica y ningún plan fijo.",
                 imageUrl: "https://images.unsplash.com/photo-1533745894801-062ca8abd594?q=80&w=600&w=400&auto=format&fit=crop",
                 imageCredits: "Foto de Collins Lesulie en Unsplash 'https://unsplash.com/es/fotos/furgoneta-volkswagen-t2-azul-hMwtHGvDh2k?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'",
-                type: "simple",
+                type: "esencial",
 
                 specs: [
                     { label: "Año de fabricación", value: "1975" },
@@ -1670,7 +1663,7 @@ createServer({
                 description: "Camper sobre base 4x4, motor diésel de 200 CV con transmisión automática. Baño completo con ducha y WC, cocina entera, calefacción diésel, panel solar de 200W y aire acondicionado en cabina y habitáculo. La única de la flota preparada para terrenos exigentes con autonomía total. Para rutas donde el asfalto termina antes que las ganas de seguir.",
                 imageUrl: "https://images.unsplash.com/photo-1574260031597-bcd9eb192b4f?q=80&w=600&h=450&fit=crop",
                 imageCredits: "Foto de Toms en Unsplash 'https://unsplash.com/es/fotos/remolque-camper-en-un-acantilado-cerca-del-mar-ryfptJi3fAM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'",
-                type: "rugged",
+                type: "viajera",
 
                 specs: [
                     { label: "Año de fabricación", value: "2020" },
@@ -1702,7 +1695,7 @@ createServer({
                 description: "Naranja y blanca, techo elevable a juego. Interior bien conservado con cocina, nevera de compresión 12V y toldo de vela. Tiene carácter propio desde que la ves aparcada. Para quienes buscan la experiencia más clásica de la flota sin complicaciones.",
                 imageUrl: "https://images.unsplash.com/photo-1561394562-5b83fb870f71?q=80&w=600&h=450&auto=format&fit=crop",
                 imageCredits: "Foto de Amin Safaripour en Unsplash 'https://unsplash.com/es/fotos/furgoneta-naranja-y-blanca-durante-el-dia-rqE54VnH4hA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'",
-                type: "simple",
+                type: "esencial",
 
                 specs: [
                     { label: "Año de fabricación", value: "1977" },
@@ -1729,6 +1722,7 @@ createServer({
     },
 
 })
+
 
 --- File: src\components\BookingForm.jsx ---
 import { useForm, useWatch } from 'react-hook-form'
@@ -1936,28 +1930,28 @@ export default function Footer() {
         </section>
       </div>
 
-      <nav className="footer-nav">
+      <nav className="footer-nav" id="footer-nav">
         <h3>Enlaces rápidos:</h3>
         <ul>
-          <li><Link to="/about">Nuestra historia</Link></li>
-          <li><Link to="/vans">Vans</Link></li>
-          <li><Link to="/community">La comunidad</Link></li>
-          <li><Link to="/routes">Rutas</Link></li>
-          <li><Link to="/faq">Preguntas frecuentes</Link></li>
-          <li><Link to="/contact">Contacto</Link></li>
+          <li><a href="#footer-nav">Nuestra historia</a></li>
+          <li><a href="#footer-nav">Vans</a></li>
+          <li><a href="#footer-nav">La comunidad</a></li>
+          <li><a href="#footer-nav">Rutas</a></li>
+          <li><a href="#footer-nav">Preguntas frecuentes</a></li>
+          <li><a href="#footer-nav">Contacto</a></li>
         </ul>
       </nav>
 
-      <nav className="footer-legal">
+      <nav className="footer-legal" id="footer-legal">
         <h3>Legal</h3>
         <ul>
-          <li><Link to="legal">Aviso Legal</Link></li>
-          <li><Link to="privacy">Política de Privacidad</Link></li>
+          <li><a href="#footer-legal">Aviso Legal</a></li>
+          <li><a href="#footer-legal">Política de Privacidad</a></li>
         </ul>
       </nav>
-      
+
       <hr />
-      <h4>&copy; { getCurrentYear() } Vantastic! </h4>
+      <h4>&copy; {getCurrentYear()} Vantastic! </h4>
     </footer>
   )
 }
@@ -1976,14 +1970,10 @@ export default function Header() {
       </div>
 
       <nav className="primary-nav">
-        <NavLink to="about">Nuestra historia</NavLink>
-        <NavLink to="vans">Vans</NavLink>
-        <NavLink to="community">La comunidad</NavLink>
-        <NavLink to="routes">Rutas</NavLink>
+        <NavLink to="vans" className="cta-button">¡Alquila tu Van!</NavLink>
       </nav>
 
-      {/* // TODO: Este botón no hace nada */}
-      <button className="cta-button">Alquila tu van</button>
+
       </header>
   ) 
 }
@@ -2134,94 +2124,6 @@ export default function useFetch(url) {
 }
 
 
---- File: src\pages\About.jsx ---
-import placeholder_image from '/src/assets/images/placeholder_image.jpg'
-import { Link } from 'react-router-dom'
-
-export default function About() {
-  return (
-    <main className="about-page-main">
-      <section className="about-hero">
-        <h1>No abrimos esto para hacer negocio. Lo abrimos porque no sabíamos vivir de otra manera.</h1>
-        <p className="subtitle">La historia de Vantastic! no es la de una empresa. Es la de dos familias que llevan la carretera en la sangre desde los años 60.</p>
-      </section>
-
-      <section className="about-origin-story">
-        <h2>El origen: crecer en una furgoneta</h2>
-        <div className="story-content">
-          <img src={placeholder_image} alt="Antigua furgoneta familiar" className="story-image" />
-          <p>Mikel nació en el País Vasco pero no conoció una dirección fija hasta los 30 años. Sus padres fueron parte de la primera ola del movimiento hippie europeo: artesanos, músicos y viajeros que recorrieron en furgoneta Alemania, Francia, Portugal y Marruecos durante los años 60 y 70. Mikel creció durmiendo en literas improvisadas en VW Combis, aprendiendo a cambiar un carburador antes de aprender a montar en bicicleta. Con 19 años ya viajaba solo por Europa con su propia furgoneta. En los 80 conoció a Lola en un camping cerca de Lisboa. Juntos decidieron echar raíces en Valencia —el clima, el mar, la luz— pero sin abandonar la carretera. En 1989 abrieron el negocio familiar que hoy sigue funcionando con sus hijos.</p>
-          <p>Lola nació en Oporto en el seno de una familia portuguesa de artistas. Su madre era pintora y su padre tocaba guitarra en bares de toda Europa. Con 15 años ya cruzaba fronteras en la furgoneta familiar. Aprendió a cocinar con lo que había, a navegar con mapas de papel y a relacionarse con personas de cualquier idioma. Con 22 años llegó a Valencia en un VW T2 naranja desvencijado y decidió que esa ciudad era lo más parecido a casa que había encontrado. Conoció a Mikel semanas después. El negocio fue idea de los dos, but the visible face, the one who built the community and designed the customer experience, was always her.</p>
-        </div>
-      </section>
-
-      <section className="about-workshop">
-        <h2>Cada furgoneta pasa por nuestras manos antes de pasar por las tuyas.</h2>
-        <div className="workshop-content">
-          <p>Nuestro taller en Valencia es el corazón de Vantastic! Aquí es donde cada furgoneta vintage recibe una segunda vida. No se trata solo de reparar; se trata de restaurar con el respeto que se merece un pedazo de historia. Revisamos el motor a fondo, la carrocería, el sistema eléctrico y el interior, manteniendo siempre la esencia original del vehículo. Lo que ves en nuestras furgonetas no es una decoración retro; es la autenticidad de un vehículo que ha sido cuidadosamente mantenido por manos expertas.</p>
-          <div className="workshop-gallery">
-            <img src={placeholder_image} alt="Interior del taller Vantastic!" className="gallery-image" />
-            <img src={placeholder_image} alt="Mecánico trabajando en furgoneta" className="gallery-image" />
-          </div>
-        </div>
-        <p className="quote">"Esta furgoneta ha visto más amaneceres que tú y yo juntos." <span className="quote-author">— Mikel Arteaga, Fundador</span></p>
-      </section>
-
-      <section className="about-team">
-        <h2>Somos poca gente. Pero conocemos cada tornillo de cada furgoneta.</h2>
-        <div className="team-members">
-          <div className="team-member-card">
-            <img src={placeholder_image} alt="Mikel Arteaga" className="member-photo" />
-            <h3>Mikel Arteaga</h3>
-            <p>Mecánico jefe y alma de la empresa. Conoce a cada vehículo por nombre. Habla con los clientes cuando tienen dudas técnicas o quieren consejo sobre rutas.</p>
-          </div>
-          <div className="team-member-card">
-            <img src={placeholder_image} alt="Lola Ferreira" className="member-photo" />
-            <h3>Lola Ferreira</h3>
-            <p>Directora de experiencia del cliente y voz de la marca. Gestiona la comunidad, escribe el contenido y recibe a los clientes con un mapa marcado a mano y un café.</p>
-          </div>
-        </div>
-        <Link to="/vans" className="cta-button-large">Explora nuestras vans</Link>
-      </section>
-    </main>
-  )
-}
-
-
---- File: src\pages\Community.jsx ---
-import { Link } from 'react-router-dom'
-
-export default function Community() {
-    return (
-        <main className="community-page-main">
-            <h1>En Carretera</h1>
-            <p>Aquí vivirá nuestra comunidad de viajeros. ¡Próximamente!</p>
-            <Link to="/" className="cta-button-medium">Volver al inicio</Link>
-        </main>
-    )
-}
-
-
---- File: src\pages\Contact.jsx ---
-import React from 'react'
-
-export default function Contact() {
-  return (
-      <h2>I am placeholder for Contact</h2>
-  )
-}
-
-
---- File: src\pages\FAQ.jsx ---
-import React from 'react'
-
-export default function FAQ() {
-  return (
-    <h2>I am placeholder for FAQ</h2>
-  )
-}
-
-
 --- File: src\pages\Home.jsx ---
 import HomeHero from './sections/HomeHero.jsx'
 import HomePromoThreeReasons from './sections/HomePromoThreeReasons.jsx'
@@ -2247,16 +2149,6 @@ export default function Home() {
 }
 
 
---- File: src\pages\Legal.jsx ---
-import React from 'react'
-
-export default function Legal() {
-  return (
-      <h2>I am placeholder for Legal</h2>
-  )
-}
-
-
 --- File: src\pages\NotFound.jsx ---
 import { Link } from 'react-router-dom'
 
@@ -2267,26 +2159,6 @@ export default function NotFound() {
       <h2>404. Esta página no existe</h2>
       <Link to="/">Volver al inicio</Link>
     </div>
-  )
-}
-
-
---- File: src\pages\Privacy.jsx ---
-import React from 'react'
-
-export default function Privacy() {
-  return (
-      <h2>I am placeholder for Privacy</h2>
-  )
-}
-
-
---- File: src\pages\RoutesPage.jsx ---
-import React from 'react'
-
-export default function RoutesPage() {
-  return (
-      <h2>I am placeholder for RoutesPage</h2>
   )
 }
 
@@ -2345,10 +2217,6 @@ export default function VanDetail() {
           to="specs"
           end
         >Specs</NavLink>
-
-        <NavLink
-          to="pictures"
-        >Photos</NavLink>
 
         <NavLink
           to="ratings"
@@ -2419,21 +2287,21 @@ export default function Vans() {
       {/* Botones para filtrar por tipo */}
       <div className="filters-container">
         <button
-          onClick={() => handleFilterChange("type", "simple")}
+          onClick={() => handleFilterChange("type", "esencial")}
           className="">
-          Simple
+          Esencial
         </button>
         <button
-          onClick={() => handleFilterChange("type", "rugged")}
+          onClick={() => handleFilterChange("type", "viajera")}
           className=""
         >
-          Rugged
+          Viajera
         </button>
         <button
-          onClick={() => handleFilterChange("type", "luxury")}
+          onClick={() => handleFilterChange("type", "singular")}
           className=""
         >
-          Luxury
+          Singular
         </button>
         <button
           onClick={() => handleFilterChange("favs", favsFilter ? null : "true")}
@@ -2461,7 +2329,6 @@ export default function Vans() {
 
 
 --- File: src\pages\sections\HomeAboutUs.jsx ---
-import { Link } from 'react-router-dom'
 import placeholder_image from '/src/assets/images/placeholder_image.jpg'
 
 export default function HomeAboutUs() {
@@ -2470,7 +2337,6 @@ export default function HomeAboutUs() {
             <div className="about-hook-content">
                 <h2>Crecimos en una furgoneta. Abrimos esto para que tú puedas sentir lo mismo.</h2>
                 <p>La historia de Vantastic! no es la de una empresa. Es la de dos familias que llevan la carretera en la sangre desde los años 60. Es la historia de cómo la libertad se convirtió en un negocio honesto.</p>
-                <Link to="/about" className="cta-button-large">Nuestra historia</Link>
             </div>
             <div className="about-image-home">
                 <img src={placeholder_image} alt="Foto de los fundadores o taller Vantastic!" />
@@ -2492,19 +2358,19 @@ export default function HomeFleetPreview() {
             <h2>No todas las furgonetas son iguales. Tampoco todos los viajes.</h2>
             <p class="subtitle">Tres formas de viajar. Una sola manera de hacerlo bien.</p>
             <div class="fleet-type-cards-container">
-                <Link to="/vans?type=simple" class="fleet-type-card">
+                <Link to="/vans?type=esencial" class="fleet-type-card">
                     <img src={placeholder_image} alt="Furgoneta tipo Esencial" class="card-image" />
                     <h3>Esencial</h3>
                     <p>Para los que prefieren llegar ligeros. Lo necesario está, lo superfluo se queda en casa.</p>
                     <span class="cta-button-small">Ver furgonetas Esencial →</span>
                 </Link>
-                <Link to="/vans?type=rugged" class="fleet-type-card">
+                <Link to="/vans?type=viajera" class="fleet-type-card">
                     <img src={placeholder_image} alt="Furgoneta tipo Viajera" class="card-image" />
                     <h3>Viajera</h3>
                     <p>Preparada para viajes largos y rutas mixtas. La que lleva parejas al Algarve y solitarios hasta el Pirineo.</p>
                     <span class="cta-button-small">Ver furgonetas Viajera →</span>
                 </Link>
-                <Link to="/vans?type=luxury" class="fleet-type-card">
+                <Link to="/vans?type=singular" class="fleet-type-card">
                     <img src={placeholder_image} alt="Furgoneta tipo Singular" class="card-image" />
                     <h3>Singular</h3>
                     <p>No son las más caras. Son las más especiales. Pocas unidades, restauración excepcional.</p>
@@ -2530,17 +2396,17 @@ export default function HomeForWhomIsThis() {
             <div className="personas-container">
                 <div className="persona-block">
                     <img src={placeholder_image} alt="Viajero solo" className="persona-image" />
-                    <h3>El viajero solo</h3>
+                    <h3>Título</h3>
                     <p>Llevas tiempo hablando de ese viaje. Lo has pospuesto dos veces. Sabes que lo necesitas pero siempre hay algo. Una furgoneta vintage tiene una virtud que no tiene ningún hotel: te obliga a salir.</p>
                 </div>
                 <div className="persona-block">
                     <img src={placeholder_image} alt="Pareja viajera" className="persona-image" />
-                    <h3>La pareja</h3>
+                    <h3>Título</h3>
                     <p>Hay viajes que se recuerdan y viajes que te cambian. La diferencia no está en el destino. Está en cómo llegas. Catorce días, dos personas, una furgoneta y ningún sitio al que tener que llegar a tiempo.</p>
                 </div>
                 <div className="persona-block">
                     <img src={placeholder_image} alt="Viajero internacional" className="persona-image" />
-                    <h3>El viajero que viene de lejos</h3>
+                    <h3>Título</h3>
                     <p>Europa no se ve desde una autopista ni desde la ventanilla de un tour. Se ve a ochenta por hora, con la ventana bajada, parando donde te apetece. Eso es lo que llevamos ofreciendo desde 1989.</p>
                 </div>
             </div>
@@ -2629,7 +2495,6 @@ export default function HomePromoThreeReasons() {
 
 
 --- File: src\pages\sections\HomeTestimonialsSocial.jsx ---
-import { Link } from 'react-router-dom'
 import placeholder_image from '/src/assets/images/placeholder_image.jpg'
 
 export default function HomeTestimonialsSocial() {
@@ -2655,47 +2520,11 @@ export default function HomeTestimonialsSocial() {
       <div className="social-preview">
         <h3 className="social-preview-title">Nuestra comunidad en carretera</h3>
         <img src={placeholder_image} alt="Collage de fotos de la comunidad" className="community-collage-image" />
-        <Link to="/community" className="cta-button-medium">Ver historias de viaje</Link>
       </div>
     </section>
   )
 }
 
-
---- File: src\pages\sections\VanPictures.jsx ---
-import placeholder_image from '/src/assets/images/placeholder_image.jpg'
-
-
-export default function VanPictures() {
-  // Simulated hardcoded data for van pictures
-  const pictures = [
-    { src: placeholder_image, alt: "Foto" },
-    { src: placeholder_image, alt: "Foto" },
-    { src: placeholder_image, alt: "Foto" },
-    { src: placeholder_image, alt: "Foto" },
-    { src: placeholder_image, alt: "Foto" },
-    { src: placeholder_image, alt: "Foto" },
-    { src: placeholder_image, alt: "Foto" },
-    { src: placeholder_image, alt: "Foto" },
-  ];
-
-  return (
-    <div className="van-pictures-section">
-      <h3>Galería de Fotos</h3>
-      <div className="pictures-grid">
-        {pictures.map((pic, index) => (
-          <img
-            key={index}
-            src={pic.src}
-            alt={pic.alt}
-            className="van-gallery-image"
-          />
-        ))}
-      </div>
-      <p className="gallery-note">Cada van tiene su propio encanto único. Las fotos son representativas.</p>
-    </div>
-  )
-}
 
 --- File: src\pages\sections\VanRatings.jsx ---
 import { useOutletContext } from 'react-router-dom'

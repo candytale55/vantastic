@@ -3,6 +3,7 @@ import { createServer, Model } from 'miragejs';
 createServer({
     models: {
         van: Model,
+        location: Model,
     },
 
     routes() {
@@ -18,6 +19,11 @@ createServer({
         this.get("/vans/:id", (schema, request) => {
             const id = request.params.id
             return schema.vans.find(id)
+        })
+
+        // Route to get all locations
+        this.get("/locations", (schema) => {
+            return schema.locations.all();
         })
     },
 
@@ -87,7 +93,7 @@ createServer({
         )
         server.create(
             "van",
-                {
+            {
                 id: "3",
                 name: "Reliable Red",
                 price: 100,
@@ -312,6 +318,14 @@ createServer({
             }
         )
 
+        // NEW: Seed data for locations
+        const cities = [
+            "Alicante", "Barcelona", "Bilbao", "Granada", "Madrid",
+            "Málaga", "Sevilla", "Torrevieja", "Valencia", "Vigo", "Zaragoza"
+        ];
+        cities.forEach((city, index) => {
+            server.create("location", { id: `${index + 1}`, name: city });
+        });
     },
 
 })

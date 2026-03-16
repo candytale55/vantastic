@@ -1,8 +1,11 @@
 import { useForm, useWatch } from 'react-hook-form'
+import useFetch from '../hooks/useFetch.jsx'
 
 export default function BookingForm() {
 
     const { register, handleSubmit, reset, control, formState } = useForm();
+
+    const { data: locationsData, loading: locationsLoading, error: locationsError } = useFetch("/api/locations");
 
 
     const submit = () => {
@@ -16,6 +19,14 @@ export default function BookingForm() {
         control,
         name: "pickupDate"});
 
+    
+    if (locationsLoading) return <p>Cargando ciudades</p>
+    if (locationsError) return <p>Error al cargar ciudades: {locationsError.message}</p>;
+
+    // Access the 'locations' array from the fetched data
+    const locations = locationsData?.locations || [];
+    
+    
     return (
         <form onSubmit={handleSubmit(submit)}>
             <label htmlFor="name">Nombre:</label>
@@ -109,17 +120,12 @@ export default function BookingForm() {
                 })}>
                                 
                 <option value="" disabled>Selecciona una ciudad</option>
-                <option value="Alicante">Alicante</option>
-                <option value="Barcelona">Barcelona</option>
-                <option value="Bilbao">Bilbao</option>
-                <option value="Granada">Granada</option>
-                <option value="Madrid">Madrid</option>
-                <option value="Málaga">Málaga</option>
-                <option value="Sevilla">Sevilla</option>
-                <option value="Torrevieja">Torrevieja</option>
-                <option value="Valencia">Valencia</option>
-                <option value="Vigo">Vigo</option>
-                <option value="Zaragoza">Zaragoza</option>
+
+                {locations.map(location => (
+                    <option
+                        key={location.id}
+                        value={location.name}>{location.name}</option>
+                ))}
             </select>
 
             {formState.errors.pickupLocation ? <p>{formState.errors.pickupLocation.message}</p> : null}
@@ -150,20 +156,13 @@ export default function BookingForm() {
                 })}>
                                 
                 <option value="" disabled>Selecciona una ciudad</option>
-                <option value="Alicante">Alicante</option>
-                <option value="Barcelona">Barcelona</option>
-                <option value="Bilbao">Bilbao</option>
-                <option value="Granada">Granada</option>
-                <option value="Madrid">Madrid</option>
-                <option value="Málaga">Málaga</option>
-                <option value="Sevilla">Sevilla</option>
-                <option value="Torrevieja">Torrevieja</option>
-                <option value="Valencia">Valencia</option>
-                <option value="Vigo">Vigo</option>
-                <option value="Zaragoza">Zaragoza</option>
+                {locations.map(location => (
+                    <option
+                        key={location.id}
+                        value={location.name}>{location.name}</option>
+                ))}
             </select>
             {formState.errors.returnLocation ? <p>{formState.errors.returnLocation.message}</p> : null}
-            {/* // TODO: hacer array con ciudades */}
                         
             <label htmlFor="userComments">Comentarios y peticiones:</label>
             <textarea
