@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@layer base {
+/*
+  Stage 3: Structural Styling - Phase 1
+  Global resets, base typography, and main layout structure.
+  This CSS is temporary for layout demonstration and will be replaced by TailwindCSS utilities.
+*/
+
 /* 1. Global Resets */
 *,
 *::before,
@@ -49,7 +56,9 @@ a {
 a:hover {
   color: #0056b3; /* Darker blue on hover */
 }
+}
 
+@layer components {
 /* 3. Main Layout Structure (App > Layout > Header, Main, Footer) */
 #root {
   display: flex;
@@ -86,4 +95,5 @@ a.pending {
   background-color: #ccc; /* Grey background for placeholders */
   border: 1px solid #999; /* Visual boundary */
   display: block; /* Remove extra space below images */
+}
 }

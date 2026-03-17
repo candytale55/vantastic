@@ -10,6 +10,9 @@ import HomeAboutUs from './sections/HomeAboutUs.jsx'
 export default function Home() {
   return (
     <main>
+      <h1 class="text-4xl text-red-500 font-bold">
+        Tailwind Test
+      </h1>
       <HomeHero />
       <HomePromoThreeReasons />
       <HomeFleetPreview />

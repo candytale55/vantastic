@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@layer components {
 /*
   Stage 3: Structural Styling - Phase 1
   Component-specific structural styles for Header and Footer.

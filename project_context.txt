@@ -348,10 +348,6 @@ export default defineConfig({
   opacity: 0.8;
   margin-top: 0;
 }
-/* Specific footer content containers */
-.footer-content-container {
-    /* For this structural phase, let's simplify. The grid on main-footer handles it. */
-}
 
 .footer-content-container ul {
   /* This specific rule from original was too wide and conflicting */
@@ -1410,6 +1406,7 @@ import { createServer, Model } from 'miragejs';
 createServer({
     models: {
         van: Model,
+        location: Model,
     },
 
     routes() {
@@ -1425,6 +1422,11 @@ createServer({
         this.get("/vans/:id", (schema, request) => {
             const id = request.params.id
             return schema.vans.find(id)
+        })
+
+        // Route to get all locations
+        this.get("/locations", (schema) => {
+            return schema.locations.all();
         })
     },
 
@@ -1494,7 +1496,7 @@ createServer({
         )
         server.create(
             "van",
-                {
+            {
                 id: "3",
                 name: "Reliable Red",
                 price: 100,
@@ -1719,6 +1721,14 @@ createServer({
             }
         )
 
+        // NEW: Seed data for locations
+        const cities = [
+            "Alicante", "Barcelona", "Bilbao", "Granada", "Madrid",
+            "Málaga", "Sevilla", "Torrevieja", "Valencia", "Vigo", "Zaragoza"
+        ];
+        cities.forEach((city, index) => {
+            server.create("location", { id: `${index + 1}`, name: city });
+        });
     },
 
 })
@@ -1726,10 +1736,13 @@ createServer({
 
 --- File: src\components\BookingForm.jsx ---
 import { useForm, useWatch } from 'react-hook-form'
+import useFetch from '../hooks/useFetch.jsx'
 
 export default function BookingForm() {
 
     const { register, handleSubmit, reset, control, formState } = useForm();
+
+    const { data: locationsData, loading: locationsLoading, error: locationsError } = useFetch("/api/locations");
 
 
     const submit = () => {
@@ -1743,6 +1756,14 @@ export default function BookingForm() {
         control,
         name: "pickupDate"});
 
+    
+    if (locationsLoading) return <p>Cargando ciudades</p>
+    if (locationsError) return <p>Error al cargar ciudades: {locationsError.message}</p>;
+
+    // Access the 'locations' array from the fetched data
+    const locations = locationsData?.locations || [];
+    
+    
     return (
         <form onSubmit={handleSubmit(submit)}>
             <label htmlFor="name">Nombre:</label>
@@ -1836,17 +1857,12 @@ export default function BookingForm() {
                 })}>
                                 
                 <option value="" disabled>Selecciona una ciudad</option>
-                <option value="Alicante">Alicante</option>
-                <option value="Barcelona">Barcelona</option>
-                <option value="Bilbao">Bilbao</option>
-                <option value="Granada">Granada</option>
-                <option value="Madrid">Madrid</option>
-                <option value="Málaga">Málaga</option>
-                <option value="Sevilla">Sevilla</option>
-                <option value="Torrevieja">Torrevieja</option>
-                <option value="Valencia">Valencia</option>
-                <option value="Vigo">Vigo</option>
-                <option value="Zaragoza">Zaragoza</option>
+
+                {locations.map(location => (
+                    <option
+                        key={location.id}
+                        value={location.name}>{location.name}</option>
+                ))}
             </select>
 
             {formState.errors.pickupLocation ? <p>{formState.errors.pickupLocation.message}</p> : null}
@@ -1877,20 +1893,13 @@ export default function BookingForm() {
                 })}>
                                 
                 <option value="" disabled>Selecciona una ciudad</option>
-                <option value="Alicante">Alicante</option>
-                <option value="Barcelona">Barcelona</option>
-                <option value="Bilbao">Bilbao</option>
-                <option value="Granada">Granada</option>
-                <option value="Madrid">Madrid</option>
-                <option value="Málaga">Málaga</option>
-                <option value="Sevilla">Sevilla</option>
-                <option value="Torrevieja">Torrevieja</option>
-                <option value="Valencia">Valencia</option>
-                <option value="Vigo">Vigo</option>
-                <option value="Zaragoza">Zaragoza</option>
+                {locations.map(location => (
+                    <option
+                        key={location.id}
+                        value={location.name}>{location.name}</option>
+                ))}
             </select>
             {formState.errors.returnLocation ? <p>{formState.errors.returnLocation.message}</p> : null}
-            {/* // TODO: hacer array con ciudades */}
                         
             <label htmlFor="userComments">Comentarios y peticiones:</label>
             <textarea
@@ -1979,6 +1988,35 @@ export default function Header() {
 }
 
 
+--- File: src\components\Heart.jsx ---
+
+// This component will render an SVG heart icon.
+// It receives a 'filled' prop to determine if it should be filled or outlined.
+// It also receives an onClick handler for interactivity.
+
+
+export default function Heart({ filled, onClick, className }) {
+  return (
+      <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill={filled ? "red" : "none"} // Fill with red color [currentColor] if filled, otherwise none
+          stroke="black" // Always stroke with current color
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          onClick={onClick}
+          className={className} // Allows for additional styling via props
+          style={{ cursor: 'pointer' }} // Indicate it's clickable
+      >
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+      </svg>
+  )
+}
+
+
 --- File: src\components\Layout.jsx ---
 
 import { Outlet } from 'react-router-dom'
@@ -2001,7 +2039,7 @@ export default function Layout() {
 --- File: src\components\VanCard.jsx ---
 import { Link } from 'react-router-dom'
 import { useFavorites } from '../context/FavoritesContext.jsx'
-/* import { Heart } from 'lucide-react' */
+import Heart from '../components/Heart.jsx'
 
 
 export default function VanCard(props) {
@@ -2026,7 +2064,10 @@ export default function VanCard(props) {
 
       <button
         onClick={handleFavorite}
-        className="van-card-favorite-button">{isFavorite ? "❤️" : "🤍"}</button>
+        className="van-card-favorite-button"
+        aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}>{/* {isFavorite ? "❤️" : "🤍"} */}
+        <Heart filled={isFavorite} />
+      </button>
       
       <div key={props.van.id}>
         <img
@@ -2168,6 +2209,7 @@ import useFetch from '../hooks/useFetch'
 import { useFavorites } from '../context/FavoritesContext.jsx'
 import { useParams, Outlet, NavLink } from 'react-router-dom'
 import BookingForm from '../components/BookingForm'
+import Heart from '../components/Heart.jsx'
 
 export default function VanDetail() {
   // Extrae el parámetro "id" de la URL 
@@ -2193,7 +2235,8 @@ export default function VanDetail() {
           <div className="van-header-actions">
             <h1>{vanElement.name}</h1>
             <button onClick={() => toggleFavorite(params.id)}>
-              {isFavorite ? "❤️" : "🤍"}
+              <Heart filled={ isFavorite } />
+              {/* {isFavorite ? "❤️" : "🤍"} */}
             </button>
           </div>
 
@@ -2245,6 +2288,7 @@ import VanCard from '../components/VanCard.jsx'
 import { useFavorites } from '../context/FavoritesContext.jsx'
 import { useSearchParams } from 'react-router-dom'
 import { getFilteredVans } from '../utils/filters.js'
+
 
 
 export default function Vans() {
@@ -2307,6 +2351,7 @@ export default function Vans() {
           onClick={() => handleFilterChange("favs", favsFilter ? null : "true")}
           className=""
         >
+          
           {favsFilter ? "¡Todas!🤍" : "Solo Favs ❤️"}
         </button>
         {/* //TODO: See if this is needed vs Todas las Vans button*/}
@@ -2418,28 +2463,28 @@ export default function HomeForWhomIsThis() {
 --- File: src\pages\sections\HomeHero.jsx ---
 import placeholder_image from '/src/assets/images/placeholder_image.jpg'
 import { Link } from 'react-router-dom'
+import { getYearsSince } from '../../utils/dateUtils.js'
 
 export default function HomeHero() {
+
+    /* //TODO: Move to a file that manage the bussiness data? */
+    const startYear = 1989;
+    const yearsInBusiness = getYearsSince(startYear);
+
+
     return (
         <section className="home-hero-section">
 
-            <div className="hero-background-video">
-                {/* //TODO: Video or no Video? */}
-                {/*                 <video autoplay muted loop playsinline class="video-element">
-                    <source src="/path/to/your/vanlife-video.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video> */}
+            <div className="hero-background-image">
                 <img className="placeholder-image" src={placeholder_image} alt="placeholder image" />
             </div>
 
             <div class="hero-content">
-                <h2>Treinta y cinco años llevando gente a ningún sitio en concreto.</h2>
+                <h2>{ yearsInBusiness } años llevando gente a ningún sitio en concreto.</h2>
                 <p class="subheadline">Furgonetas vintage restauradas. Recógela aquí. Devuélvela donde quieras.</p>
                 <Link to="/vans" class="cta-button-large">Encuentra tu furgoneta</Link>
                 <p class="brand-signature">Valencia, desde 1989. Familia. Carretera. Nada más.</p>
             </div>
-            
-           
         </section>
     )
 }
@@ -2465,27 +2510,33 @@ export default function HomeNewsletterSignup() {
 
 
 --- File: src\pages\sections\HomePromoThreeReasons.jsx ---
-import React from 'react'
+import { Wrench, Map, CalendarClock } from 'lucide-react'
+import { getYearsSince } from '../../utils/dateUtils.js'
 
 export default function HomePromoThreeReasons() {
+
+    /* //TODO: Move to a file that manage the bussiness data? */
+    const startYear = 1989;
+    const yearsInBusiness = getYearsSince(startYear);
+
     return (
         <section className="home-three-ideas-section" id="three-ideas">
             <h2>No es un alquiler. Es una forma de viajar.</h2>
 
-            <div class="ideas-container">
-                <div class="idea-block">
-                    <i class="icon-restored">icon</i>
+            <div className="ideas-container">
+                <div className="idea-block">
+                    <Wrench className="icon" />
                     <h3>Furgonetas restauradas a mano</h3>
                     <p>Cada furgoneta que ves aquí ha pasado por nuestro taller antes de pasar por tus manos. Motor, carrocería, interior. Nada se deja al azar. Todo se deja con carácter.</p>
                 </div>
-                <div class="idea-block">
-                    <i class="icon-flexible-route">icon</i>
+                <div className="idea-block">
+                    <Map className="icon" />
                     <h3>Sin itinerario obligatorio</h3>
                     <p>Recoge en Barcelona. Devuelve en Lisboa. O en Bilbao. O donde te lleve la carretera. Nadie te va a preguntar por qué.</p>
                 </div>
-                <div class="idea-block">
-                    <i class="icon-since-1989">icon</i>
-                    <h3>Treinta y cinco años en esto</h3>
+                <div className="idea-block">
+                    <CalendarClock className="icon"/>
+                    <h3>{yearsInBusiness} años en esto</h3>
                     <p>Abrimos en 1989 porque crecimos viajando por Europa en furgoneta y no sabíamos hacer otra cosa. Eso no se aprende en un curso. Se vive.</p>
                 </div>
             </div>
@@ -2596,6 +2647,12 @@ export default function VanSpecs() {
 export const getCurrentYear = () => {
     return new Date().getFullYear();
 };
+
+
+export const getYearsSince = (startYear) => {
+    const currentYear = new Date().getFullYear();
+    return currentYear - startYear;
+}
 
 --- File: src\utils\filters.js ---
 

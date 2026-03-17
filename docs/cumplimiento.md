@@ -32,7 +32,7 @@
 ## TODOs / Technical Debt
 
 - [Inconsistent 404](./personal-notes/issue-inconsistent-404.md) page in VanDetails
-- (1 en Vans) Change emoji heart in Vans.jsx and VanDetails.jsx for SVGs or PNGs. Maybe:
+- ~~(1 en Vans) Change emoji heart in Vans.jsx and VanDetails.jsx for SVGs or PNGs. Maybe:~~
     
     ```html
         <button class="fav-btn" aria-label="Add to favorites">
@@ -41,41 +41,6 @@
         </svg>
         </button>
     ```
-
-    ```css
-        .fav-btn {
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 8px;
-        color: #555; /* Default outline color */
-        transition: all 0.2s ease;
-        }
-
-        /* Hover state - slightly darker */
-        .fav-btn:hover {
-        color: #e74c3c;
-        transform: scale(1.1);
-        }
-
-        /* Active/Favorited state - filled red */
-        .fav-btn.is-active {
-        color: #e74c3c;
-        fill: #e74c3c;
-        }
-    ```
-    ```js
-        const favBtn = document.querySelector('.fav-btn');
-
-        favBtn.addEventListener('click', () => {
-        favBtn.classList.toggle('is-active');
-        });
-    ```
-
-    ```html
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg>
-    ```
-
 - ~~Hacer un utils.js con una función que realice los filtros por _type_ y otros~~ 
 - React Router Hash Link para manejar los saltos internos en la página Home, o rediseñar la lógica del Navbar?
 - Rutas relativas => paths ?
