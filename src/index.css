@@ -1,6 +1,52 @@
 @import "tailwindcss";
 
+
 @theme {
-  /* Custom Vantastic! variables */
+  --bg-color-light: var(--color-mauve-100);
+  --text-color: var(--color-mauve-700);
+  --heading-color: var(--color-mauve-900);
+
+  --link-color: var(--color-sky-500);
+  --link-color-hover: var(--color-amber-500);
+}
+
+@layer base {
+  /* Global Resets */
+  *,
+  *::before, 
+  *::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    background-color: var(--bg-color-light);
+    color: var(--text-color);
+  }
+
+  /* Base Typography */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+  }
+
+
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 700;
+    &:hover {
+      color: var(--link-color-hover);
+    }
+  }
 
 }
