@@ -118,11 +118,6 @@
     @apply max-w-xl text-base leading-7 md:text-lg;
   }
 
-  /* Large CTA button variant - full-width on mobile, auto-width on tablet+ */
-   .cta-button-large {
-    @apply inline-flex w-full items-center justify-center rounded-xl px-6 py-3 text-base font-semibold md:w-fit;
-  }
-
   /* Subtle italic tagline or signature text */
   .brand-signature {
     @apply text-sm italic opacity-80 md:text-base;
@@ -135,9 +130,9 @@
     @apply py-10 md:py-14;
   }
 
-  /* Section heading - bold, responsive sizing, constrained width */
+  /* Section heading - bold, responsive sizing, bottom margin for spacing */
   .section-title {
-    @apply mb-8 max-w-2xl text-2xl font-bold leading-tight md:text-3xl lg:text-4xl;
+    @apply mb-8 max-w-3xl text-2xl font-bold leading-tight md:text-3xl lg:text-4xl;
   }
 
   /* Grid for idea cards - 1 col mobile → 2 cols tablet → 3 cols desktop */
@@ -163,6 +158,63 @@
   /* Idea card description text - slightly faded for hierarchy */
   .idea-card p {
     @apply text-sm leading-6 opacity-80 md:text-base;
+  }
+
+  /* ========== FLEET PREVIEW SECTION ========== */
+
+  /* Fleet preview section layout - vertical stack with responsive spacing */
+  .home-fleet-preview {
+    @apply flex flex-col gap-6 py-10 md:gap-8 md:py-14;
+  }
+
+  /* Section subtitle - secondary text with reduced opacity */
+  .section-subtitle {
+    @apply max-w-2xl text-base leading-7 opacity-80 md:text-lg;
+  }
+
+  /* Grid for fleet type cards - 1 col → 2 cols → 3 cols responsive */
+  .fleet-type-cards-grid {
+    @apply grid gap-6 md:grid-cols-2 lg:grid-cols-3;
+  }
+
+  /* Fleet type card - full-height flex column with hover lift animation */
+  .fleet-type-card {
+    @apply flex h-full flex-col overflow-hidden rounded-2xl border bg-white/80 shadow-sm transition hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  /* Card image - fixed height, crops to cover container */
+  .card-image {
+    @apply h-52 w-full object-cover md:h-56;
+  }
+
+  /* Card heading inside fleet-type-card */
+  .fleet-type-card h3 {
+    @apply px-5 pt-5 text-xl font-semibold md:px-6 md:pt-6;
+  }
+
+  /* Card description inside fleet-type-card */
+  .fleet-type-card p {
+    @apply px-5 pt-3 text-sm leading-6 opacity-80 md:px-6 md:text-base;
+  }
+
+  /* Card CTA link - pushed to bottom with mt-auto */
+  .fleet-type-card .cta-button-small {
+    @apply mt-auto px-5 pb-5 pt-5 font-semibold md:px-6 md:pb-6;
+  }
+
+  /* Footer area below fleet cards grid */
+  .fleet-preview-footer {
+    @apply pt-2 md:pt-4;
+  }
+
+  /* Large CTA button - full-width mobile, auto-width tablet+ (sky blue) */
+  .cta-button-large {
+    @apply inline-flex w-full items-center justify-center rounded-xl bg-sky-600 px-6 py-3 text-base font-semibold text-white transition hover:bg-sky-700 md:w-fit;
+  }
+
+  /* Small inline CTA link - text-based with hover color change */
+  .cta-button-small {
+    @apply inline-flex items-center text-sm font-semibold transition-colors hover:text-sky-600 md:text-base;
   }
 
 }
