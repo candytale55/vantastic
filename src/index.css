@@ -36,6 +36,7 @@
   /* Base Typography */
   h1, h2, h3, h4, h5, h6 {
     color: var(--heading-color);
+    text-align: center;
   }
 
   a {
@@ -85,36 +86,83 @@
     @apply rounded-xl px-4 py-2 bg-sky-600 text-mauve-100  hover:bg-sky-700;
   }
 
-.home-hero {
+  /* ========== HOME HERO SECTION ========== */
+  
+  /* Hero section grid - stacks vertically on mobile, side-by-side on desktop */
+  .home-hero {
     @apply grid gap-8 py-8 md:py-12 lg:grid-cols-2 lg:items-center lg:gap-12;
   }
 
+  /* Hero image container - appears first (top/left) in visual order */
   .hero-media {
     @apply order-1;
   }
 
+  /* Hero image - responsive heights, rounded corners with shadow */
   .hero-image {
     @apply h-64 w-full rounded-2xl object-cover shadow-md md:h-80 lg:h-[28rem];
   }
 
+  /* Hero text content wrapper - stacked with consistent spacing */
   .hero-content {
     @apply order-2 flex flex-col gap-5;
   }
 
+  /* Hero main headline - responsive font scaling from 3xl to 5xl */
   .hero-title {
     @apply text-3xl font-bold leading-tight md:text-4xl lg:text-5xl;
   }
 
+  /* Supporting text below headlines - constrained width for readability */
   .subheadline {
     @apply max-w-xl text-base leading-7 md:text-lg;
   }
 
+  /* Large CTA button variant - full-width on mobile, auto-width on tablet+ */
    .cta-button-large {
     @apply inline-flex w-full items-center justify-center rounded-xl px-6 py-3 text-base font-semibold md:w-fit;
   }
 
+  /* Subtle italic tagline or signature text */
   .brand-signature {
     @apply text-sm italic opacity-80 md:text-base;
+  }
+
+  /* ========== THREE IDEAS/REASONS SECTION ========== */
+
+  /* Section wrapper with vertical padding */
+  .home-three-ideas {
+    @apply py-10 md:py-14;
+  }
+
+  /* Section heading - bold, responsive sizing, constrained width */
+  .section-title {
+    @apply mb-8 max-w-2xl text-2xl font-bold leading-tight md:text-3xl lg:text-4xl;
+  }
+
+  /* Grid for idea cards - 1 col mobile → 2 cols tablet → 3 cols desktop */
+  .ideas-grid {
+    @apply grid gap-6 md:grid-cols-2 lg:grid-cols-3;
+  }
+
+  /* Individual idea card - bordered box with hover lift effect */
+  .idea-card {
+    @apply flex flex-col justify-center items-center gap-4 rounded-2xl border p-6 shadow-sm transition hover:shadow-md;
+  }
+
+  /* Icon inside idea card - sized and colored */
+  .idea-icon {
+    @apply h-8 w-8 text-sky-600;
+  }
+
+  /* Idea card heading */
+  .idea-card h3 {
+    @apply text-lg font-semibold md:text-xl;
+  }
+
+  /* Idea card description text - slightly faded for hierarchy */
+  .idea-card p {
+    @apply text-sm leading-6 opacity-80 md:text-base;
   }
 
 }
