@@ -4,7 +4,7 @@ import placeholder_image from '/src/assets/images/placeholder_image.jpg'
 
 export default function HomeForWhomIsThis() {
     return (
-        <section className="home-for-whom-section">
+        <section className="home-for-whom-section section-shell">
             <h2>Hay personas que necesitan llegar. Y hay personas que necesitan viajar.</h2>
             <p className="subtitle">Esta web es para las segundas.</p>
             <div className="personas-container">

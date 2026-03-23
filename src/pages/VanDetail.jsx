@@ -23,7 +23,7 @@ export default function VanDetail() {
   return (
     <>
       <main className="van-detail-page-main">
-        <section className="van-overview-section">
+        <section className="van-overview-section section-shell">
 
           <div className="van-header-actions">
             <h1>{vanElement.name}</h1>

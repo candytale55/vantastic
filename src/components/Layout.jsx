@@ -5,12 +5,12 @@ import Footer from './Footer.jsx'
 
 export default function Layout() {
   return (
-    <>
+    <div className="page-shell">
       <Header />
-      <main>
+      <main className="page-main">
         <Outlet />
       </main>
       <Footer />
-    </>
+    </div>
   )
 }

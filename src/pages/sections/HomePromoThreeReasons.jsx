@@ -8,7 +8,7 @@ export default function HomePromoThreeReasons() {
     const yearsInBusiness = getYearsSince(startYear);
 
     return (
-        <section className="home-three-ideas-section" id="three-ideas">
+        <section className="home-three-ideas-section section-shell" id="three-ideas">
             <h2>No es un alquiler. Es una forma de viajar.</h2>
 
             <div className="ideas-container">

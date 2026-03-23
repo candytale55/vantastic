@@ -4,7 +4,7 @@ import placeholder_image from '/src/assets/images/placeholder_image.jpg'
 export default function HomeFleetPreview() {
     return (
         <section
-            className="home-fleet-preview-section"
+            className="home-fleet-preview-section section-shell"
             id="fleet-section">
             <h2>No todas las furgonetas son iguales. Tampoco todos los viajes.</h2>
             <p class="subtitle">Tres formas de viajar. Una sola manera de hacerlo bien.</p>

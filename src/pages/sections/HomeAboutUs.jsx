@@ -2,7 +2,7 @@ import placeholder_image from '/src/assets/images/placeholder_image.jpg'
 
 export default function HomeAboutUs() {
     return (
-        <section className="home-about-hook-section">
+        <section className="home-about-hook-section section-shell">
             <div className="about-hook-content">
                 <h2>Crecimos en una furgoneta. Abrimos esto para que tú puedas sentir lo mismo.</h2>
                 <p>La historia de Vantastic! no es la de una empresa. Es la de dos familias que llevan la carretera en la sangre desde los años 60. Es la historia de cómo la libertad se convirtió en un negocio honesto.</p>
