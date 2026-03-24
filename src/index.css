@@ -307,4 +307,36 @@
     @apply h-64 w-full rounded-2xl object-cover shadow-sm md:h-80 lg:h-full lg:min-h-[28rem];
   }
 
+  /* ========== ABOUT US HOOK SECTION ========== */
+
+  /* Section wrapper with vertical padding */
+  .home-about-hook {
+    @apply py-12 md:py-16;
+  }
+
+  /* Main layout - stacked mobile, 2-column grid on desktop with centered alignment */
+  .about-layout {
+    @apply flex flex-col gap-8 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12;
+  }
+
+  /* Text content container - constrained width on desktop */
+  .about-content {
+    @apply flex flex-col gap-5 lg:max-w-lg;
+  }
+
+  /* About section heading - bold, responsive sizing */
+  .about-title {
+    @apply text-2xl font-bold leading-tight md:text-3xl lg:text-4xl;
+  }
+
+  /* About section body text - slightly faded for hierarchy */
+  .about-text {
+    @apply text-base leading-7 opacity-80 md:text-lg;
+  }
+
+  /* About section image - responsive heights with shadow */
+  .about-image {
+    @apply h-64 w-full rounded-2xl object-cover shadow-md md:h-80 lg:h-[28rem];
+  }
+
 }
