@@ -198,7 +198,7 @@
   }
 
   /* Card CTA link - pushed to bottom with mt-auto */
-  .fleet-type-card .cta-button-small {
+  .fleet-type-card .cta-link-small {
     @apply mt-auto px-5 pb-5 pt-5 font-semibold md:px-6 md:pb-6;
   }
 
@@ -212,86 +212,38 @@
     @apply inline-flex w-full items-center justify-center rounded-xl bg-sky-600 px-6 py-3 text-base font-semibold text-white transition hover:bg-sky-700 md:w-fit;
   }
 
-  /* Small inline CTA link - text-based with hover color change */
-  .cta-button-small {
+  /* Small inline CTA link - text-based with hover color change (no background) */
+  .cta-link-small {
     @apply inline-flex items-center text-sm font-semibold transition-colors hover:text-sky-600 md:text-base;
   }
 
-  /* ========== FOR WHOM SECTION (Target Personas) ========== */
+  /* ========== NEWSLETTER SIGNUP SECTION ========== */
 
-  /* Section wrapper with vertical padding */
-  .home-for-whom {
-    @apply py-10 md:py-14;
+  /* Newsletter section container - rounded card with subtle background */
+  .home-newsletter-signup {
+    @apply flex flex-col gap-5 rounded-2xl border bg-white/70 py-10 shadow-sm md:gap-6 md:py-12;
   }
 
-  /* Intro text block - constrained width, right padding on desktop */
-  .for-whom-intro {
-    @apply mb-8 flex max-w-2xl flex-col gap-3 lg:mb-0 lg:pr-8;
+  /* Newsletter form layout - stacked on mobile, inline on tablet+ */
+  .newsletter-form {
+    @apply flex flex-col gap-3 md:max-w-xl md:flex-row;
   }
 
-  /* Mobile: stacked persona cards, hidden on desktop */
-  .for-whom-mobile-stack {
-    @apply flex flex-col gap-6 lg:hidden;
+  /* Email input field - full width with focus ring styling */
+  .newsletter-input {
+    @apply w-full rounded-xl border bg-white px-4 py-3 text-base outline-none transition;
+    @apply placeholder:text-black/40 focus:border-sky-500 focus:ring-2 focus:ring-sky-200;
   }
 
-  /* Desktop: 2-column grid with intro left, carousel right */
-  .for-whom-desktop-split {
-    @apply hidden lg:grid lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:items-start lg:gap-10;
+  /* Newsletter submit button - compact CTA variant */
+  .cta-button-small {
+    @apply inline-flex items-center justify-center rounded-xl bg-sky-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sky-700 md:w-fit md:text-base;
   }
 
-  /* Carousel container - fixed height for slide transitions */
-  .for-whom-carousel {
-    @apply relative min-h-[34rem];
+  /* Teaser text for upcoming newsletter content */
+  .next-issue-hook {
+    @apply text-sm leading-6 opacity-80 md:max-w-2xl md:text-base;
   }
-
-  /* Persona card - rounded, bordered with subtle shadow */
-  .persona-card {
-    @apply overflow-hidden rounded-2xl border bg-white/80 shadow-sm;
-  }
-
-  /* Persona image - responsive heights */
-  .persona-image {
-    @apply h-56 w-full object-cover md:h-64 lg:h-72;
-  }
-
-  /* Persona card body - content area with spacing */
-  .persona-body {
-    @apply flex flex-col gap-3 p-5 md:p-6;
-  }
-
-  /* Persona card heading */
-  .persona-body h3 {
-    @apply text-xl font-semibold;
-  }
-
-  /* Persona card description */
-  .persona-body p {
-    @apply text-sm leading-6 opacity-80 md:text-base;
-  }
-
-  /* Carousel slide - absolute positioned, hidden by default */
-  .persona-slide {
-    @apply pointer-events-none absolute inset-0 opacity-0 transition duration-700;
-  }
-
-  /* Active carousel slide - visible and interactive */
-  .persona-slide.is-active {
-    @apply pointer-events-auto opacity-100;
-  }
-
-  /* Carousel navigation dots container - centered at bottom */
-  .carousel-dots {
-    @apply absolute bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-3;
-  }
-
-  /* Individual carousel dot - small circle, faded by default */
-  .carousel-dot {
-    @apply h-3 w-3 rounded-full bg-black/20 transition;
-  }
-
-  /* Active carousel dot - highlighted in brand color */
-  .carousel-dot.is-active {
-    @apply bg-sky-600;
-  }
+ 
 
 }
