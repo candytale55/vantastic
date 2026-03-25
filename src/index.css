@@ -623,7 +623,75 @@
   }
 
   /* Spec value - bold, right-aligned on tablet+ */
+  /* Spec value - bold, right-aligned on tablet+ */
   .specs-value {
     @apply text-base font-semibold md:text-right;
+  }
+
+  /* ========== VAN RATINGS/REVIEWS SECTION ========== */
+
+  /* Ratings section container - vertical stack with consistent spacing */
+  .van-ratings-section {
+    @apply flex flex-col gap-5;
+  }
+
+  /* Ratings section heading - matches specs-title sizing */
+  .ratings-title {
+    @apply text-xl font-semibold md:text-2xl;
+  }
+
+  /* Average rating display - stacked mobile, inline row on tablet+ */
+  .average-rating {
+    @apply flex flex-col gap-1 rounded-2xl p-4 md:flex-row md:items-center md:justify-between md:p-5;
+  }
+
+  /* Average rating numeric value - emphasized text */
+  .average-rating strong {
+    @apply text-lg font-semibold md:text-xl;
+  }
+
+  /* Average rating count text - secondary styling */
+  .average-rating span {
+    @apply text-sm  md:text-base;
+  }
+
+  /* Container for individual rating cards - vertical stack */
+  .ratings-list {
+    @apply flex flex-col gap-4;
+  }
+
+  /* Individual rating/review card - rounded with padding */
+  .rating-card {
+    @apply flex flex-col gap-3 rounded-2xl  p-4 md:p-5;
+  }
+
+  /* Rating card header - stacked mobile, inline row on tablet+ */
+  .rating-header {
+    @apply flex flex-col gap-1 md:flex-row md:items-center md:justify-between;
+  }
+
+  /* Reviewer name - bold for emphasis */
+  .rating-user {
+    @apply font-semibold;
+  }
+
+  /* Review date - subtle, secondary text */
+  .rating-date {
+    @apply text-sm opacity-65;
+  }
+
+  /* Star rating display - spaced for readability (stars/emojis) */
+  .rating-score {
+    @apply text-lg tracking-wide;
+  }
+
+  /* Review comment/body text - readable line height */
+  .rating-comment {
+    @apply text-sm leading-7 md:text-base;
+  }
+
+  /* Empty state message when no reviews exist */
+  .no-ratings-message {
+    @apply pt-2 text-sm italic opacity-75 md:text-base;
   }
 }

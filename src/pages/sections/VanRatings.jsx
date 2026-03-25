@@ -13,10 +13,12 @@ export default function VanRatings() {
 
   return (
     <div className="van-ratings-section">
-      <h3>Valoraciones de Usuarios</h3>
+      <h3 className="ratings-title">Valoraciones de Usuarios</h3>
+
       <div className="average-rating">
         <strong>Puntuación Media: { averageScore.toFixed(1) } / 5</strong> ({ratings.length} valoraciones)
       </div>
+      
       <div className="ratings-list">
         {ratings.map(rating => (
           <div key={rating.id} className="rating-card">
@@ -24,7 +26,9 @@ export default function VanRatings() {
               <span className="rating-user">{rating.user}</span>
               <span className="rating-date">{rating.date}</span>
             </div>
+      
             <div className="rating-score">{getStars(rating.score)}</div>
+      
             <p className="rating-comment">{rating.comment}</p>
           </div>
         ))}
