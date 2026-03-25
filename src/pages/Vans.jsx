@@ -35,54 +35,60 @@ export default function Vans() {
   }
 
   return (
+    <main className="vans-page section-shell">
+      <header className="vans-intro">
+        <h1 className="page-title">
+          No elegirás una furgoneta. Elegirás con cuál de ellas quieres perderte.
+        </h1>
+        <p className="section-subtitle">
+          Explora nuestra flota de Volkswagen Combi y otras joyas restauradas.
+        </p>
+      </header>
 
-    <main className="vans-page-main">
-
-      <section className="vans-intro-filters section-shell">
-        <h1>No elegirás una furgoneta. Elegirás con cuál de ellas quieres perderte.</h1>
-        <p className="subtitle">Explora nuestra flota de Volkswagen Combi y otras joyas restauradas.</p>
-      </section>
-
-      {/* Botones para filtrar por tipo */}
       <div className="filters-container">
         <button
           onClick={() => handleFilterChange("type", "esencial")}
-          className="">
+          className={`filter-chip ${typeFilter === "esencial" ? "is-active" : ""}`}
+        >
           Esencial
         </button>
+
         <button
           onClick={() => handleFilterChange("type", "viajera")}
-          className=""
+          className={`filter-chip ${typeFilter === "viajera" ? "is-active" : ""}`}
         >
           Viajera
         </button>
+
         <button
           onClick={() => handleFilterChange("type", "singular")}
-          className=""
+          className={`filter-chip ${typeFilter === "singular" ? "is-active" : ""}`}
         >
           Singular
         </button>
+
         <button
           onClick={() => handleFilterChange("favs", favsFilter ? null : "true")}
-          className=""
+          className={`filter-chip ${favsFilter ? "is-active" : ""}`}
         >
-          
           {favsFilter ? "¡Todas!🤍" : "Solo Favs ❤️"}
         </button>
-        {/* //TODO: See if this is needed vs Todas las Vans button*/}
-        <button onClick={() => setSearchParams({})}>
+
+        <button
+          onClick={() => setSearchParams({})}
+          className="filter-chip filter-chip-reset"
+        >
           Reset Total 🧹
         </button>
       </div>
 
       <section className="vans-listing">
         <div className="van-cards-grid">
-          {filteredVans.map(van => (
+          {filteredVans.map((van) => (
             <VanCard key={van.id} van={van} />
           ))}
         </div>
       </section>
-
     </main>
   )
 }

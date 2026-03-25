@@ -48,6 +48,10 @@
   a:hover {
     color: var(--link-color-hover);
   }
+
+  ul, ol {
+    text-align: left;
+  }
 }
 
 @layer components {
@@ -339,4 +343,85 @@
     @apply h-64 w-full rounded-2xl object-cover shadow-md md:h-80 lg:h-[28rem];
   }
 
+  /* ========== FOOTER SECTION ========== */
+
+  /* Footer grid layout - 1 col mobile → 2 cols tablet → 3 cols desktop */
+  .footer-inner {
+    @apply grid gap-8 items-start;
+    @apply md:grid-cols-2;
+    @apply lg:grid-cols-[1.2fr_1fr_1fr];
+  }
+
+  /* Footer about/brand column */
+  .footer-about {
+    @apply flex flex-col gap-3;
+  }
+
+  /* Footer navigation and legal columns */
+  .footer-nav,
+  .footer-legal {
+    @apply flex flex-col gap-3;
+  }
+
+  /* Footer link lists */
+  .footer-nav ul,
+  .footer-legal ul {
+    @apply flex flex-col gap-2;
+  }
+
+  /* ========== VANS LISTING PAGE ========== */
+
+  /* Vans page layout - vertical stack with spacing */
+  .vans-page {
+    @apply flex flex-col gap-8 py-10 md:gap-10 md:py-14;
+  }
+
+  /* Intro section with title and subtitle */
+  .vans-intro {
+    @apply flex flex-col gap-3;
+  }
+
+  /* Page title - large bold heading, constrained width */
+  .page-title {
+    @apply max-w-4xl text-3xl font-bold leading-tight md:text-4xl lg:text-5xl;
+  }
+
+  /* Filter chips container - flex wrap for multiple filters */
+  .filters-container {
+    @apply flex flex-wrap gap-3;
+  }
+
+  /* Individual filter chip - pill-shaped button with hover effect */
+  .filter-chip {
+    @apply inline-flex items-center justify-center rounded-xl border px-4 py-2 text-sm font-semibold transition;
+    @apply bg-white/70 hover:bg-white hover:shadow-sm;
+  }
+
+  /* Active filter chip state - highlighted in sky blue */
+  .filter-chip.is-active {
+    @apply border-sky-500 bg-sky-100 text-sky-700;
+  }
+
+  /* Reset/clear filter chip - amber colored */
+  .filter-chip-reset {
+    @apply border-amber-400 bg-amber-50 hover:bg-amber-100;
+  }
+
+  /* Vans listing container */
+  .vans-listing {
+    @apply w-full;
+  }
+
+  /* Van cards grid - auto-fit responsive columns, min 260px each */
+  .van-cards-grid {
+    @apply grid gap-6;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  /* 2XL breakpoint: force 4-column grid */
+  @media (min-width: 1536px) {
+    .van-cards-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
 }
