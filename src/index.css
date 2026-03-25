@@ -478,4 +478,121 @@
   .van-card-type {
     @apply inline-flex w-fit rounded-full bg-sky-100 px-3 py-1 text-sm font-medium capitalize text-sky-700;
   }
+
+  /* ========== VAN DETAIL PAGE ========== */
+
+  /* Page layout - vertical stack with generous spacing */
+  .van-detail-page {
+    @apply flex flex-col gap-10 py-10 md:gap-12 md:py-14;
+  }
+
+  /* Overview section container */
+  .van-overview {
+    @apply flex flex-col gap-6;
+  }
+
+  /* Header row - title and favorite button side by side */
+  .van-header-actions {
+    @apply flex items-start justify-between gap-4;
+  }
+
+  /* Van detail page title - large bold heading */
+  .van-page-title {
+    @apply text-3xl font-bold leading-tight md:text-4xl lg:text-5xl;
+  }
+
+  /* Favorite button on detail page - circular with hover scale */
+  .van-favorite-button {
+    @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-full border bg-white/80 shadow-sm transition;
+    @apply hover:scale-105 hover:shadow-md;
+  }
+
+  /* Favorited state - red border and background */
+  .van-favorite-button.is-active {
+    @apply border-red-300 bg-red-50;
+  }
+
+  /* Main content grid - image left, details right on desktop */
+  .van-main-info {
+    @apply grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-10;
+  }
+
+  /* Image container with rounded corners */
+  .van-image-wrap {
+    @apply overflow-hidden rounded-2xl;
+  }
+
+  /* Van detail image - responsive heights, large on desktop */
+  .van-detail-image {
+    @apply h-72 w-full rounded-2xl object-cover shadow-md md:h-96 lg:h-[34rem];
+  }
+
+  /* Text details column - stacked content */
+  .van-details-text {
+    @apply flex flex-col gap-4 lg:pt-2;
+  }
+
+  /* Van type badge on detail page - pill-shaped */
+  .van-type-badge {
+    @apply inline-flex w-fit rounded-full bg-sky-100 px-3 py-1 text-sm font-semibold capitalize text-sky-700;
+  }
+
+  /* Van name on detail page */
+  .van-detail-name {
+    @apply text-2xl font-semibold leading-tight md:text-3xl;
+  }
+
+  /* Van description text - slightly faded */
+  .van-description {
+    @apply text-base leading-7 opacity-85 md:text-lg;
+  }
+
+  /* Van price display */
+  .van-price {
+    @apply text-lg md:text-xl;
+  }
+
+  /* Book van CTA button - full width mobile, auto tablet+ */
+  .book-van-cta {
+    @apply mt-2 w-full md:w-fit;
+  }
+
+  /* Extra details section container */
+  .van-detail-extra {
+    @apply flex flex-col gap-6;
+  }
+
+  /* Tab navigation row - bordered bottom */
+  .van-detail-tabs {
+    @apply flex flex-wrap gap-3 border-b pb-4;
+  }
+
+  /* Individual tab link - pill-shaped with hover effect */
+  .van-tab-link {
+    @apply inline-flex items-center rounded-xl px-4 py-2 text-sm font-semibold transition;
+    @apply bg-white/70 hover:bg-white;
+  }
+
+  /* Active tab state - highlighted in sky blue */
+  .van-tab-link.is-active {
+    @apply bg-sky-100 text-sky-700;
+  }
+
+  /* Tab content panel - bordered card with padding */
+  .van-detail-tab-content {
+    @apply rounded-2xl border bg-white/70 p-5 shadow-sm md:p-6;
+  }
+
+  /* ========== VAN BOOKING FORM ========== */
+
+  /* Booking form section - card with vertical spacing */
+  .van-booking-form-section {
+    @apply flex flex-col gap-5 rounded-2xl border bg-white/70 py-8 shadow-sm md:gap-6 md:py-10;
+  }
+
+  /* Booking form title */
+  .booking-title {
+    @apply text-2xl font-bold leading-tight md:text-3xl;
+  }
+
 }

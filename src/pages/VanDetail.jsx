@@ -18,58 +18,81 @@ export default function VanDetail() {
 
   const vanElement = data.van;
 
-  //TODO: (3) Move fav button to a better place - Replace heart emoji by SVG (see cumplimiento.md)
-
   return (
-    <>
-      <main className="van-detail-page-main">
-        <section className="van-overview-section section-shell">
+    <main className="van-detail-page">
+      <section className="van-overview section-shell">
+        <div className="van-header-actions">
+          <h1 className="van-page-title">{vanElement.name}</h1>
 
-          <div className="van-header-actions">
-            <h1>{vanElement.name}</h1>
-            <button onClick={() => toggleFavorite(params.id)}>
-              <Heart filled={ isFavorite } />
-              {/* {isFavorite ? "❤️" : "🤍"} */}
+          <button
+            type="button"
+            className={`van-favorite-button ${isFavorite ? 'is-active' : ''}`}
+            onClick={() => toggleFavorite(params.id)}
+            aria-label={isFavorite ? 'Quitar de favoritos' : 'Añadir a favoritos'}
+          >
+            <Heart filled={isFavorite} />
+          </button>
+        </div>
+
+        <div className="van-main-info">
+          <div className="van-image-wrap">
+            <img
+              src={vanElement.imageUrl}
+              alt={vanElement.name}
+              className="van-detail-image"
+            />
+          </div>
+
+          <div className="van-details-text">
+            <i className="van-type-badge">{vanElement.type}</i>
+            <h2 className="van-detail-name">{vanElement.name}</h2>
+            <p className="van-description">{vanElement.description}</p>
+            <p className="van-price">
+              <strong>Precio:</strong> €{vanElement.price} por día
+            </p>
+            <button className="cta-button-large book-van-cta">
+              ¡Alquila esta van!
             </button>
           </div>
-
-          <div className="van-main-info">
-            <img src={vanElement.imageUrl} alt={vanElement.name} />
-            <div className="van-details-text">
-              <i className="van-type-badge">{vanElement.type}</i>
-              <h2>{vanElement.name}</h2>
-              <p className="van-description">{vanElement.description}</p>
-              <p className="van-price"><strong>Precio:</strong> €{vanElement.price} por día</p>
-              <button className="cta-button-large book-van-cta">¡Alquila esta van!</button>
-            </div>
-          </div>
-
-        </section>
-      </main>
-
-
-      <nav className="van-detail-tabs">
-        <NavLink
-          to="specs"
-          end
-        >Specs</NavLink>
-
-        <NavLink
-          to="ratings"
-        >Valoraciones</NavLink>
-      </nav>
-
-      <div className="van-detail-tab-content">
-        <Outlet context={{ specs: vanElement.specs, ratings: vanElement.ratings }} />
-      </div>
-
-      {/* //TODO: Where do I put Booking. Over the outlet or here?  */}
-
-      <section className="van-booking-form-section">
-        <h2>Reserva la {vanElement.name}</h2>
-        <BookingForm />
+        </div>
       </section>
 
-    </>
+      <section className="van-detail-extra section-shell">
+        <nav className="van-detail-tabs">
+          <NavLink
+            to="specs"
+            end
+            className={({ isActive }) =>
+              `van-tab-link ${isActive ? 'is-active' : ''}`
+            }
+          >
+            Specs
+          </NavLink>
+
+          <NavLink
+            to="ratings"
+            className={({ isActive }) =>
+              `van-tab-link ${isActive ? 'is-active' : ''}`
+            }
+          >
+            Valoraciones
+          </NavLink>
+        </nav>
+
+        <div className="van-detail-tab-content">
+          <Outlet
+            context={{
+              specs: vanElement.specs,
+              ratings: vanElement.ratings,
+            }}
+          />
+        </div>
+      </section>
+
+      <section className="van-booking-form-section section-shell">
+        <h2 className="booking-title">Reserva la {vanElement.name}</h2>
+        <BookingForm />
+      </section>
+    </main>
   )
 }
