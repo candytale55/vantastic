@@ -21,12 +21,12 @@ export default function VanCard(props) {
       to={`/vans/${props.van.id}`}
       className="van-card-container">
       
-{/*       <button onClick={handleFavorite}>{isFavorite ? <Heart className="heart-fill"/> : <Heart />}</button> */}
+
 
       <button
         onClick={handleFavorite}
-        className="van-card-favorite-button"
-        aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}>{/* {isFavorite ? "❤️" : "🤍"} */}
+        className={`van-card-favorite-button ${isFavorite ? 'is-active' : ''}`}
+        aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}>
         <Heart filled={isFavorite} />
       </button>
       
@@ -36,12 +36,17 @@ export default function VanCard(props) {
           alt={props.van.name}
           className="van-card-image" />
         
-        <div className="van-card-info">
-          <h3 className="van-card-title">{props.van.name}</h3>
-          <p className="van-card-price">€{props.van.price}</p>
+
+        <div className="van-card-body">
+          <div className="van-card-info">
+            <h3 className="van-card-title">{props.van.name}</h3>
+            <p className="van-card-price">€{props.van.price}</p>
+          </div>
+          <span className="van-card-type">{props.van.type}</span>
         </div>
-        <i className="van-card-type">{props.van.type}</i>
-      </div>
+        </div>
+
+        
     </Link>
   )
 }

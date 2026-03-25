@@ -424,4 +424,58 @@
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
+
+  /* ========== VAN CARD COMPONENT ========== */
+
+  /* Van card wrapper - full height flex column with hover lift effect */
+  .van-card-container {
+    @apply flex h-full flex-col overflow-hidden rounded-2xl border bg-white/80 shadow-sm transition;
+    @apply hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  /* Card image container - relative for positioning favorite button */
+  .van-card-media {
+    @apply relative overflow-hidden;
+  }
+
+  /* Card image - responsive heights, crops to cover */
+  .van-card-image {
+    @apply h-52 w-full object-cover md:h-56 lg:h-60;
+  }
+
+  /* Favorite/heart button - absolute positioned top-right corner */
+  .van-card-favorite-button {
+    @apply absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full;
+    @apply bg-white/90 shadow-sm transition hover:scale-110;
+  }
+
+  /* Favorited state - subtle red background */
+  .van-card-favorite-button.is-active {
+    @apply bg-red-50;
+  }
+
+  /* Card body - content area with padding and vertical spacing */
+  .van-card-body {
+    @apply flex flex-1 flex-col gap-3 p-4 md:p-5;
+  }
+
+  /* Card info row - title and price side by side */
+  .van-card-info {
+    @apply flex items-start justify-between gap-3;
+  }
+
+  /* Van name/title */
+  .van-card-title {
+    @apply text-lg font-semibold leading-tight md:text-xl;
+  }
+
+  /* Van price - fixed width to prevent wrapping */
+  .van-card-price {
+    @apply shrink-0 text-base font-semibold;
+  }
+
+  /* Van type badge - pill-shaped, sky blue background */
+  .van-card-type {
+    @apply inline-flex w-fit rounded-full bg-sky-100 px-3 py-1 text-sm font-medium capitalize text-sky-700;
+  }
 }
