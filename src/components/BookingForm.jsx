@@ -3,13 +3,21 @@ import useFetch from '../hooks/useFetch.jsx'
 
 export default function BookingForm() {
 
-    const { register, handleSubmit, reset, control, formState } = useForm();
+    const {
+        register, handleSubmit, reset,
+        control, formState
+    } = useForm();
 
-    const { data: locationsData, loading: locationsLoading, error: locationsError } = useFetch("/api/locations");
+    const {
+        data: locationsData,
+        loading: locationsLoading,
+        error: locationsError
+    } = useFetch("/api/locations");
 
 
+    //TODO: Cambiar
     const submit = () => {
-        alert(`¡Gracias por la reserva!`);//TODO: Cambiar
+        alert(`¡Gracias por la reserva!`);
         reset();
     }
 
@@ -17,169 +25,217 @@ export default function BookingForm() {
     const today = new Date().toISOString().split('T')[0];
     const pickupDateValue = useWatch({
         control,
-        name: "pickupDate"});
+        name: "pickupDate"
+    });
 
-    
+
     if (locationsLoading) return <p>Cargando ciudades</p>
     if (locationsError) return <p>Error al cargar ciudades: {locationsError.message}</p>;
 
     // Access the 'locations' array from the fetched data
     const locations = locationsData?.locations || [];
-    
-    
+
+
     return (
-        <form onSubmit={handleSubmit(submit)}>
-            <label htmlFor="name">Nombre:</label>
-            <input
-                type="text"
-                id="name"
-                {...register("userName", {
-                    required: {
-                        value: true,
-                        message: "Por favor, escribe tu nombre."    
-                    },
-                    minLength: {
-                        value: 2,
-                        message: "El nombre debe tener al menos 2 caracteres."
-                    },
-                    maxLength: {
-                        value: 50,
-                        message: "El nombre no debe exceder los 50 caracteres."
-                    }
-                })} />
+        <form
+            onSubmit={handleSubmit(submit)} className="booking-form">
 
-            {formState.errors.userName ? <p>{formState.errors.userName.message}</p> : null}
-            
+            <div className="booking-form-grid">
+                <div className="form-field">
+                    <label
+                        htmlFor="name"
+                        className="form-label">Nombre:</label>
+                    <input
+                        type="text"
+                        id="name"
+                        className="form-input"
+                        {...register("userName", {
+                            required: {
+                                value: true,
+                                message: "Por favor, escribe tu nombre."
+                            },
+                            minLength: {
+                                value: 2,
+                                message: "El nombre debe tener al menos 2 caracteres."
+                            },
+                            maxLength: {
+                                value: 50,
+                                message: "El nombre no debe exceder los 50 caracteres."
+                            }
+                        })} />
+                    {formState.errors.userName ?
+                        <p className="form-error-message">{formState.errors.userName.message}</p> : null}
+                </div>
+
+                <div className="form-field">
+                    <label
+                        htmlFor="email"
+                        className="form-label">Email:</label>
+                    <input
+                        type="email"
+                        id="email"
+                        className="form-input"
+                        {...register("userEmail", {
+                            required: {
+                                value: true,
+                                message: "Por favor, escribe tu email."
+                            },
+                            pattern: {
+                                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                message: "El formato del email no es válido."
+                            }
+                        })} />
+
+                    {formState.errors.userEmail ?
+                        <p className="form-error-message">{formState.errors.userEmail.message}</p> : null}
+                </div>
+
+                <div className="form-field">
+                    <label
+                        htmlFor="phone"
+                        className="form-label">Teléfono:</label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        className="form-input"
+                        {...register("userPhone", {
+                            required: {
+                                value: true,
+                                message: "Necesitas ingresar un número de teléfono."
+                            },
+                            pattern: {
+                                value: /^\+?\d{9,15}$/,
+                                message: "El teléfono debe contener entre 9 y 15 dígitos"
+                            }
+
+                        })} />
+
+                    {formState.errors.userPhone ?
+                        <p className="form-error-message">{formState.errors.userPhone.message}</p> : null}
+                </div>
+
+                <div className="form-field">
+                    <label
+                        htmlFor="pickup-date"
+                        className="form-label">Fecha recogida:</label>
+                    <input
+                        type="date"
+                        id="pickup-date"
+                        min={today}
+                        className="form-input"
+                        {...register("pickupDate", {
+                            required: {
+                                value: true,
+                                message: "Por favor, elige la fecha de recogida."
+                            },
+                            min: {
+                                value: today,
+                                message: "La fecha de recogida no puede en el pasado."
+                            }
+                        })} />
+
+                    {formState.errors.pickupDate ?
+                        <p className="form-error-message">{formState.errors.pickupDate.message}</p> : null}
+                </div>
 
 
-            <label htmlFor="email">Email:</label>
-            <input
-                type="email"
-                id="email"
-                {...register("userEmail", {
-                    required: {
-                        value: true,
-                        message: "Por favor, escribe tu email." 
-                    },
-                    pattern: {
-                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                        message: "El formato del email no es válido."
-                    }
-                })} />
+                <div className="form-field">
+                    <label
+                        htmlFor="pickupLocation" className="form-label">Ciudad de recogida:</label>
+                    <select
+                        id="pickupLocation"
+                        defaultValue=""
+                        className="form-input"
+                        {...register("pickupLocation", {
+                            required: {
+                                value: true,
+                                message: "Elige la ciudad donde recogerás el vehículo."
+                            }
+                        })}>
 
-            {formState.errors.userEmail ? <p>{formState.errors.userEmail.message}</p> : null}
+                        <option value="" disabled>Selecciona una ciudad</option>
+
+                        {locations.map(location => (
+                            <option
+                                key={location.id}
+                                value={location.name}>{location.name}</option>
+                        ))}
+                    </select>
+
+                    {formState.errors.pickupLocation ?
+                        <p className="form-error-message">{formState.errors.pickupLocation.message}</p> : null}
+                </div>
+
+                <div className="form-field">
+                    <label
+                        htmlFor="return-date"
+                        className="form-label">Fecha entrega:</label>
+                    <input
+                        type="date"
+                        id="return-date"
+                        className="form-input"
+                        min={pickupDateValue || today}
+                        {...register("returnDate", {
+                            required: {
+                                value: true,
+                                message: "Selecciona una fecha de recogida."
+                            }
+                        })} />
+
+                    {formState.errors.returnDate ?
+                        <p className="form-error-message">{formState.errors.returnDate.message}</p> : null}
+                </div>
 
 
-            <label htmlFor="phone">Teléfono:</label>
-            <input
-                type="tel"  
-                id="phone"
-                {...register("userPhone", {
-                    required: {
-                        value: true,
-                        message: "Necesitas ingresar un número de teléfono." 
-                    },
-                    pattern: {
-                        value: /^\+?\d{9,15}$/,
-                        message: "El teléfono debe contener entre 9 y 15 dígitos"
-                    }
-                    
-                 })} />
-            
-            {formState.errors.userPhone ? <p>{formState.errors.userPhone.message}</p> : null}
-            
+                <div className="form-field">
+                    <label
+                        htmlFor="returnLocation" className="form-label">Ciudad de entrega:</label>
+                    <select
+                        id="returnLocation"
+                        defaultValue=""
+                        className="form-input"
+                        {...register("returnLocation", {
+                            required: {
+                                value: true,
+                                message: "Elige la ciudad donde entregarás el vehículo."
+                            }
+                        })}>
 
-            <label htmlFor="pickup-date">Fecha recogida:</label>
-            <input
-                type="date"
-                id="pickup-date"
-                min={today}
-                {...register("pickupDate", {
-                    required: {
-                        value: true, 
-                        message: "Por favor, elige la fecha de recogida."
-                    },
-                    min: {
-                        value: today,
-                        message: "La fecha de recogida no puede en el pasado." 
-                    }
-                })} />
+                        <option value="" disabled>Selecciona una ciudad</option>
+                        {locations.map(location => (
+                            <option
+                                key={location.id}
+                                value={location.name}>{location.name}</option>
+                        ))}
+                    </select>
+                    {formState.errors.returnLocation ?
+                        <p className="form-error-message">{formState.errors.returnLocation.message}</p> : null}
+                </div>
 
-            {formState.errors.pickupDate ? <p>{formState.errors.pickupDate.message}</p> : null}
-            
+                <div className="form-field">
+                    <label
+                        htmlFor="userComments" className="form-label">Comentarios y peticiones:</label>
+                    <textarea
+                        id="userComments"
+                        placeholder="Peticiones especiales, accesibilidad..."
+                        className="form-input"
+                        {...register("userComments", {
+                            maxLength: {
+                                value: 300,
+                                message: "El comentario es demasiado largo, máximo 300 caracteres."
+                            }
+                        })}></textarea>
 
-            <label htmlFor="pickupLocation">Ciudad de recogida:</label>
-            <select
-                id="pickupLocation"
-                defaultValue=""
-                {...register("pickupLocation", {
-                    required: {
-                        value: true,
-                        message: "Elige la ciudad donde recogerás el vehículo."
-                    }  
-                })}>
-                                
-                <option value="" disabled>Selecciona una ciudad</option>
+                    {formState.errors.userComments ?
+                        <p className="form-error-message">{formState.errors.userComments.message}</p> : null}
+                </div>
 
-                {locations.map(location => (
-                    <option
-                        key={location.id}
-                        value={location.name}>{location.name}</option>
-                ))}
-            </select>
-
-            {formState.errors.pickupLocation ? <p>{formState.errors.pickupLocation.message}</p> : null}
-            
-            <label htmlFor="return-date">Fecha entrega:</label>
-            <input
-                type="date"
-                id="return-date"
-                min={pickupDateValue || today}
-                {...register("returnDate", {
-                    required: {
-                        value: true,
-                        message: "Selecciona una fecha de recogida."
-                    }
-                })} />
-
-            {formState.errors.returnDate ? <p>{formState.errors.returnDate.message}</p> : null}
-
-            <label htmlFor="returnLocation">Ciudad de entrega:</label>
-            <select
-                id="returnLocation"
-                defaultValue=""
-                {...register("returnLocation", {
-                    required: {
-                        value: true,
-                        message: "Elige la ciudad donde entregarás el vehículo."
-                    }
-                })}>
-                                
-                <option value="" disabled>Selecciona una ciudad</option>
-                {locations.map(location => (
-                    <option
-                        key={location.id}
-                        value={location.name}>{location.name}</option>
-                ))}
-            </select>
-            {formState.errors.returnLocation ? <p>{formState.errors.returnLocation.message}</p> : null}
-                        
-            <label htmlFor="userComments">Comentarios y peticiones:</label>
-            <textarea
-                id="userComments"
-                placeholder="Peticiones especiales, accesibilidad..."
-                {...register("userComments", {
-                    maxLength: {
-                        value: 300,
-                        message: "El comentario es demasiado largo, máximo 300 caracteres."
-                    }
-                })}></textarea>
-            
-            {formState.errors.userComments ? <p>{formState.errors.userComments.message}</p> : null}
-            
-
-            <button
-                type="submit">Envía formulario</button>
+                <div className="booking-form-actions">
+                    <button
+                        type="submit"
+                        className="cta-button-large">Envía formulario</button>
+                </div>
+            </div>
 
         </form>
     )

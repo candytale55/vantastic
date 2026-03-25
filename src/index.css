@@ -623,7 +623,6 @@
   }
 
   /* Spec value - bold, right-aligned on tablet+ */
-  /* Spec value - bold, right-aligned on tablet+ */
   .specs-value {
     @apply text-base font-semibold md:text-right;
   }
@@ -693,5 +692,64 @@
   /* Empty state message when no reviews exist */
   .no-ratings-message {
     @apply pt-2 text-sm italic opacity-75 md:text-base;
+  }
+
+  /* ========== BOOKING FORM COMPONENTS ========== */
+
+  /* Form wrapper - vertical stack with consistent gap between fields */
+  .booking-form {
+    @apply flex flex-col gap-6;
+  }
+
+  /* Form fields grid - single column mobile, 2 columns tablet+ */
+  .booking-form-grid {
+    @apply grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6;
+  }
+
+  /* Individual form field wrapper - label + input stacked */
+  .form-field {
+    @apply flex flex-col gap-2;
+  }
+
+  /* Form label - small bold text above input */
+  .form-label {
+    @apply text-sm font-semibold;
+  }
+
+  /* Base input styles - rounded, bordered with focus ring */
+  .form-input {
+    @apply w-full rounded-xl border bg-white px-4 py-3 text-base shadow-sm transition;
+    @apply placeholder:text-black/40;
+    @apply focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200;
+  }
+
+  /* Select dropdown - removes native browser arrow */
+  .form-select {
+    @apply appearance-none;
+  }
+
+  /* Textarea field - minimum height with vertical resize allowed */
+  .form-textarea {
+    @apply min-h-32 resize-y;
+  }
+
+  /* Field validation error message - red text below input */
+  .form-error-message {
+    @apply text-sm text-red-600;
+  }
+
+  /* General form status message - subtle feedback text */
+  .form-status-message {
+    @apply text-sm opacity-80;
+  }
+
+  /* Error variant for form status - red for failures */
+  .form-status-error {
+    @apply text-red-600;
+  }
+
+  /* Form submit/action buttons row - stacked mobile, inline tablet+ */
+  .booking-form-actions {
+    @apply flex flex-col gap-3 pt-2 md:flex-row md:items-center;
   }
 }
