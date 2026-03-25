@@ -4,14 +4,19 @@
 
 @theme {
 
+  /* Color Palette */
   --color-retro-pink: #FF69B4;
   --color-retro-yellow: #FFDB58;
   --color-retro-teal: #008080;
   --color-retro-cream: #F5F2ED;
   --color-retro-ink: #1A1A1A;
 
+
   --bg-color-light: var(--color-retro-cream);
+  --bg-color-dark: var(--color-retro-ink);
   --text-color: var(--color-retro-ink);
+  --text-color-light: var(--color-retro-cream);
+  --logo-color: var(--color-retro-ink);
   --heading-color: var(--color-retro-ink);
 
 
@@ -52,9 +57,7 @@
      Ensures body always fills at least the full viewport height,
      preventing footer from floating mid-page on short content */
   body {
-    @apply min-h-screen;
-    background-color: var(--bg-color-light);
-    color: var(--text-color);
+    @apply min-h-screen text-(--text-color) bg-(--bg-color-light);
   }
 
   /* ========== BASE TYPOGRAPHY ========== */
@@ -81,6 +84,10 @@
   /* Lists: override centered text from parent, align left for readability */
   ul, ol {
     text-align: right;
+  }
+
+  p {
+    @apply font-(--font-serif);
   }
 }
 
@@ -118,8 +125,7 @@
      leading-none → line-height: 1 (tight, no extra space)
      md:text-3xl → 768px+: font-size: 1.875rem (30px) */
   .brand-logo {
-    @apply text-2xl font-extrabold leading-none md:text-3xl;
-    color: var(--heading-color);
+    @apply font-extrabold leading-none lg:text-6xl md:text-3xl text-(--logo-color) uppercase italic;
   }
 
   /* Navigation wrapper
@@ -198,6 +204,66 @@
      hover:bg-sky-700 → darker blue on hover */
   .cta-button {
     @apply rounded-xl px-4 py-2 bg-sky-600 text-mauve-100  hover:bg-sky-700;
+  }
+
+    /* ========== FOOTER SECTION ========== */
+
+  .main-footer {
+    @apply bg-[var(--bg-color-dark)] text-[var(--text-color-light)] py-20 px-6;
+  }
+
+  /* Footer grid layout
+     grid → display: grid
+     gap-8 → gap: 2rem (32px)
+     items-start → align items to top
+     md:grid-cols-2 → 768px+: 2 columns
+     lg:grid-cols-[1.2fr_1fr_1fr] → 1024px+: 3 cols (about wider, nav/legal equal) */
+  .footer-inner {
+    @apply grid gap-8 items-start;
+    @apply md:grid-cols-2;
+    @apply lg:grid-cols-[1.2fr_1fr_1fr];
+  }
+
+  /* Footer about/brand column
+     flex flex-col → vertical flex
+     gap-3 → gap: 0.75rem (12px) */
+  .footer-about {
+    @apply flex flex-col gap-3 text-[var(--text-color-light)] opacity-80;
+  }
+
+  .footer-text {
+    @apply text-xl/8 text-(--text-color-light) opacity-80 py-4 ;
+  }
+
+  .footer-subtitle {
+    @apply text-lg font-semibold text-(--text-color-light) opacity-80 text-right;
+  }
+
+.footer-logo {
+    @apply text-5xl text-(--text-color-light) opacity-80 uppercase italic text-left;
+  }
+
+.footer-copy {
+    @apply text-(--text-color-light) opacity-80 py-2 uppercase italic;
+  }
+
+
+
+
+  /* Footer navigation and legal columns
+     flex flex-col → vertical flex
+     gap-3 → gap: 0.75rem (12px) */
+  .footer-nav,
+  .footer-legal {
+    @apply flex flex-col gap-3;
+  }
+
+  /* Footer link lists
+     flex flex-col → vertical flex
+     gap-2 → gap: 0.5rem (8px) */
+  .footer-nav ul,
+  .footer-legal ul {
+    @apply flex flex-col gap-2;
   }
 
   /* ========== HOME HERO SECTION ========== */
@@ -691,42 +757,7 @@
     @apply h-64 w-full rounded-2xl object-cover shadow-md md:h-80 lg:h-[28rem];
   }
 
-  /* ========== FOOTER SECTION ========== */
 
-  /* Footer grid layout
-     grid → display: grid
-     gap-8 → gap: 2rem (32px)
-     items-start → align items to top
-     md:grid-cols-2 → 768px+: 2 columns
-     lg:grid-cols-[1.2fr_1fr_1fr] → 1024px+: 3 cols (about wider, nav/legal equal) */
-  .footer-inner {
-    @apply grid gap-8 items-start;
-    @apply md:grid-cols-2;
-    @apply lg:grid-cols-[1.2fr_1fr_1fr];
-  }
-
-  /* Footer about/brand column
-     flex flex-col → vertical flex
-     gap-3 → gap: 0.75rem (12px) */
-  .footer-about {
-    @apply flex flex-col gap-3;
-  }
-
-  /* Footer navigation and legal columns
-     flex flex-col → vertical flex
-     gap-3 → gap: 0.75rem (12px) */
-  .footer-nav,
-  .footer-legal {
-    @apply flex flex-col gap-3;
-  }
-
-  /* Footer link lists
-     flex flex-col → vertical flex
-     gap-2 → gap: 0.5rem (8px) */
-  .footer-nav ul,
-  .footer-legal ul {
-    @apply flex flex-col gap-2;
-  }
 
   /* ========== VANS LISTING PAGE ========== */
 

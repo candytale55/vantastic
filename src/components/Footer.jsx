@@ -9,15 +9,15 @@ export default function Footer() {
       <div className="footer-inner section-shell">
 
         <section className="footer-about">
-          <h2 className="section-title">Vantastic!</h2>
-          <p>Crecimos en una furgoneta. Abrimos esto para que tú puedas sentir lo mismo.</p>
+          <h2 className="footer-logo">Vantastic!</h2>
+          <p className="footer-text">La historia de Vantastic! no es la de una empresa. Es la de dos familias que llevan la carretera en la sangre desde los años 60. No abrimos esto para hacer negocio. Lo abrimos porque no sabíamos vivir de otra manera.</p>
         </section>
 
         
         <nav
           className="footer-nav"
           id="footer-nav">
-          <h3>Enlaces rápidos:</h3>
+          <h3 className="footer-subtitle">Enlaces rápidos</h3>
           <ul>
             <li><a href="#footer-nav">Nuestra historia</a></li>
             <li><a href="#footer-nav">Vans</a></li>
@@ -31,7 +31,7 @@ export default function Footer() {
         <nav
           className="footer-legal"
           id="footer-legal">
-          <h3>Legal</h3>
+          <h3 className="footer-subtitle">Legal</h3>
           <ul>
             <li><a href="#footer-legal">Aviso Legal</a></li>
             <li><a href="#footer-legal">Política de Privacidad</a></li>
