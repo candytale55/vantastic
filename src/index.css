@@ -595,4 +595,35 @@
     @apply text-2xl font-bold leading-tight md:text-3xl;
   }
 
+  /* ========== VAN SPECS/FEATURES SECTION ========== */
+
+  /* Specs section container - vertical stack */
+  .van-specs-section {
+    @apply flex flex-col gap-5;
+  }
+
+  /* Specs section heading */
+  .specs-title {
+    @apply text-xl font-semibold md:text-2xl;
+  }
+
+  /* Specs list - vertical with dividers, card-like appearance */
+  .specs-list {
+    @apply flex flex-col divide-y rounded-2xl border bg-white/70 shadow-sm;
+  }
+
+  /* Individual spec row - stacked mobile, 2-column tablet+ */
+  .specs-item {
+    @apply grid grid-cols-1 gap-1 px-4 py-3 md:grid-cols-2 md:items-center md:px-5 md:py-4;
+  }
+
+  /* Spec label - faded text for hierarchy */
+  .specs-label {
+    @apply text-sm font-medium opacity-70;
+  }
+
+  /* Spec value - bold, right-aligned on tablet+ */
+  .specs-value {
+    @apply text-base font-semibold md:text-right;
+  }
 }
