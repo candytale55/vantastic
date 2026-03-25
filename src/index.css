@@ -1,18 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,900;1,900&display=swap');
 @import "tailwindcss";
 
 
 @theme {
-  --bg-color-light: var(--color-mauve-100);
-  --text-color: var(--color-mauve-700);
-  --heading-color: var(--color-mauve-900);
+
+  --color-retro-pink: #FF69B4;
+  --color-retro-yellow: #FFDB58;
+  --color-retro-teal: #008080;
+  --color-retro-cream: #F5F2ED;
+  --color-retro-ink: #1A1A1A;
+
+  --bg-color-light: var(--color-retro-cream);
+  --text-color: var(--color-retro-ink);
+  --heading-color: var(--color-retro-ink);
+
 
   --link-color: var(--color-sky-700);
   --link-color-hover: var(--color-amber-500);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Libre Baskerville", serif;
+  --font-display: "Playfair Display", serif;
+  --font-draft: system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+
 }
 
 @layer base {
-  /* Global Resets */
-  *,
+  /* ========== GLOBAL RESETS ========== */
+    *,
   *::before, 
   *::after{
     box-sizing: border-box;
@@ -20,25 +36,38 @@
     padding: 0;
   }
 
+  /* ========== ROOT HTML SETTINGS ========== */
+  /* Sets base typography: Libre Baskerville serif font, 
+     1.5 line-height for readability, normal weight,
+     smooth anchor scrolling for in-page navigation */
   html {
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: var(--font-serif);
     line-height: 1.5;
     font-weight: 400;
     scroll-behavior: smooth;
   }
 
+  /* ========== BODY DEFAULTS ========== */
+  /* @apply min-h-screen → min-height: 100vh 
+     Ensures body always fills at least the full viewport height,
+     preventing footer from floating mid-page on short content */
   body {
     @apply min-h-screen;
     background-color: var(--bg-color-light);
     color: var(--text-color);
   }
 
-  /* Base Typography */
+  /* ========== BASE TYPOGRAPHY ========== */
+  /* All headings use Playfair Display (display font) for visual impact,
+     dark ink color, centered by default (override with utility classes) */
   h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
     color: var(--heading-color);
     text-align: center;
   }
 
+  /* Links: sky blue, no underline, bold weight,
+     smooth 300ms color transition on hover to amber */
   a {
     color: var(--link-color);
     text-decoration: none;
@@ -49,8 +78,9 @@
     color: var(--link-color-hover);
   }
 
+  /* Lists: override centered text from parent, align left for readability */
   ul, ol {
-    text-align: left;
+    text-align: right;
   }
 }
 
@@ -58,344 +88,641 @@
 
   /* ========== HEADER ========== */
 
-/* Main header container */
-.main-header {
-  @apply mx-4 mt-4 flex shrink-0 items-center justify-between rounded-2xl px-4 py-4;
-  @apply md:mx-6 md:px-6;
-  @apply lg:mx-8 lg:px-8;
-}
+  /* Main header container
+     mx-4 → margin-left/right: 1rem (16px)
+     mt-4 → margin-top: 1rem (16px)
+     flex → display: flex
+     shrink-0 → flex-shrink: 0 (prevents header from shrinking)
+     items-center → align-items: center (vertical centering)
+     justify-between → justify-content: space-between (logo left, nav right)
+     rounded-2xl → border-radius: 1rem (16px)
+     px-4 py-4 → padding: 1rem horizontal/vertical
+     md: breakpoint → 768px+
+     lg: breakpoint → 1024px+ */
+  .main-header {
+    @apply mx-4 mt-4 flex shrink-0 items-center justify-between rounded-2xl px-4 py-4;
+    @apply md:mx-6 md:px-6;
+    @apply lg:mx-8 lg:px-8;
+  }
 
-/* Brand link wrapper */
-.brand-link {
-  @apply inline-flex items-center;
-}
+  /* Brand link wrapper
+     inline-flex → display: inline-flex (inline but flexbox)
+     items-center → align-items: center (vertically center logo/text) */
+  .brand-link {
+    @apply inline-flex items-center;
+  }
 
-/* Main site logo/title */
-.brand-logo {
-  @apply text-2xl font-extrabold leading-none md:text-3xl;
-  color: var(--heading-color);
-}
+  /* Main site logo/title
+     text-2xl → font-size: 1.5rem (24px)
+     font-extrabold → font-weight: 800
+     leading-none → line-height: 1 (tight, no extra space)
+     md:text-3xl → 768px+: font-size: 1.875rem (30px) */
+  .brand-logo {
+    @apply text-2xl font-extrabold leading-none md:text-3xl;
+    color: var(--heading-color);
+  }
 
-/* Navigation wrapper */
-.primary-nav {
-  @apply flex items-center gap-3;
-}
+  /* Navigation wrapper
+     flex → display: flex
+     items-center → align-items: center
+     gap-3 → gap: 0.75rem (12px) between nav items */
+  .primary-nav {
+    @apply flex items-center gap-3;
+  }
 
-/* Header CTA link */
-.header-cta {
-  @apply inline-flex items-center justify-center rounded-xl bg-sky-600 px-4 py-2 text-sm font-semibold text-white transition;
-  @apply hover:bg-sky-700;
-  @apply md:px-5 md:py-3 md:text-base;
-}
+  /* Header CTA link
+     inline-flex → display: inline-flex
+     items-center justify-center → center content both axes
+     rounded-xl → border-radius: 0.75rem (12px)
+     bg-sky-600 → background: #0284c7 (sky blue)
+     px-4 py-2 → padding: 0.5rem vertical, 1rem horizontal
+     text-sm → font-size: 0.875rem (14px)
+     font-semibold → font-weight: 600
+     text-white → color: white
+     transition → smooth transitions for all properties
+     hover:bg-sky-700 → darker blue on hover (#0369a1) */
+  .header-cta {
+    @apply inline-flex items-center justify-center rounded-xl bg-sky-600 px-4 py-2 text-sm font-semibold text-white transition;
+    @apply hover:bg-sky-700;
+    @apply md:px-5 md:py-3 md:text-base;
+  }
 
-  /* Full-page layout wrapper - flexbox column that fills viewport height */
+  /* Full-page layout wrapper
+     flex → display: flex
+     flex-col → flex-direction: column (stacks header/main/footer vertically)
+     min-h-screen → min-height: 100vh (at least full viewport height) */
   .page-shell {
     @apply flex flex-col min-h-screen;
   }
 
-  /* Take all remaining vertical space inside a flex column */
+  /* Take all remaining vertical space inside a flex column
+     grow → flex-grow: 1 (expands to fill available space, pushes footer down) */
   .page-main {
     @apply grow;
   }
 
 
-  /* Reusable section container - 
-    - centers content, max-width 1280px, 
-    - responsive horizontal padding */
+  /* Reusable section container
+     mx-auto → margin-left/right: auto (horizontally centers)
+     w-full → width: 100%
+     max-w-7xl → max-width: 80rem (1280px)
+     px-4 → padding-left/right: 1rem (16px)
+     py-8 → padding-top/bottom: 2rem (32px)
+     md:px-6 → 768px+: padding-x: 1.5rem (24px)
+     lg:px-8 → 1024px+: padding-x: 2rem (32px) */
   .section-shell {
     @apply mx-auto w-full max-w-7xl px-4 py-8 md:px-6 lg:px-8;
   }
 
 
-  /* Navigation link base styles - medium weight with smooth color transitions */
+  /* Navigation link base styles
+     text-sky-600 → color: #0284c7 (sky blue)
+     font-medium → font-weight: 500
+     transition-colors → smooth color transitions (150ms default) */
   .navlink {
     @apply text-sky-600 font-medium transition-colors;
   }
 
-  /* Active navigation link state - highlighted background with bold text */
+  /* Active navigation link state
+     bg-sky-700 → background: #0369a1 (darker sky blue)
+     font-semibold → font-weight: 600 */
   .navlink-active {
     @apply bg-sky-700 font-semibold;
   }
 
-  /* Primary call-to-action button - rounded, sky blue with hover darkening */
+  /* Primary call-to-action button
+     rounded-xl → border-radius: 0.75rem (12px)
+     px-4 py-2 → padding: 0.5rem vertical, 1rem horizontal
+     bg-sky-600 → background: #0284c7
+     text-mauve-100 → light mauve text color
+     hover:bg-sky-700 → darker blue on hover */
   .cta-button {
     @apply rounded-xl px-4 py-2 bg-sky-600 text-mauve-100  hover:bg-sky-700;
   }
 
   /* ========== HOME HERO SECTION ========== */
   
-  /* Hero section grid - stacks vertically on mobile, side-by-side on desktop */
+  /* Hero section grid
+     grid → display: grid
+     gap-8 → gap: 2rem (32px) between grid items
+     py-8 → padding-top/bottom: 2rem
+     md:py-12 → 768px+: padding-y: 3rem (48px)
+     lg:grid-cols-2 → 1024px+: 2 equal columns
+     lg:items-center → 1024px+: vertically center items
+     lg:gap-12 → 1024px+: gap: 3rem (48px) */
   .home-hero {
     @apply grid gap-8 py-8 md:py-12 lg:grid-cols-2 lg:items-center lg:gap-12;
   }
 
-  /* Hero image container - appears first (top/left) in visual order */
+  /* Hero image container
+     order-1 → order: 1 (appears first in DOM order) */
   .hero-media {
     @apply order-1;
   }
 
-  /* Hero image - responsive heights, rounded corners with shadow */
+  /* Hero image
+     h-64 → height: 16rem (256px)
+     w-full → width: 100%
+     rounded-2xl → border-radius: 1rem (16px)
+     object-cover → object-fit: cover (crop to fill, maintain aspect ratio)
+     shadow-md → medium box-shadow
+     md:h-80 → 768px+: height: 20rem (320px)
+     lg:h-[28rem] → 1024px+: height: 28rem (448px) */
   .hero-image {
     @apply h-64 w-full rounded-2xl object-cover shadow-md md:h-80 lg:h-[28rem];
   }
 
-  /* Hero text content wrapper - stacked with consistent spacing */
+  /* Hero text content wrapper
+     order-2 → order: 2 (appears after image)
+     flex flex-col → vertical flex container
+     gap-5 → gap: 1.25rem (20px) between children */
   .hero-content {
     @apply order-2 flex flex-col gap-5;
   }
 
-  /* Hero main headline - responsive font scaling from 3xl to 5xl */
+  /* Hero main headline
+     text-3xl → font-size: 1.875rem (30px)
+     font-bold → font-weight: 700
+     leading-tight → line-height: 1.25 (compact line spacing)
+     md:text-4xl → 768px+: font-size: 2.25rem (36px)
+     lg:text-5xl → 1024px+: font-size: 3rem (48px) */
   .hero-title {
     @apply text-3xl font-bold leading-tight md:text-4xl lg:text-5xl;
   }
 
-  /* Supporting text below headlines - constrained width for readability */
+  /* Supporting text below headlines
+     max-w-xl → max-width: 36rem (576px) for readable line length
+     text-base → font-size: 1rem (16px)
+     leading-7 → line-height: 1.75rem (comfortable reading)
+     md:text-lg → 768px+: font-size: 1.125rem (18px) */
   .subheadline {
     @apply max-w-xl text-base leading-7 md:text-lg;
   }
 
-  /* Subtle italic tagline or signature text */
+  /* Subtle italic tagline or signature text
+     text-sm → font-size: 0.875rem (14px)
+     italic → font-style: italic
+     opacity-80 → opacity: 0.8 (slightly faded)
+     md:text-base → 768px+: font-size: 1rem (16px) */
   .brand-signature {
     @apply text-sm italic opacity-80 md:text-base;
   }
 
   /* ========== THREE IDEAS/REASONS SECTION ========== */
 
-  /* Section wrapper with vertical padding */
+  /* Section wrapper
+     py-10 → padding-top/bottom: 2.5rem (40px)
+     md:py-14 → 768px+: padding-y: 3.5rem (56px) */
   .home-three-ideas {
     @apply py-10 md:py-14;
   }
 
-  /* Section heading - bold, responsive sizing, bottom margin for spacing */
+  /* Section heading
+     mb-8 → margin-bottom: 2rem (32px)
+     max-w-3xl → max-width: 48rem (768px)
+     text-2xl → font-size: 1.5rem (24px)
+     font-bold → font-weight: 700
+     leading-tight → line-height: 1.25
+     md:text-3xl → 768px+: font-size: 1.875rem (30px)
+     lg:text-4xl → 1024px+: font-size: 2.25rem (36px) */
   .section-title {
     @apply mb-8 max-w-3xl text-2xl font-bold leading-tight md:text-3xl lg:text-4xl;
   }
 
-  /* Grid for idea cards - 1 col mobile → 2 cols tablet → 3 cols desktop */
+  /* Grid for idea cards
+     grid → display: grid
+     gap-6 → gap: 1.5rem (24px)
+     md:grid-cols-2 → 768px+: 2 columns
+     lg:grid-cols-3 → 1024px+: 3 columns */
   .ideas-grid {
     @apply grid gap-6 md:grid-cols-2 lg:grid-cols-3;
   }
 
-  /* Individual idea card - bordered box with hover lift effect */
+  /* Individual idea card
+     flex flex-col → vertical flex container
+     justify-center items-center → center content both axes
+     gap-4 → gap: 1rem (16px)
+     rounded-2xl → border-radius: 1rem (16px)
+     border → 1px solid border (uses default border color)
+     p-6 → padding: 1.5rem (24px)
+     shadow-sm → small box-shadow
+     transition → smooth transitions
+     hover:shadow-md → medium shadow on hover (lift effect) */
   .idea-card {
     @apply flex flex-col justify-center items-center gap-4 rounded-2xl border p-6 shadow-sm transition hover:shadow-md;
   }
 
-  /* Icon inside idea card - sized and colored */
+  /* Icon inside idea card
+     h-8 w-8 → height/width: 2rem (32px)
+     text-sky-600 → color: #0284c7 (sky blue, for SVG fill) */
   .idea-icon {
     @apply h-8 w-8 text-sky-600;
   }
 
-  /* Idea card heading */
+  /* Idea card heading
+     text-lg → font-size: 1.125rem (18px)
+     font-semibold → font-weight: 600
+     md:text-xl → 768px+: font-size: 1.25rem (20px) */
   .idea-card h3 {
     @apply text-lg font-semibold md:text-xl;
   }
 
-  /* Idea card description text - slightly faded for hierarchy */
+  /* Idea card description text
+     text-sm → font-size: 0.875rem (14px)
+     leading-6 → line-height: 1.5rem (24px)
+     opacity-80 → opacity: 0.8 (subtle visual hierarchy)
+     md:text-base → 768px+: font-size: 1rem (16px) */
   .idea-card p {
     @apply text-sm leading-6 opacity-80 md:text-base;
   }
 
   /* ========== FLEET PREVIEW SECTION ========== */
 
-  /* Fleet preview section layout - vertical stack with responsive spacing */
+  /* Fleet preview section layout
+     flex flex-col → vertical flex container
+     gap-6 → gap: 1.5rem (24px)
+     py-10 → padding-y: 2.5rem (40px)
+     md:gap-8 → 768px+: gap: 2rem (32px)
+     md:py-14 → 768px+: padding-y: 3.5rem (56px) */
   .home-fleet-preview {
     @apply flex flex-col gap-6 py-10 md:gap-8 md:py-14;
   }
 
-  /* Section subtitle - secondary text with reduced opacity */
+  /* Section subtitle
+     max-w-2xl → max-width: 42rem (672px)
+     text-base → font-size: 1rem (16px)
+     leading-7 → line-height: 1.75rem
+     opacity-80 → opacity: 0.8 (secondary visual weight)
+     md:text-lg → 768px+: font-size: 1.125rem (18px) */
   .section-subtitle {
     @apply max-w-2xl text-base leading-7 opacity-80 md:text-lg;
   }
 
-  /* Grid for fleet type cards - 1 col → 2 cols → 3 cols responsive */
+  /* Grid for fleet type cards
+     grid → display: grid
+     gap-6 → gap: 1.5rem (24px)
+     md:grid-cols-2 → 768px+: 2 columns
+     lg:grid-cols-3 → 1024px+: 3 columns */
   .fleet-type-cards-grid {
     @apply grid gap-6 md:grid-cols-2 lg:grid-cols-3;
   }
 
-  /* Fleet type card - full-height flex column with hover lift animation */
+  /* Fleet type card
+     flex h-full flex-col → full-height vertical flex (for equal card heights)
+     overflow-hidden → clips child content (for rounded image corners)
+     rounded-2xl → border-radius: 1rem (16px)
+     border → 1px solid border
+     bg-white/80 → white with 80% opacity (frosted glass effect)
+     shadow-sm → small box-shadow
+     transition → enables smooth animations
+     hover:-translate-y-1 → moves up 4px on hover (lift effect)
+     hover:shadow-lg → larger shadow on hover */
   .fleet-type-card {
     @apply flex h-full flex-col overflow-hidden rounded-2xl border bg-white/80 shadow-sm transition hover:-translate-y-1 hover:shadow-lg;
   }
 
-  /* Card image - fixed height, crops to cover container */
+  /* Card image
+     h-52 → height: 13rem (208px)
+     w-full → width: 100%
+     object-cover → crops image to fill container
+     md:h-56 → 768px+: height: 14rem (224px) */
   .card-image {
     @apply h-52 w-full object-cover md:h-56;
   }
 
-  /* Card heading inside fleet-type-card */
+  /* Card heading inside fleet-type-card
+     px-5 pt-5 → padding: 1.25rem left/right, 1.25rem top
+     text-xl → font-size: 1.25rem (20px)
+     font-semibold → font-weight: 600
+     md:px-6 md:pt-6 → 768px+: padding: 1.5rem (24px) */
   .fleet-type-card h3 {
     @apply px-5 pt-5 text-xl font-semibold md:px-6 md:pt-6;
   }
 
-  /* Card description inside fleet-type-card */
+  /* Card description inside fleet-type-card
+     px-5 pt-3 → padding: 1.25rem horizontal, 0.75rem top
+     text-sm → font-size: 0.875rem (14px)
+     leading-6 → line-height: 1.5rem
+     opacity-80 → subtle hierarchy
+     md:px-6 → 768px+: horizontal padding: 1.5rem
+     md:text-base → 768px+: font-size: 1rem (16px) */
   .fleet-type-card p {
     @apply px-5 pt-3 text-sm leading-6 opacity-80 md:px-6 md:text-base;
   }
 
-  /* Card CTA link - pushed to bottom with mt-auto */
+  /* Card CTA link - pushed to bottom
+     mt-auto → margin-top: auto (pushes to bottom of flex container)
+     px-5 pb-5 pt-5 → consistent padding around link
+     font-semibold → font-weight: 600
+     md:px-6 md:pb-6 → 768px+: larger padding */
   .fleet-type-card .cta-link-small {
     @apply mt-auto px-5 pb-5 pt-5 font-semibold md:px-6 md:pb-6;
   }
 
-  /* Footer area below fleet cards grid */
+  /* Footer area below fleet cards grid
+     pt-2 → padding-top: 0.5rem (8px)
+     md:pt-4 → 768px+: padding-top: 1rem (16px) */
   .fleet-preview-footer {
     @apply pt-2 md:pt-4;
   }
 
-  /* Large CTA button - full-width mobile, auto-width tablet+ (sky blue) */
+  /* Large CTA button
+     inline-flex → inline flex container
+     w-full → width: 100% (full-width on mobile)
+     items-center justify-center → center button text
+     rounded-xl → border-radius: 0.75rem (12px)
+     bg-sky-600 → background: #0284c7
+     px-6 py-3 → padding: 0.75rem vertical, 1.5rem horizontal
+     text-base → font-size: 1rem (16px)
+     font-semibold → font-weight: 600
+     text-white → color: white
+     transition → smooth transitions
+     hover:bg-sky-700 → darker on hover
+     md:w-fit → 768px+: auto-width (shrink to content) */
   .cta-button-large {
     @apply inline-flex w-full items-center justify-center rounded-xl bg-sky-600 px-6 py-3 text-base font-semibold text-white transition hover:bg-sky-700 md:w-fit;
   }
 
-  /* Small inline CTA link - text-based with hover color change (no background) */
+  /* Small inline CTA link (no background)
+     inline-flex items-center → inline flex with centered content
+     text-sm → font-size: 0.875rem (14px)
+     font-semibold → font-weight: 600
+     transition-colors → smooth color transition
+     hover:text-sky-600 → sky blue on hover
+     md:text-base → 768px+: font-size: 1rem (16px) */
   .cta-link-small {
     @apply inline-flex items-center text-sm font-semibold transition-colors hover:text-sky-600 md:text-base;
   }
 
   /* ========== NEWSLETTER SIGNUP SECTION ========== */
 
-  /* Newsletter section container - rounded card with subtle background */
+  /* Newsletter section container
+     flex flex-col → vertical flex container
+     gap-5 → gap: 1.25rem (20px)
+     rounded-2xl → border-radius: 1rem (16px)
+     border → 1px solid border
+     bg-white/70 → white with 70% opacity (frosted glass)
+     py-10 → padding-y: 2.5rem (40px)
+     shadow-sm → small box-shadow
+     md:gap-6 → 768px+: gap: 1.5rem (24px)
+     md:py-12 → 768px+: padding-y: 3rem (48px) */
   .home-newsletter-signup {
     @apply flex flex-col gap-5 rounded-2xl border bg-white/70 py-10 shadow-sm md:gap-6 md:py-12;
   }
 
-  /* Newsletter form layout - stacked on mobile, inline on tablet+ */
+  /* Newsletter form layout
+     flex flex-col → vertical stack on mobile
+     gap-3 → gap: 0.75rem (12px)
+     md:max-w-xl → 768px+: max-width: 36rem (576px)
+     md:flex-row → 768px+: horizontal layout (input + button inline) */
   .newsletter-form {
     @apply flex flex-col gap-3 md:max-w-xl md:flex-row;
   }
 
-  /* Email input field - full width with focus ring styling */
+  /* Email input field
+     w-full → width: 100%
+     rounded-xl → border-radius: 0.75rem (12px)
+     border → 1px solid border
+     bg-white → white background
+     px-4 py-3 → padding: 0.75rem vertical, 1rem horizontal
+     text-base → font-size: 1rem (16px)
+     outline-none → removes default focus outline
+     transition → smooth transitions
+     placeholder:text-black/40 → placeholder text at 40% opacity
+     focus:border-sky-500 → sky blue border on focus
+     focus:ring-2 focus:ring-sky-200 → light sky blue focus ring */
   .newsletter-input {
     @apply w-full rounded-xl border bg-white px-4 py-3 text-base outline-none transition;
     @apply placeholder:text-black/40 focus:border-sky-500 focus:ring-2 focus:ring-sky-200;
   }
 
-  /* Newsletter submit button - compact CTA variant */
+  /* Newsletter submit button (compact CTA variant)
+     inline-flex items-center justify-center → centered inline flex
+     rounded-xl → border-radius: 0.75rem (12px)
+     bg-sky-600 → background: #0284c7
+     px-5 py-3 → padding: 0.75rem vertical, 1.25rem horizontal
+     text-sm → font-size: 0.875rem (14px)
+     font-semibold → font-weight: 600
+     text-white → color: white
+     transition → smooth transitions
+     hover:bg-sky-700 → darker on hover
+     md:w-fit md:text-base → 768px+: auto-width, 16px font */
   .cta-button-small {
     @apply inline-flex items-center justify-center rounded-xl bg-sky-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sky-700 md:w-fit md:text-base;
   }
 
-  /* Teaser text for upcoming newsletter content */
+  /* Teaser text for upcoming newsletter content
+     text-sm → font-size: 0.875rem (14px)
+     leading-6 → line-height: 1.5rem
+     opacity-80 → subtle visual hierarchy
+     md:max-w-2xl → 768px+: max-width: 42rem (672px)
+     md:text-base → 768px+: font-size: 1rem (16px) */
   .next-issue-hook {
     @apply text-sm leading-6 opacity-80 md:max-w-2xl md:text-base;
   }
 
   /* ========== TESTIMONIALS & SOCIAL SECTION ========== */
  
-  /* Section wrapper with vertical padding */
+  /* Section wrapper
+     py-10 → padding-y: 2.5rem (40px)
+     md:py-14 → 768px+: padding-y: 3.5rem (56px) */
   .home-testimonials-social {
     @apply py-10 md:py-14;
   }
 
-  /* Main layout - stacked mobile, 2-column grid on desktop (testimonials wider) */
+  /* Main layout
+     flex flex-col → vertical stack on mobile
+     gap-8 → gap: 2rem (32px)
+     lg:grid → 1024px+: switch to grid
+     lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] → 2 cols, left 60% / right 40%
+     lg:items-start → align items to top
+     lg:gap-10 → gap: 2.5rem (40px) */
   .testimonials-social-layout {
     @apply flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-start lg:gap-10;
   }
 
-  /* Left column container for testimonials */
+  /* Left column container for testimonials
+     flex flex-col → vertical flex
+     gap-6 → gap: 1.5rem (24px) */
   .testimonials-column {
     @apply flex flex-col gap-6;
   }
 
-  /* Grid for testimonial cards - 1 col mobile, 2 cols tablet+ */
+  /* Grid for testimonial cards
+     grid → display: grid
+     gap-6 → gap: 1.5rem (24px)
+     md:grid-cols-2 → 768px+: 2 columns */
   .testimonials-grid {
     @apply grid gap-6 md:grid-cols-2;
   }
 
-  /* Individual testimonial card - full height with internal spacing */
+  /* Individual testimonial card
+     flex h-full flex-col → full-height vertical flex
+     gap-5 → gap: 1.25rem (20px)
+     rounded-2xl → border-radius: 1rem (16px)
+     border → 1px solid border
+     bg-white/80 → white 80% opacity
+     p-6 → padding: 1.5rem (24px)
+     shadow-sm → small box-shadow */
   .testimonial-card {
     @apply flex h-full flex-col gap-5 rounded-2xl border bg-white/80 p-6 shadow-sm;
   }
 
-  /* Testimonial quote text */
+  /* Testimonial quote text
+     text-sm → font-size: 0.875rem (14px)
+     leading-7 → line-height: 1.75rem (generous for readability)
+     md:text-base → 768px+: font-size: 1rem (16px) */
   .testimonial-card p {
     @apply text-sm leading-7 md:text-base;
   }
 
-  /* Footer inside testimonial card - pushed to bottom */
+  /* Footer inside testimonial card
+     mt-auto → margin-top: auto (pushes to bottom)
+     flex flex-col → vertical flex
+     gap-1 → gap: 0.25rem (4px)
+     pt-2 → padding-top: 0.5rem (8px) */
   .testimonial-footer {
     @apply mt-auto flex flex-col gap-1 pt-2;
   }
 
-  /* Testimonial author name */
+  /* Testimonial author name
+     font-semibold → font-weight: 600 */
   .author-name {
     @apply font-semibold;
   }
 
-  /* Testimonial author location - subtle text */
+  /* Testimonial author location
+     text-sm → font-size: 0.875rem (14px)
+     opacity-70 → opacity: 0.7 (subtle secondary text) */
   .author-location {
     @apply text-sm opacity-70;
   }
 
-  /* Right column - social proof preview card */
+  /* Right column - social proof preview card
+     flex flex-col → vertical flex
+     gap-4 → gap: 1rem (16px)
+     rounded-2xl → border-radius: 1rem (16px)
+     border → 1px solid border
+     bg-white/70 → white 70% opacity
+     p-5 → padding: 1.25rem (20px)
+     shadow-sm → small box-shadow
+     md:p-6 → 768px+: padding: 1.5rem (24px) */
   .social-preview {
     @apply flex flex-col gap-4 rounded-2xl border bg-white/70 p-5 shadow-sm md:p-6;
   }
 
-  /* Social preview heading */
+  /* Social preview heading
+     text-xl → font-size: 1.25rem (20px)
+     font-semibold → font-weight: 600
+     leading-tight → line-height: 1.25 */
   .social-preview-title {
     @apply text-xl font-semibold leading-tight;
   }
 
-  /* Community/social collage image - responsive heights */
+  /* Community/social collage image
+     h-64 → height: 16rem (256px)
+     w-full → width: 100%
+     rounded-2xl → border-radius: 1rem (16px)
+     object-cover → crops image to fill
+     shadow-sm → small box-shadow
+     md:h-80 → 768px+: height: 20rem (320px)
+     lg:h-full → 1024px+: height: 100%
+     lg:min-h-[28rem] → 1024px+: min-height: 28rem (448px) */
   .community-collage-image {
     @apply h-64 w-full rounded-2xl object-cover shadow-sm md:h-80 lg:h-full lg:min-h-[28rem];
   }
 
   /* ========== ABOUT US HOOK SECTION ========== */
 
-  /* Section wrapper with vertical padding */
+  /* Section wrapper
+     py-12 → padding-y: 3rem (48px)
+     md:py-16 → 768px+: padding-y: 4rem (64px) */
   .home-about-hook {
     @apply py-12 md:py-16;
   }
 
-  /* Main layout - stacked mobile, 2-column grid on desktop with centered alignment */
+  /* Main layout
+     flex flex-col → vertical stack on mobile
+     gap-8 → gap: 2rem (32px)
+     lg:grid → 1024px+: switch to grid
+     lg:grid-cols-2 → 2 equal columns
+     lg:items-center → vertically center items
+     lg:gap-12 → gap: 3rem (48px) */
   .about-layout {
     @apply flex flex-col gap-8 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12;
   }
 
-  /* Text content container - constrained width on desktop */
+  /* Text content container
+     flex flex-col → vertical flex
+     gap-5 → gap: 1.25rem (20px)
+     lg:max-w-lg → 1024px+: max-width: 32rem (512px) */
   .about-content {
     @apply flex flex-col gap-5 lg:max-w-lg;
   }
 
-  /* About section heading - bold, responsive sizing */
+  /* About section heading
+     text-2xl → font-size: 1.5rem (24px)
+     font-bold → font-weight: 700
+     leading-tight → line-height: 1.25
+     md:text-3xl → 768px+: font-size: 1.875rem (30px)
+     lg:text-4xl → 1024px+: font-size: 2.25rem (36px) */
   .about-title {
     @apply text-2xl font-bold leading-tight md:text-3xl lg:text-4xl;
   }
 
-  /* About section body text - slightly faded for hierarchy */
+  /* About section body text
+     text-base → font-size: 1rem (16px)
+     leading-7 → line-height: 1.75rem
+     opacity-80 → opacity: 0.8 (subtle hierarchy)
+     md:text-lg → 768px+: font-size: 1.125rem (18px) */
   .about-text {
     @apply text-base leading-7 opacity-80 md:text-lg;
   }
 
-  /* About section image - responsive heights with shadow */
+  /* About section image
+     h-64 → height: 16rem (256px)
+     w-full → width: 100%
+     rounded-2xl → border-radius: 1rem (16px)
+     object-cover → crops to fill
+     shadow-md → medium box-shadow
+     md:h-80 → 768px+: height: 20rem (320px)
+     lg:h-[28rem] → 1024px+: height: 28rem (448px) */
   .about-image {
     @apply h-64 w-full rounded-2xl object-cover shadow-md md:h-80 lg:h-[28rem];
   }
 
   /* ========== FOOTER SECTION ========== */
 
-  /* Footer grid layout - 1 col mobile → 2 cols tablet → 3 cols desktop */
+  /* Footer grid layout
+     grid → display: grid
+     gap-8 → gap: 2rem (32px)
+     items-start → align items to top
+     md:grid-cols-2 → 768px+: 2 columns
+     lg:grid-cols-[1.2fr_1fr_1fr] → 1024px+: 3 cols (about wider, nav/legal equal) */
   .footer-inner {
     @apply grid gap-8 items-start;
     @apply md:grid-cols-2;
     @apply lg:grid-cols-[1.2fr_1fr_1fr];
   }
 
-  /* Footer about/brand column */
+  /* Footer about/brand column
+     flex flex-col → vertical flex
+     gap-3 → gap: 0.75rem (12px) */
   .footer-about {
     @apply flex flex-col gap-3;
   }
 
-  /* Footer navigation and legal columns */
+  /* Footer navigation and legal columns
+     flex flex-col → vertical flex
+     gap-3 → gap: 0.75rem (12px) */
   .footer-nav,
   .footer-legal {
     @apply flex flex-col gap-3;
   }
 
-  /* Footer link lists */
+  /* Footer link lists
+     flex flex-col → vertical flex
+     gap-2 → gap: 0.5rem (8px) */
   .footer-nav ul,
   .footer-legal ul {
     @apply flex flex-col gap-2;
@@ -403,54 +730,89 @@
 
   /* ========== VANS LISTING PAGE ========== */
 
-  /* Vans page layout - vertical stack with spacing */
+  /* Vans page layout
+     flex flex-col → vertical flex
+     gap-8 → gap: 2rem (32px)
+     py-10 → padding-y: 2.5rem (40px)
+     md:gap-10 → 768px+: gap: 2.5rem (40px)
+     md:py-14 → 768px+: padding-y: 3.5rem (56px) */
   .vans-page {
     @apply flex flex-col gap-8 py-10 md:gap-10 md:py-14;
   }
 
-  /* Intro section with title and subtitle */
+  /* Intro section with title and subtitle
+     flex flex-col → vertical flex
+     gap-3 → gap: 0.75rem (12px) */
   .vans-intro {
     @apply flex flex-col gap-3;
   }
 
-  /* Page title - large bold heading, constrained width */
+  /* Page title
+     max-w-4xl → max-width: 56rem (896px)
+     text-3xl → font-size: 1.875rem (30px)
+     font-bold → font-weight: 700
+     leading-tight → line-height: 1.25
+     md:text-4xl → 768px+: font-size: 2.25rem (36px)
+     lg:text-5xl → 1024px+: font-size: 3rem (48px) */
   .page-title {
     @apply max-w-4xl text-3xl font-bold leading-tight md:text-4xl lg:text-5xl;
   }
 
-  /* Filter chips container - flex wrap for multiple filters */
+  /* Filter chips container
+     flex → display: flex
+     flex-wrap → flex-wrap: wrap (chips wrap to next line)
+     gap-3 → gap: 0.75rem (12px) */
   .filters-container {
     @apply flex flex-wrap gap-3;
   }
 
-  /* Individual filter chip - pill-shaped button with hover effect */
+  /* Individual filter chip
+     inline-flex items-center justify-center → centered inline flex
+     rounded-xl → border-radius: 0.75rem (12px)
+     border → 1px solid border
+     px-4 py-2 → padding: 0.5rem vertical, 1rem horizontal
+     text-sm → font-size: 0.875rem (14px)
+     font-semibold → font-weight: 600
+     transition → smooth transitions
+     bg-white/70 → white 70% opacity
+     hover:bg-white hover:shadow-sm → solid white + shadow on hover */
   .filter-chip {
     @apply inline-flex items-center justify-center rounded-xl border px-4 py-2 text-sm font-semibold transition;
     @apply bg-white/70 hover:bg-white hover:shadow-sm;
   }
 
-  /* Active filter chip state - highlighted in sky blue */
+  /* Active filter chip state
+     border-sky-500 → border-color: #0ea5e9 (sky blue)
+     bg-sky-100 → background: #e0f2fe (light sky blue)
+     text-sky-700 → color: #0369a1 (dark sky blue) */
   .filter-chip.is-active {
     @apply border-sky-500 bg-sky-100 text-sky-700;
   }
 
-  /* Reset/clear filter chip - amber colored */
+  /* Reset/clear filter chip
+     border-amber-400 → border-color: #fbbf24 (amber)
+     bg-amber-50 → background: #fffbeb (light amber)
+     hover:bg-amber-100 → hover: #fef3c7 (slightly darker amber) */
   .filter-chip-reset {
     @apply border-amber-400 bg-amber-50 hover:bg-amber-100;
   }
 
-  /* Vans listing container */
+  /* Vans listing container
+     w-full → width: 100% */
   .vans-listing {
     @apply w-full;
   }
 
-  /* Van cards grid - auto-fit responsive columns, min 260px each */
+  /* Van cards grid
+     grid → display: grid
+     gap-6 → gap: 1.5rem (24px)
+     auto-fit with minmax(260px, 1fr) → responsive columns, min 260px each */
   .van-cards-grid {
     @apply grid gap-6;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   }
 
-  /* 2XL breakpoint: force 4-column grid */
+  /* 2XL breakpoint (1536px+): force 4-column grid */
   @media (min-width: 1536px) {
     .van-cards-grid {
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -459,328 +821,581 @@
 
   /* ========== VAN CARD COMPONENT ========== */
 
-  /* Van card wrapper - full height flex column with hover lift effect */
+  /* Van card wrapper
+     flex h-full flex-col → full-height vertical flex
+     overflow-hidden → clips content for rounded corners
+     rounded-2xl → border-radius: 1rem (16px)
+     border → 1px solid border
+     bg-white/80 → white 80% opacity
+     shadow-sm → small box-shadow
+     transition → enables animations
+     hover:-translate-y-1 → moves up 4px on hover
+     hover:shadow-lg → larger shadow on hover */
   .van-card-container {
     @apply flex h-full flex-col overflow-hidden rounded-2xl border bg-white/80 shadow-sm transition;
     @apply hover:-translate-y-1 hover:shadow-lg;
   }
 
-  /* Card image container - relative for positioning favorite button */
+  /* Card image container
+     relative → position: relative (for absolute-positioned children)
+     overflow-hidden → clips child content */
   .van-card-media {
     @apply relative overflow-hidden;
   }
 
-  /* Card image - responsive heights, crops to cover */
+  /* Card image
+     h-52 → height: 13rem (208px)
+     w-full → width: 100%
+     object-cover → crops to fill container
+     md:h-56 → 768px+: height: 14rem (224px)
+     lg:h-60 → 1024px+: height: 15rem (240px) */
   .van-card-image {
     @apply h-52 w-full object-cover md:h-56 lg:h-60;
   }
 
-  /* Favorite/heart button - absolute positioned top-right corner */
+  /* Favorite/heart button
+     absolute → position: absolute
+     right-3 top-3 → 0.75rem (12px) from top-right
+     z-10 → z-index: 10 (above image)
+     flex items-center justify-center → centered content
+     h-10 w-10 → 40px × 40px
+     rounded-full → border-radius: 50% (circle)
+     bg-white/90 → white 90% opacity
+     shadow-sm → small box-shadow
+     transition → enables animations
+     hover:scale-110 → 10% larger on hover */
   .van-card-favorite-button {
     @apply absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full;
     @apply bg-white/90 shadow-sm transition hover:scale-110;
   }
 
-  /* Favorited state - subtle red background */
+  /* Favorited state
+     bg-red-50 → background: #fef2f2 (light red tint) */
   .van-card-favorite-button.is-active {
     @apply bg-red-50;
   }
 
-  /* Card body - content area with padding and vertical spacing */
+  /* Card body
+     flex flex-1 flex-col → vertical flex that grows to fill
+     gap-3 → gap: 0.75rem (12px)
+     p-4 → padding: 1rem (16px)
+     md:p-5 → 768px+: padding: 1.25rem (20px) */
   .van-card-body {
     @apply flex flex-1 flex-col gap-3 p-4 md:p-5;
   }
 
-  /* Card info row - title and price side by side */
+  /* Card info row
+     flex → display: flex
+     items-start → align items to top
+     justify-between → space between (title left, price right)
+     gap-3 → gap: 0.75rem (12px) */
   .van-card-info {
     @apply flex items-start justify-between gap-3;
   }
 
-  /* Van name/title */
+  /* Van name/title
+     text-lg → font-size: 1.125rem (18px)
+     font-semibold → font-weight: 600
+     leading-tight → line-height: 1.25
+     md:text-xl → 768px+: font-size: 1.25rem (20px) */
   .van-card-title {
     @apply text-lg font-semibold leading-tight md:text-xl;
   }
 
-  /* Van price - fixed width to prevent wrapping */
+  /* Van price
+     shrink-0 → flex-shrink: 0 (prevents price from shrinking)
+     text-base → font-size: 1rem (16px)
+     font-semibold → font-weight: 600 */
   .van-card-price {
     @apply shrink-0 text-base font-semibold;
   }
 
-  /* Van type badge - pill-shaped, sky blue background */
+  /* Van type badge
+     inline-flex w-fit → inline flex, shrinks to content
+     rounded-full → fully rounded pill shape
+     bg-sky-100 → background: #e0f2fe (light sky blue)
+     px-3 py-1 → padding: 0.25rem vertical, 0.75rem horizontal
+     text-sm → font-size: 0.875rem (14px)
+     font-medium → font-weight: 500
+     capitalize → text-transform: capitalize
+     text-sky-700 → color: #0369a1 (dark sky blue) */
   .van-card-type {
     @apply inline-flex w-fit rounded-full bg-sky-100 px-3 py-1 text-sm font-medium capitalize text-sky-700;
   }
 
   /* ========== VAN DETAIL PAGE ========== */
 
-  /* Page layout - vertical stack with generous spacing */
+  /* Page layout
+     flex flex-col → vertical flex
+     gap-10 → gap: 2.5rem (40px)
+     py-10 → padding-y: 2.5rem (40px)
+     md:gap-12 → 768px+: gap: 3rem (48px)
+     md:py-14 → 768px+: padding-y: 3.5rem (56px) */
   .van-detail-page {
     @apply flex flex-col gap-10 py-10 md:gap-12 md:py-14;
   }
 
-  /* Overview section container */
+  /* Overview section container
+     flex flex-col → vertical flex
+     gap-6 → gap: 1.5rem (24px) */
   .van-overview {
     @apply flex flex-col gap-6;
   }
 
-  /* Header row - title and favorite button side by side */
+  /* Header row
+     flex → display: flex
+     items-start → align items to top
+     justify-between → space between (title left, button right)
+     gap-4 → gap: 1rem (16px) */
   .van-header-actions {
     @apply flex items-start justify-between gap-4;
   }
 
-  /* Van detail page title - large bold heading */
+  /* Van detail page title
+     text-3xl → font-size: 1.875rem (30px)
+     font-bold → font-weight: 700
+     leading-tight → line-height: 1.25
+     md:text-4xl → 768px+: font-size: 2.25rem (36px)
+     lg:text-5xl → 1024px+: font-size: 3rem (48px) */
   .van-page-title {
     @apply text-3xl font-bold leading-tight md:text-4xl lg:text-5xl;
   }
 
-  /* Favorite button on detail page - circular with hover scale */
+  /* Favorite button on detail page
+     flex items-center justify-center → centered content
+     h-11 w-11 → 44px × 44px
+     shrink-0 → flex-shrink: 0 (prevents shrinking)
+     rounded-full → fully circular
+     border → 1px solid border
+     bg-white/80 → white 80% opacity
+     shadow-sm → small box-shadow
+     transition → enables animations
+     hover:scale-105 → 5% larger on hover
+     hover:shadow-md → medium shadow on hover */
   .van-favorite-button {
     @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-full border bg-white/80 shadow-sm transition;
     @apply hover:scale-105 hover:shadow-md;
   }
 
-  /* Favorited state - red border and background */
+  /* Favorited state
+     border-red-300 → border-color: #fca5a5 (light red)
+     bg-red-50 → background: #fef2f2 (very light red) */
   .van-favorite-button.is-active {
     @apply border-red-300 bg-red-50;
   }
 
-  /* Main content grid - image left, details right on desktop */
+  /* Main content grid
+     grid → display: grid
+     gap-8 → gap: 2rem (32px)
+     lg:grid-cols-2 → 1024px+: 2 equal columns
+     lg:items-start → align to top
+     lg:gap-10 → gap: 2.5rem (40px) */
   .van-main-info {
     @apply grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-10;
   }
 
-  /* Image container with rounded corners */
+  /* Image container
+     overflow-hidden → clips for rounded corners
+     rounded-2xl → border-radius: 1rem (16px) */
   .van-image-wrap {
     @apply overflow-hidden rounded-2xl;
   }
 
-  /* Van detail image - responsive heights, large on desktop */
+  /* Van detail image
+     h-72 → height: 18rem (288px)
+     w-full → width: 100%
+     rounded-2xl → border-radius: 1rem (16px)
+     object-cover → crops to fill
+     shadow-md → medium box-shadow
+     md:h-96 → 768px+: height: 24rem (384px)
+     lg:h-[34rem] → 1024px+: height: 34rem (544px) */
   .van-detail-image {
     @apply h-72 w-full rounded-2xl object-cover shadow-md md:h-96 lg:h-[34rem];
   }
 
-  /* Text details column - stacked content */
+  /* Text details column
+     flex flex-col → vertical flex
+     gap-4 → gap: 1rem (16px)
+     lg:pt-2 → 1024px+: padding-top: 0.5rem (8px) slight offset */
   .van-details-text {
     @apply flex flex-col gap-4 lg:pt-2;
   }
 
-  /* Van type badge on detail page - pill-shaped */
+  /* Van type badge on detail page
+     inline-flex w-fit → inline flex, shrinks to content
+     rounded-full → pill shape
+     bg-sky-100 → light sky blue background
+     px-3 py-1 → padding
+     text-sm → font-size: 0.875rem (14px)
+     font-semibold → font-weight: 600
+     capitalize → capitalizes text
+     text-sky-700 → dark sky blue text */
   .van-type-badge {
     @apply inline-flex w-fit rounded-full bg-sky-100 px-3 py-1 text-sm font-semibold capitalize text-sky-700;
   }
 
-  /* Van name on detail page */
+  /* Van name on detail page
+     text-2xl → font-size: 1.5rem (24px)
+     font-semibold → font-weight: 600
+     leading-tight → line-height: 1.25
+     md:text-3xl → 768px+: font-size: 1.875rem (30px) */
   .van-detail-name {
     @apply text-2xl font-semibold leading-tight md:text-3xl;
   }
 
-  /* Van description text - slightly faded */
+  /* Van description text
+     text-base → font-size: 1rem (16px)
+     leading-7 → line-height: 1.75rem
+     opacity-85 → opacity: 0.85 (slight fade)
+     md:text-lg → 768px+: font-size: 1.125rem (18px) */
   .van-description {
     @apply text-base leading-7 opacity-85 md:text-lg;
   }
 
-  /* Van price display */
+  /* Van price display
+     text-lg → font-size: 1.125rem (18px)
+     md:text-xl → 768px+: font-size: 1.25rem (20px) */
   .van-price {
     @apply text-lg md:text-xl;
   }
 
-  /* Book van CTA button - full width mobile, auto tablet+ */
+  /* Book van CTA button
+     mt-2 → margin-top: 0.5rem (8px)
+     w-full → width: 100% on mobile
+     md:w-fit → 768px+: auto-width */
   .book-van-cta {
     @apply mt-2 w-full md:w-fit;
   }
 
-  /* Extra details section container */
+  /* Extra details section container
+     flex flex-col → vertical flex
+     gap-6 → gap: 1.5rem (24px) */
   .van-detail-extra {
     @apply flex flex-col gap-6;
   }
 
-  /* Tab navigation row - bordered bottom */
+  /* Tab navigation row
+     flex → display: flex
+     flex-wrap → allows wrapping on small screens
+     gap-3 → gap: 0.75rem (12px)
+     border-b → bottom border
+     pb-4 → padding-bottom: 1rem (16px) */
   .van-detail-tabs {
     @apply flex flex-wrap gap-3 border-b pb-4;
   }
 
-  /* Individual tab link - pill-shaped with hover effect */
+  /* Individual tab link
+     inline-flex items-center → inline flex with centered content
+     rounded-xl → border-radius: 0.75rem (12px)
+     px-4 py-2 → padding: 0.5rem vertical, 1rem horizontal
+     text-sm → font-size: 0.875rem (14px)
+     font-semibold → font-weight: 600
+     transition → smooth transitions
+     bg-white/70 → white 70% opacity
+     hover:bg-white → solid white on hover */
   .van-tab-link {
     @apply inline-flex items-center rounded-xl px-4 py-2 text-sm font-semibold transition;
     @apply bg-white/70 hover:bg-white;
   }
 
-  /* Active tab state - highlighted in sky blue */
+  /* Active tab state
+     bg-sky-100 → light sky blue background
+     text-sky-700 → dark sky blue text */
   .van-tab-link.is-active {
     @apply bg-sky-100 text-sky-700;
   }
 
-  /* Tab content panel - bordered card with padding */
+  /* Tab content panel
+     rounded-2xl → border-radius: 1rem (16px)
+     border → 1px solid border
+     bg-white/70 → white 70% opacity
+     p-5 → padding: 1.25rem (20px)
+     shadow-sm → small box-shadow
+     md:p-6 → 768px+: padding: 1.5rem (24px) */
   .van-detail-tab-content {
     @apply rounded-2xl border bg-white/70 p-5 shadow-sm md:p-6;
   }
 
   /* ========== VAN BOOKING FORM ========== */
 
-  /* Booking form section - card with vertical spacing */
+  /* Booking form section
+     flex flex-col → vertical flex
+     gap-5 → gap: 1.25rem (20px)
+     rounded-2xl → border-radius: 1rem (16px)
+     border → 1px solid border
+     bg-white/70 → white 70% opacity
+     py-8 → padding-y: 2rem (32px)
+     shadow-sm → small box-shadow
+     md:gap-6 → 768px+: gap: 1.5rem (24px)
+     md:py-10 → 768px+: padding-y: 2.5rem (40px) */
   .van-booking-form-section {
     @apply flex flex-col gap-5 rounded-2xl border bg-white/70 py-8 shadow-sm md:gap-6 md:py-10;
   }
 
-  /* Booking form title */
+  /* Booking form title
+     text-2xl → font-size: 1.5rem (24px)
+     font-bold → font-weight: 700
+     leading-tight → line-height: 1.25
+     md:text-3xl → 768px+: font-size: 1.875rem (30px) */
   .booking-title {
     @apply text-2xl font-bold leading-tight md:text-3xl;
   }
 
   /* ========== VAN SPECS/FEATURES SECTION ========== */
 
-  /* Specs section container - vertical stack */
+  /* Specs section container
+     flex flex-col → vertical flex
+     gap-5 → gap: 1.25rem (20px) */
   .van-specs-section {
     @apply flex flex-col gap-5;
   }
 
-  /* Specs section heading */
+  /* Specs section heading
+     text-xl → font-size: 1.25rem (20px)
+     font-semibold → font-weight: 600
+     md:text-2xl → 768px+: font-size: 1.5rem (24px) */
   .specs-title {
     @apply text-xl font-semibold md:text-2xl;
   }
 
-  /* Specs list - vertical with dividers, card-like appearance */
+  /* Specs list
+     flex flex-col → vertical flex
+     divide-y → horizontal dividers between children
+     rounded-2xl → border-radius: 1rem (16px)
+     border → 1px solid border
+     bg-white/70 → white 70% opacity
+     shadow-sm → small box-shadow */
   .specs-list {
     @apply flex flex-col divide-y rounded-2xl border bg-white/70 shadow-sm;
   }
 
-  /* Individual spec row - stacked mobile, 2-column tablet+ */
+  /* Individual spec row
+     grid grid-cols-1 → single column on mobile
+     gap-1 → gap: 0.25rem (4px)
+     px-4 py-3 → padding: 0.75rem vertical, 1rem horizontal
+     md:grid-cols-2 → 768px+: 2 columns (label | value)
+     md:items-center → vertically center items
+     md:px-5 md:py-4 → 768px+: larger padding */
   .specs-item {
     @apply grid grid-cols-1 gap-1 px-4 py-3 md:grid-cols-2 md:items-center md:px-5 md:py-4;
   }
 
-  /* Spec label - faded text for hierarchy */
+  /* Spec label
+     text-sm → font-size: 0.875rem (14px)
+     font-medium → font-weight: 500
+     opacity-70 → opacity: 0.7 (secondary text) */
   .specs-label {
     @apply text-sm font-medium opacity-70;
   }
 
-  /* Spec value - bold, right-aligned on tablet+ */
+  /* Spec value
+     text-base → font-size: 1rem (16px)
+     font-semibold → font-weight: 600
+     md:text-right → 768px+: right-aligned */
   .specs-value {
     @apply text-base font-semibold md:text-right;
   }
 
   /* ========== VAN RATINGS/REVIEWS SECTION ========== */
 
-  /* Ratings section container - vertical stack with consistent spacing */
+  /* Ratings section container
+     flex flex-col → vertical flex
+     gap-5 → gap: 1.25rem (20px) */
   .van-ratings-section {
     @apply flex flex-col gap-5;
   }
 
-  /* Ratings section heading - matches specs-title sizing */
+  /* Ratings section heading
+     text-xl → font-size: 1.25rem (20px)
+     font-semibold → font-weight: 600
+     md:text-2xl → 768px+: font-size: 1.5rem (24px) */
   .ratings-title {
     @apply text-xl font-semibold md:text-2xl;
   }
 
-  /* Average rating display - stacked mobile, inline row on tablet+ */
+  /* Average rating display
+     flex flex-col → vertical stack on mobile
+     gap-1 → gap: 0.25rem (4px)
+     rounded-2xl → border-radius: 1rem (16px)
+     p-4 → padding: 1rem (16px)
+     md:flex-row → 768px+: horizontal layout
+     md:items-center → vertically center
+     md:justify-between → space between (rating left, count right)
+     md:p-5 → 768px+: padding: 1.25rem (20px) */
   .average-rating {
     @apply flex flex-col gap-1 rounded-2xl p-4 md:flex-row md:items-center md:justify-between md:p-5;
   }
 
-  /* Average rating numeric value - emphasized text */
+  /* Average rating numeric value
+     text-lg → font-size: 1.125rem (18px)
+     font-semibold → font-weight: 600
+     md:text-xl → 768px+: font-size: 1.25rem (20px) */
   .average-rating strong {
     @apply text-lg font-semibold md:text-xl;
   }
 
-  /* Average rating count text - secondary styling */
+  /* Average rating count text
+     text-sm → font-size: 0.875rem (14px)
+     md:text-base → 768px+: font-size: 1rem (16px) */
   .average-rating span {
     @apply text-sm  md:text-base;
   }
 
-  /* Container for individual rating cards - vertical stack */
+  /* Container for individual rating cards
+     flex flex-col → vertical flex
+     gap-4 → gap: 1rem (16px) */
   .ratings-list {
     @apply flex flex-col gap-4;
   }
 
-  /* Individual rating/review card - rounded with padding */
+  /* Individual rating/review card
+     flex flex-col → vertical flex
+     gap-3 → gap: 0.75rem (12px)
+     rounded-2xl → border-radius: 1rem (16px)
+     p-4 → padding: 1rem (16px)
+     md:p-5 → 768px+: padding: 1.25rem (20px) */
   .rating-card {
     @apply flex flex-col gap-3 rounded-2xl  p-4 md:p-5;
   }
 
-  /* Rating card header - stacked mobile, inline row on tablet+ */
+  /* Rating card header
+     flex flex-col → vertical stack on mobile
+     gap-1 → gap: 0.25rem (4px)
+     md:flex-row → 768px+: horizontal layout
+     md:items-center → vertically center
+     md:justify-between → space between (user left, date right) */
   .rating-header {
     @apply flex flex-col gap-1 md:flex-row md:items-center md:justify-between;
   }
 
-  /* Reviewer name - bold for emphasis */
+  /* Reviewer name
+     font-semibold → font-weight: 600 */
   .rating-user {
     @apply font-semibold;
   }
 
-  /* Review date - subtle, secondary text */
+  /* Review date
+     text-sm → font-size: 0.875rem (14px)
+     opacity-65 → opacity: 0.65 (subtle secondary text) */
   .rating-date {
     @apply text-sm opacity-65;
   }
 
-  /* Star rating display - spaced for readability (stars/emojis) */
+  /* Star rating display
+     text-lg → font-size: 1.125rem (18px)
+     tracking-wide → letter-spacing: 0.025em (spreads stars/emojis) */
   .rating-score {
     @apply text-lg tracking-wide;
   }
 
-  /* Review comment/body text - readable line height */
+  /* Review comment/body text
+     text-sm → font-size: 0.875rem (14px)
+     leading-7 → line-height: 1.75rem
+     md:text-base → 768px+: font-size: 1rem (16px) */
   .rating-comment {
     @apply text-sm leading-7 md:text-base;
   }
 
-  /* Empty state message when no reviews exist */
+  /* Empty state message when no reviews exist
+     pt-2 → padding-top: 0.5rem (8px)
+     text-sm → font-size: 0.875rem (14px)
+     italic → font-style: italic
+     opacity-75 → opacity: 0.75
+     md:text-base → 768px+: font-size: 1rem (16px) */
   .no-ratings-message {
     @apply pt-2 text-sm italic opacity-75 md:text-base;
   }
 
   /* ========== BOOKING FORM COMPONENTS ========== */
 
-  /* Form wrapper - vertical stack with consistent gap between fields */
+  /* Form wrapper
+     flex flex-col → vertical flex
+     gap-6 → gap: 1.5rem (24px) */
   .booking-form {
     @apply flex flex-col gap-6;
   }
 
-  /* Form fields grid - single column mobile, 2 columns tablet+ */
+  /* Form fields grid
+     grid grid-cols-1 → single column on mobile
+     gap-5 → gap: 1.25rem (20px)
+     md:grid-cols-2 → 768px+: 2 columns
+     md:gap-6 → 768px+: gap: 1.5rem (24px) */
   .booking-form-grid {
     @apply grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6;
   }
 
-  /* Individual form field wrapper - label + input stacked */
+  /* Individual form field wrapper
+     flex flex-col → vertical flex (label above input)
+     gap-2 → gap: 0.5rem (8px) */
   .form-field {
     @apply flex flex-col gap-2;
   }
 
-  /* Form label - small bold text above input */
+  /* Form label
+     text-sm → font-size: 0.875rem (14px)
+     font-semibold → font-weight: 600 */
   .form-label {
     @apply text-sm font-semibold;
   }
 
-  /* Base input styles - rounded, bordered with focus ring */
+  /* Base input styles
+     w-full → width: 100%
+     rounded-xl → border-radius: 0.75rem (12px)
+     border → 1px solid border
+     bg-white → white background
+     px-4 py-3 → padding: 0.75rem vertical, 1rem horizontal
+     text-base → font-size: 1rem (16px)
+     shadow-sm → small box-shadow
+     transition → smooth transitions
+     placeholder:text-black/40 → placeholder at 40% opacity
+     focus:border-sky-500 → sky blue border on focus
+     focus:outline-none → removes default outline
+     focus:ring-2 focus:ring-sky-200 → light blue focus ring */
   .form-input {
     @apply w-full rounded-xl border bg-white px-4 py-3 text-base shadow-sm transition;
     @apply placeholder:text-black/40;
     @apply focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200;
   }
 
-  /* Select dropdown - removes native browser arrow */
+  /* Select dropdown
+     appearance-none → removes native browser styling/arrow */
   .form-select {
     @apply appearance-none;
   }
 
-  /* Textarea field - minimum height with vertical resize allowed */
+  /* Textarea field
+     min-h-32 → min-height: 8rem (128px)
+     resize-y → resize: vertical (user can resize vertically) */
   .form-textarea {
     @apply min-h-32 resize-y;
   }
 
-  /* Field validation error message - red text below input */
+  /* Field validation error message
+     text-sm → font-size: 0.875rem (14px)
+     text-red-600 → color: #dc2626 (error red) */
   .form-error-message {
     @apply text-sm text-red-600;
   }
 
-  /* General form status message - subtle feedback text */
+  /* General form status message
+     text-sm → font-size: 0.875rem (14px)
+     opacity-80 → opacity: 0.8 (subtle) */
   .form-status-message {
     @apply text-sm opacity-80;
   }
 
-  /* Error variant for form status - red for failures */
+  /* Error variant for form status
+     text-red-600 → color: #dc2626 (error red) */
   .form-status-error {
     @apply text-red-600;
   }
 
-  /* Form submit/action buttons row - stacked mobile, inline tablet+ */
+  /* Form submit/action buttons row
+     flex flex-col → vertical stack on mobile
+     gap-3 → gap: 0.75rem (12px)
+     pt-2 → padding-top: 0.5rem (8px)
+     md:flex-row → 768px+: horizontal layout
+     md:items-center → vertically center buttons */
   .booking-form-actions {
     @apply flex flex-col gap-3 pt-2 md:flex-row md:items-center;
   }
