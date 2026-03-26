@@ -125,7 +125,7 @@
      leading-none → line-height: 1 (tight, no extra space)
      md:text-3xl → 768px+: font-size: 1.875rem (30px) */
   .brand-logo {
-    @apply font-extrabold leading-none lg:text-6xl md:text-3xl text-(--logo-color) uppercase italic;
+    @apply font-extrabold leading-none lg:text-6xl sm:text-3xl text-(--logo-color) uppercase italic;
   }
 
   /* Navigation wrapper
@@ -247,9 +247,6 @@
     @apply text-(--text-color-light) opacity-80 py-2 uppercase italic;
   }
 
-
-
-
   /* Footer navigation and legal columns
      flex flex-col → vertical flex
      gap-3 → gap: 0.75rem (12px) */
@@ -352,7 +349,7 @@
      md:text-3xl → 768px+: font-size: 1.875rem (30px)
      lg:text-4xl → 1024px+: font-size: 2.25rem (36px) */
   .section-title {
-    @apply mb-8 max-w-3xl text-2xl font-bold leading-tight md:text-3xl lg:text-4xl;
+    @apply mb-8 text-2xl font-bold leading-tight md:text-3xl lg:text-4xl;
   }
 
   /* Grid for idea cards
