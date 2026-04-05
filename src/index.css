@@ -1,6 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,900;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,900;1,900&display=swap');
 @import "tailwindcss";
 
+/* Regular CSS custom properties for use with var() */
+:root {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Lora", serif;
+  --font-display: "Playfair Display", serif;
+}
 
 @theme {
 
@@ -10,7 +16,6 @@
   --color-retro-teal: #008080;
   --color-retro-cream: #F5F2ED;
   --color-retro-ink: #1A1A1A;
-
 
   --bg-color-light: var(--color-retro-cream);
   --bg-color-dark: var(--color-retro-ink);
@@ -23,10 +28,10 @@
   --link-color: var(--color-sky-700);
   --link-color-hover: var(--color-amber-500);
 
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Libre Baskerville", serif;
-  --font-display: "Playfair Display", serif;
-  --font-draft: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* Tailwind theme tokens for utility classes */
+  --font-family-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-family-serif: "Lora", serif;
+  --font-family-display: "Playfair Display", serif;
 
 
 }
@@ -46,10 +51,10 @@
      1.5 line-height for readability, normal weight,
      smooth anchor scrolling for in-page navigation */
   html {
-    font-family: var(--font-serif);
     line-height: 1.5;
     font-weight: 400;
     scroll-behavior: smooth;
+    font-family: var(--font-serif);
   }
 
   /* ========== BODY DEFAULTS ========== */
@@ -57,7 +62,10 @@
      Ensures body always fills at least the full viewport height,
      preventing footer from floating mid-page on short content */
   body {
-    @apply min-h-screen text-(--text-color) bg-(--bg-color-light);
+    @apply min-h-screen;
+    font-family: var(--font-serif);
+    color: var(--text-color);
+    background-color: var(--bg-color-light);
   }
 
   /* ========== BASE TYPOGRAPHY ========== */
