@@ -37,13 +37,9 @@
     @apply font-display text-retro-ink;
   }
 
-  /* Links: sky blue, no underline, bold weight,
-     smooth 300ms color transition on hover to amber */
+  /* Links keep only structural defaults. Visual link styles live on components. */
   a {
-    @apply text-sky-700 font-bold no-underline transition-colors duration-300;
-  }
-  a:hover {
-    @apply text-amber-500;
+    @apply no-underline transition-colors duration-300;
   }
 
   p {
@@ -76,7 +72,7 @@
      inline-flex → display: inline-flex (inline but flexbox)
      items-center → align-items: center (vertically center logo/text) */
   .brand-link {
-    @apply inline-flex items-center;
+    @apply inline-flex items-center text-retro-ink hover:text-retro-ink;
   }
 
   /* Main site logo/title
@@ -109,7 +105,7 @@
      hover:bg-sky-700 → darker blue on hover (#0369a1) */
   .header-cta {
     @apply inline-flex items-center justify-center rounded-xl bg-sky-600 px-4 py-2 text-sm font-semibold text-white transition;
-    @apply hover:bg-sky-700;
+    @apply hover:bg-sky-700 hover:text-white;
     @apply md:px-5 md:py-3 md:text-base;
   }
 
@@ -155,7 +151,11 @@
      text-white → white text color
      hover:bg-sky-700 → darker blue on hover */
   .cta-button {
-    @apply rounded-xl px-4 py-2 bg-sky-600 text-white hover:bg-sky-700;
+    @apply rounded-xl px-4 py-2 bg-sky-600 font-bold text-white hover:bg-sky-700 hover:text-white;
+  }
+
+  .cta-button-medium {
+    @apply inline-flex items-center justify-center rounded-xl bg-sky-600 px-5 py-3 text-base font-semibold text-white transition hover:bg-sky-700 hover:text-white;
   }
 
     /* ========== FOOTER SECTION ========== */
@@ -213,6 +213,11 @@
   .footer-nav ul,
   .footer-legal ul {
     @apply flex flex-col gap-2 text-right;
+  }
+
+  .footer-nav a,
+  .footer-legal a {
+    @apply font-bold text-retro-cream opacity-80 hover:text-retro-yellow hover:opacity-100;
   }
 
   /* ========== HOME HERO SECTION ========== */
@@ -389,7 +394,7 @@
      hover:-translate-y-1 → moves up 4px on hover (lift effect)
      hover:shadow-lg → larger shadow on hover */
   .fleet-type-card {
-    @apply flex h-full flex-col overflow-hidden rounded-2xl border bg-white/80 shadow-sm transition hover:-translate-y-1 hover:shadow-lg;
+    @apply flex h-full flex-col overflow-hidden rounded-2xl border bg-white/80 text-retro-ink shadow-sm transition hover:-translate-y-1 hover:text-retro-ink hover:shadow-lg;
   }
 
   /* Card image
@@ -443,7 +448,7 @@
      hover:bg-sky-700 → darker on hover
      md:w-fit → 768px+: auto-width (shrink to content) */
   .cta-button-large {
-    @apply inline-flex w-full items-center justify-center rounded-xl bg-sky-600 px-6 py-3 text-base font-semibold text-white transition hover:bg-sky-700 md:w-fit;
+    @apply inline-flex w-full items-center justify-center rounded-xl bg-sky-600 px-6 py-3 text-base font-semibold text-white transition hover:bg-sky-700 hover:text-white md:w-fit;
   }
 
   /* Small inline CTA link (no background)
@@ -507,7 +512,7 @@
      hover:bg-sky-700 → darker on hover
      md:w-fit md:text-base → 768px+: auto-width, 16px font */
   .cta-button-small {
-    @apply inline-flex items-center justify-center rounded-xl bg-sky-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sky-700 md:w-fit md:text-base;
+    @apply inline-flex items-center justify-center rounded-xl bg-sky-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sky-700 hover:text-white md:w-fit md:text-base;
   }
 
   /* Teaser text for upcoming newsletter content
@@ -804,8 +809,8 @@
      hover:-translate-y-1 → moves up 4px on hover
      hover:shadow-lg → larger shadow on hover */
   .van-card-container {
-    @apply flex h-full flex-col overflow-hidden rounded-2xl border bg-white/80 shadow-sm transition;
-    @apply hover:-translate-y-1 hover:shadow-lg;
+    @apply flex h-full flex-col overflow-hidden rounded-2xl border bg-white/80 text-retro-ink shadow-sm transition;
+    @apply hover:-translate-y-1 hover:text-retro-ink hover:shadow-lg;
   }
 
   /* Card image container
@@ -1062,8 +1067,8 @@
      bg-white/70 → white 70% opacity
      hover:bg-white → solid white on hover */
   .van-tab-link {
-    @apply inline-flex items-center rounded-xl px-4 py-2 text-sm font-semibold transition;
-    @apply bg-white/70 hover:bg-white;
+    @apply inline-flex items-center rounded-xl px-4 py-2 text-sm font-semibold text-sky-700 transition;
+    @apply bg-white/70 hover:bg-white hover:text-sky-700;
   }
 
   /* Active tab state
