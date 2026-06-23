@@ -1,85 +1,77 @@
-# Vantastic! 🚐
+# Vantastic!
 
-## Project Overview / Resumen del proyecto
+Vantastic! es una SPA desarrollada con React para consultar y reservar furgonetas camper de estilo vintage. El usuario puede navegar por la flota, filtrar por tipo de vehículo, guardar favoritos, consultar el detalle de cada van y completar un formulario de reserva.
 
-**EN:** Vantastic! is a Single Page Application (SPA) designed to connect travelers with their ideal camper van. Users can browse a diverse fleet, check technical specifications, save favorites, and move toward booking with a clear, frictionless experience.
+Este repositorio forma parte del proyecto de React del Máster en FullStack Development.
 
-**ES:** Vantastic! es una Single Page Application (SPA) orientada a conectar viajeros con su furgoneta camper ideal. La app permite explorar una flota diversa, consultar especificaciones técnicas, guardar favoritos y avanzar hacia la reserva con una experiencia clara y sin fricción.
+## Documentación principal
 
-## Architecture / Arquitectura
+- [Justificación de requisitos](./docs/justificación-requisitos.md): relación entre los requisitos del proyecto y su implementación.
+- [Notas de desarrollo](./docs/dev-notes.md): explicación técnica de la integración, arquitectura y decisiones principales.
 
-**EN:** The app is built with React using a modular and scalable structure, ready for future growth (for example, authentication and user account management).
+## Quick Start
 
-**ES:** La aplicación está desarrollada con React siguiendo una estructura modular y escalable, preparada para futuras ampliaciones (por ejemplo, autenticación y gestión de usuarios).
+Requisitos previos:
 
-### Main Routes / Rutas principales
+- Node.js 18 o superior.
+- npm.
 
-- **Home**: welcome page and value proposition.
-- **Vans**: fleet gallery with category filters (Simple, Luxury, Rugged).
-- **Van Detail**: per-vehicle page with technical details, favorites management, and booking form.
-
-### Data, State and UX / Datos, estado y UX
-
-- API communication is organized in dedicated services.
-- A custom `useFetch` hook handles loading, error, and async states consistently.
-- `FavoritesContext` (with `useContext`) keeps favorite vans available across views.
-- The booking form uses `useRef` to avoid unnecessary re-renders while typing.
-- The UI is fully responsive using modern CSS (Grid + Flexbox).
-
-## Tech Stack
-
-- React 19
-- Vite 7
-- ESLint 9
-
-- MirageJS (used to mock the Fetch API during development): [https://miragejs.com/](https://miragejs.com/)
-- Lucide (Used for the icons): [https://lucide.dev/guide/packages/lucide-react](https://lucide.dev/guide/packages/lucide-react)  (Browse Icons Here: [https://lucide.dev/icons/](https://lucide.dev/icons/))
-
-## Getting Started / Puesta en marcha
-
-### 1) Prerequisites / Requisitos previos
-
-- Node.js 18+ (recommended: latest LTS)
-- npm 9+
-
-### 2) Install dependencies / Instalar dependencias
+Instalación:
 
 ```bash
 npm install
 ```
 
-### 3) Start development server / Iniciar servidor de desarrollo
+Servidor de desarrollo:
 
 ```bash
 npm run dev
 ```
 
-Then open the local URL shown in the terminal (usually `http://localhost:5173`).  
-Después, abre la URL local que aparece en terminal (normalmente `http://localhost:5173`).
+Después abre la URL local que indique la terminal, normalmente `http://localhost:5173`.
 
-### 4) Lint / Ejecutar linter
+Comandos útiles:
 
 ```bash
 npm run lint
-```
-
-### 5) Production build / Build de producción
-
-```bash
 npm run build
-```
-
-### 6) Preview production build / Previsualizar build
-
-```bash
 npm run preview
 ```
 
-## Available Scripts / Scripts disponibles
+## Stack técnico
 
-- `npm run dev` → start Vite dev server.
-- `npm run build` → create optimized production build.
-- `npm run lint` → run ESLint checks.
-- `npm run preview` → preview the production build locally.
+- React 19
+- Vite 7
+- React Router DOM 7
+- React Hook Form
+- MirageJS para simular la API local
+- Tailwind CSS y CSS propio
+- Lucide React para iconos
+- ESLint
 
+## Funcionalidad principal
 
+- Página de inicio con presentación del proyecto.
+- Catálogo de vans con filtros por tipo y favoritos.
+- Página de detalle por van con rutas anidadas para especificaciones y valoraciones.
+- Formulario de reserva con validación.
+- Estado global de favoritos mediante Context API.
+- Carga de datos desde una API mock con MirageJS.
+
+## Estructura general
+
+```text
+src/
+|-- api/          # Servidor MirageJS y datos mock
+|-- components/   # Componentes reutilizables
+|-- context/      # Estado global de favoritos
+|-- hooks/        # Hooks personalizados
+|-- pages/        # Vistas principales y secciones
+|-- utils/        # Funciones auxiliares
+|-- App.jsx       # Definición de rutas
+`-- main.jsx      # Punto de entrada de React
+```
+
+## Estado de revisión
+
+La documentación se ha preparado para explicar el estado actual del proyecto. Antes de la entrega final conviene ejecutar `npm run build` y revisar cualquier ajuste pendiente indicado por Vite o ESLint.

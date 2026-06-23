@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+docs/*
+!docs/
+!docs/dev-notes.md
+!docs/justificación-requisitos.md
