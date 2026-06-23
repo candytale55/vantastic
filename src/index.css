@@ -151,17 +151,9 @@
      text-sky-600 → color: #0284c7 (sky blue)
      font-medium → font-weight: 500
      transition-colors → smooth color transitions (150ms default) */
-  .navlink {
-    @apply text-sky-600 font-medium transition-colors;
-  }
-
   /* Active navigation link state
      bg-sky-700 → background: #0369a1 (darker sky blue)
      font-semibold → font-weight: 600 */
-  .navlink-active {
-    @apply bg-sky-700 font-semibold;
-  }
-
   /* Primary call-to-action button
      rounded-xl → border-radius: 0.75rem (12px)
      px-4 py-2 → padding: 0.5rem vertical, 1rem horizontal
@@ -344,10 +336,6 @@
   /* Icon inside idea card
      h-8 w-8 → height/width: 2rem (32px)
      text-sky-600 → color: #0284c7 (sky blue, for SVG fill) */
-  .idea-icon {
-    @apply h-8 w-8 text-sky-600;
-  }
-
   /* Idea card heading
      text-lg → font-size: 1.125rem (18px)
      font-semibold → font-weight: 600
@@ -444,17 +432,9 @@
      px-5 pb-5 pt-5 → consistent padding around link
      font-semibold → font-weight: 600
      md:px-6 md:pb-6 → 768px+: larger padding */
-  .fleet-type-card .cta-link-small {
-    @apply mt-auto px-5 pb-5 pt-5 font-semibold md:px-6 md:pb-6;
-  }
-
   /* Footer area below fleet cards grid
      pt-2 → padding-top: 0.5rem (8px)
      md:pt-4 → 768px+: padding-top: 1rem (16px) */
-  .fleet-preview-footer {
-    @apply pt-2 md:pt-4;
-  }
-
   /* Large CTA button
      inline-flex → inline flex container
      w-full → width: 100% (full-width on mobile)
@@ -479,10 +459,6 @@
      transition-colors → smooth color transition
      hover:text-sky-600 → sky blue on hover
      md:text-base → 768px+: font-size: 1rem (16px) */
-  .cta-link-small {
-    @apply inline-flex items-center text-sm font-semibold transition-colors hover:text-sky-600 md:text-base;
-  }
-
   /* ========== NEWSLETTER SIGNUP SECTION ========== */
 
   /* Newsletter section container
@@ -833,10 +809,6 @@
   /* Card image container
      relative → position: relative (for absolute-positioned children)
      overflow-hidden → clips child content */
-  .van-card-media {
-    @apply relative overflow-hidden;
-  }
-
   /* Card image
      h-52 → height: 13rem (208px)
      w-full → width: 100%
@@ -1353,17 +1325,9 @@
 
   /* Select dropdown
      appearance-none → removes native browser styling/arrow */
-  .form-select {
-    @apply appearance-none;
-  }
-
   /* Textarea field
      min-h-32 → min-height: 8rem (128px)
      resize-y → resize: vertical (user can resize vertically) */
-  .form-textarea {
-    @apply min-h-32 resize-y;
-  }
-
   /* Field validation error message
      text-sm → font-size: 0.875rem (14px)
      text-red-600 → color: #dc2626 (error red) */
@@ -1374,16 +1338,8 @@
   /* General form status message
      text-sm → font-size: 0.875rem (14px)
      opacity-80 → opacity: 0.8 (subtle) */
-  .form-status-message {
-    @apply text-sm opacity-80;
-  }
-
   /* Error variant for form status
      text-red-600 → color: #dc2626 (error red) */
-  .form-status-error {
-    @apply text-red-600;
-  }
-
   /* Form submit/action buttons row
      flex flex-col → vertical stack on mobile
      gap-3 → gap: 0.75rem (12px)
