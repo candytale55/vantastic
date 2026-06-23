@@ -1,40 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,900;1,900&display=swap');
-@import "tailwindcss";
-
-/* Regular CSS custom properties for use with var() */
-:root {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Lora", serif;
-  --font-display: "Playfair Display", serif;
-}
-
-@theme {
-
-  /* Color Palette */
-  --color-retro-pink: #FF69B4;
-  --color-retro-yellow: #FFDB58;
-  --color-retro-teal: #008080;
-  --color-retro-cream: #F5F2ED;
-  --color-retro-ink: #1A1A1A;
-
-  --bg-color-light: var(--color-retro-cream);
-  --bg-color-dark: var(--color-retro-ink);
-  --text-color: var(--color-retro-ink);
-  --text-color-light: var(--color-retro-cream);
-  --logo-color: var(--color-retro-ink);
-  --heading-color: var(--color-retro-ink);
-
-
-  --link-color: var(--color-sky-700);
-  --link-color-hover: var(--color-amber-500);
-
-  /* Tailwind theme tokens for utility classes */
-  --font-family-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-family-serif: "Lora", serif;
-  --font-family-display: "Playfair Display", serif;
-
-
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   /* ========== GLOBAL RESETS ========== */
@@ -51,10 +18,8 @@
      1.5 line-height for readability, normal weight,
      smooth anchor scrolling for in-page navigation */
   html {
-    line-height: 1.5;
-    font-weight: 400;
+    @apply font-serif font-normal leading-normal;
     scroll-behavior: smooth;
-    font-family: var(--font-serif);
   }
 
   /* ========== BODY DEFAULTS ========== */
@@ -62,31 +27,24 @@
      Ensures body always fills at least the full viewport height,
      preventing footer from floating mid-page on short content */
   body {
-    @apply min-h-screen;
-    font-family: var(--font-serif);
-    color: var(--text-color);
-    background-color: var(--bg-color-light);
+    @apply min-h-screen bg-retro-cream font-serif text-retro-ink;
   }
 
   /* ========== BASE TYPOGRAPHY ========== */
   /* All headings use Playfair Display (display font) for visual impact,
      dark ink color, centered by default (override with utility classes) */
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
-    color: var(--heading-color);
+    @apply font-display text-retro-ink;
     text-align: center;
   }
 
   /* Links: sky blue, no underline, bold weight,
      smooth 300ms color transition on hover to amber */
   a {
-    color: var(--link-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-    font-weight: 700;
+    @apply text-sky-700 font-bold no-underline transition-colors duration-300;
   }
   a:hover {
-    color: var(--link-color-hover);
+    @apply text-amber-500;
   }
 
   /* Lists: override centered text from parent, align left for readability */
@@ -95,7 +53,7 @@
   }
 
   p {
-    @apply font-(--font-serif);
+    @apply font-serif;
   }
 }
 
@@ -133,7 +91,7 @@
      leading-none → line-height: 1 (tight, no extra space)
      md:text-3xl → 768px+: font-size: 1.875rem (30px) */
   .brand-logo {
-    @apply font-extrabold leading-none lg:text-6xl sm:text-3xl text-(--logo-color) uppercase italic;
+    @apply font-extrabold leading-none lg:text-6xl sm:text-3xl text-retro-ink uppercase italic;
   }
 
   /* Navigation wrapper
@@ -208,16 +166,16 @@
      rounded-xl → border-radius: 0.75rem (12px)
      px-4 py-2 → padding: 0.5rem vertical, 1rem horizontal
      bg-sky-600 → background: #0284c7
-     text-mauve-100 → light mauve text color
+     text-white → white text color
      hover:bg-sky-700 → darker blue on hover */
   .cta-button {
-    @apply rounded-xl px-4 py-2 bg-sky-600 text-mauve-100  hover:bg-sky-700;
+    @apply rounded-xl px-4 py-2 bg-sky-600 text-white hover:bg-sky-700;
   }
 
     /* ========== FOOTER SECTION ========== */
 
   .main-footer {
-    @apply bg-[var(--bg-color-dark)] text-[var(--text-color-light)] py-20 px-6;
+    @apply bg-retro-ink text-retro-cream py-20 px-6;
   }
 
   /* Footer grid layout
@@ -236,23 +194,23 @@
      flex flex-col → vertical flex
      gap-3 → gap: 0.75rem (12px) */
   .footer-about {
-    @apply flex flex-col gap-3 text-[var(--text-color-light)] opacity-80;
+    @apply flex flex-col gap-3 text-retro-cream opacity-80;
   }
 
   .footer-text {
-    @apply text-xl/8 text-(--text-color-light) opacity-80 py-4 ;
+    @apply text-xl/8 text-retro-cream opacity-80 py-4 ;
   }
 
   .footer-subtitle {
-    @apply text-lg font-semibold text-(--text-color-light) opacity-80 text-right;
+    @apply text-lg font-semibold text-retro-cream opacity-80 text-right;
   }
 
 .footer-logo {
-    @apply text-5xl text-(--text-color-light) opacity-80 uppercase italic text-left;
+    @apply text-5xl text-retro-cream opacity-80 uppercase italic text-left;
   }
 
 .footer-copy {
-    @apply text-(--text-color-light) opacity-80 py-2 uppercase italic;
+    @apply text-retro-cream opacity-80 py-2 uppercase italic;
   }
 
   /* Footer navigation and legal columns
