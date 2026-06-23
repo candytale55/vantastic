@@ -10,9 +10,6 @@ import Vans from './pages/Vans.jsx'
 import VanRatings from './pages/sections/VanRatings.jsx'
 import VanSpecs from './pages/sections/VanSpecs.jsx'
 
-// Styles
-import './App.css'
-
 
 export default function App() {
   return (
