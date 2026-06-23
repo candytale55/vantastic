@@ -695,16 +695,6 @@
     @apply h-64 w-full rounded-2xl object-cover shadow-md md:h-80 lg:h-[28rem];
   }
 
-  /* Temporary alignment support for live pages imported from docs/old/plan */
-  .about-page-main h1,
-  .about-page-main h2,
-  .about-page-main h3,
-  .community-page-main h1 {
-    @apply text-center;
-  }
-
-
-
   /* ========== VANS LISTING PAGE ========== */
 
   /* Vans page layout
