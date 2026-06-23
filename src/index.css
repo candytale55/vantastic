@@ -137,13 +137,6 @@
   }
 
 
-  /* Navigation link base styles
-     text-sky-600 → color: #0284c7 (sky blue)
-     font-medium → font-weight: 500
-     transition-colors → smooth color transitions (150ms default) */
-  /* Active navigation link state
-     bg-sky-700 → background: #0369a1 (darker sky blue)
-     font-semibold → font-weight: 600 */
   /* Primary call-to-action button
      rounded-xl → border-radius: 0.75rem (12px)
      px-4 py-2 → padding: 0.5rem vertical, 1rem horizontal
@@ -332,9 +325,10 @@
     @apply flex flex-col justify-center items-center gap-4 rounded-2xl border p-6 shadow-sm transition hover:shadow-md;
   }
 
-  /* Icon inside idea card
-     h-8 w-8 → height/width: 2rem (32px)
-     text-sky-600 → color: #0284c7 (sky blue, for SVG fill) */
+  .icon {
+    @apply h-8 w-8 text-sky-600;
+  }
+
   /* Idea card heading
      text-lg → font-size: 1.125rem (18px)
      font-semibold → font-weight: 600
@@ -426,14 +420,6 @@
     @apply px-5 pt-3 text-sm leading-6 opacity-80 md:px-6 md:text-base;
   }
 
-  /* Card CTA link - pushed to bottom
-     mt-auto → margin-top: auto (pushes to bottom of flex container)
-     px-5 pb-5 pt-5 → consistent padding around link
-     font-semibold → font-weight: 600
-     md:px-6 md:pb-6 → 768px+: larger padding */
-  /* Footer area below fleet cards grid
-     pt-2 → padding-top: 0.5rem (8px)
-     md:pt-4 → 768px+: padding-top: 1rem (16px) */
   /* Large CTA button
      inline-flex → inline flex container
      w-full → width: 100% (full-width on mobile)
@@ -451,13 +437,6 @@
     @apply inline-flex w-full items-center justify-center rounded-xl bg-sky-600 px-6 py-3 text-base font-semibold text-white transition hover:bg-sky-700 hover:text-white md:w-fit;
   }
 
-  /* Small inline CTA link (no background)
-     inline-flex items-center → inline flex with centered content
-     text-sm → font-size: 0.875rem (14px)
-     font-semibold → font-weight: 600
-     transition-colors → smooth color transition
-     hover:text-sky-600 → sky blue on hover
-     md:text-base → 768px+: font-size: 1rem (16px) */
   /* ========== NEWSLETTER SIGNUP SECTION ========== */
 
   /* Newsletter section container
@@ -803,9 +782,6 @@
     @apply hover:-translate-y-1 hover:text-retro-ink hover:shadow-lg;
   }
 
-  /* Card image container
-     relative → position: relative (for absolute-positioned children)
-     overflow-hidden → clips child content */
   /* Card image
      h-52 → height: 13rem (208px)
      w-full → width: 100%
@@ -1332,11 +1308,6 @@
     @apply text-sm text-red-600;
   }
 
-  /* General form status message
-     text-sm → font-size: 0.875rem (14px)
-     opacity-80 → opacity: 0.8 (subtle) */
-  /* Error variant for form status
-     text-red-600 → color: #dc2626 (error red) */
   /* Form submit/action buttons row
      flex flex-col → vertical stack on mobile
      gap-3 → gap: 0.75rem (12px)
