@@ -31,11 +31,10 @@
   }
 
   /* ========== BASE TYPOGRAPHY ========== */
-  /* All headings use Playfair Display (display font) for visual impact,
-     dark ink color, centered by default (override with utility classes) */
+  /* All headings use Playfair Display (display font) and dark ink color.
+     Alignment is set by page/component classes. */
   h1, h2, h3, h4, h5, h6 {
     @apply font-display text-retro-ink;
-    text-align: center;
   }
 
   /* Links: sky blue, no underline, bold weight,
@@ -45,11 +44,6 @@
   }
   a:hover {
     @apply text-amber-500;
-  }
-
-  /* Lists: override centered text from parent, align left for readability */
-  ul, ol {
-    text-align: right;
   }
 
   p {
@@ -91,7 +85,7 @@
      leading-none → line-height: 1 (tight, no extra space)
      md:text-3xl → 768px+: font-size: 1.875rem (30px) */
   .brand-logo {
-    @apply font-extrabold leading-none lg:text-6xl sm:text-3xl text-retro-ink uppercase italic;
+    @apply text-center font-extrabold leading-none lg:text-6xl sm:text-3xl text-retro-ink uppercase italic;
   }
 
   /* Navigation wrapper
@@ -218,7 +212,7 @@
      gap-2 → gap: 0.5rem (8px) */
   .footer-nav ul,
   .footer-legal ul {
-    @apply flex flex-col gap-2;
+    @apply flex flex-col gap-2 text-right;
   }
 
   /* ========== HOME HERO SECTION ========== */
@@ -268,7 +262,7 @@
      md:text-4xl → 768px+: font-size: 2.25rem (36px)
      lg:text-5xl → 1024px+: font-size: 3rem (48px) */
   .hero-title {
-    @apply text-3xl font-bold leading-tight md:text-4xl lg:text-5xl;
+    @apply text-center text-3xl font-bold leading-tight md:text-4xl lg:text-5xl;
   }
 
   /* Supporting text below headlines
@@ -307,7 +301,7 @@
      md:text-3xl → 768px+: font-size: 1.875rem (30px)
      lg:text-4xl → 1024px+: font-size: 2.25rem (36px) */
   .section-title {
-    @apply mb-8 text-2xl font-bold leading-tight md:text-3xl lg:text-4xl;
+    @apply mb-8 text-center text-2xl font-bold leading-tight md:text-3xl lg:text-4xl;
   }
 
   /* Grid for idea cards
@@ -341,7 +335,7 @@
      font-semibold → font-weight: 600
      md:text-xl → 768px+: font-size: 1.25rem (20px) */
   .idea-card h3 {
-    @apply text-lg font-semibold md:text-xl;
+    @apply text-center text-lg font-semibold md:text-xl;
   }
 
   /* Idea card description text
@@ -413,7 +407,7 @@
      font-semibold → font-weight: 600
      md:px-6 md:pt-6 → 768px+: padding: 1.5rem (24px) */
   .fleet-type-card h3 {
-    @apply px-5 pt-5 text-xl font-semibold md:px-6 md:pt-6;
+    @apply px-5 pt-5 text-center text-xl font-semibold md:px-6 md:pt-6;
   }
 
   /* Card description inside fleet-type-card
@@ -621,7 +615,7 @@
      font-semibold → font-weight: 600
      leading-tight → line-height: 1.25 */
   .social-preview-title {
-    @apply text-xl font-semibold leading-tight;
+    @apply text-center text-xl font-semibold leading-tight;
   }
 
   /* Community/social collage image
@@ -672,7 +666,7 @@
      md:text-3xl → 768px+: font-size: 1.875rem (30px)
      lg:text-4xl → 1024px+: font-size: 2.25rem (36px) */
   .about-title {
-    @apply text-2xl font-bold leading-tight md:text-3xl lg:text-4xl;
+    @apply text-center text-2xl font-bold leading-tight md:text-3xl lg:text-4xl;
   }
 
   /* About section body text
@@ -694,6 +688,14 @@
      lg:h-[28rem] → 1024px+: height: 28rem (448px) */
   .about-image {
     @apply h-64 w-full rounded-2xl object-cover shadow-md md:h-80 lg:h-[28rem];
+  }
+
+  /* Temporary alignment support for live pages imported from docs/old/plan */
+  .about-page-main h1,
+  .about-page-main h2,
+  .about-page-main h3,
+  .community-page-main h1 {
+    @apply text-center;
   }
 
 
@@ -725,7 +727,7 @@
      md:text-4xl → 768px+: font-size: 2.25rem (36px)
      lg:text-5xl → 1024px+: font-size: 3rem (48px) */
   .page-title {
-    @apply max-w-4xl text-3xl font-bold leading-tight md:text-4xl lg:text-5xl;
+    @apply max-w-4xl text-center text-3xl font-bold leading-tight md:text-4xl lg:text-5xl;
   }
 
   /* Filter chips container
@@ -865,7 +867,7 @@
      leading-tight → line-height: 1.25
      md:text-xl → 768px+: font-size: 1.25rem (20px) */
   .van-card-title {
-    @apply text-lg font-semibold leading-tight md:text-xl;
+    @apply text-center text-lg font-semibold leading-tight md:text-xl;
   }
 
   /* Van price
@@ -924,7 +926,7 @@
      md:text-4xl → 768px+: font-size: 2.25rem (36px)
      lg:text-5xl → 1024px+: font-size: 3rem (48px) */
   .van-page-title {
-    @apply text-3xl font-bold leading-tight md:text-4xl lg:text-5xl;
+    @apply text-center text-3xl font-bold leading-tight md:text-4xl lg:text-5xl;
   }
 
   /* Favorite button on detail page
@@ -1006,7 +1008,7 @@
      leading-tight → line-height: 1.25
      md:text-3xl → 768px+: font-size: 1.875rem (30px) */
   .van-detail-name {
-    @apply text-2xl font-semibold leading-tight md:text-3xl;
+    @apply text-center text-2xl font-semibold leading-tight md:text-3xl;
   }
 
   /* Van description text
@@ -1104,7 +1106,7 @@
      leading-tight → line-height: 1.25
      md:text-3xl → 768px+: font-size: 1.875rem (30px) */
   .booking-title {
-    @apply text-2xl font-bold leading-tight md:text-3xl;
+    @apply text-center text-2xl font-bold leading-tight md:text-3xl;
   }
 
   /* ========== VAN SPECS/FEATURES SECTION ========== */
@@ -1121,7 +1123,7 @@
      font-semibold → font-weight: 600
      md:text-2xl → 768px+: font-size: 1.5rem (24px) */
   .specs-title {
-    @apply text-xl font-semibold md:text-2xl;
+    @apply text-center text-xl font-semibold md:text-2xl;
   }
 
   /* Specs list
@@ -1176,7 +1178,7 @@
      font-semibold → font-weight: 600
      md:text-2xl → 768px+: font-size: 1.5rem (24px) */
   .ratings-title {
-    @apply text-xl font-semibold md:text-2xl;
+    @apply text-center text-xl font-semibold md:text-2xl;
   }
 
   /* Average rating display
