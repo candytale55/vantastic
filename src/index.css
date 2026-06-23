@@ -3,6 +3,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+  STYLE MAP
+  1. Base: resets, html/body typography, global element defaults
+  2. App layout: page shell, main area, reusable section wrapper
+  3. Header: brand, navigation, header CTA
+  4. Footer: footer grid, footer copy, footer links
+  5. Home: hero, reasons, fleet preview, newsletter, testimonials, about hook
+  6. Vans listing: filters, listing grid
+  7. Van card: card shell, image, favorite button, metadata
+  8. Van detail: overview, tabs, image/detail layout
+  9. Booking/specs/ratings/forms: booking section, specs, ratings, form controls
+*/
+
 @layer base {
   /* ========== GLOBAL RESETS ========== */
     *,
