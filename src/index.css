@@ -17,6 +17,8 @@
 */
 
 @layer base {
+  /* ========== BASE ========== */
+
   /* ========== GLOBAL RESETS ========== */
     *,
   *::before, 
@@ -122,6 +124,8 @@
     @apply md:px-5 md:py-3 md:text-base;
   }
 
+  /* ========== APP LAYOUT ========== */
+
   /* Full-page layout wrapper
      flex → display: flex
      flex-col → flex-direction: column (stacks header/main/footer vertically)
@@ -164,7 +168,7 @@
     @apply inline-flex items-center justify-center rounded-xl bg-sky-600 px-5 py-3 text-base font-semibold text-white transition hover:bg-sky-700 hover:text-white;
   }
 
-    /* ========== FOOTER SECTION ========== */
+  /* ========== FOOTER ========== */
 
   .main-footer {
     @apply bg-retro-ink text-retro-cream py-20 px-6;
@@ -226,7 +230,9 @@
     @apply font-bold text-retro-cream opacity-80 hover:text-retro-yellow hover:opacity-100;
   }
 
-  /* ========== HOME HERO SECTION ========== */
+  /* ========== HOME ========== */
+
+  /* ----- Hero ----- */
   
   /* Hero section grid
      grid → display: grid
@@ -294,7 +300,7 @@
     @apply text-sm italic opacity-80 md:text-base;
   }
 
-  /* ========== THREE IDEAS/REASONS SECTION ========== */
+  /* ----- Three ideas/reasons ----- */
 
   /* Section wrapper
      py-10 → padding-top/bottom: 2.5rem (40px)
@@ -359,7 +365,7 @@
     @apply text-sm leading-6 opacity-80 md:text-base;
   }
 
-  /* ========== FLEET PREVIEW SECTION ========== */
+  /* ----- Fleet preview ----- */
 
   /* Fleet preview section layout
      flex flex-col → vertical flex container
@@ -450,7 +456,7 @@
     @apply inline-flex w-full items-center justify-center rounded-xl bg-sky-600 px-6 py-3 text-base font-semibold text-white transition hover:bg-sky-700 hover:text-white md:w-fit;
   }
 
-  /* ========== NEWSLETTER SIGNUP SECTION ========== */
+  /* ----- Newsletter signup ----- */
 
   /* Newsletter section container
      flex flex-col → vertical flex container
@@ -517,7 +523,7 @@
     @apply text-sm leading-6 opacity-80 md:max-w-2xl md:text-base;
   }
 
-  /* ========== TESTIMONIALS & SOCIAL SECTION ========== */
+  /* ----- Testimonials and social ----- */
  
   /* Section wrapper
      py-10 → padding-y: 2.5rem (40px)
@@ -628,7 +634,7 @@
     @apply h-64 w-full rounded-2xl object-cover shadow-sm md:h-80 lg:h-full lg:min-h-[28rem];
   }
 
-  /* ========== ABOUT US HOOK SECTION ========== */
+  /* ----- About hook ----- */
 
   /* Section wrapper
      py-12 → padding-y: 3rem (48px)
@@ -687,7 +693,7 @@
     @apply h-64 w-full rounded-2xl object-cover shadow-md md:h-80 lg:h-[28rem];
   }
 
-  /* ========== VANS LISTING PAGE ========== */
+  /* ========== VANS LISTING ========== */
 
   /* Vans page layout
      flex flex-col → vertical flex
@@ -778,7 +784,7 @@
     }
   }
 
-  /* ========== VAN CARD COMPONENT ========== */
+  /* ========== VAN CARD ========== */
 
   /* Van card wrapper
      flex h-full flex-col → full-height vertical flex
@@ -875,7 +881,7 @@
     @apply inline-flex w-fit rounded-full bg-sky-100 px-3 py-1 text-sm font-medium capitalize text-sky-700;
   }
 
-  /* ========== VAN DETAIL PAGE ========== */
+  /* ========== VAN DETAIL ========== */
 
   /* Page layout
      flex flex-col → vertical flex
@@ -1068,7 +1074,9 @@
     @apply rounded-2xl border bg-white/70 p-5 shadow-sm md:p-6;
   }
 
-  /* ========== VAN BOOKING FORM ========== */
+  /* ========== BOOKING, SPECS, RATINGS, FORMS ========== */
+
+  /* ----- Van booking section ----- */
 
   /* Booking form section
      flex flex-col → vertical flex
@@ -1093,7 +1101,7 @@
     @apply text-center text-2xl font-bold leading-tight md:text-3xl;
   }
 
-  /* ========== VAN SPECS/FEATURES SECTION ========== */
+  /* ----- Van specs/features ----- */
 
   /* Specs section container
      flex flex-col → vertical flex
@@ -1148,7 +1156,7 @@
     @apply text-base font-semibold md:text-right;
   }
 
-  /* ========== VAN RATINGS/REVIEWS SECTION ========== */
+  /* ----- Van ratings/reviews ----- */
 
   /* Ratings section container
      flex flex-col → vertical flex
@@ -1258,7 +1266,7 @@
     @apply pt-2 text-sm italic opacity-75 md:text-base;
   }
 
-  /* ========== BOOKING FORM COMPONENTS ========== */
+  /* ----- Booking form components ----- */
 
   /* Form wrapper
      flex flex-col → vertical flex
