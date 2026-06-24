@@ -1,4 +1,4 @@
-import placeholder_image from '/src/assets/images/placeholder_image.jpg'
+import testimonialsImage from '/src/assets/images/community-pic.png'
 
 export default function HomeTestimonialsSocial() {
   return (
@@ -31,7 +31,7 @@ export default function HomeTestimonialsSocial() {
         
         <div className="social-preview">
           <h3 className="social-preview-title">Nuestra comunidad en carretera</h3>
-          <img src={placeholder_image} alt="Collage de fotos de la comunidad" className="community-collage-image" />
+          <img src={testimonialsImage} alt="Fotos de la comunidad" className="community-collage-image" />
         </div>
       </div>
     </section>
