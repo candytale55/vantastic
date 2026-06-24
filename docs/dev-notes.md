@@ -68,7 +68,6 @@ Algunos componentes clave son:
 
 ## Notas de revisión antes de entrega
 
-- Ejecutar `npm run lint`.
 - Ejecutar `npm run build`.
 - Revisar la app en móvil, tablet y escritorio.
 - Comprobar que las rutas importadas en `App.jsx` existen en la estructura final.

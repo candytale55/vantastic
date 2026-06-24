@@ -33,7 +33,6 @@ Después abre la URL local que indique la terminal, normalmente `http://localhos
 Comandos útiles:
 
 ```bash
-npm run lint
 npm run build
 npm run preview
 ```
