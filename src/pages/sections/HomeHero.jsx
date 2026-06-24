@@ -1,4 +1,4 @@
-import placeholder_image from '/src/assets/images/placeholder_image.jpg'
+import heroImage from '/src/assets/images/ocean-breeze-promo.png'
 import { Link } from 'react-router-dom'
 import { getYearsSince } from '../../utils/dateUtils.js'
 
@@ -13,7 +13,7 @@ export default function HomeHero() {
         <section
             className="home-hero section-shell">
             <div className="hero-media">
-                <img className="hero-image" src={placeholder_image} alt="placeholder image" />
+                <img className="hero-image" src={heroImage} alt="placeholder image" />
             </div>
 
             <div className="hero-content">
