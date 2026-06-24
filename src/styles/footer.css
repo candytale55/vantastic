@@ -1,0 +1,48 @@
+﻿@layer components {
+  /* ========== FOOTER ========== */
+
+  .main-footer {
+    @apply bg-retro-ink text-retro-cream py-20 px-6;
+  }
+
+  .footer-inner {
+    @apply grid gap-8 items-start;
+    @apply md:grid-cols-2;
+    @apply lg:grid-cols-[1.2fr_1fr_1fr];
+  }
+
+  .footer-about {
+    @apply flex flex-col gap-3 text-retro-cream opacity-80;
+  }
+
+  .footer-text {
+    @apply text-xl/8 text-retro-cream opacity-80 py-4 ;
+  }
+
+  .footer-subtitle {
+    @apply text-lg font-semibold text-retro-cream opacity-80 text-right;
+  }
+
+  .footer-logo {
+    @apply text-5xl text-retro-cream opacity-80 uppercase italic text-left;
+  }
+
+  .footer-copy {
+    @apply text-retro-cream opacity-80 py-2 uppercase italic;
+  }
+
+  .footer-nav,
+  .footer-legal {
+    @apply flex flex-col gap-3;
+  }
+
+  .footer-nav ul,
+  .footer-legal ul {
+    @apply flex flex-col gap-2 text-right;
+  }
+
+  .footer-nav a,
+  .footer-legal a {
+    @apply font-bold text-retro-cream opacity-80 hover:text-retro-yellow hover:opacity-100;
+  }
+}

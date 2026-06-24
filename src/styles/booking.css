@@ -1,0 +1,125 @@
+﻿@layer components {
+  /* ========== BOOKING, SPECS, RATINGS, FORMS ========== */
+
+  /* ----- Van booking section ----- */
+
+  .van-booking-form-section {
+    @apply flex flex-col gap-5 rounded-2xl border bg-white/70 py-8 shadow-sm md:gap-6 md:py-10;
+  }
+
+  .booking-title {
+    @apply text-center text-2xl font-bold leading-tight md:text-3xl;
+  }
+
+  /* ----- Van specs/features ----- */
+
+  .van-specs-section {
+    @apply flex flex-col gap-5;
+  }
+
+  .specs-title {
+    @apply text-center text-xl font-semibold md:text-2xl;
+  }
+
+  .specs-list {
+    @apply flex flex-col divide-y rounded-2xl border bg-white/70 shadow-sm;
+  }
+
+  .specs-item {
+    @apply grid grid-cols-1 gap-1 px-4 py-3 md:grid-cols-2 md:items-center md:px-5 md:py-4;
+  }
+
+  .specs-label {
+    @apply text-sm font-medium opacity-70;
+  }
+
+  .specs-value {
+    @apply text-base font-semibold md:text-right;
+  }
+
+  /* ----- Van ratings/reviews ----- */
+
+  .van-ratings-section {
+    @apply flex flex-col gap-5;
+  }
+
+  .ratings-title {
+    @apply text-center text-xl font-semibold md:text-2xl;
+  }
+
+  .average-rating {
+    @apply flex flex-col gap-1 rounded-2xl p-4 md:flex-row md:items-center md:justify-between md:p-5;
+  }
+
+  .average-rating strong {
+    @apply text-lg font-semibold md:text-xl;
+  }
+
+  .average-rating span {
+    @apply text-sm  md:text-base;
+  }
+
+  .ratings-list {
+    @apply flex flex-col gap-4;
+  }
+
+  .rating-card {
+    @apply flex flex-col gap-3 rounded-2xl  p-4 md:p-5;
+  }
+
+  .rating-header {
+    @apply flex flex-col gap-1 md:flex-row md:items-center md:justify-between;
+  }
+
+  .rating-user {
+    @apply font-semibold;
+  }
+
+  .rating-date {
+    @apply text-sm opacity-65;
+  }
+
+  .rating-score {
+    @apply text-lg tracking-wide;
+  }
+
+  .rating-comment {
+    @apply text-sm leading-7 md:text-base;
+  }
+
+  .no-ratings-message {
+    @apply pt-2 text-sm italic opacity-75 md:text-base;
+  }
+
+  /* ----- Booking form components ----- */
+
+  .booking-form {
+    @apply flex flex-col gap-6;
+  }
+
+  .booking-form-grid {
+    @apply grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6;
+  }
+
+  .form-field {
+    @apply flex flex-col gap-2;
+  }
+
+  .form-label {
+    @apply text-sm font-semibold;
+  }
+
+  .form-input {
+    @apply w-full rounded-xl border bg-white px-4 py-3 text-base shadow-sm transition;
+    @apply placeholder:text-black/40;
+    @apply focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200;
+  }
+
+        .form-error-message {
+    @apply text-sm text-red-600;
+  }
+
+  .booking-form-actions {
+    @apply flex flex-col gap-3 pt-2 md:flex-row md:items-center;
+  }
+}

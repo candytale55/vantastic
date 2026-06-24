@@ -1,0 +1,41 @@
+﻿@layer components {
+  /* ========== VAN CARD ========== */
+
+  .van-card-container {
+    @apply flex h-full flex-col overflow-hidden rounded-2xl border bg-white/80 text-retro-ink shadow-sm transition;
+    @apply hover:-translate-y-1 hover:text-retro-ink hover:shadow-lg;
+  }
+
+  .van-card-image {
+    @apply h-52 w-full object-cover md:h-56 lg:h-60;
+  }
+
+  .van-card-favorite-button {
+    @apply absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full;
+    @apply bg-white/90 shadow-sm transition hover:scale-110;
+  }
+
+  .van-card-favorite-button.is-active {
+    @apply bg-red-50;
+  }
+
+  .van-card-body {
+    @apply flex flex-1 flex-col gap-3 p-4 md:p-5;
+  }
+
+  .van-card-info {
+    @apply flex items-start justify-between gap-3;
+  }
+
+  .van-card-title {
+    @apply text-center text-lg font-semibold leading-tight md:text-xl;
+  }
+
+  .van-card-price {
+    @apply shrink-0 text-base font-semibold;
+  }
+
+  .van-card-type {
+    @apply inline-flex w-fit rounded-full bg-sky-100 px-3 py-1 text-sm font-medium capitalize text-sky-700;
+  }
+}

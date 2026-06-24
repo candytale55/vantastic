@@ -1,0 +1,97 @@
+﻿@layer components {
+  /* ========== VAN DETAIL ========== */
+
+  .van-detail-page {
+    @apply flex flex-col gap-10 py-10 md:gap-12 md:py-14;
+  }
+
+  .van-overview {
+    @apply flex flex-col gap-6;
+  }
+
+  .van-header-actions {
+    @apply flex items-start justify-between gap-4;
+  }
+
+  .van-page-title {
+    @apply text-center text-3xl font-bold leading-tight md:text-4xl lg:text-5xl;
+  }
+
+  .van-favorite-button {
+    @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-full border bg-white/80 shadow-sm transition;
+    @apply hover:scale-105 hover:shadow-md;
+  }
+
+  .van-favorite-button.is-active {
+    @apply border-red-300 bg-red-50;
+  }
+
+  .van-main-info {
+    @apply grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-10;
+  }
+
+  .van-image-wrap {
+    @apply overflow-hidden rounded-2xl;
+  }
+
+  .van-detail-image {
+    @apply h-72 w-full rounded-2xl object-cover shadow-md md:h-96 lg:h-[34rem];
+  }
+
+  .van-details-text {
+    @apply flex flex-col gap-4 lg:pt-2;
+  }
+
+  .van-type-badge {
+    @apply inline-flex w-fit rounded-full bg-sky-100 px-3 py-1 text-sm font-semibold capitalize text-sky-700;
+  }
+
+  .van-detail-name {
+    @apply text-center text-2xl font-semibold leading-tight md:text-3xl;
+  }
+
+  .van-description {
+    @apply text-base leading-7 opacity-85 md:text-lg;
+  }
+
+  .van-price {
+    @apply text-lg md:text-xl;
+  }
+
+  .book-van-cta {
+    @apply mt-2 w-full md:w-fit;
+  }
+
+  .van-detail-extra {
+    @apply flex flex-col gap-6;
+  }
+
+  .van-detail-tabs-layout {
+    @apply flex flex-col gap-6 lg:hidden;
+  }
+
+  .van-detail-tabs {
+    @apply flex flex-wrap gap-3 border-b pb-4;
+  }
+
+  .van-tab-link {
+    @apply inline-flex items-center rounded-xl px-4 py-2 text-sm font-semibold text-sky-700 transition;
+    @apply bg-white/70 hover:bg-white hover:text-sky-700;
+  }
+
+  .van-tab-link.is-active {
+    @apply bg-sky-100 text-sky-700;
+  }
+
+  .van-detail-tab-content {
+    @apply rounded-2xl border bg-white/70 p-5 shadow-sm md:p-6;
+  }
+
+  .van-detail-desktop-grid {
+    @apply hidden gap-6 lg:grid lg:grid-cols-2 lg:items-start;
+  }
+
+  .van-detail-desktop-panel {
+    @apply h-full rounded-2xl border bg-white/70 p-6 shadow-sm;
+  }
+}

@@ -1,0 +1,196 @@
+﻿@layer components {
+  /* ========== HOME ========== */
+
+  /* ----- Hero ----- */
+  
+  .home-hero {
+    @apply grid gap-8 py-8 md:py-12 lg:grid-cols-2 lg:items-center lg:gap-12;
+  }
+
+  .hero-media {
+    @apply order-1;
+  }
+
+  .hero-image {
+    @apply h-64 w-full rounded-2xl object-cover shadow-md md:h-80 lg:h-[28rem];
+  }
+
+  .hero-content {
+    @apply order-2 flex flex-col gap-5;
+  }
+
+  .hero-title {
+    @apply text-center text-3xl font-bold leading-tight md:text-4xl lg:text-5xl;
+  }
+
+  .subheadline {
+    @apply max-w-xl text-base leading-7 md:text-lg;
+  }
+
+  .brand-signature {
+    @apply text-sm italic opacity-80 md:text-base;
+  }
+
+  /* ----- Three ideas/reasons ----- */
+
+  .home-three-ideas {
+    @apply py-10 md:py-14;
+  }
+
+  .section-title {
+    @apply mb-8 text-center text-2xl font-bold leading-tight md:text-3xl lg:text-4xl;
+  }
+
+  .ideas-grid {
+    @apply grid gap-6 md:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .idea-card {
+    @apply flex flex-col justify-center items-center gap-4 rounded-2xl border p-6 shadow-sm transition hover:shadow-md;
+  }
+
+  .icon {
+    @apply h-8 w-8 text-sky-600;
+  }
+
+  .idea-card h3 {
+    @apply text-center text-lg font-semibold md:text-xl;
+  }
+
+  .idea-card p {
+    @apply text-sm leading-6 opacity-80 md:text-base;
+  }
+
+  /* ----- Fleet preview ----- */
+
+  .home-fleet-preview {
+    @apply flex flex-col gap-6 py-10 md:gap-8 md:py-14;
+  }
+
+  .section-subtitle {
+    @apply max-w-2xl text-base leading-7 opacity-80 md:text-lg;
+  }
+
+  .fleet-type-cards-grid {
+    @apply grid gap-6 md:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .fleet-type-card {
+    @apply flex h-full flex-col overflow-hidden rounded-2xl border bg-white/80 text-retro-ink shadow-sm transition hover:-translate-y-1 hover:text-retro-ink hover:shadow-lg;
+  }
+
+  .card-image {
+    @apply h-52 w-full object-cover md:h-56;
+  }
+
+  .fleet-type-card h3 {
+    @apply px-5 pt-5 text-center text-xl font-semibold md:px-6 md:pt-6;
+  }
+
+  .fleet-type-card p {
+    @apply px-5 pt-3 text-sm leading-6 opacity-80 md:px-6 md:text-base;
+  }
+
+  .cta-button-large {
+    @apply inline-flex w-full items-center justify-center rounded-xl bg-sky-600 px-6 py-3 text-base font-semibold text-white transition hover:bg-sky-700 hover:text-white md:w-fit;
+  }
+
+  /* ----- Newsletter signup ----- */
+
+  .home-newsletter-signup {
+    @apply flex flex-col gap-5 rounded-2xl border bg-white/70 py-10 shadow-sm md:gap-6 md:py-12;
+  }
+
+  .newsletter-form {
+    @apply flex flex-col gap-3 md:max-w-xl md:flex-row;
+  }
+
+  .newsletter-input {
+    @apply w-full rounded-xl border bg-white px-4 py-3 text-base outline-none transition;
+    @apply placeholder:text-black/40 focus:border-sky-500 focus:ring-2 focus:ring-sky-200;
+  }
+
+  .cta-button-small {
+    @apply inline-flex items-center justify-center rounded-xl bg-sky-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sky-700 hover:text-white md:w-fit md:text-base;
+  }
+
+  .next-issue-hook {
+    @apply text-sm leading-6 opacity-80 md:max-w-2xl md:text-base;
+  }
+
+  /* ----- Testimonials and social ----- */
+ 
+  .home-testimonials-social {
+    @apply py-10 md:py-14;
+  }
+
+  .testimonials-social-layout {
+    @apply flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-start lg:gap-10;
+  }
+
+  .testimonials-column {
+    @apply flex flex-col gap-6;
+  }
+
+  .testimonials-grid {
+    @apply grid gap-6 md:grid-cols-2;
+  }
+
+  .testimonial-card {
+    @apply flex h-full flex-col gap-5 rounded-2xl border bg-white/80 p-6 shadow-sm;
+  }
+
+  .testimonial-card p {
+    @apply text-sm leading-7 md:text-base;
+  }
+
+  .testimonial-footer {
+    @apply mt-auto flex flex-col gap-1 pt-2;
+  }
+
+  .author-name {
+    @apply font-semibold;
+  }
+
+  .author-location {
+    @apply text-sm opacity-70;
+  }
+
+  .social-preview {
+    @apply flex flex-col gap-4 rounded-2xl border bg-white/70 p-5 shadow-sm md:p-6;
+  }
+
+  .social-preview-title {
+    @apply text-center text-xl font-semibold leading-tight;
+  }
+
+  .community-collage-image {
+    @apply h-64 w-full rounded-2xl object-cover shadow-sm md:h-80 lg:h-full lg:min-h-[28rem];
+  }
+
+  /* ----- About hook ----- */
+
+  .home-about-hook {
+    @apply py-12 md:py-16;
+  }
+
+  .about-layout {
+    @apply flex flex-col gap-8 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12;
+  }
+
+  .about-content {
+    @apply flex flex-col gap-5 lg:max-w-lg;
+  }
+
+  .about-title {
+    @apply text-center text-2xl font-bold leading-tight md:text-3xl lg:text-4xl;
+  }
+
+  .about-text {
+    @apply text-base leading-7 opacity-80 md:text-lg;
+  }
+
+  .about-image {
+    @apply h-64 w-full rounded-2xl object-cover shadow-md md:h-80 lg:h-[28rem];
+  }
+}

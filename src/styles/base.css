@@ -1,0 +1,42 @@
+﻿@layer base {
+  /* ========== BASE ========== */
+
+  /* ========== GLOBAL RESETS ========== */
+  *,
+  *::before, 
+  *::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ========== ROOT HTML SETTINGS ========== */
+  /* Sets base typography: Lora serif font,
+     1.5 line-height for readability, normal weight,
+     smooth anchor scrolling for in-page navigation */
+  html {
+    @apply font-serif font-normal leading-normal;
+    scroll-behavior: smooth;
+  }
+
+  /* ========== BODY DEFAULTS ========== */
+  body {
+    @apply min-h-screen bg-retro-cream font-serif text-retro-ink;
+  }
+
+  /* ========== BASE TYPOGRAPHY ========== */
+  /* All headings use Playfair Display (display font) and dark ink color.
+     Alignment is set by page/component classes. */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-retro-ink;
+  }
+
+  /* Links keep only structural defaults. Visual link styles live on components. */
+  a {
+    @apply no-underline transition-colors duration-300;
+  }
+
+  p {
+    @apply font-serif;
+  }
+}
