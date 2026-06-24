@@ -1,7 +1,39 @@
 import { Link } from 'react-router-dom'
-import placeholder_image from '/src/assets/images/placeholder_image.jpg'
+import { useMemo } from 'react'
+import useFetch from '../../hooks/useFetch.jsx'
 
+// Shows the three fleet categories on the home page with one random van image per category.
 export default function HomeFleetPreview() {
+    const { data, loading } = useFetch("/api/vans");
+
+    const randomFleetImages = useMemo(() => {
+        const vans = data?.vans ?? [];
+
+        function getRandomVanByType(type) {
+            const matchingVans = vans.filter((van) => van.type === type);
+            return matchingVans[Math.floor(Math.random() * matchingVans.length)];
+        }
+
+        return {
+            esencial: getRandomVanByType("esencial"),
+            viajera: getRandomVanByType("viajera"),
+            singular: getRandomVanByType("singular"),
+        };
+    }, [data]);
+
+    function renderFleetImage(van, fallbackAlt) {
+        if (loading || !van) {
+            return <p className="card-image">cargando</p>;
+        }
+
+        return (
+            <img
+                src={van.imageUrl}
+                alt={van.name ?? fallbackAlt}
+                className="card-image" />
+        );
+    }
+
     return (
         <section
             className="home-fleet-preview section-shell"
@@ -10,22 +42,20 @@ export default function HomeFleetPreview() {
             <p className="section-subtitle">Tres formas de viajar. Una sola manera de hacerlo bien.</p>
             <div className="fleet-type-cards-grid">
                 <Link to="/vans?type=esencial" className="fleet-type-card">
-                    <img src={placeholder_image} alt="Furgoneta tipo Esencial" className="card-image" />
+                    {renderFleetImage(randomFleetImages.esencial, "Furgoneta tipo Esencial")}
                     <h3>Esencial</h3>
                     <p>Para los que prefieren llegar ligeros. Lo necesario está, lo superfluo se queda en casa.</p>
                     <span className="cta-button-small">Ver furgonetas Esencial →</span>
                 </Link>
                 <Link to="/vans?type=viajera" className="fleet-type-card">
-                    <img src={placeholder_image} alt="Furgoneta tipo Viajera" className="card-image" />
+                    {renderFleetImage(randomFleetImages.viajera, "Furgoneta tipo Viajera")}
                     <h3>Viajera</h3>
                     <p>Preparada para viajes largos y rutas mixtas. La que lleva parejas al Algarve y solitarios hasta el Pirineo.</p>
                     <span className="cta-button-small">Ver furgonetas Viajera →</span>
                 </Link>
                 <Link
                     to="/vans?type=singular" className="fleet-type-card">
-                    <img
-                        src={placeholder_image}
-                        alt="Furgoneta tipo Singular" className="card-image" />
+                    {renderFleetImage(randomFleetImages.singular, "Furgoneta tipo Singular")}
                     <h3>Singular</h3>
                     <p>No son las más caras. Son las más especiales. Pocas unidades, restauración excepcional.</p>
                     <span className="cta-button-small">Ver furgonetas Singular →</span>
