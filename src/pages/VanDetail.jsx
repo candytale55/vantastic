@@ -9,34 +9,23 @@ import { VanSpecsContent } from './sections/VanSpecs.jsx'
 import { VanRatingsContent } from './sections/VanRatings.jsx'
 
 export default function VanDetail() {
-  // Extrae el parámetro "id" de la URL 
-  const params = useParams();
+  // Extrae el parámetro "id" de la URL
+  const params = useParams()
 
-  const { data, loading, error } = useFetch(`/api/vans/${params.id}`);
+  const { data, loading, error } = useFetch(`/api/vans/${params.id}`)
 
-  const { favorites, toggleFavorite } = useFavorites();
-  const isFavorite = favorites.includes(params.id);
+  const { favorites, toggleFavorite } = useFavorites()
+  const isFavorite = favorites.includes(params.id)
 
   if (loading) return <h2>Cargando vans...</h2>
-  if (error) return <h2>Hubo un error:{error}</h2> //TODO: Improve error message styling 
+  if (error) return <h2>Hubo un error:{error}</h2> //TODO: Improve error message styling
 
-  const vanElement = data.van;
+  const vanElement = data.van
 
   return (
     <main className="van-detail-page">
       <section className="van-overview section-shell">
-        <div className="van-header-actions">
-          <h1 className="van-page-title">{vanElement.name}</h1>
-
-          <button
-            type="button"
-            className={`van-favorite-button ${isFavorite ? 'is-active' : ''}`}
-            onClick={() => toggleFavorite(params.id)}
-            aria-label={isFavorite ? 'Quitar de favoritos' : 'Añadir a favoritos'}
-          >
-            <Heart filled={isFavorite} />
-          </button>
-        </div>
+        <h1 className="van-page-title">{vanElement.name}</h1>
 
         <div className="van-main-info">
           <div className="van-image-wrap">
@@ -45,6 +34,15 @@ export default function VanDetail() {
               alt={vanElement.name}
               className="van-detail-image"
             />
+
+            <button
+              type="button"
+              className={`van-favorite-button ${isFavorite ? 'is-active' : ''}`}
+              onClick={() => toggleFavorite(params.id)}
+              aria-label={isFavorite ? 'Quitar de favoritos' : 'Añadir a favoritos'}
+            >
+              <Heart filled={isFavorite} />
+            </button>
           </div>
 
           <div className="van-details-text">
