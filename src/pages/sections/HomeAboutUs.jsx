@@ -1,4 +1,4 @@
-import placeholder_image from '/src/assets/images/placeholder_image.jpg'
+import aboutUsImage from '/src/assets/images/owners-pic.png'
 
 export default function HomeAboutUs() {
     return (
@@ -11,7 +11,7 @@ export default function HomeAboutUs() {
 
                 <div className="about-media">
                     <img
-                        src={placeholder_image}
+                        src={aboutUsImage}
                         alt="Foto de los fundadores o taller Vantastic!"
                         className="about-image" />
                 </div>
