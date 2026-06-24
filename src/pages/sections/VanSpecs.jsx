@@ -1,9 +1,8 @@
+// Van specs section: renders the technical details of a van and can be used
+// both inside the route Outlet and directly in the desktop layout.
 import { useOutletContext } from 'react-router-dom'
 
-export default function VanSpecs() {
-
-  const { specs } = useOutletContext();
-
+export function VanSpecsContent({ specs }) {
   return (
     <div className="van-specs-section">
       <h3 className="specs-title">Especificaciones Técnicas</h3>
@@ -18,4 +17,10 @@ export default function VanSpecs() {
       </ul>
     </div>
   )
+}
+
+export default function VanSpecs() {
+  const { specs } = useOutletContext()
+
+  return <VanSpecsContent specs={specs} />
 }

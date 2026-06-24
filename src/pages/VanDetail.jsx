@@ -1,8 +1,12 @@
+// Van detail page: loads one van, shows its main information, and switches
+// between mobile tabs and a desktop two-column details layout.
 import useFetch from '../hooks/useFetch'
 import { useFavorites } from '../context/FavoritesContext.jsx'
 import { useParams, Outlet, NavLink } from 'react-router-dom'
 import BookingForm from '../components/BookingForm'
 import Heart from '../components/Heart.jsx'
+import { VanSpecsContent } from './sections/VanSpecs.jsx'
+import { VanRatingsContent } from './sections/VanRatings.jsx'
 
 export default function VanDetail() {
   // Extrae el parámetro "id" de la URL 
@@ -58,34 +62,46 @@ export default function VanDetail() {
       </section>
 
       <section className="van-detail-extra section-shell">
-        <nav className="van-detail-tabs">
-          <NavLink
-            to="specs"
-            end
-            className={({ isActive }) =>
-              `van-tab-link ${isActive ? 'is-active' : ''}`
-            }
-          >
-            Specs
-          </NavLink>
+        <div className="van-detail-tabs-layout">
+          <nav className="van-detail-tabs">
+            <NavLink
+              to="specs"
+              end
+              className={({ isActive }) =>
+                `van-tab-link ${isActive ? 'is-active' : ''}`
+              }
+            >
+              Specs
+            </NavLink>
 
-          <NavLink
-            to="ratings"
-            className={({ isActive }) =>
-              `van-tab-link ${isActive ? 'is-active' : ''}`
-            }
-          >
-            Valoraciones
-          </NavLink>
-        </nav>
+            <NavLink
+              to="ratings"
+              className={({ isActive }) =>
+                `van-tab-link ${isActive ? 'is-active' : ''}`
+              }
+            >
+              Valoraciones
+            </NavLink>
+          </nav>
 
-        <div className="van-detail-tab-content">
-          <Outlet
-            context={{
-              specs: vanElement.specs,
-              ratings: vanElement.ratings,
-            }}
-          />
+          <div className="van-detail-tab-content">
+            <Outlet
+              context={{
+                specs: vanElement.specs,
+                ratings: vanElement.ratings,
+              }}
+            />
+          </div>
+        </div>
+
+        <div className="van-detail-desktop-grid">
+          <div className="van-detail-desktop-panel">
+            <VanSpecsContent specs={vanElement.specs} />
+          </div>
+
+          <div className="van-detail-desktop-panel">
+            <VanRatingsContent ratings={vanElement.ratings} />
+          </div>
         </div>
       </section>
 

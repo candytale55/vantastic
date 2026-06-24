@@ -507,6 +507,10 @@
     @apply flex flex-col gap-6;
   }
 
+  .van-detail-tabs-layout {
+    @apply flex flex-col gap-6 lg:hidden;
+  }
+
   .van-detail-tabs {
     @apply flex flex-wrap gap-3 border-b pb-4;
   }
@@ -522,6 +526,14 @@
 
   .van-detail-tab-content {
     @apply rounded-2xl border bg-white/70 p-5 shadow-sm md:p-6;
+  }
+
+  .van-detail-desktop-grid {
+    @apply hidden gap-6 lg:grid lg:grid-cols-2 lg:items-start;
+  }
+
+  .van-detail-desktop-panel {
+    @apply h-full rounded-2xl border bg-white/70 p-6 shadow-sm;
   }
 
   /* ========== BOOKING, SPECS, RATINGS, FORMS ========== */
