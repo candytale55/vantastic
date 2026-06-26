@@ -6,13 +6,14 @@
   }
 
   .footer-inner {
-    @apply grid gap-8 items-start;
+    @apply grid gap-10 items-start;
     @apply md:grid-cols-2;
-    @apply lg:grid-cols-[1.2fr_1fr_1fr];
+    @apply lg:grid-cols-[1.2fr_2fr];
   }
 
   .footer-about {
-    @apply flex flex-col gap-3 text-retro-cream opacity-80;
+    @apply flex flex-col items-center gap-3 text-center text-retro-cream opacity-80;
+    @apply md:items-start md:text-left;
   }
 
   .footer-text {
@@ -20,25 +21,36 @@
   }
 
   .footer-subtitle {
-    @apply text-2xl font-semibold text-retro-yellow opacity-90 text-right;
+    @apply text-center text-2xl font-semibold text-retro-yellow opacity-90;
+    @apply md:text-right;
   }
 
   .footer-logo {
-    @apply text-6xl text-retro-pink uppercase italic text-left;
+    @apply text-center text-6xl text-retro-pink uppercase italic;
+    @apply md:text-left;
   }
 
   .footer-copy {
     @apply text-retro-cream py-2 uppercase italic;
   }
 
+  .footer-links {
+    @apply flex flex-col items-center gap-8;
+    @apply md:items-end md:gap-6;
+    @apply lg:grid lg:grid-cols-2 lg:items-start lg:gap-16 lg:pt-10;
+  }
+
   .footer-nav,
   .footer-legal {
     @apply flex flex-col gap-3;
+    @apply items-center;
+    @apply md:items-end;
   }
 
   .footer-nav ul,
   .footer-legal ul {
-    @apply flex flex-col gap-2 text-right;
+    @apply flex flex-col gap-2 text-center;
+    @apply md:text-right;
   }
 
   .footer-nav a,
