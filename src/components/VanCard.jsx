@@ -23,18 +23,20 @@ export default function VanCard(props) {
       
 
 
-      <button
-        onClick={handleFavorite}
-        className={`van-card-favorite-button ${isFavorite ? 'is-active' : ''}`}
-        aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}>
-        <Heart filled={isFavorite} />
-      </button>
-      
       <div key={props.van.id}>
-        <img
-          src={props.van.imageUrl}
-          alt={props.van.name}
-          className="van-card-image" />
+        <div className="van-card-image-wrap">
+          <img
+            src={props.van.imageUrl}
+            alt={props.van.name}
+            className="van-card-image" />
+
+          <button
+            onClick={handleFavorite}
+            className={`van-card-favorite-button ${isFavorite ? 'is-active' : ''}`}
+            aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}>
+            <Heart filled={isFavorite} />
+          </button>
+        </div>
         
 
         <div className="van-card-body">

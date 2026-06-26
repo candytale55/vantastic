@@ -2,12 +2,17 @@
   /* ========== VAN CARD ========== */
 
   .van-card-container {
-    @apply flex h-full flex-col overflow-hidden rounded-2xl border bg-white/80 text-retro-ink shadow-sm transition;
-    @apply hover:-translate-y-1 hover:text-retro-ink hover:shadow-lg;
+    @apply relative flex h-full w-full max-w-[25rem] justify-self-center flex-col gap-5 rounded-none border-2 border-retro-ink bg-white p-5 text-retro-ink;
+    @apply shadow-[4px_4px_0px_rgba(26,26,26,1)] transition-all duration-200;
+    @apply hover:-translate-x-1 hover:-translate-y-1 hover:text-retro-ink hover:shadow-[8px_8px_0px_rgba(26,26,26,1)];
+  }
+
+  .van-card-image-wrap {
+    @apply relative aspect-[4/3] w-full overflow-hidden border-2 border-retro-ink bg-retro-cream;
   }
 
   .van-card-image {
-    @apply h-52 w-full object-cover md:h-56 lg:h-60;
+    @apply h-full w-full object-cover;
   }
 
   .van-card-favorite-button {
@@ -20,7 +25,7 @@
   }
 
   .van-card-body {
-    @apply flex flex-1 flex-col gap-3 p-4 md:p-5;
+    @apply flex flex-1 flex-col gap-3;
   }
 
   .van-card-info {
@@ -28,7 +33,7 @@
   }
 
   .van-card-title {
-    @apply text-center text-lg font-semibold leading-tight md:text-xl;
+    @apply text-2xl font-black italic leading-tight tracking-normal md:text-3xl;
   }
 
   .van-card-price {
@@ -36,6 +41,6 @@
   }
 
   .van-card-type {
-    @apply inline-flex w-fit rounded-full bg-sky-100 px-3 py-1 text-sm font-medium capitalize text-sky-700;
+    @apply inline-flex w-fit rounded-none border-2 border-retro-ink bg-retro-yellow px-3 py-1 text-sm font-bold uppercase tracking-wide text-retro-ink;
   }
 }

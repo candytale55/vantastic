@@ -2,21 +2,26 @@
   /* ========== HEADER ========== */
 
   .main-header {
-    @apply mx-4 mt-4 flex shrink-0 items-center justify-between px-4 py-4;
+    @apply mx-4 mb-6 mt-4 flex shrink-0 flex-col items-center justify-between gap-8 px-4 py-4;
+    @apply sm:mb-0 sm:flex-row sm:gap-4;
     @apply md:mx-6 md:px-6;
     @apply lg:mx-8 lg:px-8;
   }
 
   .brand-link {
-    @apply inline-flex items-center text-retro-ink hover:text-retro-ink;
+    @apply inline-flex w-full items-center justify-center text-retro-ink hover:text-retro-ink;
+    @apply sm:w-auto sm:justify-start;
   }
 
   .brand-logo {
-    @apply text-center font-extrabold leading-none lg:text-6xl sm:text-3xl text-retro-ink uppercase italic;
+    @apply text-center text-5xl font-extrabold leading-none text-retro-ink uppercase italic;
+    @apply sm:text-5xl;
+    @apply lg:text-6xl;
   }
 
   .primary-nav {
-    @apply flex items-center gap-3;
+    @apply flex w-full items-center justify-center gap-3;
+    @apply sm:w-auto;
   }
 
 }

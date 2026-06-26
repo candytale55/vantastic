@@ -14,7 +14,7 @@
   }
 
   .van-favorite-button {
-    @apply absolute right-3 top-3 z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border bg-white/90 shadow-sm transition;
+    @apply absolute right-8 top-8 z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border bg-white/90 shadow-sm transition;
     @apply hover:scale-105 hover:shadow-md;
   }
 
@@ -23,27 +23,28 @@
   }
 
   .van-main-info {
-    @apply grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-10;
+    @apply grid gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-start lg:gap-10;
   }
 
   .van-image-wrap {
-    @apply relative overflow-hidden rounded-2xl;
+    @apply relative w-full max-w-[36rem] justify-self-center overflow-hidden rounded-none border-2 border-retro-ink bg-retro-cream p-5;
+    @apply shadow-[4px_4px_0px_rgba(26,26,26,1)];
   }
 
   .van-detail-image {
-    @apply h-72 w-full rounded-2xl object-cover shadow-md md:h-96 lg:h-[34rem];
+    @apply aspect-[4/3] w-full border-2 border-retro-ink object-cover;
   }
 
   .van-details-text {
-    @apply flex flex-col gap-4 lg:pt-2;
+    @apply flex max-w-2xl flex-col gap-4 justify-self-center lg:pt-2;
   }
 
   .van-type-badge {
-    @apply inline-flex w-fit rounded-full bg-sky-100 px-3 py-1 text-sm font-semibold capitalize text-sky-700;
+    @apply inline-flex w-fit rounded-none border-2 border-retro-ink bg-retro-yellow px-3 py-1 text-sm font-bold uppercase tracking-wide text-retro-ink;
   }
 
   .van-detail-name {
-    @apply text-center text-2xl font-semibold leading-tight md:text-3xl;
+    @apply text-2xl font-black italic leading-tight tracking-normal md:text-3xl;
   }
 
   .van-description {
@@ -55,7 +56,7 @@
   }
 
   .book-van-cta {
-    @apply mt-2 w-full md:w-fit;
+    @apply mt-2;
   }
 
   .van-detail-extra {

@@ -22,14 +22,7 @@
   }
 
   .van-cards-grid {
-    @apply grid gap-6;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  }
-
-  /* 2XL breakpoint (1536px+): force 4-column grid */
-  @media (min-width: 1536px) {
-  .van-cards-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
+    @apply grid gap-8;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
   }
 }
