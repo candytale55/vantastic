@@ -26,8 +26,8 @@
   }
 
   .social-links a {
-    @apply flex h-10 w-10 items-center justify-center text-retro-cream opacity-80 transition;
-    @apply hover:text-retro-pink hover:opacity-100;
+    @apply flex h-10 w-10 items-center justify-center text-retro-yellow transition;
+    @apply hover:text-retro-pink;
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-retro-pink focus-visible:ring-offset-2 focus-visible:ring-offset-retro-ink;
   }
 
