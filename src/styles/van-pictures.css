@@ -1,0 +1,66 @@
+@layer components {
+  /* ========== VAN PICTURES GALLERY ========== */
+
+  .van-pictures-section {
+    @apply bg-retro-pink;
+    @apply border-y-2 border-retro-ink;
+  }
+
+  .van-pictures-inner {
+    @apply flex flex-col items-center gap-10 py-16;
+  }
+
+  .van-pictures-heading {
+    @apply flex max-w-3xl flex-col items-center gap-4 text-center;
+  }
+
+  .van-pictures-icon {
+    @apply flex h-16 w-16 items-center justify-center rounded-full border-2 border-retro-ink bg-white text-retro-ink shadow-[4px_4px_0px_rgba(26,26,26,1)];
+  }
+
+  .van-pictures-icon svg {
+    @apply h-8 w-8;
+  }
+
+  .van-pictures-heading .section-title {
+    @apply mb-0 text-white;
+  }
+
+  .van-pictures-subtitle {
+    @apply max-w-2xl text-xl leading-8 text-white/90;
+  }
+
+  .pictures-grid {
+    @apply grid w-full gap-6;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  }
+
+  .van-gallery-frame {
+    @apply aspect-square w-full max-w-[24rem] justify-self-center cursor-pointer border-2 border-retro-ink bg-white p-3 shadow-[4px_4px_0px_rgba(26,26,26,1)];
+    @apply transition-all duration-200;
+  }
+
+  .van-gallery-frame:nth-child(odd) {
+    @apply rotate-1;
+  }
+
+  .van-gallery-frame:nth-child(even) {
+    @apply -rotate-1;
+  }
+
+  .van-gallery-frame:hover {
+    @apply scale-105 rotate-2 shadow-[7px_7px_0px_rgba(26,26,26,1)];
+  }
+
+  .van-gallery-frame:nth-child(even):hover {
+    @apply -rotate-2;
+  }
+
+  .van-gallery-image {
+    @apply h-full w-full object-cover;
+  }
+
+  .van-pictures-cta {
+    @apply mt-2;
+  }
+}

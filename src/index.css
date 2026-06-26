@@ -9,6 +9,7 @@
   home.css: homepage sections
   vans.css: vans listing page and filters
   van-card.css: reusable van cards
+  van-pictures.css: homepage gallery section
   van-detail.css: van detail overview and responsive specs/ratings layout
   booking.css: booking form, specs, and ratings detail styles
 */
@@ -20,6 +21,7 @@
 @import './styles/home.css';
 @import './styles/vans.css';
 @import './styles/van-card.css';
+@import './styles/van-pictures.css';
 @import './styles/van-detail.css';
 @import './styles/booking.css';
 @import './styles/buttons.css';
