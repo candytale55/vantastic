@@ -46,6 +46,7 @@ export default function Footer() {
             <ul>
               <li><Link to="/#nuestra-historia">Nuestra Historia</Link></li>
               <li><Link to="/vans">La Flota</Link></li>
+              <li><Link to="/#galeria">Galer&iacute;a</Link></li>
               <li><Link to="/#newsletter">Newsletter</Link></li>
               <li><Link to="/#testimonials-social">La Comunidad</Link></li>
               {/* <li><a href="#footer-nav">Rutas</a></li> */}

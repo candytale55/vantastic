@@ -4,6 +4,7 @@ import HomeFleetPreview from './sections/HomeFleetPreview.jsx'
 import HomeTestimonialsSocial from './sections/HomeTestimonialsSocial.jsx'
 import HomeNewsletterSignup from './sections/HomeNewsletterSignup.jsx'
 import HomeAboutUs from './sections/HomeAboutUs.jsx' 
+import VanPictures from './sections/VanPictures.jsx'
 
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       <HomeHero />
       <HomePromoThreeReasons />
       <HomeFleetPreview />
+      <VanPictures />
       <HomeNewsletterSignup />
       <HomeTestimonialsSocial />
       <HomeAboutUs />
