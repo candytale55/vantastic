@@ -68,6 +68,6 @@
   }
 
   .fleet-type-card .cta-button-small {
-    @apply mx-5 mb-5 mt-auto md:mx-6;
+    @apply mt-auto w-full;
   }
 }

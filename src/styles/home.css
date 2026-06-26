@@ -72,23 +72,25 @@
   }
 
   .fleet-type-cards-grid {
-    @apply grid gap-6 md:grid-cols-2 lg:grid-cols-3;
+    @apply grid gap-8 md:grid-cols-2 lg:grid-cols-3;
   }
 
   .fleet-type-card {
-    @apply flex h-full flex-col overflow-hidden rounded-2xl border bg-white/80 text-retro-ink shadow-sm transition hover:-translate-y-1 hover:text-retro-ink hover:shadow-lg;
+    @apply flex h-full flex-col gap-5 rounded-none border-2 border-retro-ink bg-white p-5 text-retro-ink;
+    @apply shadow-[4px_4px_0px_rgba(26,26,26,1)] transition-all duration-200;
+    @apply hover:-translate-x-1 hover:-translate-y-1 hover:text-retro-ink hover:shadow-[8px_8px_0px_rgba(26,26,26,1)];
   }
 
   .card-image {
-    @apply h-52 w-full object-cover md:h-56;
+    @apply flex h-52 w-full items-center justify-center border-2 border-retro-ink bg-retro-cream object-cover font-sans text-sm font-bold uppercase tracking-wider md:h-56;
   }
 
   .fleet-type-card h3 {
-    @apply px-5 pt-5 text-center text-xl font-semibold md:px-6 md:pt-6;
+    @apply text-2xl font-black italic leading-tight tracking-normal md:text-3xl;
   }
 
   .fleet-type-card p {
-    @apply px-5 pt-3 text-sm leading-6 opacity-80 md:px-6 md:text-base;
+    @apply text-sm leading-6 opacity-80 md:text-base;
   }
 
   /* ----- Newsletter signup ----- */
