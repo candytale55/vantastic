@@ -96,7 +96,7 @@
   /* ----- Newsletter signup ----- */
 
   .home-newsletter-signup {
-    @apply flex flex-col gap-5 rounded-2xl border bg-white/70 py-10 shadow-sm md:gap-6 md:py-12;
+    @apply flex flex-col gap-5 rounded-2xl border bg-retro-yellow py-10 shadow-sm md:gap-6 md:py-12;
   }
 
   .newsletter-form {
