@@ -44,7 +44,7 @@ export default function VanCard(props) {
             <h3 className="van-card-title">{props.van.name}</h3>
             <p className="van-card-price">€{props.van.price}</p>
           </div>
-          <span className="van-card-type">{props.van.type}</span>
+          <span className={`van-card-type type-${props.van.type}`}>{props.van.type}</span>
         </div>
         </div>
 

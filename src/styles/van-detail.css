@@ -40,7 +40,7 @@
   }
 
   .van-type-badge {
-    @apply inline-flex w-fit rounded-none border-2 border-retro-ink bg-retro-yellow px-3 py-1 text-sm font-bold uppercase tracking-wide text-retro-ink;
+    @apply inline-flex w-fit rounded-none border-2 border-retro-ink px-3 py-1 text-sm font-bold uppercase tracking-wide;
   }
 
   .van-detail-name {

@@ -41,6 +41,21 @@
   }
 
   .van-card-type {
-    @apply inline-flex w-fit rounded-none border-2 border-retro-ink bg-retro-yellow px-3 py-1 text-sm font-bold uppercase tracking-wide text-retro-ink;
+    @apply inline-flex w-fit rounded-none border-2 border-retro-ink px-3 py-1 text-sm font-bold uppercase tracking-wide;
+  }
+
+  .van-card-type.type-esencial,
+  .van-type-badge.type-esencial {
+    @apply bg-retro-yellow text-retro-ink;
+  }
+
+  .van-card-type.type-viajera,
+  .van-type-badge.type-viajera {
+    @apply bg-retro-teal text-white;
+  }
+
+  .van-card-type.type-singular,
+  .van-type-badge.type-singular {
+    @apply bg-retro-pink text-retro-ink;
   }
 }

@@ -48,21 +48,21 @@ export default function Vans() {
       <div className="filters-container">
         <button
           onClick={() => handleFilterChange("type", "esencial")}
-          className={`filter-chip ${typeFilter === "esencial" ? "is-active" : ""}`}
+          className={`filter-chip type-esencial ${typeFilter === "esencial" ? "is-active" : ""}`}
         >
           Esencial
         </button>
 
         <button
           onClick={() => handleFilterChange("type", "viajera")}
-          className={`filter-chip ${typeFilter === "viajera" ? "is-active" : ""}`}
+          className={`filter-chip type-viajera ${typeFilter === "viajera" ? "is-active" : ""}`}
         >
           Viajera
         </button>
 
         <button
           onClick={() => handleFilterChange("type", "singular")}
-          className={`filter-chip ${typeFilter === "singular" ? "is-active" : ""}`}
+          className={`filter-chip type-singular ${typeFilter === "singular" ? "is-active" : ""}`}
         >
           Singular
         </button>

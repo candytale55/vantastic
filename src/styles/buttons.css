@@ -53,13 +53,25 @@
     @apply inline-flex items-center justify-center rounded-none border-2 border-retro-ink;
     @apply bg-white px-4 py-2 text-sm font-bold uppercase tracking-wide text-retro-ink;
     @apply shadow-[3px_3px_0px_rgba(26,26,26,1)] transition-all duration-200;
-    @apply hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-retro-yellow hover:shadow-[5px_5px_0px_rgba(26,26,26,1)];
+    @apply hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_rgba(26,26,26,1)];
     @apply active:translate-x-[2px] active:translate-y-[2px] active:shadow-none;
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-retro-teal focus-visible:ring-offset-2 focus-visible:ring-offset-retro-cream;
   }
 
   .filter-chip.is-active {
+    @apply bg-white text-retro-ink;
+  }
+
+  .filter-chip.type-esencial:hover {
+    @apply bg-retro-yellow text-retro-ink;
+  }
+
+  .filter-chip.type-viajera:hover {
     @apply bg-retro-teal text-white;
+  }
+
+  .filter-chip.type-singular:hover {
+    @apply bg-retro-pink text-retro-ink;
   }
 
   .filter-chip-reset {

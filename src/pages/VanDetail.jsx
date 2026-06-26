@@ -46,7 +46,7 @@ export default function VanDetail() {
           </div>
 
           <div className="van-details-text">
-            <i className="van-type-badge">{vanElement.type}</i>
+            <i className={`van-type-badge type-${vanElement.type}`}>{vanElement.type}</i>
             <h2 className="van-detail-name">{vanElement.name}</h2>
             <p className="van-description">{vanElement.description}</p>
             <p className="van-price">
