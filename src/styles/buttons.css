@@ -21,8 +21,8 @@
   }
 
   .cta-button-large {
-    @apply w-full px-6 py-3 text-base;
-    @apply md:w-fit md:px-8 md:py-4 md:text-lg;
+    @apply w-fit px-6 py-3 text-base;
+    @apply md:px-8 md:py-4 md:text-lg;
   }
 
   .cta-button-small {
@@ -68,6 +68,6 @@
   }
 
   .fleet-type-card .cta-button-small {
-    @apply mt-auto w-full;
+    @apply mt-auto w-fit max-w-full;
   }
 }

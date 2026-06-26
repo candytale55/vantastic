@@ -110,6 +110,11 @@
     @apply placeholder:text-black/40 focus:ring-2 focus:ring-retro-pink;
   }
 
+  .newsletter-form .cta-button-small {
+    @apply w-fit max-w-full self-center px-6 py-4;
+    @apply sm:self-stretch;
+  }
+
   .next-issue-hook {
     @apply text-sm leading-6 opacity-80 md:max-w-2xl md:text-base;
   }
