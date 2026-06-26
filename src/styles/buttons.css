@@ -1,0 +1,73 @@
+@layer components {
+  /* ========== BUTTONS ========== */
+
+  .cta-button,
+  .cta-button-large,
+  .cta-button-small,
+  .header-cta {
+    @apply inline-flex items-center justify-center rounded-none border-2 border-retro-ink;
+    @apply shadow-[4px_4px_0px_rgba(26,26,26,1)];
+    @apply font-sans font-extrabold uppercase tracking-wider;
+    @apply transition-all duration-200;
+    @apply hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_rgba(26,26,26,1)];
+    @apply active:translate-x-[2px] active:translate-y-[2px] active:shadow-none;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-retro-teal focus-visible:ring-offset-2 focus-visible:ring-offset-retro-cream;
+  }
+
+  .cta-button,
+  .header-cta {
+    @apply px-4 py-2 text-sm;
+    @apply md:px-5 md:py-3 md:text-base;
+  }
+
+  .cta-button-large {
+    @apply w-full px-6 py-3 text-base;
+    @apply md:w-fit md:px-8 md:py-4 md:text-lg;
+  }
+
+  .cta-button-small {
+    @apply px-4 py-2 text-xs;
+    @apply md:px-5 md:py-3 md:text-sm;
+  }
+
+  .cta-button,
+  .cta-button-large,
+  .cta-button-small,
+  .header-cta {
+    @apply bg-retro-yellow text-retro-ink hover:bg-retro-pink hover:text-retro-ink;
+  }
+
+  .btn-yellow {
+    @apply bg-retro-yellow text-retro-ink hover:bg-retro-pink hover:text-retro-ink;
+  }
+
+  .btn-teal {
+    @apply bg-retro-teal text-white hover:bg-retro-ink hover:text-retro-yellow;
+  }
+
+  .btn-pink {
+    @apply bg-retro-pink text-retro-ink hover:bg-retro-yellow hover:text-retro-ink;
+  }
+
+  .filter-chip {
+    @apply inline-flex items-center justify-center rounded-none border-2 border-retro-ink;
+    @apply bg-white px-4 py-2 text-sm font-bold uppercase tracking-wide text-retro-ink;
+    @apply shadow-[3px_3px_0px_rgba(26,26,26,1)] transition-all duration-200;
+    @apply hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-retro-yellow hover:shadow-[5px_5px_0px_rgba(26,26,26,1)];
+    @apply active:translate-x-[2px] active:translate-y-[2px] active:shadow-none;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-retro-teal focus-visible:ring-offset-2 focus-visible:ring-offset-retro-cream;
+  }
+
+  .filter-chip.is-active {
+    @apply bg-retro-teal text-white;
+  }
+
+  .filter-chip-reset {
+    @apply bg-retro-cream;
+    @apply hover:bg-retro-pink;
+  }
+
+  .fleet-type-card .cta-button-small {
+    @apply mx-5 mb-5 mt-auto md:mx-6;
+  }
+}

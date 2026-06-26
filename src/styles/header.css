@@ -2,7 +2,7 @@
   /* ========== HEADER ========== */
 
   .main-header {
-    @apply mx-4 mt-4 flex shrink-0 items-center justify-between rounded-2xl px-4 py-4;
+    @apply mx-4 mt-4 flex shrink-0 items-center justify-between px-4 py-4;
     @apply md:mx-6 md:px-6;
     @apply lg:mx-8 lg:px-8;
   }
@@ -19,17 +19,4 @@
     @apply flex items-center gap-3;
   }
 
-  .header-cta {
-    @apply inline-flex items-center justify-center rounded-xl bg-sky-600 px-4 py-2 text-sm font-semibold text-white transition;
-    @apply hover:bg-sky-700 hover:text-white;
-    @apply md:px-5 md:py-3 md:text-base;
-  }
-
-  .cta-button {
-    @apply rounded-xl px-4 py-2 bg-sky-600 font-bold text-white hover:bg-sky-700 hover:text-white;
-  }
-
-  .cta-button-medium {
-    @apply inline-flex items-center justify-center rounded-xl bg-sky-600 px-5 py-3 text-base font-semibold text-white transition hover:bg-sky-700 hover:text-white;
-  }
 }

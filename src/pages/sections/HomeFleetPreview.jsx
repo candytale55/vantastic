@@ -45,28 +45,24 @@ export default function HomeFleetPreview() {
                     {renderFleetImage(randomFleetImages.esencial, "Furgoneta tipo Esencial")}
                     <h3>Esencial</h3>
                     <p>Para los que prefieren llegar ligeros. Lo necesario está, lo superfluo se queda en casa.</p>
-                    <span className="cta-button-small">Ver furgonetas Esencial →</span>
+                    <span className="cta-button-small btn-yellow">Esencial →</span>
                 </Link>
                 <Link to="/vans?type=viajera" className="fleet-type-card">
                     {renderFleetImage(randomFleetImages.viajera, "Furgoneta tipo Viajera")}
                     <h3>Viajera</h3>
                     <p>Preparada para viajes largos y rutas mixtas. La que lleva parejas al Algarve y solitarios hasta el Pirineo.</p>
-                    <span className="cta-button-small">Ver furgonetas Viajera →</span>
+                    <span className="cta-button-small btn-teal">Viajera →</span>
                 </Link>
                 <Link
                     to="/vans?type=singular" className="fleet-type-card">
                     {renderFleetImage(randomFleetImages.singular, "Furgoneta tipo Singular")}
                     <h3>Singular</h3>
                     <p>No son las más caras. Son las más especiales. Pocas unidades, restauración excepcional.</p>
-                    <span className="cta-button-small">Ver furgonetas Singular →</span>
+                    <span className="cta-button-small btn-pink">Singular →</span>
                 </Link>
             </div>
 
-            <Link
-                to="/vans"
-                className="cta-button-large">
-                Ver toda la flota
-            </Link>
+
         </section>
     )
 }

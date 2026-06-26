@@ -14,7 +14,7 @@ export default function Header() {
       <nav className="primary-nav">
         <NavLink
           to="vans"
-          className="header-cta">¡Alquila tu Van!</NavLink>
+          className="header-cta">¡Encuentra tu Van!</NavLink>
       </nav>
     </header>
   ) 

@@ -91,10 +91,6 @@
     @apply px-5 pt-3 text-sm leading-6 opacity-80 md:px-6 md:text-base;
   }
 
-  .cta-button-large {
-    @apply inline-flex w-full items-center justify-center rounded-xl bg-sky-600 px-6 py-3 text-base font-semibold text-white transition hover:bg-sky-700 hover:text-white md:w-fit;
-  }
-
   /* ----- Newsletter signup ----- */
 
   .home-newsletter-signup {
@@ -108,10 +104,6 @@
   .newsletter-input {
     @apply w-full rounded-xl border bg-white px-4 py-3 text-base outline-none transition;
     @apply placeholder:text-black/40 focus:border-sky-500 focus:ring-2 focus:ring-sky-200;
-  }
-
-  .cta-button-small {
-    @apply inline-flex items-center justify-center rounded-xl bg-sky-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sky-700 hover:text-white md:w-fit md:text-base;
   }
 
   .next-issue-hook {

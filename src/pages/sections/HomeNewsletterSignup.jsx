@@ -21,7 +21,7 @@ export default function HomeNewsletterSignup() {
                     placeholder="tu dirección de correo" aria-label="Introduce tu dirección de correo electrónico" />
                 
                 <button
-                    type="submit" className="cta-button-small">Apúntame</button>
+                    type="submit" className="cta-button-small btn-pink">Apúntame</button>
             </form>
             
             <p className="next-issue-hook">Próximo número: las carreteras secundarias más bonitas de la Península que no salen en ninguna guía.</p>
