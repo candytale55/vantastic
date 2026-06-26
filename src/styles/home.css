@@ -72,17 +72,18 @@
   }
 
   .fleet-type-cards-grid {
-    @apply grid gap-8 md:grid-cols-2 lg:grid-cols-3;
+    @apply grid gap-8;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
   }
 
   .fleet-type-card {
-    @apply flex h-full flex-col gap-5 rounded-none border-2 border-retro-ink bg-white p-5 text-retro-ink;
+    @apply flex h-full w-full max-w-[26rem] justify-self-center flex-col gap-5 rounded-none border-2 border-retro-ink bg-white p-5 text-retro-ink;
     @apply shadow-[4px_4px_0px_rgba(26,26,26,1)] transition-all duration-200;
     @apply hover:-translate-x-1 hover:-translate-y-1 hover:text-retro-ink hover:shadow-[8px_8px_0px_rgba(26,26,26,1)];
   }
 
   .card-image {
-    @apply flex h-52 w-full items-center justify-center border-2 border-retro-ink bg-retro-cream object-cover font-sans text-sm font-bold uppercase tracking-wider md:h-56;
+    @apply flex aspect-[4/3] w-full items-center justify-center border-2 border-retro-ink bg-retro-cream object-cover font-sans text-sm font-bold uppercase tracking-wider;
   }
 
   .fleet-type-card h3 {
@@ -100,11 +101,12 @@
   }
 
   .newsletter-form {
-    @apply flex flex-col gap-3 md:max-w-xl md:flex-row;
+    @apply flex flex-col gap-3 sm:max-w-2xl sm:flex-row;
   }
 
   .newsletter-input {
     @apply w-full rounded-none border-2 border-retro-ink bg-white px-6 py-4 text-base font-bold outline-none transition;
+    @apply sm:flex-1;
     @apply placeholder:text-black/40 focus:ring-2 focus:ring-retro-pink;
   }
 
