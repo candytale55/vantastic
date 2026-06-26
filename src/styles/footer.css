@@ -2,7 +2,7 @@
   /* ========== FOOTER ========== */
 
   .main-footer {
-    @apply bg-retro-ink text-retro-cream py-20 px-6;
+    @apply bg-retro-ink text-retro-cream py-20;
   }
 
   .footer-inner {
@@ -12,12 +12,13 @@
   }
 
   .footer-about {
-    @apply flex flex-col items-center gap-3 text-center text-retro-cream opacity-80;
+    @apply mx-auto flex max-w-md flex-col items-center gap-3 text-center text-retro-cream opacity-80;
     @apply md:items-start md:text-left;
   }
 
   .footer-text {
-    @apply text-xl/8 text-retro-cream py-4 ;
+    @apply py-4 text-lg/7 text-retro-cream;
+    @apply sm:text-xl/8;
   }
 
   .social-links {
@@ -41,16 +42,18 @@
   }
 
   .footer-logo {
-    @apply text-center text-6xl text-retro-pink uppercase italic;
+    @apply text-center text-5xl text-retro-pink uppercase italic;
+    @apply sm:text-6xl;
     @apply md:text-left;
   }
 
   .footer-copy {
-    @apply text-retro-cream py-2 uppercase italic;
+    @apply text-center text-retro-cream py-2 uppercase italic;
+    @apply md:text-left;
   }
 
   .footer-links {
-    @apply flex flex-col items-center gap-8;
+    @apply mx-auto flex w-full max-w-md flex-col items-center gap-8 text-center;
     @apply md:items-end md:gap-6;
     @apply lg:grid lg:grid-cols-2 lg:items-start lg:gap-16 lg:pt-10;
   }
