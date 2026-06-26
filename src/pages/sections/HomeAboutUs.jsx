@@ -2,7 +2,7 @@ import aboutUsImage from '/src/assets/images/owners-pic.png'
 
 export default function HomeAboutUs() {
     return (
-        <section className="home-about-hook section-shell">
+        <section className="home-about-hook section-shell" id="nuestra-historia">
             <div className="about-layout">
                 <div className="about-content">
                     <h2 className="about-title">Crecimos en una furgoneta. Abrimos esto para que tú puedas sentir lo mismo.</h2>

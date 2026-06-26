@@ -2,7 +2,7 @@
 
 export default function HomeNewsletterSignup() {
     return (
-        <section className="home-newsletter-signup section-shell">
+        <section className="home-newsletter-signup section-shell" id="newsletter">
 
             <h2 className="section-title">Kilómetro Cero</h2>
             

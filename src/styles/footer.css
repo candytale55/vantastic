@@ -16,19 +16,19 @@
   }
 
   .footer-text {
-    @apply text-xl/8 text-retro-cream opacity-80 py-4 ;
+    @apply text-xl/8 text-retro-cream py-4 ;
   }
 
   .footer-subtitle {
-    @apply text-lg font-semibold text-retro-cream opacity-80 text-right;
+    @apply text-2xl font-semibold text-retro-yellow opacity-90 text-right;
   }
 
   .footer-logo {
-    @apply text-5xl text-retro-cream opacity-80 uppercase italic text-left;
+    @apply text-6xl text-retro-pink uppercase italic text-left;
   }
 
   .footer-copy {
-    @apply text-retro-cream opacity-80 py-2 uppercase italic;
+    @apply text-retro-cream py-2 uppercase italic;
   }
 
   .footer-nav,
@@ -43,6 +43,6 @@
 
   .footer-nav a,
   .footer-legal a {
-    @apply font-bold text-retro-cream opacity-80 hover:text-retro-yellow hover:opacity-100;
+    @apply font-bold text-xl text-retro-cream opacity-80 hover:text-retro-pink hover:opacity-100;
   }
 }

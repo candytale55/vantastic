@@ -2,7 +2,7 @@ import testimonialsImage from '/src/assets/images/community-pic.png'
 
 export default function HomeTestimonialsSocial() {
   return (
-    <section className="home-testimonials-social section-shell">
+    <section className="home-testimonials-social section-shell" id="testimonials-social">
       
       <div className="testimonials-social-layout">
       

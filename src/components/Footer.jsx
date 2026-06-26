@@ -17,14 +17,15 @@ export default function Footer() {
         <nav
           className="footer-nav"
           id="footer-nav">
-          <h3 className="footer-subtitle">Enlaces rápidos</h3>
+          <h3 className="footer-subtitle">Secciones</h3>
           <ul>
-            <li><a href="#footer-nav">Nuestra historia</a></li>
-            <li><a href="#footer-nav">Vans</a></li>
-            <li><a href="#footer-nav">La comunidad</a></li>
-            <li><a href="#footer-nav">Rutas</a></li>
-            <li><a href="#footer-nav">Preguntas frecuentes</a></li>
-            <li><a href="#footer-nav">Contacto</a></li>
+            <li><Link to="/#nuestra-historia">Nuestra historia</Link></li>
+            <li><Link to="/vans">Vans</Link></li>
+            <li><Link to="/#newsletter">Newsletter</Link></li>
+            <li><Link to="/#testimonials-social">La comunidad</Link></li>
+            {/* <li><a href="#footer-nav">Rutas</a></li> */}
+            {/* <li><a href="#footer-nav">Preguntas frecuentes</a></li> */}
+            {/* <li><a href="#footer-nav">Contacto</a></li> */}
           </ul>
         </nav>
 
