@@ -23,7 +23,7 @@ export default function App() {
           <Route path="specs" element={<VanSpecs />} />
           <Route path="ratings" element={<VanRatings />} />
         </Route>
-        <Route path="/*" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   )

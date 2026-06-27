@@ -5,6 +5,7 @@ import { useFavorites } from '../context/FavoritesContext.jsx'
 import { useParams, Outlet, NavLink } from 'react-router-dom'
 import BookingForm from '../components/BookingForm'
 import Heart from '../components/Heart.jsx'
+import NotFound from './NotFound.jsx'
 import { VanSpecsContent } from './sections/VanSpecs.jsx'
 import { VanRatingsContent } from './sections/VanRatings.jsx'
 
@@ -19,6 +20,7 @@ export default function VanDetail() {
 
   if (loading) return <h2>Cargando vans...</h2>
   if (error) return <h2>Hubo un error:{error}</h2> //TODO: Improve error message styling
+  if (!data?.van) return <NotFound />
 
   const vanElement = data.van
 
