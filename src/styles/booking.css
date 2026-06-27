@@ -122,4 +122,35 @@
   .booking-form-actions {
     @apply flex justify-center gap-3 pt-2 md:col-span-2 md:justify-end;
   }
+
+  .booking-modal-backdrop {
+    @apply fixed inset-0 z-50 flex items-center justify-center bg-retro-ink/70 px-4 py-8;
+  }
+
+  .booking-modal {
+    @apply relative w-full max-w-xl border-2 border-retro-ink bg-retro-cream p-8 text-retro-ink shadow-[6px_6px_0px_rgba(26,26,26,1)];
+  }
+
+  .booking-modal-close {
+    @apply absolute right-4 top-4 flex h-10 w-10 items-center justify-center border-2 border-retro-ink bg-white text-2xl font-black leading-none text-retro-ink shadow-[3px_3px_0px_rgba(26,26,26,1)] transition-all;
+    @apply hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-retro-pink hover:shadow-[5px_5px_0px_rgba(26,26,26,1)];
+    @apply active:translate-x-[2px] active:translate-y-[2px] active:shadow-none;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-retro-teal focus-visible:ring-offset-2 focus-visible:ring-offset-retro-cream;
+  }
+
+  .booking-modal-content {
+    @apply flex flex-col items-center gap-5 pt-8 text-center;
+  }
+
+  .booking-modal-kicker {
+    @apply w-fit border-2 border-retro-ink bg-retro-yellow px-3 py-1 font-sans text-sm font-bold uppercase;
+  }
+
+  .booking-modal-content h2 {
+    @apply text-3xl font-black italic leading-tight md:text-5xl;
+  }
+
+  .booking-modal-content p {
+    @apply max-w-md text-base leading-7 md:text-lg;
+  }
 }
