@@ -32,34 +32,8 @@
     @apply text-sm italic opacity-80 md:text-base;
   }
 
-  /* ----- Three ideas/reasons ----- */
-
-  .home-three-ideas {
-    @apply py-10 md:py-14;
-  }
-
   .section-title {
     @apply mb-8 text-center text-2xl font-bold leading-tight md:text-3xl lg:text-4xl;
-  }
-
-  .ideas-grid {
-    @apply grid gap-6 md:grid-cols-2 lg:grid-cols-3;
-  }
-
-  .idea-card {
-    @apply flex flex-col justify-center items-center gap-4 rounded-2xl border p-6 shadow-sm transition hover:shadow-md;
-  }
-
-  .icon {
-    @apply h-8 w-8 text-sky-600;
-  }
-
-  .idea-card h3 {
-    @apply text-center text-lg font-semibold md:text-xl;
-  }
-
-  .idea-card p {
-    @apply text-sm leading-6 opacity-80 md:text-base;
   }
 
   /* ----- Fleet preview ----- */
