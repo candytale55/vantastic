@@ -10,8 +10,8 @@ export default function HomeNewsletterSignup() {
                         <Share2 />
                     </div>
 
-                    <h2 className="section-title">Kil&oacute;metro Cero</h2>
-                    <p className="section-subtitle">Rutas, historias de carretera y cosas que vale la pena saber antes de salir. Una vez al mes. Sin ruido.</p>
+                    <h2 className="section-title">Suscríbete a nuestra Newsletter</h2>
+                    <p className="section-subtitle">Rutas, historias de carretera y cosas que vale la pena saber antes de salir de viaje.</p>
                 </div>
 
                 <form className="newsletter-form">
@@ -35,7 +35,7 @@ export default function HomeNewsletterSignup() {
                     </button>
                 </form>
 
-                <p className="next-issue-hook">Pr&oacute;ximo n&uacute;mero: las carreteras secundarias m&aacute;s bonitas de la Pen&iacute;nsula que no salen en ninguna gu&iacute;a.</p>
+
             </div>
         </section>
     )

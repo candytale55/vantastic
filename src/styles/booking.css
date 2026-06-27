@@ -4,7 +4,7 @@
   /* ----- Van booking section ----- */
 
   .van-booking-form-section {
-    @apply flex flex-col gap-5 rounded-2xl border bg-white/70 py-8 shadow-sm md:gap-6 md:py-10;
+    @apply mx-auto flex w-full max-w-5xl flex-col gap-5 rounded-2xl border bg-white/70 py-8 shadow-sm md:gap-6 md:py-10;
   }
 
   .booking-title {

@@ -8,7 +8,7 @@ import VanPictures from './sections/VanPictures.jsx'
 
 export default function Home() {
   return (
-    <main>
+    <main className="home-page">
       <HomeHero />
       <HomeFleetPreview />
       <VanPictures />
