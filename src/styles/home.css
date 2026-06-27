@@ -195,4 +195,20 @@
   .about-image {
     @apply aspect-[4/3] w-full border-2 border-retro-ink object-cover;
   }
+
+  .not-found-page {
+    @apply flex min-h-[60vh] items-center justify-center py-20;
+  }
+
+  .not-found-content {
+    @apply flex max-w-2xl flex-col items-center gap-6 text-center;
+  }
+
+  .not-found-code {
+    @apply font-display text-7xl font-black italic leading-none text-retro-pink md:text-8xl;
+  }
+
+  .not-found-content h1 {
+    @apply text-3xl font-black italic leading-tight md:text-5xl mb-16; 
+  }
 }

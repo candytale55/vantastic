@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom'
 
-// TODO: Etiquetas semánticas
+
 export default function NotFound() {
   return (
-    <div>
-      <h2>404. Esta página no existe</h2>
-      <Link to="/" className="cta-button">Volver al inicio</Link>
-    </div>
+    <main className="not-found-page section-shell">
+      <section className="not-found-content" aria-labelledby="not-found-title">
+        <p className="not-found-code">404</p>
+        <h1 id="not-found-title">Esta p&aacute;gina no existe</h1>
+        <Link to="/" className="cta-button btn-yellow">Volver al inicio</Link>
+      </section>
+    </main>
   )
-}  
+}
