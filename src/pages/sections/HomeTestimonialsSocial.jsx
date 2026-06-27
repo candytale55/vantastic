@@ -28,11 +28,6 @@ export default function HomeTestimonialsSocial() {
             </blockquote>
           </div>
         </div>
-        
-        <div className="social-preview">
-          <h3 className="social-preview-title">Nuestra comunidad en carretera</h3>
-          <img src={testimonialsImage} alt="Fotos de la comunidad" className="community-collage-image" />
-        </div>
       </div>
     </section>
   )

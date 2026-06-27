@@ -1,15 +1,20 @@
 import { Camera } from 'lucide-react'
-import placeholder_image from '/src/assets/images/placeholder_image.jpg'
+import firstImage from '/src/assets/images/surfing-pic.png'
+import secondImage from '/src/assets/images/vanlife-meeting.png'
+import thirdImage from '/src/assets/images/top-of-the-world-pic.jfif'
+import fourthImage from '/src/assets/images/van-roadtrip.avif'
+import fifthImage from '/src/assets/images/orange-dream-promo.png'
+import sixthImage from '/src/assets/images/community-pic.png'
 
 
 export default function VanPictures() {
   const pictures = [
-    { src: placeholder_image, alt: 'Foto de galeria Vantastic' },
-    { src: placeholder_image, alt: 'Foto de galeria Vantastic' },
-    { src: placeholder_image, alt: 'Foto de galeria Vantastic' },
-    { src: placeholder_image, alt: 'Foto de galeria Vantastic' },
-    { src: placeholder_image, alt: 'Foto de galeria Vantastic' },
-    { src: placeholder_image, alt: 'Foto de galeria Vantastic' },
+    { src: firstImage, alt: 'Foto de galeria Vantastic' },
+    { src: secondImage, alt: 'Foto de galeria Vantastic' },
+    { src: thirdImage, alt: 'Foto de galeria Vantastic' },
+    { src: fourthImage, alt: 'Foto de galeria Vantastic' },
+    { src: fifthImage, alt: 'Foto de galeria Vantastic' },
+    { src: sixthImage, alt: 'Foto de galeria Vantastic' },
   ]
 
   return (
