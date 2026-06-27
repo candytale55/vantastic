@@ -50,24 +50,34 @@ export default function VanDetail() {
               type="button"
               className={`van-favorite-button ${isFavorite ? 'is-active' : ''}`}
               onClick={() => toggleFavorite(params.id)}
-              aria-label={isFavorite ? 'Quitar de favoritos' : 'Añadir a favoritos'}
+              aria-label={isFavorite ? 'Quitar de favoritos' : 'Anadir a favoritos'}
+              aria-pressed={isFavorite}
             >
               <Heart filled={isFavorite} />
             </button>
           </div>
 
           <div className="van-details-text">
-            <i className={`van-type-badge type-${vanElement.type}`}>{vanElement.type}</i>
+            <span className={`van-type-badge type-${vanElement.type}`}>{vanElement.type}</span>
             <h2 className="van-detail-name">{vanElement.name}</h2>
+            
             <p className="van-description">{vanElement.description}</p>
-            <p className="van-price">
-              <strong>Precio:</strong> &euro;{vanElement.price} por d&iacute;a
-            </p>
+            
+            <div className="van-price-row">
+              <p className="van-price">
+                <span className="sr-only">Precio: </span>
+                &euro;{vanElement.price} por d&iacute;a
+              </p>
+              
+            </div>
+
             <button
               type="button"
-              className="cta-button-large book-van-cta"
-              onClick={handleBookingClick}>
-              &iexcl;Alquila esta van!
+              className="cta-button book-van-cta"
+              onClick={handleBookingClick}
+              aria-label={`Ir al formulario para alquilar ${vanElement.name}`}
+            >
+              &iexcl;Reserva Ahora!
             </button>
           </div>
         </div>
