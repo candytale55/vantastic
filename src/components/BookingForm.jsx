@@ -1,7 +1,7 @@
 import { useForm, useWatch } from 'react-hook-form'
 import useFetch from '../hooks/useFetch.jsx'
 
-export default function BookingForm() {
+export default function BookingForm({ firstInputRef }) {
 
     const {
         register, handleSubmit, reset,
@@ -34,6 +34,20 @@ export default function BookingForm() {
 
     // Access the 'locations' array from the fetched data
     const locations = locationsData?.locations || [];
+    const userNameField = register("userName", {
+        required: {
+            value: true,
+            message: "Por favor, escribe tu nombre."
+        },
+        minLength: {
+            value: 2,
+            message: "El nombre debe tener al menos 2 caracteres."
+        },
+        maxLength: {
+            value: 50,
+            message: "El nombre no debe exceder los 50 caracteres."
+        }
+    });
 
 
     return (
@@ -49,20 +63,11 @@ export default function BookingForm() {
                         type="text"
                         id="name"
                         className="form-input"
-                        {...register("userName", {
-                            required: {
-                                value: true,
-                                message: "Por favor, escribe tu nombre."
-                            },
-                            minLength: {
-                                value: 2,
-                                message: "El nombre debe tener al menos 2 caracteres."
-                            },
-                            maxLength: {
-                                value: 50,
-                                message: "El nombre no debe exceder los 50 caracteres."
-                            }
-                        })} />
+                        {...userNameField}
+                        ref={(element) => {
+                            userNameField.ref(element);
+                            if (firstInputRef) firstInputRef.current = element;
+                        }} />
                     {formState.errors.userName ?
                         <p className="form-error-message">{formState.errors.userName.message}</p> : null}
                 </div>

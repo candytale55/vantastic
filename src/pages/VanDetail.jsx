@@ -1,5 +1,6 @@
 // Van detail page: loads one van, shows its main information, and switches
 // between mobile tabs and a desktop two-column details layout.
+import { useRef } from 'react'
 import useFetch from '../hooks/useFetch'
 import { useFavorites } from '../context/FavoritesContext.jsx'
 import { useParams, Outlet, NavLink } from 'react-router-dom'
@@ -10,8 +11,9 @@ import { VanSpecsContent } from './sections/VanSpecs.jsx'
 import { VanRatingsContent } from './sections/VanRatings.jsx'
 
 export default function VanDetail() {
-  // Extrae el parámetro "id" de la URL
   const params = useParams()
+  const bookingSectionRef = useRef(null)
+  const firstBookingInputRef = useRef(null)
 
   const { data, loading, error } = useFetch(`/api/vans/${params.id}`)
 
@@ -19,10 +21,17 @@ export default function VanDetail() {
   const isFavorite = favorites.includes(params.id)
 
   if (loading) return <h2>Cargando vans...</h2>
-  if (error) return <h2>Hubo un error:{error}</h2> //TODO: Improve error message styling
+  if (error) return <h2>Hubo un error:{error}</h2>
   if (!data?.van) return <NotFound />
 
   const vanElement = data.van
+
+  function handleBookingClick() {
+    bookingSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
+    window.setTimeout(() => {
+      firstBookingInputRef.current?.focus()
+    }, 350)
+  }
 
   return (
     <main className="van-detail-page">
@@ -52,10 +61,13 @@ export default function VanDetail() {
             <h2 className="van-detail-name">{vanElement.name}</h2>
             <p className="van-description">{vanElement.description}</p>
             <p className="van-price">
-              <strong>Precio:</strong> €{vanElement.price} por día
+              <strong>Precio:</strong> &euro;{vanElement.price} por d&iacute;a
             </p>
-            <button className="cta-button-large book-van-cta">
-              ¡Alquila esta van!
+            <button
+              type="button"
+              className="cta-button-large book-van-cta"
+              onClick={handleBookingClick}>
+              &iexcl;Alquila esta van!
             </button>
           </div>
         </div>
@@ -105,9 +117,9 @@ export default function VanDetail() {
         </div>
       </section>
 
-      <section className="van-booking-form-section section-shell">
+      <section className="van-booking-form-section section-shell" ref={bookingSectionRef}>
         <h2 className="booking-title">Reserva la {vanElement.name}</h2>
-        <BookingForm />
+        <BookingForm firstInputRef={firstBookingInputRef} />
       </section>
     </main>
   )
