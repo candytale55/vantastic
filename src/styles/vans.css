@@ -14,7 +14,17 @@
   }
 
   .filters-container {
-    @apply flex flex-wrap gap-3;
+    @apply flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between;
+  }
+
+  .type-filters,
+  .utility-filters {
+    @apply flex flex-wrap justify-center gap-3;
+    @apply lg:justify-start;
+  }
+
+  .utility-filters {
+    @apply lg:justify-end;
   }
 
   .vans-listing {

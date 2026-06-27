@@ -294,7 +294,7 @@ createServer({
                 description: "Naranja y blanca, techo elevable a juego. Interior bien conservado con cocina, nevera de compresión 12V y toldo de vela. Tiene carácter propio desde que la ves aparcada. Para quienes buscan la experiencia más clásica de la flota sin complicaciones.",
                 imageUrl: "https://images.unsplash.com/photo-1561394562-5b83fb870f71?q=80&w=600&h=450&auto=format&fit=crop",
                 imageCredits: "Foto de Amin Safaripour en Unsplash 'https://unsplash.com/es/fotos/furgoneta-naranja-y-blanca-durante-el-dia-rqE54VnH4hA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'",
-                type: "esencial",
+                type: "singular",
 
                 specs: [
                     { label: "Año de fabricación", value: "1977" },

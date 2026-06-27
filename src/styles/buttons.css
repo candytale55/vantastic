@@ -62,6 +62,18 @@
     @apply bg-white text-retro-ink;
   }
 
+  .favorites-filter {
+    @apply gap-2;
+  }
+
+  .filter-heart-icon {
+    @apply h-5 w-5 shrink-0;
+  }
+
+  .favorites-filter:hover {
+    @apply bg-retro-yellow text-retro-ink;
+  }
+
   .filter-chip.type-esencial.is-active,
   .filter-chip.type-esencial:hover {
     @apply bg-retro-yellow text-retro-ink;
