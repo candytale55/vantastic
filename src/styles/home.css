@@ -98,7 +98,28 @@
   /* ----- Newsletter signup ----- */
 
   .home-newsletter-signup {
-    @apply flex flex-col gap-5 rounded-2xl border bg-retro-yellow py-10 shadow-sm md:gap-6 md:py-12;
+    @apply bg-retro-yellow;
+    @apply border-y-2 border-retro-ink;
+  }
+
+  .newsletter-inner {
+    @apply flex flex-col items-center gap-6 py-16;
+  }
+
+  .newsletter-heading {
+    @apply flex max-w-3xl flex-col items-center gap-4 text-center;
+  }
+
+  .newsletter-icon {
+    @apply flex h-16 w-16 items-center justify-center rounded-full border-2 border-retro-ink bg-white text-retro-ink shadow-[4px_4px_0px_rgba(26,26,26,1)];
+  }
+
+  .newsletter-icon svg {
+    @apply h-8 w-8;
+  }
+
+  .newsletter-heading .section-title {
+    @apply mb-0;
   }
 
   .newsletter-form {
