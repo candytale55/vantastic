@@ -62,14 +62,17 @@
     @apply bg-white text-retro-ink;
   }
 
+  .filter-chip.type-esencial.is-active,
   .filter-chip.type-esencial:hover {
     @apply bg-retro-yellow text-retro-ink;
   }
 
+  .filter-chip.type-viajera.is-active,
   .filter-chip.type-viajera:hover {
     @apply bg-retro-teal text-white;
   }
 
+  .filter-chip.type-singular.is-active,
   .filter-chip.type-singular:hover {
     @apply bg-retro-pink text-retro-ink;
   }

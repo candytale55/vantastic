@@ -28,20 +28,24 @@
     @apply flex flex-1 flex-col gap-3;
   }
 
-  .van-card-info {
-    @apply flex items-start justify-between gap-3;
+  .van-card-meta {
+    @apply mt-2 flex items-center justify-between gap-4;
   }
 
   .van-card-title {
-    @apply text-2xl font-black italic leading-tight tracking-normal md:text-3xl;
+    @apply truncate text-2xl font-black italic leading-tight tracking-normal md:text-3xl;
   }
 
   .van-card-price {
-    @apply shrink-0 text-base font-semibold;
+    @apply min-w-0 flex-1 text-left text-base font-bold text-retro-ink;
+  }
+
+  .van-card-price span {
+    @apply text-lg font-semibold opacity-75;
   }
 
   .van-card-type {
-    @apply inline-flex w-fit rounded-none border-2 border-retro-ink px-3 py-1 text-sm font-bold uppercase tracking-wide;
+    @apply ml-auto inline-flex w-fit shrink-0 rounded-none border-2 border-retro-ink px-3 py-1 text-sm font-bold uppercase tracking-wide;
   }
 
   .van-card-type.type-esencial,
