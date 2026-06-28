@@ -6,7 +6,7 @@
   }
 
   .about-layout {
-    @apply relative isolate flex flex-col gap-8 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12;
+    @apply relative isolate flex flex-col items-center gap-8 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12;
   }
 
   .about-media {
