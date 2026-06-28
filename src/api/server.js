@@ -1,5 +1,6 @@
 import { createServer, Model } from 'miragejs';
 
+// MirageJS gives the app realistic fetch calls without needing a real backend.
 createServer({
     models: {
         van: Model,
@@ -7,21 +8,17 @@ createServer({
     },
 
     routes() {
-        //  Obliga a que la llamada sea /api/vans
         this.namespace = "api"
 
-        //  Obtener todas las furgonetas (vans)
         this.get("/vans", (schema) => {
             return schema.vans.all()  // miragejs pluraliza van
         })
 
-        // Obtener una furgoneta por ID
         this.get("/vans/:id", (schema, request) => {
             const id = request.params.id
             return schema.vans.find(id)
         })
 
-        // Route to get all locations
         this.get("/locations", (schema) => {
             return schema.locations.all();
         })
@@ -192,15 +189,11 @@ createServer({
             {
                 id: "7",
                 name: "Sunset Wanderer",
-                price: 75, // Assuming a price for a 'simple' type, you can adjust this
+                price: 75,
                 description: "Techo elevable original, carrocería naranja restaurada. Lo esencial para dormir, cocinar y estar bien: toldo lateral, cocina de camping, nevera y ducha exterior. Compacta, fácil de conducir y fácil de aparcar. Para los que buscan el atardecer sin saber todavía desde dónde lo van a ver.",
                 imageUrl: "https://images.unsplash.com/photo-1612769254949-deb42c1fbbf7?w=600&h=450&auto=format&fit=crop",
                 imageCredits: "Foto de Joshua Rodriguez en Unsplash 'https://unsplash.com/es/fotos/furgoneta-roja-y-blanca-en-el-muelle-durante-el-dia-Upg453Fo7wU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'",
                 type: "esencial",
-
-                // --- Additional data for VanDetail sections (not part of the core van object in original server.js) ---
-                // These sections (specs, ratings, socialImages) are new additions to the object,
-                // as they don't conflict with the existing core 'van' properties.
                 specs: [
                     { label: "Año de fabricación", value: "1978" },
                     { label: "Motor", value: "1.6L Gasolina, 50 CV" },
@@ -318,7 +311,6 @@ createServer({
             }
         )
 
-        // NEW: Seed data for locations
         const cities = [
             "Alicante", "Barcelona", "Bilbao", "Granada", "Madrid",
             "Málaga", "Sevilla", "Torrevieja", "Valencia", "Vigo", "Zaragoza"

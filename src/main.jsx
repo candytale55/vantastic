@@ -3,7 +3,8 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
-import "/src/api/server.js" 
+// Importing the Mirage server here makes the mock API available before any component fetches data.
+import "/src/api/server.js"
 import { FavoritesContextProvider } from './context/FavoritesContext.jsx'
 
 createRoot(document.getElementById('root')).render(

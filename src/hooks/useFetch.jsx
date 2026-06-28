@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 
+// Small data-loading hook used by pages and forms that read from the Mirage API.
 export default function useFetch(url) {
 
     const [ data, setData ] = useState(null);
@@ -7,29 +8,30 @@ export default function useFetch(url) {
     const [error, setError] = useState(null);
     
     useEffect(() => {
+        let ignoreResult = false;
+        setLoading(true);
+        setError(null);
         
         async function fetchData() {
             try {
-                
-                // await for the server to respond
                 const response = await fetch(url);
-
-                // then for the data to be turned into JSON
                 const cleanedData = await response.json();
 
-                setData(cleanedData);
+                if (!ignoreResult) setData(cleanedData);
 
             } catch (err) {
-
-                // If above fails
-                setError(err.message);
+                if (!ignoreResult) setError(err.message);
                 
             } finally {
-                setLoading(false);
+                if (!ignoreResult) setLoading(false);
             }
         }
 
         fetchData();
+
+        return () => {
+            ignoreResult = true;
+        };
     }, [url]);
 
 

@@ -18,6 +18,7 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="home" element={<Home />} />
         <Route path="vans" element={<Vans />} />
+        {/* Van detail keeps the main van layout stable while nested routes swap the secondary panel. */}
         <Route path="vans/:id" element={<VanDetail />}>
           <Route index element={<VanSpecs />} />
           <Route path="specs" element={<VanSpecs />} />
