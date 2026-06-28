@@ -44,7 +44,7 @@ export default function HomeFleetPreview() {
                     <Van />
                 </div>
                 <h2 className="section-title">La Flota</h2>
-                <p className="section-subtitle">No todas las furgonetas son iguales. Tampoco todos los viajes. Tres formas de viajar.</p>
+                <p className="section-subtitle"><span>No todas las furgonetas son iguales.</span> <span>Tampoco todos los viajes.</span> <span>Tres formas de viajar.</span></p>
             </div>
             <div className="fleet-type-cards-grid">
                 <Link to="/vans?type=esencial" className="fleet-type-card">

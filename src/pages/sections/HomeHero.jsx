@@ -14,10 +14,11 @@ export default function HomeHero() {
             </div>
 
             <div className="hero-content">
+                <p className="brand-signature">Desde 1989.</p>
                 <h2 className="hero-title">{yearsInBusiness} a&ntilde;os llevando gente a ning&uacute;n sitio en concreto.</h2>
-                <p className="subheadline">Furgonetas vintage restauradas. Rec&oacute;gela aqu&iacute;. Devu&eacute;lvela donde quieras.</p>
+                <p className="subheadline"><span>Furgonetas vintage restauradas.</span> <span>Rec&oacute;gela aqu&iacute;.</span> <span>Devu&eacute;lvela donde quieras.</span></p>
                 <Link to="/vans" className="cta-button cta-button-large btn-teal">Ver Toda la Flota</Link>
-                <p className="brand-signature">Desde 1989. Familia. Carretera. Nada m&aacute;s.</p>
+                
             </div>
         </section>
     )
