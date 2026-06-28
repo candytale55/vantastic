@@ -19,9 +19,9 @@ export default function VanPictures() {
 
   return (
     <section className="van-pictures-section" id="galeria">
-      <div className="van-pictures-inner section-shell">
-        <div className="van-pictures-heading">
-          <div className="van-pictures-icon" aria-hidden="true">
+      <div className="van-pictures-inner home-feature-section-inner section-shell">
+        <div className="van-pictures-heading home-feature-section-heading">
+          <div className="van-pictures-icon home-section-icon" aria-hidden="true">
             <Camera />
           </div>
           <h2 className="section-title">Galer&iacute;a</h2>

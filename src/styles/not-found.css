@@ -1,0 +1,19 @@
+@layer components {
+  /* ========== NOT FOUND ========== */
+
+  .not-found-page {
+    @apply flex min-h-[60vh] items-center justify-center py-20;
+  }
+
+  .not-found-content {
+    @apply flex max-w-2xl flex-col items-center gap-6 text-center;
+  }
+
+  .not-found-code {
+    @apply font-display text-7xl font-black italic leading-none text-retro-pink md:text-8xl;
+  }
+
+  .not-found-content h1 {
+    @apply mb-16 text-3xl font-black italic leading-tight md:text-5xl;
+  }
+}

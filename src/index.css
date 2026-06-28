@@ -6,7 +6,13 @@
   layout.css: page shell and reusable section wrapper
   header.css: main navigation and shared CTA buttons
   footer.css: footer layout, text, and links
-  home.css: homepage sections
+  home.css: shared homepage typography and icons
+  home-hero.css: homepage hero section
+  home-fleet-preview.css: homepage fleet preview cards
+  home-newsletter.css: homepage newsletter section
+  home-about.css: homepage about section
+  home-testimonials.css: homepage testimonials section
+  not-found.css: 404 page
   vans.css: vans listing page and filters
   van-card.css: reusable van cards
   van-pictures.css: homepage gallery section
@@ -19,6 +25,12 @@
 @import './styles/header.css';
 @import './styles/footer.css';
 @import './styles/home.css';
+@import './styles/home-hero.css';
+@import './styles/home-fleet-preview.css';
+@import './styles/home-newsletter.css';
+@import './styles/home-about.css';
+@import './styles/home-testimonials.css';
+@import './styles/not-found.css';
 @import './styles/vans.css';
 @import './styles/van-card.css';
 @import './styles/van-pictures.css';

@@ -6,24 +6,12 @@
     @apply border-y-2 border-retro-ink;
   }
 
-  .van-pictures-inner {
-    @apply flex flex-col items-center gap-12 py-20 md:py-24 lg:py-28;
-  }
-
   .van-pictures-heading {
-    @apply flex max-w-3xl flex-col items-center gap-4 text-center;
-  }
-
-  .van-pictures-icon {
-    @apply mx-auto mb-4 flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-2 border-retro-ink bg-white text-retro-ink shadow-[4px_4px_0px_rgba(26,26,26,1)];
-  }
-
-  .van-pictures-icon svg {
-    @apply h-8 w-8;
+    @apply max-w-3xl;
   }
 
   .van-pictures-heading .section-title {
-    @apply mb-0 text-white;
+    @apply text-white;
   }
 
   .van-pictures-subtitle {

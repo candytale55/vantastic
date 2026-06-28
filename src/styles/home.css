@@ -1,43 +1,16 @@
-﻿@layer components {
-  /* ========== HOME ========== */
+@layer components {
+  /* ========== HOME SHARED ========== */
 
   .home-page {
     @apply flex flex-col;
   }
 
-  /* ----- Hero ----- */
-  
-  .home-hero {
-    @apply grid gap-8 py-12 md:py-16 lg:grid-cols-2 lg:items-center lg:gap-12;
-  }
-
-  .hero-media {
-    @apply order-1 w-full max-w-[36rem] justify-self-center rounded-none border-2 border-retro-ink bg-white p-5;
-    @apply shadow-[4px_4px_0px_rgba(26,26,26,1)];
-  }
-
-  .hero-image {
-    @apply aspect-[4/3] w-full border-2 border-retro-ink object-cover;
-  }
-
-  .hero-content {
-    @apply order-2 flex flex-col gap-5;
-  }
-
-  .hero-title {
-    @apply text-center text-3xl font-bold leading-tight md:text-4xl lg:text-5xl;
-  }
-
-  .subheadline {
-    @apply max-w-xl text-base leading-7 md:text-lg;
-  }
-
-  .brand-signature {
-    @apply text-sm italic opacity-80 md:text-base;
-  }
-
   .section-title {
-    @apply mb-8 text-center text-2xl font-bold leading-tight md:text-3xl lg:text-4xl;
+    @apply mb-8 text-center text-2xl font-black italic leading-tight md:text-3xl lg:text-4xl;
+  }
+
+  .section-subtitle {
+    @apply max-w-2xl text-base leading-7 opacity-80 md:text-xl;
   }
 
   .home-section-icon {
@@ -49,190 +22,19 @@
     @apply h-8 w-8;
   }
 
-  /* ----- Fleet preview ----- */
-
-  .home-fleet-preview {
-    @apply flex flex-col gap-8 py-14 md:gap-10 md:py-20;
+  .home-feature-section-inner {
+    @apply flex flex-col items-center gap-14 py-20 md:gap-16 md:py-24 lg:py-28;
   }
 
-  .fleet-preview-heading {
-    @apply flex flex-col items-center text-center;
+  .home-feature-section-heading {
+    @apply flex max-w-4xl flex-col items-center gap-10 text-center;
   }
 
-  .fleet-preview-heading .section-title {
+  .home-feature-section-heading .section-title {
     @apply mb-0;
   }
 
-  .section-subtitle {
-    @apply max-w-2xl text-base leading-7 opacity-80 md:text-xl;
-  }
-
-  .fleet-type-cards-grid {
-    @apply grid gap-8;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
-  }
-
-  .fleet-type-card {
-    @apply flex h-full w-full max-w-[26rem] justify-self-center flex-col gap-5 rounded-none border-2 border-retro-ink bg-white p-5 text-retro-ink;
-    @apply shadow-[4px_4px_0px_rgba(26,26,26,1)] transition-all duration-200;
-    @apply hover:-translate-x-1 hover:-translate-y-1 hover:text-retro-ink hover:shadow-[8px_8px_0px_rgba(26,26,26,1)];
-  }
-
-  .card-image {
-    @apply flex aspect-[4/3] w-full items-center justify-center border-2 border-retro-ink bg-retro-cream object-cover font-sans text-sm font-bold uppercase tracking-wider;
-  }
-
-  .fleet-type-card h3 {
-    @apply text-2xl font-black italic leading-tight tracking-normal md:text-3xl;
-  }
-
-  .fleet-type-card p {
-    @apply text-sm leading-6 opacity-80 md:text-base;
-  }
-
-  /* ----- Newsletter signup ----- */
-
-  .home-newsletter-signup {
-    @apply bg-retro-yellow;
-    @apply border-y-2 border-retro-ink;
-  }
-
-  .newsletter-inner {
-    @apply flex flex-col items-center gap-8 py-20 md:gap-10 md:py-24 lg:py-28;
-  }
-
-  .newsletter-heading {
-    @apply flex max-w-4xl flex-col items-center gap-4 text-center;
-  }
-
-  .newsletter-icon {
-    @apply mx-auto mb-4 flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-2 border-retro-ink bg-white text-retro-ink shadow-[4px_4px_0px_rgba(26,26,26,1)];
-  }
-
-  .newsletter-icon svg {
-    @apply h-8 w-8;
-  }
-
-  .newsletter-heading .section-title {
+  .home-feature-section-heading .home-section-icon {
     @apply mb-0;
-  }
-
-  .newsletter-form {
-    @apply flex w-full max-w-4xl flex-col gap-3 sm:flex-row;
-  }
-
-  .newsletter-input {
-    @apply w-full rounded-none border-2 border-retro-ink bg-white px-6 py-4 text-base font-bold outline-none transition;
-    @apply sm:flex-1;
-    @apply placeholder:text-black/40 focus:ring-2 focus:ring-retro-pink;
-  }
-
-  .newsletter-form .cta-button-small {
-    @apply w-fit max-w-full self-center px-6 py-4;
-    @apply sm:self-stretch;
-  }
-
-
-
-  /* ----- Testimonials and social ----- */
- 
-  .home-testimonials-social {
-    @apply py-14 md:py-20;
-  }
-
-  .testimonials-social-layout {
-    @apply flex flex-col gap-8;
-  }
-
-  .testimonials-column {
-    @apply flex w-full flex-col items-center gap-6 text-center;
-  }
-
-  .testimonials-grid {
-    @apply grid w-full gap-6 text-left md:grid-cols-2;
-  }
-
-  .testimonial-card {
-    @apply flex h-full flex-col gap-5 rounded-2xl border bg-white/80 p-6 shadow-sm;
-  }
-
-  .testimonial-card p {
-    @apply text-sm leading-7 md:text-base;
-  }
-
-  .testimonial-footer {
-    @apply mt-auto flex flex-col gap-1 pt-2;
-  }
-
-  .author-name {
-    @apply font-semibold;
-  }
-
-  .author-location {
-    @apply text-sm opacity-70;
-  }
-
-  .social-preview {
-    @apply flex flex-col gap-4 rounded-2xl border bg-white/70 p-5 shadow-sm md:p-6;
-  }
-
-  .social-preview-title {
-    @apply text-center text-xl font-semibold leading-tight;
-  }
-
-  .community-collage-image {
-    @apply h-64 w-full rounded-2xl object-cover shadow-sm md:h-80 lg:h-full lg:min-h-[28rem];
-  }
-
-  /* ----- About hook ----- */
-
-  .home-about-hook {
-    @apply py-16 md:py-20;
-  }
-
-  .about-layout {
-    @apply relative isolate flex flex-col gap-8 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12;
-  }
-
-  .about-media {
-    @apply relative w-full max-w-[36rem] justify-self-center rounded-none border-2 border-retro-ink bg-white p-5 lg:mt-12;
-    @apply shadow-[4px_4px_0px_rgba(26,26,26,1)];
-  }
-
-  .about-media::before {
-    content: "";
-    @apply absolute -bottom-10 -left-10 -z-10 h-36 w-36 rounded-full border-2 border-retro-ink bg-retro-yellow md:-bottom-14 md:-left-14 md:h-52 md:w-52 lg:-bottom-16 lg:-left-20;
-  }
-
-  .about-content {
-    @apply flex flex-col items-center gap-5 text-center lg:max-w-lg;
-  }
-
-  .about-title {
-    @apply text-center text-2xl font-bold leading-tight md:text-3xl lg:text-4xl;
-  }
-
-  .about-text {
-    @apply text-base leading-7 opacity-80 md:text-lg;
-  }
-
-  .about-image {
-    @apply aspect-[4/3] w-full border-2 border-retro-ink object-cover;
-  }
-
-  .not-found-page {
-    @apply flex min-h-[60vh] items-center justify-center py-20;
-  }
-
-  .not-found-content {
-    @apply flex max-w-2xl flex-col items-center gap-6 text-center;
-  }
-
-  .not-found-code {
-    @apply font-display text-7xl font-black italic leading-none text-retro-pink md:text-8xl;
-  }
-
-  .not-found-content h1 {
-    @apply text-3xl font-black italic leading-tight md:text-5xl mb-16; 
   }
 }

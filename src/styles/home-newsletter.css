@@ -1,0 +1,23 @@
+@layer components {
+  /* ========== HOME NEWSLETTER ========== */
+
+  .home-newsletter-signup {
+    @apply bg-retro-yellow;
+    @apply border-y-2 border-retro-ink;
+  }
+
+  .newsletter-form {
+    @apply flex w-full max-w-2xl flex-col gap-3 sm:flex-row;
+  }
+
+  .newsletter-input {
+    @apply w-full rounded-none border-2 border-retro-ink bg-white px-6 py-4 text-base font-bold outline-none transition;
+    @apply sm:flex-1;
+    @apply placeholder:text-black/40 focus:ring-2 focus:ring-retro-pink;
+  }
+
+  .newsletter-form .cta-button-small {
+    @apply w-fit max-w-full self-center px-6 py-4;
+    @apply sm:self-stretch;
+  }
+}

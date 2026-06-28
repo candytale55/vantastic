@@ -1,0 +1,32 @@
+@layer components {
+  /* ========== HOME HERO ========== */
+
+  .home-hero {
+    @apply grid gap-8 py-12 md:py-16 lg:grid-cols-2 lg:items-center lg:gap-12;
+  }
+
+  .hero-media {
+    @apply order-1 w-full max-w-[36rem] justify-self-center rounded-none border-2 border-retro-ink bg-white p-5;
+    @apply shadow-[4px_4px_0px_rgba(26,26,26,1)];
+  }
+
+  .hero-image {
+    @apply aspect-[4/3] w-full border-2 border-retro-ink object-cover;
+  }
+
+  .hero-content {
+    @apply order-2 flex flex-col gap-5;
+  }
+
+  .hero-title {
+    @apply text-center font-bold leading-tight md:text-4xl lg:text-5xl;
+  }
+
+  .subheadline {
+    @apply max-w-xl text-base leading-7 md:text-lg;
+  }
+
+  .brand-signature {
+    @apply text-sm italic opacity-80 md:text-base;
+  }
+}

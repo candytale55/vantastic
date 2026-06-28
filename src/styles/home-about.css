@@ -1,0 +1,37 @@
+@layer components {
+  /* ========== HOME ABOUT ========== */
+
+  .home-about-hook {
+    @apply py-16 md:py-20;
+  }
+
+  .about-layout {
+    @apply relative isolate flex flex-col gap-8 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12;
+  }
+
+  .about-media {
+    @apply relative w-full max-w-[36rem] justify-self-center rounded-none border-2 border-retro-ink bg-white p-5 lg:mt-12;
+    @apply shadow-[4px_4px_0px_rgba(26,26,26,1)];
+  }
+
+  .about-media::before {
+    content: "";
+    @apply absolute -bottom-10 -left-10 -z-10 h-36 w-36 rounded-full border-2 border-retro-ink bg-retro-yellow md:-bottom-14 md:-left-14 md:h-52 md:w-52 lg:-bottom-16 lg:-left-20;
+  }
+
+  .about-content {
+    @apply flex flex-col items-center gap-5 text-center lg:max-w-lg;
+  }
+
+  .about-title {
+    @apply text-center text-2xl font-bold leading-tight md:text-3xl lg:text-4xl;
+  }
+
+  .about-text {
+    @apply text-base leading-7 opacity-80 md:text-lg;
+  }
+
+  .about-image {
+    @apply aspect-[4/3] w-full border-2 border-retro-ink object-cover;
+  }
+}

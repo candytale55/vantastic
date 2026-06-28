@@ -4,9 +4,9 @@ import { Share2 } from 'lucide-react'
 export default function HomeNewsletterSignup() {
     return (
         <section className="home-newsletter-signup" id="newsletter">
-            <div className="newsletter-inner section-shell">
-                <div className="newsletter-heading">
-                    <div className="newsletter-icon" aria-hidden="true">
+            <div className="newsletter-inner home-feature-section-inner section-shell">
+                <div className="newsletter-heading home-feature-section-heading">
+                    <div className="newsletter-icon home-section-icon" aria-hidden="true">
                         <Share2 />
                     </div>
 
