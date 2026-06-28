@@ -40,10 +40,27 @@
     @apply mb-8 text-center text-2xl font-bold leading-tight md:text-3xl lg:text-4xl;
   }
 
+  .home-section-icon {
+    @apply mx-auto mb-8 flex h-16 w-16 shrink-0 self-center rounded-full border-2 border-retro-ink bg-white text-retro-ink shadow-[4px_4px_0px_rgba(26,26,26,1)];
+    @apply items-center justify-center;
+  }
+
+  .home-section-icon svg {
+    @apply h-8 w-8;
+  }
+
   /* ----- Fleet preview ----- */
 
   .home-fleet-preview {
     @apply flex flex-col gap-8 py-14 md:gap-10 md:py-20;
+  }
+
+  .fleet-preview-heading {
+    @apply flex flex-col items-center text-center;
+  }
+
+  .fleet-preview-heading .section-title {
+    @apply mb-0;
   }
 
   .section-subtitle {
@@ -89,7 +106,7 @@
   }
 
   .newsletter-icon {
-    @apply flex h-16 w-16 items-center justify-center rounded-full border-2 border-retro-ink bg-white text-retro-ink shadow-[4px_4px_0px_rgba(26,26,26,1)];
+    @apply mx-auto mb-4 flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-2 border-retro-ink bg-white text-retro-ink shadow-[4px_4px_0px_rgba(26,26,26,1)];
   }
 
   .newsletter-icon svg {
@@ -124,15 +141,15 @@
   }
 
   .testimonials-social-layout {
-    @apply flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-start lg:gap-10;
+    @apply flex flex-col gap-8;
   }
 
   .testimonials-column {
-    @apply flex flex-col gap-6;
+    @apply flex w-full flex-col items-center gap-6 text-center;
   }
 
   .testimonials-grid {
-    @apply grid gap-6 md:grid-cols-2;
+    @apply grid w-full gap-6 text-left md:grid-cols-2;
   }
 
   .testimonial-card {
@@ -174,16 +191,21 @@
   }
 
   .about-layout {
-    @apply flex flex-col gap-8 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12;
+    @apply relative isolate flex flex-col gap-8 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12;
   }
 
   .about-media {
-    @apply w-full max-w-[36rem] justify-self-center rounded-none border-2 border-retro-ink bg-white p-5;
+    @apply relative w-full max-w-[36rem] justify-self-center rounded-none border-2 border-retro-ink bg-white p-5 lg:mt-12;
     @apply shadow-[4px_4px_0px_rgba(26,26,26,1)];
   }
 
+  .about-media::before {
+    content: "";
+    @apply absolute -bottom-10 -left-10 -z-10 h-36 w-36 rounded-full border-2 border-retro-ink bg-retro-yellow md:-bottom-14 md:-left-14 md:h-52 md:w-52 lg:-bottom-16 lg:-left-20;
+  }
+
   .about-content {
-    @apply flex flex-col gap-5 lg:max-w-lg;
+    @apply flex flex-col items-center gap-5 text-center lg:max-w-lg;
   }
 
   .about-title {

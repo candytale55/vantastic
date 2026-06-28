@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useMemo } from 'react'
+import { Van } from 'lucide-react'
 import useFetch from '../../hooks/useFetch.jsx'
 
 // Shows the three fleet categories on the home page with one random van image per category.
@@ -38,8 +39,13 @@ export default function HomeFleetPreview() {
         <section
             className="home-fleet-preview section-shell"
             id="fleet-section">
-            <h2 className="section-title">No todas las furgonetas son iguales. Tampoco todos los viajes.</h2>
-            <p className="section-subtitle">Tres formas de viajar. Una sola manera de hacerlo bien.</p>
+            <div className="fleet-preview-heading">
+                <div className="home-section-icon" aria-hidden="true">
+                    <Van />
+                </div>
+                <h2 className="section-title">No todas las furgonetas son iguales. Tampoco todos los viajes.</h2>
+                <p className="section-subtitle">Tres formas de viajar. Una sola manera de hacerlo bien.</p>
+            </div>
             <div className="fleet-type-cards-grid">
                 <Link to="/vans?type=esencial" className="fleet-type-card">
                     {renderFleetImage(randomFleetImages.esencial, "Furgoneta tipo Esencial")}

@@ -20,7 +20,7 @@ export default function HomeHero() {
                 <h2 className="hero-title">{ yearsInBusiness } años llevando gente a ningún sitio en concreto.</h2>
                 <p className="subheadline">Furgonetas vintage restauradas. Recógela aquí. Devuélvela donde quieras.</p>
                 <Link to="/vans" className="cta-button cta-button-large btn-teal">Ver Toda la Flota</Link>
-                <p className="brand-signature">Valencia, desde 1989. Familia. Carretera. Nada más.</p>
+                <p className="brand-signature">Desde 1989. Familia. Carretera. Nada más.</p>
             </div>
         </section>
     )
