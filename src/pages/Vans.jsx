@@ -20,6 +20,7 @@ export default function Vans() {
 
   const filteredVans = getFilteredVans(data.vans, typeFilter, favsFilter, favorites)
 
+  // Filters live in the URL so the catalog state is shareable and survives refreshes.
   function handleFilterChange(key, value) {
     setSearchParams(prevParams => {
       if (value === null) {

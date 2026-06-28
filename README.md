@@ -1,76 +1,112 @@
 # Vantastic!
 
-Vantastic! es una SPA desarrollada con React para consultar y reservar furgonetas camper de estilo vintage. El usuario puede navegar por la flota, filtrar por tipo de vehículo, guardar favoritos, consultar el detalle de cada van y completar un formulario de reserva.
+Vantastic! es una SPA hecha con React para explorar y reservar furgonetas camper de estilo vintage. La app permite ver la home, navegar por la flota, filtrar vans por tipo, guardar favoritas, entrar al detalle de cada van y completar un formulario de reserva.
 
-Este repositorio forma parte del proyecto de React del Máster en FullStack Development.
+El proyecto forma parte de una entrega de React del Master en FullStack Development. La prioridad es demostrar arquitectura frontend, rutas, estado, contexto, hooks, consumo de API mock, formulario validado y una interfaz responsive.
 
-## Documentación principal
+## Documentacion
 
-- [Justificación de requisitos](./docs/justificación-requisitos.md): relación entre los requisitos del proyecto y su implementación.
-- [Notas de desarrollo](./docs/dev-notes.md): explicación técnica de la integración, arquitectura y decisiones principales.
+- [Notas de desarrollo](./docs/dev-notes.md): mapa tecnico del proyecto, flujo de datos y decisiones importantes.
+- [Justificacion de requisitos](./docs/justificacion-requisitos.md): relacion entre los requisitos de la entrega y su implementacion.
 
 ## Quick Start
 
-Requisitos previos:
+Requisitos:
 
 - Node.js 18 o superior.
 - npm.
 
-Instalación:
+Instalacion:
 
 ```bash
 npm install
 ```
 
-Servidor de desarrollo:
+Servidor local:
 
 ```bash
 npm run dev
 ```
 
-Después abre la URL local que indique la terminal, normalmente `http://localhost:5173`.
+Despues abre la URL que indique Vite, normalmente `http://localhost:5173`.
 
-Comandos útiles:
+Build de produccion:
 
 ```bash
 npm run build
+```
+
+Preview del build:
+
+```bash
 npm run preview
 ```
 
-## Stack técnico
+## Stack
 
 - React 19
 - Vite 7
 - React Router DOM 7
 - React Hook Form
-- MirageJS para simular la API local
-- Tailwind CSS y CSS propio
+- MirageJS para simular la API
+- Tailwind CSS 3 y CSS modular por secciones
 - Lucide React para iconos
-- ESLint
 
-## Funcionalidad principal
+## Funcionalidades principales
 
-- Página de inicio con presentación del proyecto.
-- Catálogo de vans con filtros por tipo y favoritos.
-- Página de detalle por van con rutas anidadas para especificaciones y valoraciones.
-- Formulario de reserva con validación.
-- Estado global de favoritos mediante Context API.
-- Carga de datos desde una API mock con MirageJS.
+- Home responsive con Hero, preview de flota, galeria, newsletter, About y testimonios.
+- Catalogo de vans con filtros por tipo, filtro de favoritas y reset total.
+- Tarjetas de van reutilizables con boton de favoritos.
+- Detalle de van con imagen, descripcion, precio, etiqueta de tipo, especificaciones, valoraciones y formulario.
+- Formulario de reserva con validacion, ciudades desde API mock y modal de confirmacion accesible.
+- Estado global de favoritos con Context API.
+- Navegacion por rutas y enlaces con hash a secciones de la home.
+- Pagina 404 para rutas inexistentes.
 
-## Estructura general
+## Screenshots
+
+| Seccion | Widescreen | Mobile |
+| --- | --- | --- |
+| Home | Pendiente: screenshot widescreen de Home | Pendiente: screenshot mobile de Home |
+| Fleet | Pendiente: screenshot widescreen de Fleet | Pendiente: screenshot mobile de Fleet |
+| VanCard | Pendiente: screenshot widescreen de VanCard | Pendiente: screenshot mobile de VanCard |
+
+## Estructura
 
 ```text
 src/
-|-- api/          # Servidor MirageJS y datos mock
-|-- components/   # Componentes reutilizables
-|-- context/      # Estado global de favoritos
-|-- hooks/        # Hooks personalizados
-|-- pages/        # Vistas principales y secciones
-|-- utils/        # Funciones auxiliares
-|-- App.jsx       # Definición de rutas
-`-- main.jsx      # Punto de entrada de React
+|-- api/          # MirageJS: datos y endpoints mock
+|-- components/   # Layout, Header, Footer, VanCard, BookingForm, Heart
+|-- context/      # FavoritesContext y hook useFavorites
+|-- hooks/        # useFetch para peticiones
+|-- pages/        # Home, Vans, VanDetail, NotFound
+|-- pages/sections/
+|   |-- Home*     # Secciones de la home
+|   |-- VanSpecs  # Contenido de specs reutilizable
+|   `-- VanRatings
+|-- styles/       # CSS organizado por area de la app
+|-- utils/        # Filtros y utilidades pequenas
+|-- App.jsx       # Rutas
+`-- main.jsx      # Entrada de React y providers globales
 ```
 
-## Estado de revisión
+## Archivos clave
 
-La documentación se ha preparado para explicar el estado actual del proyecto. Antes de la entrega final conviene ejecutar `npm run build` y revisar cualquier ajuste pendiente indicado por Vite o ESLint.
+- `src/main.jsx`: monta React, activa `BrowserRouter`, arranca MirageJS y envuelve la app con favoritos.
+- `src/App.jsx`: define rutas principales y rutas anidadas del detalle de van.
+- `src/api/server.js`: crea la API mock con vans, specs, ratings y locations.
+- `src/hooks/useFetch.jsx`: centraliza carga de datos, loading y errores.
+- `src/context/FavoritesContext.jsx`: comparte favoritos entre catalogo, tarjetas y detalle.
+- `src/pages/Vans.jsx`: lee filtros desde la URL y muestra el catalogo filtrado.
+- `src/pages/VanDetail.jsx`: muestra detalle de van y conecta el CTA con el formulario.
+- `src/components/BookingForm.jsx`: gestiona validacion, fechas dependientes y modal de exito.
+
+## Estado actual
+
+El proyecto compila correctamente con:
+
+```bash
+npm run build
+```
+
+Antes de entregar o publicar, conviene revisar visualmente la app en mobile, tablet y desktop para confirmar que el diseno vintage mantiene buen espaciado y legibilidad en todos los breakpoints.

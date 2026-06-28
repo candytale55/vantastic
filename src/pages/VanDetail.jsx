@@ -27,6 +27,7 @@ export default function VanDetail() {
   const vanElement = data.van
 
   function handleBookingClick() {
+    // After the smooth scroll starts, focus the first field so keyboard users land in the form.
     bookingSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
     window.setTimeout(() => {
       firstBookingInputRef.current?.focus()

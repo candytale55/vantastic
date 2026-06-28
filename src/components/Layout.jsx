@@ -8,6 +8,7 @@ export default function Layout() {
   const location = useLocation();
 
   useEffect(() => {
+    // Route changes should start at the top, except footer/home links with hashes.
     if (!location.hash) {
       window.scrollTo({ top: 0, left: 0 });
       return;

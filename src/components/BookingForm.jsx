@@ -29,6 +29,7 @@ export default function BookingForm({ firstInputRef }) {
     }
 
     const today = new Date().toISOString().split('T')[0];
+    // The return date cannot be earlier than the selected pickup date.
     const pickupDateValue = useWatch({
         control,
         name: "pickupDate"
@@ -37,6 +38,7 @@ export default function BookingForm({ firstInputRef }) {
     useEffect(() => {
         if (!isSuccessModalOpen) return;
 
+        // Keep the success modal keyboard-friendly: focus starts on close and Escape exits.
         closeModalButtonRef.current?.focus();
 
         const handleKeyDown = (event) => {
@@ -49,7 +51,7 @@ export default function BookingForm({ firstInputRef }) {
     }, [isSuccessModalOpen]);
 
     if (locationsLoading) return <p>Cargando ciudades</p>
-    if (locationsError) return <p>Error al cargar ciudades: {locationsError.message}</p>;
+    if (locationsError) return <p>Error al cargar ciudades: {locationsError}</p>;
 
     const locations = locationsData?.locations || [];
     const userNameField = register("userName", {
@@ -83,6 +85,7 @@ export default function BookingForm({ firstInputRef }) {
                             className="form-input"
                             {...userNameField}
                             ref={(element) => {
+                                // React Hook Form needs its ref, and VanDetail also needs a ref for "Reserva Ahora".
                                 userNameField.ref(element);
                                 if (firstInputRef) firstInputRef.current = element;
                             }} />

@@ -1,98 +1,161 @@
 # Notas de desarrollo
 
-Estas notas explican cómo está integrada la aplicación. Para la puesta en marcha, ver el [README](../README.md). Para la relación con los requisitos de evaluación, ver la [justificación de requisitos](./justificación-requisitos.md).
+Este documento resume como esta construida la aplicacion y donde vive cada responsabilidad. Para arrancar el proyecto, ver el [README](../README.md). Para la relacion con los requisitos de evaluacion, ver la [justificacion de requisitos](./justificacion-requisitos.md).
 
-## Objetivo de la aplicación
+## Objetivo tecnico
 
-Vantastic! simula una plataforma de alquiler de furgonetas camper. El foco del proyecto no es crear un backend real, sino demostrar una aplicación React con rutas, componentes reutilizables, estado, contexto, hooks, formulario y consumo de datos.
+Vantastic! es una aplicacion React que simula una plataforma de alquiler de vans camper vintage. No usa backend real: MirageJS crea una API local para que la app pueda hacer `fetch` como si consumiera un servicio externo.
 
-## Flujo principal
+El foco tecnico esta en:
 
-1. `main.jsx` monta React, activa `BrowserRouter`, importa el servidor MirageJS y envuelve la app con `FavoritesContextProvider`.
-2. `App.jsx` define las rutas principales y el layout común.
-3. `Vans.jsx` carga la lista de vans desde `/api/vans`, aplica filtros desde la URL y renderiza tarjetas reutilizables.
-4. `VanDetail.jsx` carga una van por `id`, muestra su información y permite cambiar entre especificaciones y valoraciones mediante rutas anidadas.
-5. `BookingForm.jsx` muestra el formulario de reserva y carga las ciudades desde `/api/locations`.
+- Rutas con React Router.
+- Componentes reutilizables.
+- Estado local y global.
+- Custom hooks.
+- Formulario con validacion.
+- Datos desde API mock.
+- Interfaz responsive con Tailwind CSS y CSS organizado por secciones.
 
-## Datos y API
+## Flujo de arranque
 
-La API está simulada con MirageJS en `src/api/server.js`. Los datos se crean en memoria al arrancar la app. Esto permite usar `fetch` de forma realista sin depender de servicios externos ni credenciales.
-
-Endpoints usados:
-
-- `/api/vans`: listado completo.
-- `/api/vans/:id`: detalle de una van.
-- <mark>`/api/locations`: ciudades para el formulario. ????</mark>
-
-## Estado
-
-La aplicación usa estado local y global según la necesidad:
-
-- `useFetch` mantiene `data`, `loading` y `error` para peticiones.
-- `FavoritesContext` mantiene la lista global de vans favoritas.
-- `useSearchParams` guarda los filtros del catálogo en la URL.
-- React Hook Form gestiona el estado del formulario y sus validaciones.
-
-## Hooks personalizados
-
-`useFetch` encapsula la lógica repetida de pedir datos, controlar carga y capturar errores. Se usa tanto para vans como para ciudades.
-
-`useFavorites` encapsula el acceso a `FavoritesContext`, de modo que los componentes no importan el contexto directamente.
+1. `src/main.jsx` importa estilos globales, arranca la API MirageJS y monta React.
+2. `BrowserRouter` permite usar rutas y enlaces internos.
+3. `FavoritesContextProvider` envuelve la app para que favoritos este disponible en catalogo, tarjetas y detalle.
+4. `App.jsx` define la tabla de rutas.
+5. `Layout.jsx` renderiza Header, contenido principal con `Outlet` y Footer.
 
 ## Rutas
 
-Las rutas principales se definen en `src/App.jsx`.
+Las rutas principales estan en `src/App.jsx`:
 
-El detalle de van usa un `Outlet` para mostrar secciones internas:
+- `/`: Home.
+- `/home`: alias de Home.
+- `/vans`: catalogo.
+- `/vans/:id`: detalle de una van.
+- `/vans/:id/specs`: specs dentro del detalle.
+- `/vans/:id/ratings`: valoraciones dentro del detalle.
+- `*`: pagina 404.
 
-- `specs`: ficha técnica.
-- `ratings`: valoraciones.
+`VanDetail` usa rutas anidadas para que el layout principal de la van no cambie mientras se alterna el contenido secundario. En desktop, specs y ratings tambien se muestran en dos paneles directos para aprovechar mejor el espacio.
 
-Esto permite que una misma página mantenga su estructura principal mientras cambia el contenido secundario.
+## API mock
 
-## Formulario de reserva
+`src/api/server.js` crea un servidor MirageJS con dos modelos:
 
-El formulario usa React Hook Form porque reduce código repetitivo en validaciones y evita gestionar manualmente cada campo con `useState`. Incluye campos de nombre, email, teléfono, fechas, ciudades y comentarios.
+- `van`
+- `location`
 
-Las ciudades salen de la API mock, por lo que el formulario también demuestra consumo de datos.
+Endpoints activos:
 
-## Componentes reutilizables
+- `GET /api/vans`: devuelve todas las vans.
+- `GET /api/vans/:id`: devuelve una van por id.
+- `GET /api/locations`: devuelve ciudades para el formulario.
 
-Algunos componentes clave son:
+Los datos de cada van incluyen informacion principal, tipo, precio, imagen, especificaciones y valoraciones.
 
-- `Layout`: estructura común con header, contenido y footer.
-- `Header` y `Footer`: navegación y cierre de página.
-- `VanCard`: tarjeta repetida en el catálogo.
-- `Heart`: icono reusable para favoritos.
-- `BookingForm`: formulario de reserva.
+## Estado y hooks
 
-## Notas de revisión antes de entrega
+`src/hooks/useFetch.jsx`
 
-- Ejecutar `npm run build`.
-- Revisar la app en móvil, tablet y escritorio.
-- Comprobar que las rutas importadas en `App.jsx` existen en la estructura final.
-- Revisar que `index.html` no procese CSS generado dentro de `dist/` si causa errores de build.
+- Recibe una URL.
+- Ejecuta `fetch` en un `useEffect`.
+- Devuelve `{ data, loading, error }`.
+- Reinicia `loading` y `error` cuando cambia la URL.
+- Ignora resultados obsoletos si el componente se desmonta durante la peticion.
 
-## Refactor de TailWind y Eliminación de Eslint, lint y pmp.yaml
+`src/context/FavoritesContext.jsx`
 
-Nota adicional sobre limpieza de estilos y configuración
+- Guarda el array global de ids favoritas.
+- Expone `toggleFavorite(id)`.
+- Expone `useFavorites()` para que los componentes no importen el contexto directamente.
 
-Durante la revisión final del proyecto se hizo una limpieza progresiva de la configuración de estilos para dejar el proyecto más claro, pequeño y fácil de evaluar con Codex.
+`src/pages/Vans.jsx`
 
-El proyecto quedó configurado como una aplicación React + Vite + Tailwind CSS 3. Se revisó la conexión entre `tailwind.config.js`, `src/index.css`, los componentes React y las clases utilitarias de Tailwind. También se corrigieron problemas derivados de una refactorización previa hacia Tailwind, especialmente clases personalizadas que Tailwind no reconocía porque todavía no estaban bien declaradas en la configuración.
+- Usa `useSearchParams` para que los filtros vivan en la URL.
+- Esto hace que `/vans?type=viajera&favs=true` sea compartible y recuperable al refrescar.
 
-Se movieron los valores principales de diseño, como colores y fuentes, a `tailwind.config.js`, para poder usarlos como clases de Tailwind con nombres claros. Después se limpiaron reglas CSS globales que estaban afectando demasiado a toda la aplicación, como alineaciones generales de headings, listas y enlaces. En su lugar, los estilos se fueron dejando más cerca de los componentes que realmente los necesitan.
+## Componentes principales
 
-También se revisó el uso de archivos antiguos. Los archivos dentro de `docs/old` se conservaron como referencia histórica, pero se dejaron fuera del flujo activo de la app para mantener el proyecto pequeño y enfocado en los requisitos de entrega.
+`Layout`
 
-Finalmente, se eliminó ESLint porque no era necesario para este proyecto ni para la calificación. Se quitó el script `lint`, las dependencias relacionadas con ESLint, el archivo `eslint.config.js` y el lockfile de pnpm. El proyecto quedó usando solo npm, con `package-lock.json` como único lockfile.
+- Une Header, contenido y Footer.
+- Controla scroll al inicio al cambiar de ruta.
+- Si la URL incluye hash, hace scroll a la seccion correspondiente.
 
-Verificación realizada:
+`Header`
 
-- `npm run build` funciona correctamente.
-- Tailwind compila sin errores.
-- La configuración activa del proyecto ya no depende de ESLint.
-- El proyecto queda como npm-only.
-- Las únicas menciones restantes a ESLint están en archivos antiguos dentro de `docs/old`, conservados solo como documentación histórica.
+- Logo principal.
+- CTA hacia el catalogo.
 
-Esta limpieza se hizo con el objetivo de que el proyecto sea más sencillo de revisar, más coherente con Tailwind CSS 3 y más adecuado para una entrega académica.
+`Footer`
+
+- Texto de marca.
+- Iconos sociales placeholder.
+- Links a secciones de Home mediante hash.
+- Links legales placeholder.
+
+`VanCard`
+
+- Tarjeta reutilizable del catalogo.
+- Toda la tarjeta es un `Link` al detalle.
+- El corazon de favoritos detiene el click del link para actuar como boton independiente.
+
+`BookingForm`
+
+- Usa React Hook Form.
+- Carga ciudades desde `/api/locations`.
+- Valida nombre, email, telefono, fechas, ciudades y comentarios.
+- Usa `useWatch` para impedir que la fecha de entrega sea anterior a la recogida.
+- Al enviar, muestra una modal accesible de confirmacion.
+- La modal enfoca el boton de cierre, permite cerrar con Escape y devuelve el foco al boton de envio.
+
+`Heart`
+
+- Icono reutilizable para favoritos.
+- Recibe `filled` para cambiar el estado visual.
+
+## Home
+
+La home esta dividida en secciones pequenas dentro de `src/pages/sections/`:
+
+- `HomeHero`: entrada visual y CTA principal.
+- `HomeFleetPreview`: tres categorias de vans con una imagen aleatoria por tipo.
+- `VanPictures`: galeria social/feed con imagenes locales.
+- `HomeNewsletterSignup`: newsletter con input y CTA.
+- `HomeAboutUs`: historia de marca con imagen decorativa.
+- `HomeTestimonialsSocial`: reseñas de clientes.
+
+Los iconos de Lucide en secciones son decorativos y usan `aria-hidden="true"`.
+
+## Estilos
+
+`src/index.css` funciona como inventario y punto de entrada de estilos. Importa:
+
+- `base.css`: reset, fuentes y estilos globales.
+- `layout.css`: wrappers generales.
+- `header.css` y `footer.css`.
+- `home.css`, `van-pictures.css`, `vans.css`, `van-card.css`, `van-detail.css`, `booking.css`.
+- `buttons.css`: botones y chips compartidos.
+
+La paleta vintage vive en `tailwind.config.js` como colores `retro-*`.
+
+Durante el desarrollo hubo una etapa de confusion con Tailwind CSS: se mezclaron patrones y configuraciones de distintas versiones, y el CSS termino siendo dificil de seguir. Use Codex para revisar esa situacion, corregir la configuracion activa y dividir el CSS base en modulos mas pequenos por responsabilidad. Una vez ordenada esa base, implemente encima los cambios del estilo vintage final.
+
+## Accesibilidad
+
+Detalles ya implementados:
+
+- Iconos decorativos con `aria-hidden`.
+- Botones de favoritos con `aria-label` y `aria-pressed`.
+- Modal de reserva con `role="dialog"`, `aria-modal`, `aria-labelledby` y `aria-describedby`.
+- Clase `sr-only` para texto solo de lector de pantalla.
+- Labels conectados a inputs en formulario.
+- Navegacion por rutas y hash con scroll controlado.
+
+## Notas para futuras mejoras
+
+- Persistir favoritos en `localStorage` si se quiere mantenerlos entre sesiones.
+- Reemplazar links legales placeholder por rutas o documentos reales.
+- Cambiar iconos sociales placeholder por URLs reales.
+- Revisar visualmente breakpoints antes de entrega final.
+- Reducir peso de imagenes grandes si el objetivo incluye rendimiento.
