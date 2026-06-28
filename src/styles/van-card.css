@@ -11,6 +11,10 @@
     @apply relative aspect-[4/3] w-full overflow-hidden border-2 border-retro-ink bg-retro-cream;
   }
 
+  .van-card-image-link {
+    @apply block h-full w-full;
+  }
+
   .van-card-image {
     @apply h-full w-full object-cover;
   }
