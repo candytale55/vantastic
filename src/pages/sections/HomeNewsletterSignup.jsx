@@ -10,8 +10,9 @@ export default function HomeNewsletterSignup() {
                         <Share2 />
                     </div>
 
-                    <h2 className="section-title">Suscríbete a nuestra Newsletter</h2>
-                    <p className="section-subtitle">Rutas, historias de carretera y cosas que vale la pena saber antes de salir de viaje.</p>
+                    <h2 className="section-title">Newsletter</h2>
+                    <p className="section-subtitle">Suscríbete a nuestra newsletter. Rutas, historias de carretera y cosas que vale la pena saber antes de salir de viaje.</p>
+                    
                 </div>
 
                 <form className="newsletter-form">
