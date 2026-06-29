@@ -7,6 +7,14 @@
     @apply border-y-2 border-retro-ink;
   }
 
+  .newsletter-heading .section-title {
+    @apply text-5xl font-bold;
+  }
+
+  .newsletter-heading .section-subtitle {
+    @apply text-2xl leading-8;
+  }
+
   .newsletter-form {
     @apply flex w-full max-w-2xl flex-col gap-3 sm:flex-row;
   }
