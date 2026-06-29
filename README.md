@@ -67,9 +67,9 @@ npm run preview
 
 | Seccion | Widescreen | Mobile |
 | --- | --- | --- |
-| Home | Pendiente: screenshot widescreen de Home | Pendiente: screenshot mobile de Home |
-| Fleet | Pendiente: screenshot widescreen de Fleet | Pendiente: screenshot mobile de Fleet |
-| VanCard | Pendiente: screenshot widescreen de VanCard | Pendiente: screenshot mobile de VanCard |
+| Home | ![Home Widescreen Screenshot](./docs/shots/scsh-home-page-wide.png) | ![Home Mobile Screenshot](./docs/shots/scsh-home-page-mobile.png) |
+| Vans | ![Vans Widescreen Screenshot](./docs/shots/scsh-vans-page-wide.png) | ![Vans Mobile Screenshot](./docs/shots/scsh-vans-page-mobile.png) |
+| VanDetail | ![VanDetail Widescreen Screenshot](./docs/shots/scsh-vandetails-wide.png) | ![VanDetail Mobile Screenshot](./docs/shots/scsh-vandetails-mobile.png) |
 
 ## Estructura
 
@@ -109,4 +109,4 @@ El proyecto compila correctamente con:
 npm run build
 ```
 
-Antes de entregar o publicar, conviene revisar visualmente la app en mobile, tablet y desktop para confirmar que el diseno vintage mantiene buen espaciado y legibilidad en todos los breakpoints.
+El proyecto esta preparado para revision. Conviene volver a ejecutar `npm run build` y hacer una ultima comprobacion visual si se modifican estilos, rutas o contenido antes de publicar.

@@ -97,8 +97,8 @@ Los datos de cada van incluyen informacion principal, tipo, precio, imagen, espe
 `VanCard`
 
 - Tarjeta reutilizable del catalogo.
-- Toda la tarjeta es un `Link` al detalle.
-- El corazon de favoritos detiene el click del link para actuar como boton independiente.
+- La imagen y el cuerpo de la tarjeta enlazan al detalle.
+- El corazon de favoritos actua como boton independiente con estado accesible.
 
 `BookingForm`
 
@@ -134,7 +134,8 @@ Los iconos de Lucide en secciones son decorativos y usan `aria-hidden="true"`.
 - `base.css`: reset, fuentes y estilos globales.
 - `layout.css`: wrappers generales.
 - `header.css` y `footer.css`.
-- `home.css`, `home-galeria.css`, `vans.css`, `van-card.css`, `van-detail.css`, `booking.css`.
+- `home.css` y los modulos de secciones Home: `home-hero.css`, `home-fleet-preview.css`, `home-newsletter.css`, `home-about.css`, `home-testimonials.css` y `home-galeria.css`.
+- `vans.css`, `van-card.css`, `van-detail.css`, `booking.css` y `not-found.css`.
 - `buttons.css`: botones y chips compartidos.
 
 La paleta vintage vive en `tailwind.config.js` como colores `retro-*`.
@@ -157,5 +158,5 @@ Detalles ya implementados:
 - Persistir favoritos en `localStorage` si se quiere mantenerlos entre sesiones.
 - Reemplazar links legales placeholder por rutas o documentos reales.
 - Cambiar iconos sociales placeholder por URLs reales.
-- Revisar visualmente breakpoints antes de entrega final.
+- Mantener una revision visual de mobile, tablet y desktop si cambian estilos o contenido.
 - Reducir peso de imagenes grandes si el objetivo incluye rendimiento.
