@@ -37,8 +37,8 @@ export default function Vans() {
   return (
     <main className="vans-page section-shell">
       <header className="vans-intro">
-        <h1 className="page-title">
-          No elegir&aacute;s una furgoneta. Elegir&aacute;s con cu&aacute;l de ellas quieres perderte.
+        <h1 className="page-title vans-page-title">
+          Nuestra Flota
         </h1>
         <p className="section-subtitle">
           Explora nuestra flota de Volkswagen Combi y otras joyas restauradas.

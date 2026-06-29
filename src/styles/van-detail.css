@@ -11,7 +11,7 @@
   }
 
   .van-page-title {
-    @apply text-center text-3xl font-bold leading-tight md:text-4xl lg:hidden;
+    @apply text-center text-3xl font-bold italic leading-tight md:text-4xl lg:hidden;
   }
 
   .van-favorite-button {
@@ -49,7 +49,7 @@
   }
 
   .van-description {
-    @apply text-base leading-7 opacity-85 md:text-lg;
+    @apply text-lg leading-8 opacity-85 md:text-xl;
   }
 
   .van-price {

@@ -13,7 +13,7 @@ export default function HomeNewsletterSignup() {
 
                     <h2 className="section-title">Newsletter</h2>
                     <p className="section-subtitle">Suscríbete a nuestra newsletter. Rutas, historias de carretera y cosas que vale la pena saber antes de salir de viaje.</p>
-                    
+
                 </div>
 
                 <form className="newsletter-form">
@@ -27,7 +27,7 @@ export default function HomeNewsletterSignup() {
                         type="email"
                         id="newsletter-email"
                         className="newsletter-input"
-                        placeholder="tu direcci&oacute;n de correo"
+                        placeholder="Tu direcci&oacute;n de correo"
                         aria-label="Introduce tu direcci&oacute;n de correo electr&oacute;nico" />
 
                     <button

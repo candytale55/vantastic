@@ -7,15 +7,24 @@
   }
 
   .vans-intro {
-    @apply flex flex-col gap-6;
+    @apply mb-8 flex flex-col gap-8 md:mb-10;
   }
 
   .page-title {
     @apply max-w-4xl text-center text-3xl font-bold leading-tight md:text-4xl lg:text-5xl;
   }
 
+  .vans-page-title {
+    @apply mx-auto italic;
+  }
+
+  .vans-intro .section-subtitle {
+    @apply mx-auto text-center text-2xl;
+  }
+
   .filters-container {
-    @apply flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between;
+    @apply mb-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between;
+    @apply md:mb-8;
   }
 
   .type-filters,

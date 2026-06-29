@@ -16,7 +16,7 @@
   }
 
   .home-galeria-subtitle {
-    @apply w-full max-w-[24rem] text-xl leading-8 text-white/90 md:max-w-2xl;
+    @apply w-full max-w-[24rem] text-2xl leading-8 text-white/90 md:max-w-2xl;
   }
 
   .pictures-grid {
