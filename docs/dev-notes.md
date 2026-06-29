@@ -120,7 +120,7 @@ La home esta dividida en secciones pequenas dentro de `src/pages/sections/`:
 
 - `HomeHero`: entrada visual y CTA principal.
 - `HomeFleetPreview`: tres categorias de vans con una imagen aleatoria por tipo.
-- `VanPictures`: galeria social/feed con imagenes locales.
+- `HomeGaleria`: galeria social/feed con imagenes locales.
 - `HomeNewsletterSignup`: newsletter con input y CTA.
 - `HomeAboutUs`: historia de marca con imagen decorativa.
 - `HomeTestimonialsSocial`: reseñas de clientes.
@@ -134,7 +134,7 @@ Los iconos de Lucide en secciones son decorativos y usan `aria-hidden="true"`.
 - `base.css`: reset, fuentes y estilos globales.
 - `layout.css`: wrappers generales.
 - `header.css` y `footer.css`.
-- `home.css`, `van-pictures.css`, `vans.css`, `van-card.css`, `van-detail.css`, `booking.css`.
+- `home.css`, `home-galeria.css`, `vans.css`, `van-card.css`, `van-detail.css`, `booking.css`.
 - `buttons.css`: botones y chips compartidos.
 
 La paleta vintage vive en `tailwind.config.js` como colores `retro-*`.

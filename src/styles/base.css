@@ -1,4 +1,5 @@
-﻿@layer base {
+﻿/* Base global: normaliza margenes, tipografia, enlaces, imagenes y accesibilidad de toda la app. */
+@layer base {
   /* ========== BASE ========== */
 
   /* ========== GLOBAL RESETS ========== */

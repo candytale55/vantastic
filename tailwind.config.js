@@ -1,3 +1,4 @@
+// Define donde Tailwind busca clases y centraliza los colores/fuentes de la identidad Vantastic.
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [

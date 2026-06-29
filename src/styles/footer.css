@@ -1,4 +1,5 @@
-﻿@layer components {
+﻿/* Footer de sitio: layout, textos, iconos sociales y enlaces inferiores. */
+@layer components {
   /* ========== FOOTER ========== */
 
   .main-footer {

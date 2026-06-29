@@ -1,3 +1,4 @@
+// Utilidades de fechas para textos que deben mantenerse actualizados con el paso del tiempo.
 
 /**
  * Gets current year

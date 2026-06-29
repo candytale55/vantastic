@@ -1,3 +1,4 @@
+// Footer global: agrupa historia breve, enlaces sociales y navegacion secundaria.
 import { Link } from 'react-router-dom'
 import { getCurrentYear } from '../utils/dateUtils.js'
 

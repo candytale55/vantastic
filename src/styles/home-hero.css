@@ -1,3 +1,4 @@
+﻿/* Hero de la home: imagen principal, mensaje de marca y llamada al catalogo. */
 @layer components {
   /* ========== HOME HERO ========== */
 
@@ -19,15 +20,16 @@
   }
 
   .hero-title {
-    @apply text-center font-bold leading-tight md:text-4xl lg:text-5xl;
+    @apply text-center font-bold leading-tight text-4xl lg:text-5xl mb-4;
   }
 
   .subheadline {
-    @apply max-w-xl text-base leading-7 md:text-lg;
+    @apply  max-w-xl text-center leading-7 text-2xl mb-10;
   }
 
   .brand-signature {
     @apply absolute right-8 top-8 z-10 border-2 border-retro-ink bg-retro-teal px-3 py-1 font-sans text-xs font-extrabold uppercase tracking-wide text-white;
     @apply shadow-[3px_3px_0px_rgba(26,26,26,1)] md:text-sm;
   }
+
 }

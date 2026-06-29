@@ -1,4 +1,5 @@
-﻿@layer components {
+﻿/* Pagina de detalle de van: hero, datos principales, tabs y layout responsive de contenido. */
+@layer components {
   /* ========== VAN DETAIL ========== */
 
   .van-detail-page {

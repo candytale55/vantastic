@@ -1,3 +1,4 @@
+// Punto de entrada de React: monta la app, activa rutas y envuelve el estado global de favoritos.
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'

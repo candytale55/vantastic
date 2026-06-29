@@ -1,3 +1,4 @@
+// Hook reutilizable para cargar datos por fetch y exponer estados de carga, error y respuesta.
 import { useState, useEffect } from 'react'
 
 // Small data-loading hook used by pages and forms that read from the Mirage API.

@@ -1,4 +1,5 @@
-﻿@layer components {
+﻿/* Layout comun: shell de pagina, area principal y contenedor reusable para secciones. */
+@layer components {
   /* ========== APP LAYOUT ========== */
 
   .page-shell {

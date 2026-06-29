@@ -1,3 +1,4 @@
+// Pagina 404 simple para rutas inexistentes, con retorno claro al inicio.
 import { Link } from 'react-router-dom'
 
 

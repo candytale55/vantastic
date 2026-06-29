@@ -1,3 +1,4 @@
+// Cabecera global: muestra la marca y el acceso principal al catalogo de vans.
 import { NavLink } from 'react-router-dom'
 
 export default function Header() {

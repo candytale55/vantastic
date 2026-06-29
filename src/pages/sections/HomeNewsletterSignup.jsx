@@ -1,3 +1,4 @@
+// Bloque de newsletter: recoge emails de visitantes interesados en rutas e historias.
 import { Share2 } from 'lucide-react'
 
 

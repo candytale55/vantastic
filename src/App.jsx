@@ -1,3 +1,4 @@
+// Mapa principal de rutas: conecta el layout comun con home, catalogo, detalle de van y pagina 404.
 import { Routes, Route } from 'react-router-dom'
 // Components
 import Layout from './components/Layout.jsx'

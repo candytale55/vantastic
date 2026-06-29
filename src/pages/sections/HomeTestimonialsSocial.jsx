@@ -1,3 +1,4 @@
+// Seccion social de la home: combina testimonios de clientes y senales de comunidad.
 import { ScanFace } from 'lucide-react'
 
 export default function HomeTestimonialsSocial() {

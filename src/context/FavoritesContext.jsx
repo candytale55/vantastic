@@ -1,3 +1,4 @@
+// Contexto global de favoritos: permite marcar vans favoritas desde distintas pantallas.
 import { useState, createContext, useContext } from 'react'
 
 // Kept private so components use the custom hook below instead of importing the raw context.

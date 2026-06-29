@@ -1,4 +1,3 @@
-
 // This component will render an SVG heart icon.
 // It receives a 'filled' prop to determine if it should be filled or outlined.
 // It also receives an onClick handler for interactivity.

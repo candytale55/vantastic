@@ -1,3 +1,4 @@
+// Formulario de reserva: valida datos, consulta ubicaciones y muestra confirmacion al enviar.
 import { useEffect, useRef, useState } from 'react'
 import { useForm, useWatch } from 'react-hook-form'
 import useFetch from '../hooks/useFetch.jsx'

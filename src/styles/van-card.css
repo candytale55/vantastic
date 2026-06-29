@@ -1,4 +1,5 @@
-﻿@layer components {
+﻿/* Tarjetas de van: imagen, precio, tipo y boton de favorito dentro del catalogo. */
+@layer components {
   /* ========== VAN CARD ========== */
 
   .van-card-container {

@@ -1,3 +1,4 @@
+// Pagina de catalogo: carga las vans, aplica filtros por URL y muestra tarjetas con favoritos.
 import useFetch from '../hooks/useFetch.jsx'
 import VanCard from '../components/VanCard.jsx'
 import { useFavorites } from '../context/FavoritesContext.jsx'

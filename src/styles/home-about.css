@@ -1,3 +1,4 @@
+﻿/* Bloque de historia: composicion de texto e imagen para explicar el origen de Vantastic. */
 @layer components {
   /* ========== HOME ABOUT ========== */
 
@@ -20,15 +21,15 @@
   }
 
   .about-content {
-    @apply flex flex-col items-center gap-5 text-center lg:max-w-lg;
+    @apply flex w-full max-w-[36rem] flex-col items-center gap-5 text-center lg:max-w-lg;
   }
 
   .about-title {
-    @apply text-center text-2xl font-bold leading-tight md:text-3xl lg:text-4xl;
+    @apply text-center text-3xl italic font-bold leading-tight md:text-4xl lg:text-4xl;
   }
 
   .about-text {
-    @apply text-base leading-7 opacity-80 md:text-lg;
+    @apply text-lg leading-8 opacity-80 md:text-xl;
   }
 
   .about-image {

@@ -1,4 +1,4 @@
-
+// Layout compartido: mantiene header/footer y gestiona el scroll al cambiar de ruta.
 import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import Header from './Header.jsx'

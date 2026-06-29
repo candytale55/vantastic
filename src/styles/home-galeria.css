@@ -1,21 +1,22 @@
+/* Galeria de fotos: grilla visual de experiencias y momentos relacionados con las vans. */
 @layer components {
-  /* ========== VAN PICTURES GALLERY ========== */
+  /* ========== HOME GALERIA ========== */
 
-  .van-pictures-section {
+  .home-galeria-section {
     @apply bg-retro-pink;
     @apply border-y-2 border-retro-ink;
   }
 
-  .van-pictures-heading {
-    @apply max-w-3xl;
+  .home-galeria-heading {
+    @apply w-full max-w-[24rem] md:max-w-3xl;
   }
 
-  .van-pictures-heading .section-title {
-    @apply text-white;
+  .home-galeria-heading .section-title {
+    @apply text-white text-5xl font-bold;
   }
 
-  .van-pictures-subtitle {
-    @apply max-w-2xl text-xl leading-8 text-white/90;
+  .home-galeria-subtitle {
+    @apply w-full max-w-[24rem] text-xl leading-8 text-white/90 md:max-w-2xl;
   }
 
   .pictures-grid {
@@ -48,7 +49,7 @@
     @apply h-full w-full object-cover;
   }
 
-  .van-pictures-cta {
+  .home-galeria-cta {
     @apply mt-2;
   }
 }

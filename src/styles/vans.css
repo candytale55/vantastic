@@ -1,4 +1,5 @@
-﻿@layer components {
+﻿/* Catalogo de vans: intro, filtros, grilla de resultados y estados de la lista. */
+@layer components {
   /* ========== VANS LISTING ========== */
 
   .vans-page {

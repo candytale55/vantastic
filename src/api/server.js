@@ -1,3 +1,4 @@
+// Backend simulado con MirageJS: crea endpoints locales para vans y ubicaciones sin servidor real.
 import { createServer, Model } from 'miragejs';
 
 // MirageJS gives the app realistic fetch calls without needing a real backend.

@@ -1,9 +1,10 @@
+// Home publica: compone las secciones principales de marca, flota, galeria y contacto.
 import HomeHero from './sections/HomeHero.jsx'
 import HomeFleetPreview from './sections/HomeFleetPreview.jsx'
 import HomeTestimonialsSocial from './sections/HomeTestimonialsSocial.jsx'
 import HomeNewsletterSignup from './sections/HomeNewsletterSignup.jsx'
 import HomeAboutUs from './sections/HomeAboutUs.jsx' 
-import VanPictures from './sections/VanPictures.jsx'
+import HomeGaleria from './sections/HomeGaleria.jsx'
 
 
 export default function Home() {
@@ -11,7 +12,7 @@ export default function Home() {
     <main className="home-page">
       <HomeHero />
       <HomeFleetPreview />
-      <VanPictures />
+      <HomeGaleria />
       <HomeNewsletterSignup />
       <HomeAboutUs />
       <HomeTestimonialsSocial />

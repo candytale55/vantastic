@@ -1,3 +1,4 @@
+// Tarjeta reutilizable del catalogo: presenta una van y permite entrar al detalle o marcar favorito.
 import { Link } from 'react-router-dom'
 import { useFavorites } from '../context/FavoritesContext.jsx'
 import Heart from '../components/Heart.jsx'

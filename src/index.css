@@ -1,3 +1,7 @@
+﻿/*
+  Hoja de estilos principal: importa fuentes y reune los modulos CSS que dan forma a toda la app.
+  El inventario de abajo sirve como mapa rapido para saber donde tocar cada parte visual.
+*/
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,900;1,900&display=swap');
 
 /*
@@ -15,7 +19,7 @@
   not-found.css: 404 page
   vans.css: vans listing page and filters
   van-card.css: reusable van cards
-  van-pictures.css: homepage gallery section
+  home-galeria.css: homepage gallery section
   van-detail.css: van detail overview and responsive specs/ratings layout
   booking.css: booking form, specs, and ratings detail styles
 */
@@ -33,7 +37,7 @@
 @import './styles/not-found.css';
 @import './styles/vans.css';
 @import './styles/van-card.css';
-@import './styles/van-pictures.css';
+@import './styles/home-galeria.css';
 @import './styles/van-detail.css';
 @import './styles/booking.css';
 @import './styles/buttons.css';

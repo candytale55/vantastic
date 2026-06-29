@@ -1,3 +1,4 @@
+// Preview de flota: resume las categorias de vans y usa imagenes reales cargadas desde la API mock.
 import { Link } from 'react-router-dom'
 import { useMemo } from 'react'
 import { Van } from 'lucide-react'

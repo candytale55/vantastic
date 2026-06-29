@@ -1,4 +1,3 @@
-
 // Catalog filters are derived from URL params, so this stays pure and easy to test.
 export function getFilteredVans(vans, typeFilter, favsFilter, favoriteIds) {
     let filteredVans = vans; 

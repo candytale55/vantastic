@@ -1,4 +1,5 @@
-﻿@layer components {
+﻿/* Header global: logo, navegacion principal y adaptacion responsive de la cabecera. */
+@layer components {
   /* ========== HEADER ========== */
 
   .main-header {

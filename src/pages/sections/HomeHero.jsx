@@ -1,3 +1,4 @@
+// Hero de la home: presenta la propuesta de Vantastic y lleva al usuario al catalogo.
 import heroImage from '/src/assets/images/ocean-breeze-promo.png'
 import { Link } from 'react-router-dom'
 import { getYearsSince } from '../../utils/dateUtils.js'
@@ -15,10 +16,9 @@ export default function HomeHero() {
             </div>
 
             <div className="hero-content">
-                <h2 className="hero-title">{yearsInBusiness} a&ntilde;os llevando gente a ning&uacute;n sitio en concreto.</h2>
-                <p className="subheadline"><span>Furgonetas vintage restauradas.</span> <span>Rec&oacute;gela aqu&iacute;.</span> <span>Devu&eacute;lvela donde quieras.</span></p>
-                <Link to="/vans" className="cta-button cta-button-large btn-teal">Ver Toda la Flota</Link>
-                
+                <h2 className="hero-title">Furgonetas vintage restauradas.</h2>
+                <p className="subheadline">{yearsInBusiness} a&ntilde;os llevando gente a ning&uacute;n sitio en concreto.</p>
+                <Link to="/vans" className="cta-button btn-teal hero-cta">Ver Toda la Flota</Link>
             </div>
         </section>
     )
