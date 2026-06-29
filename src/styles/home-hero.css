@@ -6,7 +6,7 @@
   }
 
   .hero-media {
-    @apply order-1 w-full max-w-[36rem] justify-self-center rounded-none border-2 border-retro-ink bg-white p-5;
+    @apply relative order-1 w-full max-w-[36rem] justify-self-center rounded-none border-2 border-retro-ink bg-white p-5;
     @apply shadow-[4px_4px_0px_rgba(26,26,26,1)];
   }
 
@@ -15,7 +15,7 @@
   }
 
   .hero-content {
-    @apply order-2 flex flex-col gap-5;
+    @apply order-2 flex w-full max-w-[36rem] flex-col gap-5 justify-self-center lg:max-w-none;
   }
 
   .hero-title {
@@ -27,6 +27,7 @@
   }
 
   .brand-signature {
-    @apply text-sm italic opacity-80 md:text-base;
+    @apply absolute right-8 top-8 z-10 border-2 border-retro-ink bg-retro-teal px-3 py-1 font-sans text-xs font-extrabold uppercase tracking-wide text-white;
+    @apply shadow-[3px_3px_0px_rgba(26,26,26,1)] md:text-sm;
   }
 }

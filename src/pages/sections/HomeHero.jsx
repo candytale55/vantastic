@@ -10,11 +10,11 @@ export default function HomeHero() {
     return (
         <section className="home-hero section-shell">
             <div className="hero-media">
+                <p className="brand-signature">Desde 1989</p>
                 <img className="hero-image" src={heroImage} alt="Van vintage Vantastic junto al mar" />
             </div>
 
             <div className="hero-content">
-                <p className="brand-signature">Desde 1989.</p>
                 <h2 className="hero-title">{yearsInBusiness} a&ntilde;os llevando gente a ning&uacute;n sitio en concreto.</h2>
                 <p className="subheadline"><span>Furgonetas vintage restauradas.</span> <span>Rec&oacute;gela aqu&iacute;.</span> <span>Devu&eacute;lvela donde quieras.</span></p>
                 <Link to="/vans" className="cta-button cta-button-large btn-teal">Ver Toda la Flota</Link>

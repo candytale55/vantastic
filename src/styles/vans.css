@@ -6,7 +6,7 @@
   }
 
   .vans-intro {
-    @apply flex flex-col gap-3;
+    @apply flex flex-col gap-6;
   }
 
   .page-title {
