@@ -38,6 +38,6 @@
   }
 
   .fleet-type-card p {
-    @apply text-sm leading-6 opacity-80 md:text-base;
+    @apply text-base leading-6 opacity-80;
   }
 }
