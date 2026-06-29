@@ -41,7 +41,7 @@ export default function HomeGaleria() {
           ))}
         </div>
 
-        <a href="#footer" className="cta-button-large btn-yellow home-galeria-cta">
+        <a href="#galeria" className="cta-button-large btn-yellow home-galeria-cta">
           S&iacute;guenos en redes
         </a>
       </div>
