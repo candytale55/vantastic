@@ -108,5 +108,3 @@ El proyecto compila correctamente con:
 ```bash
 npm run build
 ```
-
-El proyecto esta preparado para revision. Conviene volver a ejecutar `npm run build` y hacer una ultima comprobacion visual si se modifican estilos, rutas o contenido antes de publicar.

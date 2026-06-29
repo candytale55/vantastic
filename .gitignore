@@ -27,6 +27,7 @@ docs/*
 !docs/
 !docs/dev-notes.md
 !docs/justificacion-requisitos.md
+!docs/shots
 
 concat.py
 project_context.txt
