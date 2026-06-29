@@ -18,7 +18,7 @@ export default function HomeHero() {
             <div className="hero-content">
                 <h2 className="hero-title">Furgonetas vintage restauradas.</h2>
                 <p className="subheadline">{yearsInBusiness} a&ntilde;os llevando gente a ning&uacute;n sitio en concreto.</p>
-                <Link to="/vans" className="cta-button btn-teal hero-cta">Ver Toda la Flota</Link>
+                <Link to="/vans" className="cta-button-large btn-teal hero-cta">Ver Toda la Flota</Link>
             </div>
         </section>
     )

@@ -5,14 +5,22 @@
   .cta-button,
   .cta-button-large,
   .cta-button-small,
-  .header-cta {
+  .header-cta,
+  .filter-chip {
+    /* Shared interaction baseline to avoid duplicating focus/active behavior across CTA buttons and filter chips. */
     @apply inline-flex items-center justify-center rounded-none border-2 border-retro-ink;
-    @apply shadow-[4px_4px_0px_rgba(26,26,26,1)];
-    @apply font-sans font-extrabold uppercase tracking-wider;
     @apply transition-all duration-200;
-    @apply hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_rgba(26,26,26,1)];
     @apply active:translate-x-[2px] active:translate-y-[2px] active:shadow-none;
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-retro-teal focus-visible:ring-offset-2 focus-visible:ring-offset-retro-cream;
+  }
+
+  .cta-button,
+  .cta-button-large,
+  .cta-button-small,
+  .header-cta {
+    @apply shadow-[4px_4px_0px_rgba(26,26,26,1)];
+    @apply font-sans font-extrabold uppercase tracking-wider;
+    @apply hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_rgba(26,26,26,1)];
   }
 
   .cta-button,
@@ -35,6 +43,7 @@
   .cta-button-large,
   .cta-button-small,
   .header-cta {
+    /* Default/fallback CTA palette: keeps buttons styled when JSX omits a color modifier class. */
     @apply bg-retro-yellow text-retro-ink hover:bg-retro-pink hover:text-retro-ink;
   }
 
@@ -51,15 +60,13 @@
   }
 
   .filter-chip {
-    @apply inline-flex items-center justify-center rounded-none border-2 border-retro-ink;
     @apply bg-white px-4 py-2 text-sm font-bold uppercase tracking-wide text-retro-ink;
-    @apply shadow-[3px_3px_0px_rgba(26,26,26,1)] transition-all duration-200;
+    @apply shadow-[3px_3px_0px_rgba(26,26,26,1)];
     @apply hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_rgba(26,26,26,1)];
-    @apply active:translate-x-[2px] active:translate-y-[2px] active:shadow-none;
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-retro-teal focus-visible:ring-offset-2 focus-visible:ring-offset-retro-cream;
   }
 
   .filter-chip.is-active {
+    /* Neutral active base; type-specific active colors are defined below and override this when present. */
     @apply bg-white text-retro-ink;
   }
 
