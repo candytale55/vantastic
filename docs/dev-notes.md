@@ -108,6 +108,7 @@ Los datos de cada van incluyen informacion principal, tipo, precio, imagen, espe
 - Usa `useWatch` para impedir que la fecha de entrega sea anterior a la recogida.
 - Al enviar, muestra una modal accesible de confirmacion.
 - La modal enfoca el boton de cierre, permite cerrar con Escape y devuelve el foco al boton de envio.
+- Coordina `ContactFields`, `RentalFields`, `BookingField` y `BookingSuccessModal`, que mantienen separadas las reglas de cada grupo de campos, la presentación de errores y la confirmación.
 
 `Heart`
 
@@ -141,6 +142,16 @@ Los iconos de Lucide en secciones son decorativos y usan `aria-hidden="true"`.
 La paleta vintage vive en `tailwind.config.js` como colores `retro-*`.
 
 Durante el desarrollo hubo una etapa de confusion con Tailwind CSS: se mezclaron patrones y configuraciones de distintas versiones, y el CSS termino siendo dificil de seguir. Use Codex para revisar esa situacion, corregir la configuracion activa y dividir el CSS base en modulos mas pequenos por responsabilidad. Una vez ordenada esa base, implemente encima los cambios del estilo vintage final.
+
+## Tests
+
+Las pruebas unitarias usan Vitest, React Testing Library y JSDOM.
+
+- `npm test`: ejecuta la suite una vez.
+- `npm run test:watch`: ejecuta la suite en modo interactivo durante el desarrollo.
+- `npm run build`: genera la compilacion de produccion.
+
+Los tests viven junto al codigo que cubren con el sufijo `.test.js` o `.test.jsx`. La utilidad `src/test/test-utils.jsx` proporciona Router y el contexto de favoritos para pruebas de componentes que los necesiten. La cobertura inicial protege filtros, favoritos, cargas, rutas no encontradas y los flujos principales del formulario de reserva.
 
 ## Accesibilidad
 
