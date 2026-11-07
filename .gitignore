@@ -27,7 +27,7 @@ docs/*
 !docs/
 !docs/dev-notes.md
 !docs/justificacion-requisitos.md
-!docs/changes-after-feedback.md
+!docs/cambios-despues-feedback.md
 !docs/shots
 
 concat.py

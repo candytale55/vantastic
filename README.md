@@ -8,12 +8,13 @@ El proyecto forma parte de una entrega de React del Master en FullStack Developm
 
 - [Notas de desarrollo](./docs/dev-notes.md): mapa tecnico del proyecto, flujo de datos y decisiones importantes.
 - [Justificacion de requisitos](./docs/justificacion-requisitos.md): relacion entre los requisitos de la entrega y su implementacion.
+- [Mejoras después de la revisión](./docs/cambios-despues-feedback.md): registro de las mejoras aplicadas tras el feedback del profesor, sus objetivos, evidencias y la cobertura de tests incorporada posteriormente.
 
 ## Quick Start
 
 Requisitos:
 
-- Node.js 18 o superior.
+- Node.js 22.12 o superior.
 - npm.
 
 Instalacion:
@@ -42,10 +43,23 @@ Preview del build:
 npm run preview
 ```
 
+Tests unitarios:
+
+```bash
+npm test
+```
+
+Para ejecutar los tests mientras desarrollas:
+
+```bash
+npm run test:watch
+```
+
 ## Stack
 
 - React 19
 - Vite 7
+- Vitest 5, React Testing Library y JSDOM
 - React Router DOM 7
 - React Hook Form
 - MirageJS para simular la API
@@ -58,7 +72,8 @@ npm run preview
 - Catalogo de vans con filtros por tipo, filtro de favoritas y reset total.
 - Tarjetas de van reutilizables con boton de favoritos.
 - Detalle de van con imagen, descripcion, precio, etiqueta de tipo, especificaciones, valoraciones y formulario.
-- Formulario de reserva con validacion, ciudades desde API mock y modal de confirmacion accesible.
+- Formulario de reserva dividido por responsabilidades, con validacion, ciudades desde API mock y modal de confirmacion accesible.
+- Indicadores de carga accesibles para el catalogo, el detalle y las ciudades del formulario.
 - Estado global de favoritos con Context API.
 - Navegacion por rutas y enlaces con hash a secciones de la home.
 - Pagina 404 para rutas inexistentes.
@@ -74,9 +89,13 @@ npm run preview
 ## Estructura
 
 ```text
+public/
+`-- images/       # Recursos estáticos accesibles mediante /images/...
+
 src/
 |-- api/          # MirageJS: datos y endpoints mock
 |-- components/   # Layout, Header, Footer, VanCard, BookingForm, Heart
+|   `-- booking/  # Campos de reserva y modal de confirmacion
 |-- context/      # FavoritesContext y hook useFavorites
 |-- hooks/        # useFetch para peticiones
 |-- pages/        # Home, Vans, VanDetail, NotFound
@@ -85,6 +104,7 @@ src/
 |   |-- VanSpecs  # Contenido de specs reutilizable
 |   `-- VanRatings
 |-- styles/       # CSS organizado por area de la app
+|-- test/         # Configuracion y utilidades compartidas de test
 |-- utils/        # Filtros y utilidades pequenas
 |-- App.jsx       # Rutas
 `-- main.jsx      # Entrada de React y providers globales
@@ -99,12 +119,15 @@ src/
 - `src/context/FavoritesContext.jsx`: comparte favoritos entre catalogo, tarjetas y detalle.
 - `src/pages/Vans.jsx`: lee filtros desde la URL y muestra el catalogo filtrado.
 - `src/pages/VanDetail.jsx`: muestra detalle de van y conecta el CTA con el formulario.
-- `src/components/BookingForm.jsx`: gestiona validacion, fechas dependientes y modal de exito.
+- `src/components/BookingForm.jsx`: coordina la carga de ciudades, el envio, las fechas dependientes y el modal de exito.
+- `src/components/booking/`: separa campos de contacto, datos de alquiler, mensajes de error y confirmacion para mantener las reglas cerca de cada input.
+- `src/test/`: configura los tests y aporta el render con Router y favoritos.
 
 ## Estado actual
 
-El proyecto compila correctamente con:
+El proyecto se valida con:
 
 ```bash
+npm test
 npm run build
 ```
