@@ -1,11 +1,11 @@
 // Galeria visual de la home: muestra imagenes de la experiencia Vantastic.
 import { Camera } from 'lucide-react'
-import firstImage from '/src/assets/images/surfing-pic.png'
-import secondImage from '/src/assets/images/vanlife-meeting.png'
-import thirdImage from '/src/assets/images/top-of-the-world-pic.jfif'
-import fourthImage from '/src/assets/images/van-roadtrip.avif'
-import fifthImage from '/src/assets/images/orange-dream-promo.png'
-import sixthImage from '/src/assets/images/community-pic.png'
+const firstImage = '/images/surfing-pic.png'
+const secondImage = '/images/vanlife-meeting.png'
+const thirdImage = '/images/top-of-the-world-pic.jfif'
+const fourthImage = '/images/van-roadtrip.avif'
+const fifthImage = '/images/orange-dream-promo.png'
+const sixthImage = '/images/community-pic.png'
 
 
 export default function HomeGaleria() {

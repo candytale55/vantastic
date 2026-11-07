@@ -11,14 +11,12 @@ import NotFound from './NotFound.jsx'
 import { VanSpecsContent } from './sections/VanSpecs.jsx'
 import { VanRatingsContent } from './sections/VanRatings.jsx'
 
-const vanLoadingDelay = 1500;
-
 export default function VanDetail() {
   const params = useParams()
   const bookingSectionRef = useRef(null)
   const firstBookingInputRef = useRef(null)
 
-  const { data, loading, error } = useFetch(`/api/vans/${params.id}`, vanLoadingDelay)
+  const { data, loading, error } = useFetch(`/api/vans/${params.id}`)
 
   const { favorites, toggleFavorite } = useFavorites()
   const isFavorite = favorites.includes(params.id)

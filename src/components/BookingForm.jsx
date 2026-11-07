@@ -4,8 +4,6 @@ import { useForm, useWatch } from 'react-hook-form'
 import useFetch from '../hooks/useFetch.jsx'
 import LoadingIndicator from './LoadingIndicator.jsx'
 
-const locationsLoadingDelay = 1500;
-
 export default function BookingForm({ firstInputRef }) {
     const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
     const closeModalButtonRef = useRef(null);
@@ -20,7 +18,7 @@ export default function BookingForm({ firstInputRef }) {
         data: locationsData,
         loading: locationsLoading,
         error: locationsError
-    } = useFetch("/api/locations", locationsLoadingDelay);
+    } = useFetch("/api/locations");
 
     const submit = () => {
         reset();

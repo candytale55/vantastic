@@ -7,10 +7,8 @@ import { getFilteredVans } from '../utils/filters.js'
 import Heart from '../components/Heart.jsx'
 import LoadingIndicator from '../components/LoadingIndicator.jsx'
 
-const vansLoadingDelay = 1500;
-
 export default function Vans() {
-  const { data, loading, error } = useFetch('/api/vans', vansLoadingDelay)
+  const { data, loading, error } = useFetch('/api/vans')
 
   const [searchParams, setSearchParams] = useSearchParams()
   const typeFilter = searchParams.get('type')

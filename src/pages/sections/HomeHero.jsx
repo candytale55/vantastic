@@ -1,5 +1,5 @@
 // Hero de la home: presenta la propuesta de Vantastic y lleva al usuario al catalogo.
-import heroImage from '/src/assets/images/ocean-breeze-promo.png'
+const heroImage = '/images/ocean-breeze-promo.png'
 import { Link } from 'react-router-dom'
 import { getYearsSince } from '../../utils/dateUtils.js'
 

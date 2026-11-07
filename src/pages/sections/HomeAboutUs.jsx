@@ -1,6 +1,6 @@
 // Seccion "Nuestra historia": explica el origen familiar de la marca con imagen de apoyo.
 import { Compass } from 'lucide-react'
-import aboutUsImage from '/src/assets/images/owners-pic.png'
+const aboutUsImage = '/images/owners-pic.png'
 
 export default function HomeAboutUs() {
     return (
