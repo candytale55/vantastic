@@ -1,5 +1,17 @@
 ﻿/* Layout comun: shell de pagina, area principal y contenedor reusable para secciones. */
 @layer components {
+  .loading-indicator {
+    @apply flex min-h-40 flex-col items-center justify-center gap-3 text-center text-sm font-semibold text-retro-ink;
+  }
+
+  .loading-indicator-icon {
+    @apply h-9 w-9 animate-spin text-retro-teal;
+  }
+
+  .page-loading-indicator {
+    @apply min-h-[50vh];
+  }
+
   /* ========== APP LAYOUT ========== */
 
   .page-shell {

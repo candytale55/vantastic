@@ -5,10 +5,12 @@ import { useFavorites } from '../context/FavoritesContext.jsx'
 import { useSearchParams } from 'react-router-dom'
 import { getFilteredVans } from '../utils/filters.js'
 import Heart from '../components/Heart.jsx'
+import LoadingIndicator from '../components/LoadingIndicator.jsx'
 
+const vansLoadingDelay = 1500;
 
 export default function Vans() {
-  const { data, loading, error } = useFetch('/api/vans')
+  const { data, loading, error } = useFetch('/api/vans', vansLoadingDelay)
 
   const [searchParams, setSearchParams] = useSearchParams()
   const typeFilter = searchParams.get('type')
@@ -16,7 +18,7 @@ export default function Vans() {
   const { favorites } = useFavorites()
   const favsFilter = searchParams.get('favs') === 'true'
 
-  if (loading) return <h2>Cargando vans...</h2>
+  if (loading) return <LoadingIndicator message="Cargando flota..." className="page-loading-indicator" />
   if (error) return <h2>Hubo un error:{error}</h2>
 
   const filteredVans = getFilteredVans(data.vans, typeFilter, favsFilter, favorites)

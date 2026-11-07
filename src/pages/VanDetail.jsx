@@ -6,21 +6,24 @@ import { useFavorites } from '../context/FavoritesContext.jsx'
 import { useParams, Outlet, NavLink } from 'react-router-dom'
 import BookingForm from '../components/BookingForm'
 import Heart from '../components/Heart.jsx'
+import LoadingIndicator from '../components/LoadingIndicator.jsx'
 import NotFound from './NotFound.jsx'
 import { VanSpecsContent } from './sections/VanSpecs.jsx'
 import { VanRatingsContent } from './sections/VanRatings.jsx'
+
+const vanLoadingDelay = 1500;
 
 export default function VanDetail() {
   const params = useParams()
   const bookingSectionRef = useRef(null)
   const firstBookingInputRef = useRef(null)
 
-  const { data, loading, error } = useFetch(`/api/vans/${params.id}`)
+  const { data, loading, error } = useFetch(`/api/vans/${params.id}`, vanLoadingDelay)
 
   const { favorites, toggleFavorite } = useFavorites()
   const isFavorite = favorites.includes(params.id)
 
-  if (loading) return <h2>Cargando vans...</h2>
+  if (loading) return <LoadingIndicator message="Cargando furgoneta..." className="page-loading-indicator" />
   if (error) return <h2>Hubo un error:{error}</h2>
   if (!data?.van) return <NotFound />
 

@@ -2,6 +2,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { useForm, useWatch } from 'react-hook-form'
 import useFetch from '../hooks/useFetch.jsx'
+import LoadingIndicator from './LoadingIndicator.jsx'
+
+const locationsLoadingDelay = 1500;
 
 export default function BookingForm({ firstInputRef }) {
     const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
@@ -17,7 +20,7 @@ export default function BookingForm({ firstInputRef }) {
         data: locationsData,
         loading: locationsLoading,
         error: locationsError
-    } = useFetch("/api/locations");
+    } = useFetch("/api/locations", locationsLoadingDelay);
 
     const submit = () => {
         reset();
@@ -51,7 +54,9 @@ export default function BookingForm({ firstInputRef }) {
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, [isSuccessModalOpen]);
 
-    if (locationsLoading) return <p>Cargando ciudades</p>
+    if (locationsLoading) {
+        return <LoadingIndicator message="Cargando ciudades..." />
+    }
     if (locationsError) return <p>Error al cargar ciudades: {locationsError}</p>;
 
     const locations = locationsData?.locations || [];

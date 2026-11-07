@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 
 // Small data-loading hook used by pages and forms that read from the Mirage API.
-export default function useFetch(url) {
+export default function useFetch(url, delayMs = 0) {
 
     const [ data, setData ] = useState(null);
     const [ loading, setLoading ] = useState(true);
@@ -15,6 +15,10 @@ export default function useFetch(url) {
         
         async function fetchData() {
             try {
+                if (delayMs > 0) {
+                    await new Promise(resolve => setTimeout(resolve, delayMs));
+                }
+
                 const response = await fetch(url);
                 const cleanedData = await response.json();
 
@@ -33,7 +37,7 @@ export default function useFetch(url) {
         return () => {
             ignoreResult = true;
         };
-    }, [url]);
+    }, [url, delayMs]);
 
 
     return {data, loading, error};
